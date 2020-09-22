@@ -1,0 +1,13 @@
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.exe
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.deps.json
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.runtimeconfig.json
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.runtimeconfig.dev.json
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfoInputs.cache
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfo.cs
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.dll
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.pdb
+C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.genruntimeconfig.cache
