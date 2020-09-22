@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\GUI\\GUI.csproj",
+      "projectUniqueName": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
       "projectName": "GUI",
-      "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\GUI\\GUI.csproj",
+      "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
       "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\GUI\\obj\\",
+      "outputPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\GUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",

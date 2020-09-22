@@ -5756,11 +5756,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
+      "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
       "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5776,11 +5776,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-              "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
+            "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+              "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
             },
-            "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
-              "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
+            "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
+              "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
             }
           }
         }

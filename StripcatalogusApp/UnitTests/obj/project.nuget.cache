@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6N5i7hVoRGMcImFFmbRKwU+sMYGYU8Aelnwk04Mey0Uk3dWj2t1PA520+xvEvDblPtIhNicm2m733fsH+899/Q==",
+  "dgSpecHash": "SMTvVnl1z+OQOAnQJEG2cQdEnJ25/o/4MKssn00qJNSp4kTK2zkdVVYagk7/TjQSq56p0ijHGZEwZ1ifTPjg0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
+  "projectFilePath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ciki3\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\ciki3\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

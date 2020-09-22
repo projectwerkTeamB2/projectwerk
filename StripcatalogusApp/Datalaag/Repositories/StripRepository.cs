@@ -7,5 +7,6 @@ namespace Datalaag.Repositories
 {
     public class StripRepository : IStripRepository
     {
+       
     }
 }

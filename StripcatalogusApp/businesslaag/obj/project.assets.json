@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\businesslaag\\businesslaag.csproj",
-      "projectName": "businesslaag",
-      "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\businesslaag\\businesslaag.csproj",
+      "projectUniqueName": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+      "projectName": "Businesslaag",
+      "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
       "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\StripcatalogusApp\\businesslaag\\obj\\",
+      "outputPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",
