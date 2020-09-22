@@ -35,10 +35,15 @@
        +Reeks (+nummer in reeks)
        + Auteur
        + Uitgeverij
-     - repository aanmaken (business laag)
+     - repository aanmaken (business laag) moet kunnen:
+       +aanmaken,wijzigen en verwijderen van strips
+       +strip opzoeken en weegeven
  
      Later...
-     - databank maken 
+     - databank aanmaken 
      - bestanden kunnen ophalen (data laag)
      - bestanden kunnen weglezen (data laag)
      - repository aanmaken (data laag)
+     - testen aanmaken (business laag)
+     - testen aanmaken (data laag)
+     - gui opzetten
