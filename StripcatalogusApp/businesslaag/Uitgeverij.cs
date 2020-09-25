@@ -6,11 +6,11 @@ namespace Businesslaag
 {
     public class Uitgeverij
     {
-        public string NaamUitgeverij { get; set; }
+        public string Naam { get; set; }
 
         public Uitgeverij(string naamUitgeverij)
         {
-            this.NaamUitgeverij = naamUitgeverij;
+            this.Naam = naamUitgeverij;
         }
     }
 }

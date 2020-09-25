@@ -39,11 +39,11 @@ namespace businesslaag
         public override string ToString()
         {
             List<string> auteurNamen = new List<string>();
-            Auteurs.ForEach(a => auteurNamen.Add( a.NaamAuteur));
+            Auteurs.ForEach(a => auteurNamen.Add( a.Naam));
 
             string begin = $"Strip : {StripTitel}, ";
             auteurNamen.ForEach(s => begin = begin+ s + ", ");
-            begin = begin + $"{Reeks.NaamReeks}, {StripNr.ToString()}, {Uitgeverij.NaamUitgeverij}";
+            begin = begin + $"{Reeks.Naam}, {StripNr.ToString()}, {Uitgeverij.Naam}";
 
             return begin;
         }

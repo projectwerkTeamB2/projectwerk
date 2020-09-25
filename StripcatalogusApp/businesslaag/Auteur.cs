@@ -6,11 +6,11 @@ namespace Businesslaag
 {
     public class Auteur
     {
-        public string NaamAuteur { get; set; }
+        public string Naam { get; set; }
 
         public Auteur(string naamAuteur)
         {
-            this.NaamAuteur = naamAuteur;
+            this.Naam = naamAuteur;
         }
     }
 }

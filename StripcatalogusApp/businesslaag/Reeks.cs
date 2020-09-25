@@ -7,11 +7,11 @@ namespace Businesslaag
 {
     public class Reeks
     {
-        public string NaamReeks { get; set; }
+        public string Naam { get; set; }
 
         public Reeks(string naamReeks)
         {
-            NaamReeks = naamReeks;
+            Naam = naamReeks;
         }
 
         //Lijst met strips bij reeks?
