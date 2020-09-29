@@ -2,7 +2,7 @@
 
 ## Algemene Afspraken
 
-•  Discord is het main communicatiekanaal
+•  Discord is het main communicatiekanaal  
 •  Om de paar dagen (zeker 2 keer per week) houden we een voice call.
 •  gebruik projects in github om de tickets te bewegen waar je mee bezig bent
 •  tickets gaan maar naar done eens ze besproken geweest zijn tijdens een call.
