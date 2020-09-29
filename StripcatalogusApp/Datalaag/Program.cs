@@ -5,16 +5,19 @@ using System.Text;
 
 namespace Datalaag
 {
-    internal class Program
+    public class Program
     {
-        
-        private static void Main(string[] args)
+        [STAThread]
+        public static void Main()
         {
+
+
             JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
-            List<Strip> stripsFromJson =  jfr.leesJson_GeefAlleStripsTerug();
+            List<Strip> stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
 
 
 
         }
-        }
+    }
 }
+

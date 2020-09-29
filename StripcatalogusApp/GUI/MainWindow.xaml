@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+          WindowStartupLocation="CenterScreen"
+           ResizeMode="NoResize"
+         Loaded="Window_Loaded"
+        Title="Strip Applicatie" Height="500" Width="900">
+    <Grid Background="#E9C46A">
+        <DataGrid x:Name="StripDataGrid"  Margin="239,87,35,23" />
+        <Image x:Name="WonderWomanImage" HorizontalAlignment="Left" Height="394" Margin="21,62,0,0" VerticalAlignment="Top" Width="394" Source="Images/WonderWIMG.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
 
     </Grid>
 </Window>

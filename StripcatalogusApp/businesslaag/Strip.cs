@@ -26,8 +26,10 @@ namespace businesslaag
         //Als er maar 1 auteur is
         public Strip(string stripTitel, Auteur auteur, Reeks reeks, int stripNr, Uitgeverij uitgeverij)
         {
-            List<Auteur> auteursHelp = new List<Auteur>();
-             auteursHelp.Add(auteur);
+            List<Auteur> auteursHelp = new List<Auteur>
+            {
+                auteur
+            };
             this.StripTitel = stripTitel;
             
             this.Auteurs= auteursHelp;

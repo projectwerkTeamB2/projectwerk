@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +18,67 @@ using System.Windows.Shapes;
 
 namespace GUI
 {
-   
+
     //Voor de user interface wordt er gebruik gemaakt van WPF
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
+
+
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //dit zet boeken icoontje links vanboven
+            Uri iconUri = new Uri("../../../Images/book.ico", UriKind.RelativeOrAbsolute);
+            this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
+
+            ////connectie met DB
+            //using (SqlConnection conn = new SqlConnection())
+            //{
+            //    //Verander connection string als u connectie wil maken met uw databank!
+            //    conn.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True";
+            //    conn.Open();
+            //    // use the connection here  
+            //    string queryString = "SELECT CustomerID,CompanyName,Address,City FROM  customers";
+            //    List<Strip> strips = new List<Strip>();
+
+            //    using (SqlCommand command = conn.CreateCommand())
+            //    {
+
+            //        command.CommandText = queryString;
+
+            //        conn.Open();
+
+            //        try
+            //        {
+            //            SqlDataReader dataReader = command.ExecuteReader();
+            //            while (dataReader.Read())
+            //            {
+            //                string id = (string)dataReader["straatNaam"];
+
+            //                lg.Add(id);
+            //            }
+
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            Console.WriteLine(ex);
+            //            return null;
+            //        }
+            //        finally
+            //        {
+            //            connection.Close();
+            //        }
+            //    }
+            //    return lg;
+            //}
+
+        }
+
     }
 }
