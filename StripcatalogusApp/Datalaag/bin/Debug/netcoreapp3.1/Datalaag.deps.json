@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Datalaag/1.0.0": {
+        "dependencies": {
+          "Businesslaag": "1.0.0"
+        },
+        "runtime": {
+          "Datalaag.dll": {}
+        }
+      },
+      "Businesslaag/1.0.0": {
+        "runtime": {
+          "Businesslaag.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Datalaag/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Businesslaag/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Datalaag
 {
-    public class StripContext : DbContext
+    public class StripContext
+    //public class StripContext : DbContext
     {
     }
 }

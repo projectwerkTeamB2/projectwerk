@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {}
+    "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+    "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+        "projectUniqueName": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
         "projectName": "Businesslaag",
-        "projectPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+        "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
         "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ciki3\\source\\repos\\TrainingManagerProject\\projectwerkTeamB2\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
+        "outputPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",
