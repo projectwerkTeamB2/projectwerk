@@ -1,4 +1,5 @@
-﻿using System;
+﻿using businesslaag;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,8 +11,7 @@ namespace Datalaag
         private static void Main(string[] args)
         {
             JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
-
-            jfr.maakObjecten();
+            List<Strip> stripsFromJson =  jfr.leesJson_GeefAlleStripsTerug();
 
 
 

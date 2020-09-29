@@ -11,13 +11,11 @@ namespace Datalaag
    public class JsonFileReader_ToObjects
     //Hierin lees ik de data bestand in en geef ik hun terug als List<Objects>
     {
-        public List<Auteur> listAlleAuteurs;
-        public List<Reeks> listAlleReeks;
+        
         public List<Strip> listAlleStrips;
-        public List<Uitgeverij> listtAlleUitgeverij;
 
         //stripcatalogusVOORBEELD.json ->"0":"Titel;Reeks;Nummer;Uitgeverij;Auteurs;", ...
-        public void maakObjecten() {
+        public List<Strip> leesJson_GeefAlleStripsTerug() {
             List<string> readerStringList;
 
             using (FileStream fs = File.Open(@"..\..\..\..\..\stripcatalogusVOORBEELD.json", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
@@ -80,8 +78,9 @@ namespace Datalaag
 
                     }
                 }
+                return listAlleStrips;
 
-             
+
             }
 
         }
