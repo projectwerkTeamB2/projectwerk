@@ -3,12 +3,12 @@
 ## Algemene Afspraken
 
 •  Discord is het main communicatiekanaal  
-•  Om de paar dagen (zeker 2 keer per week) houden we een voice call.
-•  gebruik projects in github om de tickets te bewegen waar je mee bezig bent
-•  tickets gaan maar naar done eens ze besproken geweest zijn tijdens een call.
-•  Iedere 2 weken word op zondag om 22 uur develop gemerged met master dus zorg voor werkende dingen op develop tegen dan.
-•  gebruik branches voor features die nog niet af zijn.
-•  Een uur voor de call op maandag bespreken we samen de dingen.
+•  Om de paar dagen (zeker 2 keer per week) houden we een voice call.  
+•  gebruik projects in github om de tickets te bewegen waar je mee bezig bent  
+•  tickets gaan maar naar done eens ze besproken geweest zijn tijdens een call.  
+•  Iedere 2 weken word op zondag om 22 uur develop gemerged met master dus zorg voor werkende dingen op develop tegen dan.  
+•  gebruik branches voor features die nog niet af zijn.  
+•  Een uur voor de call op maandag bespreken we samen de dingen.  
 
 
 ## TaakVerdeling
