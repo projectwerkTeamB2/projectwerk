@@ -9,7 +9,7 @@ using System.Text;
 namespace Datalaag
 {
    public class JsonFileReader_ToObjects
-    //Hierin lees ik de data bestand in en geef ik hun terug als List<Objects>
+    //Hierin lees ik het data bestand in en geef ik hun terug als List<Objects>
     {
         
         public List<Strip> listAlleStrips;
@@ -18,6 +18,7 @@ namespace Datalaag
         public List<Strip> leesJson_GeefAlleStripsTerug() {
             List<string> readerStringList;
 
+            //TODO remove hardcoded path from file open, and add reader function to UI
             using (FileStream fs = File.Open(@"..\..\..\..\..\stripcatalogusVOORBEELD.json", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (BufferedStream bs = new BufferedStream(fs))
             using (StreamReader sreader = new StreamReader(bs))
