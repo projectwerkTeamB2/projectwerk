@@ -17,14 +17,21 @@ namespace Datalaag
 
             JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
             List<Strip> stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
+        //    StripRepository databeheer = new StripRepository(@"Data Source =.\SQLEXPRESS; Initial Catalog = Labo; Integrated Security = True");
+            
+           
 
-            #region om te testen
-            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True";
-            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
+            #region ljena's connectie code
+           DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
+           string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True";
+          DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
+
+            wegschijvenNaarDatabanken wegschrndb = new wegschijvenNaarDatabanken();
+            wegschrndb.allesWegschijvenNaarDataBank(stripsFromJson, databeheer.getConnection());µ
+
 
             StripRepository sp = new StripRepository(sqlFactory, connectionString);
-            sp.FindAll_strip();
+           sp.FindAll_strip();
             #endregion
 
         }
