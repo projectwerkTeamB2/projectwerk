@@ -1,20 +1,20 @@
 ﻿GUI
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\
 GUI
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\App.xaml
-2-1132514915
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\App.xaml
+3-475651506
 
-4-336896666
-194-1666138842
-Dictionary1.xaml;MainWindow.xaml;
+6-394553557
+194-1353588659
+MaakScherm.xaml;MainWindow.xaml;Styles.xaml;
 
-True
+False
 
