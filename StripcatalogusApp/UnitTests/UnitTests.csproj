@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\businesslaag\Businesslaag.csproj" />
-    <ProjectReference Include="..\Datalaag\Datalaag.csproj" />
   </ItemGroup>
 
 </Project>

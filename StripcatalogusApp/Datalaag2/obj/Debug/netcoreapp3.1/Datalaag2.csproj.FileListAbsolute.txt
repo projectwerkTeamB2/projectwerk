@@ -1,0 +1,4 @@
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag2\obj\Debug\netcoreapp3.1\Datalaag2.AssemblyInfoInputs.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag2\obj\Debug\netcoreapp3.1\Datalaag2.AssemblyInfo.cs
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag2\obj\Debug\netcoreapp3.1\Datalaag2.csproj.CoreCompileInputs.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag2\obj\Debug\netcoreapp3.1\Datalaag2.csprojAssemblyReference.cache

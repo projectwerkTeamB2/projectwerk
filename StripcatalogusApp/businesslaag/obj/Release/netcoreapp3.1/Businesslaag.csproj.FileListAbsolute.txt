@@ -1,0 +1,8 @@
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.AssemblyInfoInputs.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.AssemblyInfo.cs
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Release\netcoreapp3.1\Businesslaag.deps.json
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Release\netcoreapp3.1\Businesslaag.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Release\netcoreapp3.1\Businesslaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.pdb
