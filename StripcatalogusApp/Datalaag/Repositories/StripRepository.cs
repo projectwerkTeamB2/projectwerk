@@ -32,7 +32,7 @@ namespace Datalaag.Repositories
 
         public void allesWegSchijvenNaarDataBank(List<Strip> strips)
         {
-
+            #region maak dictionary's
             Dictionary<int, Auteur> dictAuteurs = new Dictionary<int, Auteur>();
             Dictionary<int, Uitgeverij> dictUitgeverij = new Dictionary<int, Uitgeverij>();
             Dictionary<int, Reeks> dictReeks = new Dictionary<int, Reeks>();
@@ -58,12 +58,158 @@ namespace Datalaag.Repositories
                 }
 
             }
+            #endregion
+            DbConnection connection = getConnection();
+            #region vul reeks op
+            string query0 = "INSERT INTO dbo.Reeks (Name)"
+                 + "VALUES(@Name)";
+            using (DbCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    command.CommandText = query0;
 
-                DbConnection connection = getConnection();
+                    DbParameter Name = sqlFactory.CreateParameter();
+                    Name.ParameterName = "@Name";
+                    Name.DbType = DbType.String;
+                    command.Parameters.Add(Name);
 
-            string query0 = "INSERT INTO dbo.Strip (id,Titel,Nummer,Reeks_id,Uitgeverij_id)"
-                 + "VALUES(@id,@Titel,@Nummer,@Reeks_id,@Uitgeverij_id)";
 
+                    foreach (KeyValuePair<int, Reeks> dR in dictReeks)
+                    {
+                        command.Parameters["@Name"].Value = dR.Value.Naam;
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+            #endregion
+            #region vul Uitgeverij op
+            string query1 = "INSERT INTO dbo.Uitgeverij (Name)"
+                + "VALUES(@Name)";
+            using (DbCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    command.CommandText = query1;
+
+                    DbParameter Name = sqlFactory.CreateParameter();
+                    Name.ParameterName = "@Name";
+                    Name.DbType = DbType.String;
+                    command.Parameters.Add(Name);
+
+
+                    foreach (KeyValuePair<int, Uitgeverij> dU in dictUitgeverij)
+                    {
+                        command.Parameters["@Titel"].Value = dU.Value.Naam;
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+            #endregion
+            #region vul Auteur op
+            string query3 = "INSERT INTO dbo.Auteur (Name)"
+                + "VALUES(@Name)";
+            using (DbCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    command.CommandText = query3;
+
+                    DbParameter Name = sqlFactory.CreateParameter();
+                    Name.ParameterName = "@Name";
+                    Name.DbType = DbType.String;
+                    command.Parameters.Add(Name);
+
+
+                    foreach (KeyValuePair<int, Auteur> dA in dictAuteurs)
+                    {
+                        command.Parameters["@Titel"].Value = dA.Value.Naam;
+                        command.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+            #endregion
+            #region vul Strip_has_Auteur
+            string query4 = "INSERT INTO dbo.Strip_has_Auteur (Strip_id,Auteur_id)"
+                + "VALUES(@Strip_id,@Auteur_id)";
+            using (DbCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    command.CommandText = query4;
+
+                    DbParameter strip_id = sqlFactory.CreateParameter();
+                    strip_id.ParameterName = "@Strip_id";
+                    strip_id.DbType = DbType.Int32;
+                    command.Parameters.Add(strip_id);
+
+                    DbParameter Auteur_id = sqlFactory.CreateParameter();
+                    Auteur_id.ParameterName = "@Auteur_id";
+                    Auteur_id.DbType = DbType.Int32;
+                    command.Parameters.Add(Auteur_id);
+
+                    int teller = 1;
+                    foreach (Strip s in strips)
+                    {
+                        foreach (Auteur a in s.Auteurs)
+                        {
+                            foreach (KeyValuePair<int, Auteur> dA in dictAuteurs)
+                            {
+                                if (dA.Value.Naam == a.Naam)
+                                {
+                                    command.Parameters["@Strip_id"].Value = teller;
+                                    command.Parameters["@Auteur_id"].Value = dA.Value.Naam;
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                        teller++;
+                    }
+                       
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+            #endregion
+            #region vul Strip op
             string query2 = "INSERT INTO dbo.Strip (Titel,Nummer,Reeks_id,Uitgeverij_id)"
                  + "VALUES(@Titel,@Nummer,@Reeks_id,@Uitgeverij_id)";
             using (DbCommand command = connection.CreateCommand())
@@ -99,17 +245,30 @@ namespace Datalaag.Repositories
                     Uitgeverij_id1.DbType = DbType.Int32;
                     command.Parameters.Add(Uitgeverij_id1);
 
-                   // int teller = 1;
+                  
                     foreach (Strip s in strips)
                     {
-
-                  //      command.Parameters["@id"].Value = teller;
                         command.Parameters["@Titel"].Value = s.StripTitel;
                         command.Parameters["@Nummer"].Value = s.StripNr;
-                        command.Parameters["@Reeks_id"].Value = s.Reeks;
-                        command.Parameters["@Uitgeverij_id"].Value = 
+
+                        foreach (KeyValuePair<int, Uitgeverij> dU in dictUitgeverij)
+                        {
+                            if (dU.Value.Naam == s.Uitgeverij.Naam)
+                            {
+                                command.Parameters["@Uitgeverij_id"].Value = dU.Key;
+                            }
+                               
+                        }
+                        foreach (KeyValuePair<int, Reeks> dR in dictReeks)
+                        {
+                            if (dR.Value.Naam == s.Reeks.Naam)
+                            {
+                                command.Parameters["@Reeks_id"].Value = dR.Key;
+                            }
+                        }
                         command.ExecuteNonQuery();
-                     //   teller++;
+
+                    
                     }
 
 
@@ -124,6 +283,7 @@ namespace Datalaag.Repositories
                 }
 
             }
+            #endregion
         }
 
 
