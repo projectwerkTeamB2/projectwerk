@@ -6,3 +6,4 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\bu
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Release\netcoreapp3.1\Businesslaag.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Release\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache

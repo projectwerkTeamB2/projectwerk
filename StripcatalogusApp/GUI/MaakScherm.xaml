@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Nieuwe Strip toevoegen" Height="475" Width="815 "
+        Title="Nieuwe Strip toevoegen" Height="505" Width="830 "
         WindowStartupLocation="CenterScreen"
           ResizeMode="NoResize"
          Loaded="Window_Loaded">
@@ -33,23 +33,26 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <Label Content="Laten we een nieuwe strip toevoegen" FontWeight="Black" FontSize="32" HorizontalAlignment="Left" Margin="45,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="( Vul hieronder de gegevens van de nieuwe strip in aub. )" HorizontalAlignment="Left" Margin="45,73,0,0" VerticalAlignment="Top"/>
+
+        <Image HorizontalAlignment="Left" Source="/Images/Text.png" Height="538" Margin="-73,104,0,0" VerticalAlignment="Top" Width="578"/>
 
         <Button  Style="{StaticResource ButtonStyle}"    Content="Annuleren" HorizontalAlignment="Left" Margin="626,414,0,0" VerticalAlignment="Top" Width="148" Height="34" Background="#902C14"  Click="Button_Annuleren_Click" />
         <Button  Style="{StaticResource ButtonStyle}"  Content="strip aanmaken" HorizontalAlignment="Left" Margin="282,414,0,0" VerticalAlignment="Top" Width="288" Height="34" Click="Button_Aanmaken_Click" />
 
-        <TextBox HorizontalAlignment="Left" Margin="178,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBox HorizontalAlignment="Left"  Name="TextBox_titel" Margin="178,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="45,140,0,0" Text="Strip titel:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Margin="178,186,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBox HorizontalAlignment="Left" Name="TextBox_nr" Margin="178,186,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="45,188,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Margin="178,237,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="25"/>
+        <TextBox HorizontalAlignment="Left" Name="TextBox_reeks" Margin="178,237,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="25"/>
         <TextBlock HorizontalAlignment="Left" Margin="45,237,0,0" Text="Strip Reeks:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Margin="178,284,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="178,284,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="45,286,0,0" Text="Strip Uitgeverij:" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Image HorizontalAlignment="Left" Source="/Images/BoomIMG.png" Height="94" Margin="736,386,0,0" VerticalAlignment="Top" Width="95"/>
-        <Image HorizontalAlignment="Left" Source="/Images/Text.png" Height="345" Margin="445,124,0,0" VerticalAlignment="Top" Width="349"/>
 
 
     </Grid>
