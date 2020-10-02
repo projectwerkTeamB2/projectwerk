@@ -10,6 +10,7 @@
     <None Remove="Images\book.ico" />
     <None Remove="Images\BoomIMG.png" />
     <None Remove="Images\CloudIMG.png" />
+    <None Remove="Images\Text.png" />
     <None Remove="Images\WonderWIMG.png" />
   </ItemGroup>
 
@@ -26,6 +27,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\CloudIMG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Text.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\WonderWIMG.png">

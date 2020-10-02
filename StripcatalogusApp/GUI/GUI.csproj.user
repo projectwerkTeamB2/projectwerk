@@ -9,7 +9,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Dictionary1.xaml">
+    <Compile Update="MaakScherm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MaakScherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
