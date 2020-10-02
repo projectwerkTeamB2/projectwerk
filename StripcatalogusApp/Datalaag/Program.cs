@@ -24,14 +24,15 @@ namespace Datalaag
             #region ljena's connectie code
            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True";
-          DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
+           DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            wegschijvenNaarDatabanken wegschrndb = new wegschijvenNaarDatabanken();
-            wegschrndb.allesWegschijvenNaarDataBank(stripsFromJson, databeheer.getConnection());µ
+           
 
 
             StripRepository sp = new StripRepository(sqlFactory, connectionString);
-           sp.FindAll_strip();
+           // sp.FindAll_strip();
+
+            sp.allesWegSchijvenNaarDataBank(stripsFromJson);
             #endregion
 
         }

@@ -29,7 +29,6 @@ namespace Datalaag.Repositories
         }
         #endregion ljena connetion code
 
-
         public void allesWegSchijvenNaarDataBank(List<Strip> strips)
         {
             #region maak dictionary's
@@ -45,7 +44,7 @@ namespace Datalaag.Repositories
                 {
                     if (!dictAuteurs.ContainsValue(a))
                     {
-                        dictAuteurs.Add(tellerAut,a);
+                        dictAuteurs.Add(tellerAut, a);
                     }
                 }
                 if (!dictUitgeverij.ContainsValue(s.Uitgeverij))
@@ -196,7 +195,7 @@ namespace Datalaag.Repositories
                         }
                         teller++;
                     }
-                       
+
                 }
                 catch (Exception ex)
                 {
@@ -220,10 +219,10 @@ namespace Datalaag.Repositories
                     command.CommandText = query2;
 
 
-              //      DbParameter id1 = sqlFactory.CreateParameter();
-               //     id1.ParameterName = "@id";
-              //      id1.DbType = DbType.Int32;
-               //     command.Parameters.Add(id1);
+                    //      DbParameter id1 = sqlFactory.CreateParameter();
+                    //     id1.ParameterName = "@id";
+                    //      id1.DbType = DbType.Int32;
+                    //     command.Parameters.Add(id1);
 
                     DbParameter Titel1 = sqlFactory.CreateParameter();
                     Titel1.ParameterName = "@Titel";
@@ -245,7 +244,7 @@ namespace Datalaag.Repositories
                     Uitgeverij_id1.DbType = DbType.Int32;
                     command.Parameters.Add(Uitgeverij_id1);
 
-                  
+
                     foreach (Strip s in strips)
                     {
                         command.Parameters["@Titel"].Value = s.StripTitel;
@@ -257,7 +256,7 @@ namespace Datalaag.Repositories
                             {
                                 command.Parameters["@Uitgeverij_id"].Value = dU.Key;
                             }
-                               
+
                         }
                         foreach (KeyValuePair<int, Reeks> dR in dictReeks)
                         {
@@ -268,7 +267,7 @@ namespace Datalaag.Repositories
                         }
                         command.ExecuteNonQuery();
 
-                    
+
                     }
 
 
