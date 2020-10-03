@@ -12,5 +12,16 @@ namespace Businesslaag
         {
             this.Naam = naamUitgeverij;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Uitgeverij uitgeverij &&
+                   Naam == uitgeverij.Naam;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Naam);
+        }
     }
 }

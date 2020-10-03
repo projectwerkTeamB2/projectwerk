@@ -20,3 +20,25 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Da
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.genruntimeconfig.cache
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.exe
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.deps.json
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.runtimeconfig.json
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.runtimeconfig.dev.json
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.pdb
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Businesslaag.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Businesslaag.pdb
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.csprojAssemblyReference.cache
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.csproj.CoreCompileInputs.cache
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.AssemblyInfoInputs.cache
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.AssemblyInfo.cs
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.csproj.CopyComplete
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.pdb
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.genruntimeconfig.cache

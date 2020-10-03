@@ -23,7 +23,7 @@ namespace Datalaag
 
             #region ljena's connectie code
            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-           string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True";
+           string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Projectwerk;Integrated Security=True"; //verander StripCatDB naar jouw naam als je een connectie error krijgt
            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
            

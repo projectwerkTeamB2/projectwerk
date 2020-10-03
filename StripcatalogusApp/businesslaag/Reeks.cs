@@ -14,6 +14,18 @@ namespace Businesslaag
             Naam = naamReeks;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Reeks reeks &&
+                   Naam == reeks.Naam;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Naam);
+        }
+
+
         //Lijst met strips bij reeks?
         //public List<Strip> Strips { get; set; }
 

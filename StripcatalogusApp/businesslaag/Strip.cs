@@ -52,5 +52,20 @@ namespace businesslaag
 
             return begin;
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Strip strip &&
+                   StripTitel == strip.StripTitel &&
+                   EqualityComparer<List<Auteur>>.Default.Equals(Auteurs, strip.Auteurs) &&
+                   EqualityComparer<Reeks>.Default.Equals(Reeks, strip.Reeks) &&
+                   StripNr == strip.StripNr &&
+                   EqualityComparer<Uitgeverij>.Default.Equals(Uitgeverij, strip.Uitgeverij);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(StripTitel, Auteurs, Reeks, StripNr, Uitgeverij);
+        }
     }
 }
