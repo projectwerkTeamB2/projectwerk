@@ -14,10 +14,10 @@ namespace Datalaag.Repositories
     public class StripRepository : IStripRepository
     {
     
-       private string connectionString;
+        private string connectionString;
         #region
-           private DbProviderFactory sqlFactory;
-         public StripRepository(DbProviderFactory sqlFactory, string connectionString)
+        private DbProviderFactory sqlFactory;
+        public StripRepository(DbProviderFactory sqlFactory, string connectionString)
         {
             this.sqlFactory = sqlFactory;
             this.connectionString = connectionString;
@@ -364,6 +364,32 @@ namespace Datalaag.Repositories
 
         public Strip FindStripById(int id)
         {
+            /*SqlConnection conn = getConnection();
+            Strip strip;
+            string query = "SELECT * FROM dbo.strip WHERE id = @id";
+            using(SqlCommand command = conn.CreateCommand()) {
+                command.CommandText = query;
+                SqlParameter prID = new SqlParameter();
+                prID.ParameterName = "@id";
+                prID.DbType = DbType.Int32;
+                prID.Value = id;
+                command.Parameters.Add(prID);
+                conn.Open();
+                try {
+                    SqlDataReader dataReader = command.ExecuteReader();
+                    dataReader.Read();
+                    //!!!!!!!!Strip opvragen
+                    strip = new Strip((string)dataReader["Titel"], ???);
+                    dataReader.Close();
+                    return strip;
+                } catch(Exception ex) {
+                    Console.WriteLine(ex);
+                    return null;
+                }
+                finally {
+                    conn.Close();
+                }
+            }*/
             throw new NotImplementedException();
         }
 
