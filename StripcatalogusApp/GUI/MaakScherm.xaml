@@ -1,0 +1,59 @@
+﻿<Window x:Class="GUI.MaakScherm"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Nieuwe Strip toevoegen" Height="505" Width="830 "
+        WindowStartupLocation="CenterScreen"
+          ResizeMode="NoResize"
+         Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="18
+                    " />
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#E9C46A">
+
+        <Rectangle Fill="#81b29a" HorizontalAlignment="Left" Height="404" Margin="-5,5,0,0" Stroke="Black" VerticalAlignment="Top" Width="812" Grid.RowSpan="8" Grid.ColumnSpan="7" Grid.Row="1" />
+        <Rectangle Fill="#4A203B" HorizontalAlignment="Left" Height="407" Margin="-2,2,0,0"  VerticalAlignment="Top" Width="823" />
+        <Rectangle Fill="AliceBlue" HorizontalAlignment="Center" Height="383" Margin="0,11,0,0" VerticalAlignment="Top" Width="825" RadiusY="13.5" RadiusX="13.5" RenderTransformOrigin="0.5,0.5" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Label Content="Laten we een nieuwe strip toevoegen" FontWeight="Black" FontSize="32" HorizontalAlignment="Left" Margin="45,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="( Vul hieronder de gegevens van de nieuwe strip in aub. )" HorizontalAlignment="Left" Margin="45,73,0,0" VerticalAlignment="Top"/>
+
+        <Image HorizontalAlignment="Left" Source="/Images/Text.png" Height="538" Margin="-73,104,0,0" VerticalAlignment="Top" Width="578"/>
+
+        <Button  Style="{StaticResource ButtonStyle}"    Content="Annuleren" HorizontalAlignment="Left" Margin="626,414,0,0" VerticalAlignment="Top" Width="148" Height="34" Background="#902C14"  Click="Button_Annuleren_Click" />
+        <Button  Style="{StaticResource ButtonStyle}"  Content="strip aanmaken" HorizontalAlignment="Left" Margin="282,414,0,0" VerticalAlignment="Top" Width="288" Height="34" Click="Button_Aanmaken_Click" />
+
+        <TextBox HorizontalAlignment="Left"  Name="TextBox_titel" Margin="178,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,140,0,0" Text="Strip titel:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <TextBox HorizontalAlignment="Left" Name="TextBox_nr" Margin="178,186,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,188,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <TextBox HorizontalAlignment="Left" Name="TextBox_reeks" Margin="178,237,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,237,0,0" Text="Strip Reeks:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <TextBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="178,284,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,286,0,0" Text="Strip Uitgeverij:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Source="/Images/BoomIMG.png" Height="94" Margin="736,386,0,0" VerticalAlignment="Top" Width="95"/>
+
+
+    </Grid>
+</Window>

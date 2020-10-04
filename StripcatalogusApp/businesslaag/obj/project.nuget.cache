@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "M/AcGc4275Tp4ryBAstYYmR6ccfeYDQtjqZfxCk8CGm9RvePjdwMpfjl80wiIo5kE98Q4/9iVUKtsSy1yFCl0g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cesar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

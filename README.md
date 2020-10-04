@@ -1,6 +1,17 @@
-#Algemeen samenwerkings document
+# Algemeen samenwerkings document
 
-##TaakVerdeling
+## Algemene Afspraken
+
+•  Discord is het main communicatiekanaal  
+•  Om de paar dagen (zeker 2 keer per week) houden we een voice call.  
+•  gebruik projects in github om de tickets te bewegen waar je mee bezig bent  
+•  tickets gaan maar naar done eens ze besproken geweest zijn tijdens een call.  
+•  Iedere 2 weken word op zondag om 22 uur develop gemerged met master dus zorg voor werkende dingen op develop tegen dan.  
+•  gebruik branches voor features die nog niet af zijn.  
+•  Een uur voor de call op maandag bespreken we samen de dingen.  
+
+
+## TaakVerdeling
 
     Organisatie-rol :  césar
     •    Inplannen meetings
@@ -35,10 +46,15 @@
        +Reeks (+nummer in reeks)
        + Auteur
        + Uitgeverij
-     - repository aanmaken (business laag)
+     - repository aanmaken (business laag) moet kunnen:
+       +aanmaken,wijzigen en verwijderen van strips
+       +strip opzoeken en weegeven
  
      Later...
-     - databank maken 
+     - databank aanmaken 
      - bestanden kunnen ophalen (data laag)
      - bestanden kunnen weglezen (data laag)
      - repository aanmaken (data laag)
+     - testen aanmaken (business laag)
+     - testen aanmaken (data laag)
+     - gui opzetten
