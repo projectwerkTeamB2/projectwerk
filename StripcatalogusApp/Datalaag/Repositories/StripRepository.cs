@@ -14,9 +14,7 @@ namespace Datalaag.Repositories
     public class StripRepository : IStripRepository
     {
 
-        //TODO CHECK THIS
-
-        SqlConnection connection = DbFunctions.MyConnection(); // gets connection from app config name should be projectwerkconnection
+   
     
         private string connectionString;
         #region
@@ -66,7 +64,7 @@ namespace Datalaag.Repositories
                 
             }
             #endregion
-            DbConnection connection = getConnection();
+            DbConnection connection =DbFunctions.MyConnection();
             #region vul reeks op
             string query0 = "INSERT INTO dbo.Reeks (id,Name)"
                  + "VALUES(@id,@Name)";
