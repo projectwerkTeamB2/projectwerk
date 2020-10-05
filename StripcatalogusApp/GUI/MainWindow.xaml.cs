@@ -80,5 +80,16 @@ namespace GUI
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MaakScherm w2 = new MaakScherm(); //maak reservatie window openen
+            w2.ShowDialog();
+
+            // window reset// voor als er nieuwe reserveringen zijn gemaakt
+            MainWindow newWindow = new MainWindow();
+            Application.Current.MainWindow = newWindow;
+            newWindow.Show();
+            this.Close();
+        }
     }
 }
