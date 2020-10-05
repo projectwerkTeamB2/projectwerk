@@ -13,6 +13,10 @@ namespace Datalaag.Repositories
 {
     public class StripRepository : IStripRepository
     {
+
+        //TODO CHECK THIS
+
+        SqlConnection connection = DbFunctions.MyConnection(); // gets connection from app config name should be projectwerkconnection
     
         private string connectionString;
         #region
