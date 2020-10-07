@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\businesslaag\Businesslaag.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\book.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

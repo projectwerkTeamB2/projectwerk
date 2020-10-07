@@ -1,6 +1,5 @@
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.AssemblyInfoInputs.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.AssemblyInfo.cs
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.csproj.CoreCompileInputs.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.deps.json
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.runtimeconfig.json
@@ -42,3 +41,16 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.genruntimeconfig.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Datalaag.dll.config
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\System.Drawing.Common.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\System.Security.Permissions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\System.Windows.Extensions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Release\netcoreapp3.1\Datalaag.csproj.CoreCompileInputs.cache

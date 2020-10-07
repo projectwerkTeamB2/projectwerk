@@ -13,17 +13,15 @@ namespace Datalaag
         [STAThread]
         public static void Main()
         {
+            #region databank opvullen code
 
-
+            //Leest de Json bestand in en maakt er objecten van
             JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
-            List<Strip> stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
-        //    StripRepository databeheer = new StripRepository(@"Data Source =.\SQLEXPRESS; Initial Catalog = Labo; Integrated Security = True");
+           List<Strip> stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
             
-           
-
-            #region ljena's connectie code
+            //Maak connectie met databank
            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-           string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Projectwerk;Integrated Security=True"; //verander StripCatDB naar jouw naam als je een connectie error krijgt
+           string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True"; //verander StripCatDB naar jouw naam als je een connectie error krijgt
            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
            

@@ -272,6 +272,16 @@
             "rid": "win"
           }
         }
+      },
+      "Businesslaag/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Businesslaag.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Businesslaag.dll": {}
+        }
       }
     }
   },
@@ -839,10 +849,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Businesslaag/1.0.0": {
+      "type": "project",
+      "path": "../businesslaag/Businesslaag.csproj",
+      "msbuildProject": "../businesslaag/Businesslaag.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Businesslaag >= 1.0.0",
       "System.Data.OleDb >= 4.7.1",
       "System.Data.SqlClient >= 4.8.2"
     ]
@@ -872,7 +888,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+              "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
