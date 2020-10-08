@@ -16,22 +16,23 @@ namespace Datalaag
             #region databank opvullen code
 
             //Leest de Json bestand in en maakt er objecten van
-            JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
+           JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
            List<Strip> stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
             
             //Maak connectie met databank
-           DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-           string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True"; //verander StripCatDB naar jouw naam als je een connectie error krijgt
+          DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
+          // string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True"; //verander StripCatDB naar jouw naam als je een connectie error krijgt
            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
            
 
 
-            StripRepository sp = new StripRepository(sqlFactory, connectionString);
+            StripRepository sp = new StripRepository(sqlFactory);
            // sp.FindAll_strip();
 
             sp.allesWegSchijvenNaarDataBank(stripsFromJson);
             #endregion
+           
 
         }
     }

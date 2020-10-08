@@ -7,31 +7,24 @@ using System.Text;
 namespace Datalaag
 {
     /// <summary>
-    ///
+    /// Deze methode haalt connection string op uit App.config
+    /// Iedereens App.config heeft een andere connection string
+    /// Zo kan iedereen makkelijk aan zijn eigen databank
     /// </summary>
-    public class DbFunctions
+    public  class DbFunctions
     {
-        static string GetConnectionStringByName(string name)
-        {
-            // Assume failure.
-            string returnValue = null;
+        public  string conString;
 
-            // Look for the name in the connectionStrings section.
-            ConnectionStringSettings settings =
-                ConfigurationManager.ConnectionStrings[name];
-
-            // If found, return the connection string.
-            if (settings != null)
-                returnValue = settings.ConnectionString;
-
-            return returnValue;
+        public  DbFunctions() {
+            conString = GetprojectwerkconnectionString();
         }
 
-        public static SqlConnection MyConnection()
+         static  string GetprojectwerkconnectionString()
         {
-            SqlConnection connection = new SqlConnection(GetConnectionStringByName("projectwerkconnection"));
-            return connection;
+            return ConfigurationManager.ConnectionStrings["projectwerkconnectionString"].ConnectionString;
+                
         }
+
     }
 
 }

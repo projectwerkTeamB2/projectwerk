@@ -13,16 +13,17 @@ namespace Datalaag.Repositories
 {
     public class StripRepository : IStripRepository
     {
+        static DbFunctions dbf = new DbFunctions();
+        string connectString = dbf.conString;
 
-   
-    
         private string connectionString;
+
         #region
         private DbProviderFactory sqlFactory;
-        public StripRepository(DbProviderFactory sqlFactory, string connectionString)
+        public StripRepository(DbProviderFactory sqlFactory)
         {
             this.sqlFactory = sqlFactory;
-            this.connectionString = connectionString;
+            this.connectionString = connectString;
         }
         private DbConnection getConnection()
         {
@@ -64,7 +65,7 @@ namespace Datalaag.Repositories
                 
             }
             #endregion
-            DbConnection connection =DbFunctions.MyConnection();
+            DbConnection connection = getConnection();
             #region vul reeks op
             string query0 = "INSERT INTO dbo.Reeks (id,Name)"
                  + "VALUES(@id,@Name)";

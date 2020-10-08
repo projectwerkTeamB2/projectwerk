@@ -15,5 +15,8 @@
   <ItemGroup>
     <ProjectReference Include="..\businesslaag\Businesslaag.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\app.config" />
+  </ItemGroup>
 
 </Project>
