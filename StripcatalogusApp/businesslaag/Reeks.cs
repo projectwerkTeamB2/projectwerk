@@ -7,11 +7,13 @@ namespace Businesslaag
 {
     public class Reeks
     {
+        public int ID { get; set; }
         public string Naam { get; set; }
 
-        public Reeks(string naamReeks)
+        public Reeks(int iD, string naam)
         {
-            Naam = naamReeks;
+            ID = iD;
+            Naam = naam;
         }
 
         public override bool Equals(object obj)

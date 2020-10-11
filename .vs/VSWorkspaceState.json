@@ -2,6 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\StripcatalogusApp",
+    "\\StripcatalogusApp\\Datalaag",
+    "\\StripcatalogusApp\\Datalaag\\Providers",
     "\\StripcatalogusApp\\UnitTests"
   ],
   "SelectedNode": "\\StripcatalogusApp\\StripcatalogusApp.sln",

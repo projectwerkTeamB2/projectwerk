@@ -331,67 +331,67 @@ namespace Datalaag.Repositories
 
         public IEnumerable<Strip> FindAll_strip()
         {
-            DbConnection connection = getConnection();
-            IList<Strip> lg = new List<Strip>();
-            string query = "SELECT * FROM dbo.Strip join dbo.Strip_has_Auteur on Strip.id = Strip_Has_Auteur.Strip_id join dbo.Reeks on Reeks.id = Strip.Reeks_id join dbo.Auteur on Strip_has_Auteur.Auteur_Id = Auteur.Id join dbo.Uitgeverij on Strip.Uitgeverij_id = Uitgeverij.id";
-            using (DbCommand command = connection.CreateCommand()) {
-                command.CommandText = query;
-                connection.Open();
-                try {
-                    //Enkel voor 1 auteur
-                    IDataReader dataReader = command.ExecuteReader();
-                    while (dataReader.Read()) {
-                        Auteur stripAuteur = new Auteur((string)dataReader[10]);
-                        Reeks reeksStrip = new Reeks((string)dataReader[8]);
-                        Uitgeverij uitgeverijStrip = new Uitgeverij((string)dataReader[12]);
-                        Strip strip = new Strip((string)dataReader["Titel"], stripAuteur, reeksStrip, (int)dataReader["Nummer"], uitgeverijStrip);
-                        lg.Add(strip);
-                    }
-                    dataReader.Close();
-                }
-                catch (Exception ex) {
-                    Console.WriteLine(ex);
-                }
-                finally {
-                    connection.Close();
-                }
-            }
-            return lg;
+            //DbConnection connection = getConnection();
+            //IList<Strip> lg = new List<Strip>();
+            //string query = "SELECT * FROM dbo.Strip join dbo.Strip_has_Auteur on Strip.id = Strip_Has_Auteur.Strip_id join dbo.Reeks on Reeks.id = Strip.Reeks_id join dbo.Auteur on Strip_has_Auteur.Auteur_Id = Auteur.Id join dbo.Uitgeverij on Strip.Uitgeverij_id = Uitgeverij.id";
+            //using (DbCommand command = connection.CreateCommand()) {
+            //    command.CommandText = query;
+            //    connection.Open();
+            //    try {
+            //        //Enkel voor 1 auteur
+            //        IDataReader dataReader = command.ExecuteReader();
+            //        while (dataReader.Read()) {
+            //            Auteur stripAuteur = new Auteur((string)dataReader[10]);
+            //            Reeks reeksStrip = new Reeks((string)dataReader[8]);
+            //            Uitgeverij uitgeverijStrip = new Uitgeverij((string)dataReader[12]);
+            //            Strip strip = new Strip((string)dataReader["Titel"], stripAuteur, reeksStrip, (int)dataReader["Nummer"], uitgeverijStrip);
+            //            lg.Add(strip);
+            //        }
+            //        dataReader.Close();
+            //    }
+            //    catch (Exception ex) {
+            //        Console.WriteLine(ex);
+            //    }
+            //    finally {
+            //        connection.Close();
+            //    }
+            //}
+            //return lg;
             throw new NotImplementedException();
         }
 
         public Strip FindStripById(int id)
         {
-            DbConnection conn = getConnection();
-            Strip strip;
-            string query = "SELECT * FROM dbo.Strip join dbo.Strip_has_Auteur on Strip.id = Strip_Has_Auteur.Strip_id join dbo.Reeks on Reeks.id = Strip.Reeks_id join dbo.Auteur on Strip_has_Auteur.Auteur_Id = Auteur.Id join dbo.Uitgeverij on Strip.Uitgeverij_id = Uitgeverij.id where Strip.id = @id";
+            //DbConnection conn = getConnection();
+            //Strip strip;
+            //string query = "SELECT * FROM dbo.Strip join dbo.Strip_has_Auteur on Strip.id = Strip_Has_Auteur.Strip_id join dbo.Reeks on Reeks.id = Strip.Reeks_id join dbo.Auteur on Strip_has_Auteur.Auteur_Id = Auteur.Id join dbo.Uitgeverij on Strip.Uitgeverij_id = Uitgeverij.id where Strip.id = @id";
 
-            using(DbCommand command = conn.CreateCommand()) {
-                command.CommandText = query;
-                SqlParameter prID = new SqlParameter();
-                prID.ParameterName = "@id";
-                prID.DbType = DbType.Int32;
-                prID.Value = id;
-                command.Parameters.Add(prID);
-                conn.Open();
-                try {
-                    IDataReader dataReader = command.ExecuteReader();
-                    dataReader.Read();
-                    //Enkel voor 1 auteur
-                    Auteur stripAuteur = new Auteur((string)dataReader[10]);
-                    Reeks reeksStrip = new Reeks((string)dataReader[8]);
-                    Uitgeverij uitgeverijStrip = new Uitgeverij((string)dataReader[12]);
-                    strip = new Strip((string)dataReader["Titel"], stripAuteur, reeksStrip, (int)dataReader["Nummer"], uit);
-                    dataReader.Close();
-                    return strip;
-                } catch(Exception ex) {
-                    Console.WriteLine(ex);
-                    return null;
-                }
-                finally {
-                    conn.Close();
-                }
-            }
+            //using(DbCommand command = conn.CreateCommand()) {
+            //    command.CommandText = query;
+            //    SqlParameter prID = new SqlParameter();
+            //    prID.ParameterName = "@id";
+            //    prID.DbType = DbType.Int32;
+            //    prID.Value = id;
+            //    command.Parameters.Add(prID);
+            //    conn.Open();
+            //    try {
+            //        IDataReader dataReader = command.ExecuteReader();
+            //        dataReader.Read();
+            //        //Enkel voor 1 auteur
+            //        Auteur stripAuteur = new Auteur((string)dataReader[10]);
+            //        Reeks reeksStrip = new Reeks((string)dataReader[8]);
+            //        Uitgeverij uitgeverijStrip = new Uitgeverij((string)dataReader[12]);
+            //       strip = new Strip((string)dataReader["Titel"], stripAuteur, reeksStrip, (int)dataReader["Nummer"], uit);
+            //        dataReader.Close();
+            //        return strip;
+            //    } catch(Exception ex) {
+            //        Console.WriteLine(ex);
+            //        return null;
+            //    }
+            //    finally {
+            //        conn.Close();
+            //    }
+            //}
             throw new NotImplementedException();
         }
 

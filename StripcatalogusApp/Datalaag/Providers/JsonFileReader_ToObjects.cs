@@ -1,5 +1,6 @@
 ﻿using businesslaag;
 using Businesslaag;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ namespace Datalaag
             List<string> readerStringList;
 
             //TODO remove hardcoded path from file open, and add reader function to UI
-            using (FileStream fs = File.Open(@"..\..\..\..\..\stripcatalogusVOORBEELD.json", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fs = File.Open(@"..\..\..\..\..\dump.json", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (BufferedStream bs = new BufferedStream(fs))
             using (StreamReader sreader = new StreamReader(bs))
             {
@@ -36,46 +37,124 @@ namespace Datalaag
                 {
                     readerStringList = new List<string>();
 
-                    var clean = new[] { '"', ':', '{', '\'', '}' };
+                    var clean = new[] { '"', '[', '{', '}', ':', };
                     string woord = input;
                     string[] words = woord
-                        .Trim(new Char[] { '"' })
-                        .Trim(clean)
-                        .Split(',');
+                         // .Replace(@", """, "NEXT")
+                         .Replace(@"""", "")
+                         .Replace(":[{", ":")
+                         .Replace("]},{", "}]},")
+                         .Replace(" \u0026", " ")
+                         .Split("}]},",StringSplitOptions.RemoveEmptyEntries); //]},{ID;
 
 
-                    
+                         
+
+
+
+
+
                     for
-                   (int i = 1; i < words.Count(); i++) //loops through each line of the array
+                   (int i = 0; i < words.Count(); i++) //loops through each line of the array
                     {
-                        string[] SplitsHelper = words[i].Split('"');
-                        string[] SplitsHelper2 = SplitsHelper[3].Split(';');
+                        int stripNr = 0;
+                        words[i] = words[i].Trim(clean);
+                        string[] SplitsHelper = words[i].Split(',');
 
-                        string stripTitel = SplitsHelper2[0];
-                        string stripReeks = SplitsHelper2[1];
-                        string stripNr = SplitsHelper2[2];
-                        string stripUitgeverij = SplitsHelper2[3];
-                        string stripAuteur1 = SplitsHelper2[4];
 
+                        string[] SplitsHelper2 = SplitsHelper[0].Split(":");
+                        string StripID = SplitsHelper2[1];
+
+                        SplitsHelper2 = SplitsHelper[1].Split(":");
+                        string stripTitel = SplitsHelper2[1];
+
+
+                        if (!SplitsHelper[2].Contains("Nr"))
+                        { //nr.24 heeft extra tittel tekst
+                            stripTitel = stripTitel + ", " + SplitsHelper[2];
+                             var foos = new List<String>(SplitsHelper);
+                            foos.RemoveAt(2);
+                            SplitsHelper = foos.ToArray();
+                        }
+                        
+
+
+                        SplitsHelper2 = SplitsHelper[2].Split(":");
+                        if (SplitsHelper2[1] == "null") //als "null" maak dan 0
+                        {  stripNr = 0;  }
+                        else {
+                             stripNr = Convert.ToInt32(SplitsHelper2[1]);
+                        };
                        
 
-                        if (SplitsHelper2[4] != SplitsHelper2.Last()) //betekent dat er meerdere auteurs zijn
-                        {
-                            List<Auteur> auteurs = new List<Auteur>();
-                            for (int ii = 4; ii < SplitsHelper2.Length; ii++)
-                            {
-                                auteurs.Add(new Auteur(SplitsHelper2[ii]));
-                            }
-                            //als er meerdere auteurs zijn
-                            listAlleStrips.Add(new Strip(stripTitel, auteurs, new Reeks( stripReeks), Convert.ToInt32( stripNr), new Uitgeverij(stripUitgeverij)));
+                        SplitsHelper2 = SplitsHelper[3].Split(":");
+                        string stripReeksID = SplitsHelper2[2];
+
+                        SplitsHelper2 = SplitsHelper[4].Split(":");
+                        string stripReeks = SplitsHelper2[1];
+                        if (stripReeks.Contains("geen serie")) {
+                            stripReeks = "geen serie";
                         }
-                        else {
-                            List<Auteur> auteurs = new List<Auteur>();
-                            //als er maar 1 auteur is
-                            auteurs.Add(new Auteur(stripAuteur1));
-                            listAlleStrips.Add(new Strip(stripTitel, auteurs, new Reeks(stripReeks), Convert.ToInt32(stripNr), new Uitgeverij(stripUitgeverij)));
+
+                        SplitsHelper2 = SplitsHelper[6].Split(":");
+                        string stripUitgeverijID = SplitsHelper2[2];
+
+                        SplitsHelper2 = SplitsHelper[7].Split(":");
+                        string stripUitgeverij = SplitsHelper2[1].Trim(clean); ;
+
+                        //als er geen auteurs zijn
+                        if (SplitsHelper.Count() > 9) //bv. STRIP "ID":282 -> heeft geen auteurs
+                        {
+                            SplitsHelper2 = SplitsHelper[8].Split(":");
+                            string stripAuteur1ID = SplitsHelper2[2];
+                            SplitsHelper2 = SplitsHelper[9].Split(":");
+                            string stripAuteur1Naam = SplitsHelper2[1];
+
+                            if (SplitsHelper.Last() != SplitsHelper[9]) //betekent dat er meerdere auteurs zijn
+                            {
+                                List<Auteur> auteurs = new List<Auteur>();
+                                for (int ii = 8; ii < SplitsHelper.Length; ii = ii + 2)
+                                {
+                                    if (ii == 8)
+                                    {
+                                        SplitsHelper2 = SplitsHelper[ii].Split(":");
+                                        stripAuteur1ID = SplitsHelper2[2];
+                                    }
+                                    else
+                                    {
+                                        SplitsHelper2 = SplitsHelper[ii].Split(":");
+                                        stripAuteur1ID = SplitsHelper2[1];
+                                    }
+                                    SplitsHelper2 = SplitsHelper[ii + 1].Split(":");
+                                    stripAuteur1Naam = SplitsHelper2[1].Trim(clean); ;
+
+                                    auteurs.Add(new Auteur(Convert.ToInt32(stripAuteur1ID), stripAuteur1Naam));
+                                }
+                                //als er meerdere auteurs zijn
+                                listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), Convert.ToInt32(stripNr), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
+                            }
+                            else
+                            {
+                                List<Auteur> auteurs = new List<Auteur>();
+                                ////als er maar 1 auteur is
+                                auteurs.Add(new Auteur(Convert.ToInt32(stripAuteur1ID), stripAuteur1Naam));
+                                listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), Convert.ToInt32(stripNr), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
+
+                            }
+
 
                         }
+                        else //als er geen auteurs zijn
+                        {
+                            List<Auteur> auteurs = new List<Auteur>();
+                            listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), Convert.ToInt32(stripNr), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
+
+
+                        }
+
+
+
+
 
                     }
                 }
