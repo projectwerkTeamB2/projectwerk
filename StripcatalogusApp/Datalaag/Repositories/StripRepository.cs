@@ -39,28 +39,25 @@ namespace Datalaag.Repositories
             Dictionary<int, Auteur> dictAuteurs = new Dictionary<int, Auteur>();
             Dictionary<int, Uitgeverij> dictUitgeverij = new Dictionary<int, Uitgeverij>();
             Dictionary<int, Reeks> dictReeks = new Dictionary<int, Reeks>();
-            int tellerAut = 1;
-            int tellerUit = 1;
-            int tellerRks = 1;
+
             foreach (Strip s in strips)
             {
                 foreach (Auteur a in s.Auteurs)
                 {
-                    if (!(dictAuteurs.Any(dA => dA.Value.Naam.Equals(a.Naam))))
+                    if (!(dictAuteurs.ContainsKey(a.ID)))
                     {
-                        dictAuteurs.Add(tellerAut, a);
-                        tellerAut++;
+                        dictAuteurs.Add(a.ID, a);
                     }
                 }
-                if (!(dictUitgeverij.Any(dU => dU.Value.Naam.Equals(s.Uitgeverij.Naam))))
+                if (!(dictUitgeverij.ContainsKey(s.Uitgeverij.ID)))
                 {
-                    dictUitgeverij.Add(tellerUit, s.Uitgeverij);
-                    tellerUit++;
+                    dictUitgeverij.Add(s.Uitgeverij.ID, s.Uitgeverij);
                 }
-                if (!(dictReeks.Any(dR => dR.Value.Naam.Equals(s.Reeks.Naam))))
+
+                if (!(dictReeks.ContainsKey(s.Reeks.ID)))
                 {
-                    dictReeks.Add(tellerRks, s.Reeks);
-                    tellerRks++;
+                    dictReeks.Add(s.Reeks.ID, s.Reeks);
+
                 }
                 
             }
@@ -219,10 +216,9 @@ namespace Datalaag.Repositories
                     Uitgeverij_id1.DbType = DbType.Int32;
                     command.Parameters.Add(Uitgeverij_id1);
 
-                    int teller = 1;
                     foreach (Strip s in strips)
                     {
-                        command.Parameters["@id"].Value = teller;
+                        command.Parameters["@id"].Value = s.ID;
                         command.Parameters["@Titel"].Value = s.StripTitel;
                         command.Parameters["@Nummer"].Value = s.StripNr;
 
@@ -242,7 +238,6 @@ namespace Datalaag.Repositories
                             }
                         }
                         command.ExecuteNonQuery();
-                        teller++;
 
                     }
 
@@ -279,23 +274,22 @@ namespace Datalaag.Repositories
                     Auteur_id.DbType = DbType.Int32;
                     command.Parameters.Add(Auteur_id);
 
-                    int teller = 1;
+
                     foreach (Strip s in strips)
                     {
                         foreach (Auteur a in s.Auteurs)
                         {
                             foreach (KeyValuePair<int, Auteur> dA in dictAuteurs)
                             {
-                                if (dA.Value.Naam.Contains(a.Naam))
+                                if (a.ID == dA.Key)
                                 {
 
-                                    command.Parameters["@Strip_id"].Value = teller;
+                                    command.Parameters["@Strip_id"].Value = s.ID;
                                     command.Parameters["@Auteur_id"].Value = dA.Key;
                                     command.ExecuteNonQuery();
                                 }
                             }
                         }
-                        teller++;
                     }
 
                 }
