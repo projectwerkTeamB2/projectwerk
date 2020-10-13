@@ -325,32 +325,42 @@ namespace Datalaag.Repositories
 
         public IEnumerable<Strip> FindAll_strip()
         {
-            //DbConnection connection = getConnection();
-            //IList<Strip> lg = new List<Strip>();
-            //string query = "SELECT * FROM dbo.Strip join dbo.Strip_has_Auteur on Strip.id = Strip_Has_Auteur.Strip_id join dbo.Reeks on Reeks.id = Strip.Reeks_id join dbo.Auteur on Strip_has_Auteur.Auteur_Id = Auteur.Id join dbo.Uitgeverij on Strip.Uitgeverij_id = Uitgeverij.id";
-            //using (DbCommand command = connection.CreateCommand()) {
-            //    command.CommandText = query;
-            //    connection.Open();
-            //    try {
-            //        //Enkel voor 1 auteur
-            //        IDataReader dataReader = command.ExecuteReader();
-            //        while (dataReader.Read()) {
-            //            Auteur stripAuteur = new Auteur((string)dataReader[10]);
-            //            Reeks reeksStrip = new Reeks((string)dataReader[8]);
-            //            Uitgeverij uitgeverijStrip = new Uitgeverij((string)dataReader[12]);
-            //            Strip strip = new Strip((string)dataReader["Titel"], stripAuteur, reeksStrip, (int)dataReader["Nummer"], uitgeverijStrip);
-            //            lg.Add(strip);
-            //        }
-            //        dataReader.Close();
-            //    }
-            //    catch (Exception ex) {
-            //        Console.WriteLine(ex);
-            //    }
-            //    finally {
-            //        connection.Close();
-            //    }
-            //}
-            //return lg;
+            DbConnection connection = getConnection();
+            IList<Strip> lg = new List<Strip>();
+            string query = "select * from dbo.strip join dbo.strip_has_auteur on strip.id = strip_has_auteur.strip_id join dbo.reeks on reeks.id = strip.reeks_id join dbo.auteur on strip_has_auteur.auteur_id = auteur.id join dbo.uitgeverij on strip.uitgeverij_id = uitgeverij.id";
+            using (DbCommand command = connection.CreateCommand()) {
+                command.CommandText = query;
+                connection.Open();
+                try {
+                    //enkel voor 1 auteur
+                    IDataReader datareader = command.ExecuteReader();
+                    int index = 0;
+                    while (datareader.Read()) {
+                        List<Auteur> auteurList = new List<Auteur>();
+                        Reeks reeksStrip = new Reeks((int)datareader["Reeks_Id"], (string)datareader[8]);
+                        Uitgeverij uitgeverijStrip = new Uitgeverij((int)datareader["Strip_Id"], (string)datareader[12]);
+                        Strip strip;
+                        //Controle meerdere Auteurs
+                        string vorigeStripTitel = "";
+                        if(vorigeStripTitel == (string)datareader["Titel"]) {
+                            lg[index].voegAuteurToeAanList(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
+                        } else if(vorigeStripTitel != (string)datareader["Titel"]) {
+                            auteurList.Add(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
+                            strip = new Strip((int)datareader["id"], (string)datareader["titel"], auteurList, reeksStrip, (int)datareader["nummer"], uitgeverijStrip);
+                            vorigeStripTitel = strip.StripTitel;
+                        }
+                        lg.Add(strip);
+                    }
+                    datareader.Close();
+                }
+                catch (Exception ex) {
+                    Console.WriteLine(ex);
+                }
+                finally {
+                    connection.Close();
+                }
+            }
+            return lg;
             throw new NotImplementedException();
         }
 

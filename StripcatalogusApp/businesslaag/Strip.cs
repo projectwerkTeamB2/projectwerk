@@ -41,7 +41,9 @@ namespace businesslaag
             this.Uitgeverij = uitgeverij;
         }
 
-
+        public void voegAuteurToeAanList(Auteur auteur) {
+            Auteurs.Add(auteur);
+        }
 
         //vb.= Strip : De boze geest, Pascal, Merel, GeesteJacht, 1, De standaard
         public override string ToString()
