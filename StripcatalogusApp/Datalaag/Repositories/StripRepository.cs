@@ -310,7 +310,61 @@ namespace Datalaag.Repositories
 
         public void AddStrip(Strip strip)
         {
-            throw new NotImplementedException();
+            DbConnection connection = getConnection();
+            
+     
+            string query = "INSERT into Strip  values(@id,@title, @nummer, @reeks_id, @uitgeverij_id)";
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                #region sqlparameters
+                command.CommandText = query;
+                SqlParameter prID = new SqlParameter();
+                prID.ParameterName = "@id";
+                prID.DbType = DbType.Int32;
+                prID.Value = strip.ID;
+                command.Parameters.Add(prID);
+
+                SqlParameter prTitle = new SqlParameter();
+                prTitle.ParameterName = "@title";
+                prTitle.DbType = DbType.Int32;
+                prTitle.Value = strip.StripTitel;
+                command.Parameters.Add(prTitle);
+
+                SqlParameter prNummer = new SqlParameter();
+                prNummer.ParameterName = "@Nummer";
+                prNummer.DbType = DbType.Int32;
+                prNummer.Value = strip.StripTitel;
+                command.Parameters.Add(prNummer);
+
+                SqlParameter prReeks_Id = new SqlParameter();
+                prReeks_Id.ParameterName = "@reeks_id";
+                prReeks_Id.DbType = DbType.Int32;
+                prReeks_Id.Value = strip.Reeks.ID;
+                command.Parameters.Add(prReeks_Id);
+
+                SqlParameter prUitgeverij_id = new SqlParameter();
+                prUitgeverij_id.ParameterName = "@uitgeverij_id";
+                prUitgeverij_id.DbType = DbType.Int32;
+                prUitgeverij_id.Value = strip.Uitgeverij.ID;
+                command.Parameters.Add(prReeks_Id);
+
+                #endregion
+                connection.Open();
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         public IEnumerable<Strip> FindAll_ByAuteur(Auteur auteur)
