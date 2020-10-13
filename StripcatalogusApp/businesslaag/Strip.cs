@@ -24,26 +24,7 @@ namespace businesslaag
             this.StripNr = stripNr;
             this.Uitgeverij = uitgeverij;
         }
-
-        //Als er maar 1 auteur is
-        public Strip(int id, string stripTitel, Reeks reeks, int stripNr, Uitgeverij uitgeverij)
-        {
-            this.ID = id;
-            List<Auteur> auteursHelp = new List<Auteur>
-            {
-             
-            };
-            this.StripTitel = stripTitel;
-            
-            this.Auteurs= auteursHelp;
-            this.Reeks = reeks;
-            this.StripNr = stripNr;
-            this.Uitgeverij = uitgeverij;
-        }
-
-        public void voegAuteurToeAanList(Auteur auteur) {
-            Auteurs.Add(auteur);
-        }
+        public Strip() { }
 
         //vb.= Strip : De boze geest, Pascal, Merel, GeesteJacht, 1, De standaard
         public override string ToString()

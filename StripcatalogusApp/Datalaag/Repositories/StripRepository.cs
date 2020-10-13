@@ -326,30 +326,31 @@ namespace Datalaag.Repositories
         public IEnumerable<Strip> FindAll_strip()
         {
             DbConnection connection = getConnection();
-            IList<Strip> lg = new List<Strip>();
+            IList<Strip> listStrip = new List<Strip>();
             string query = "select * from dbo.strip join dbo.strip_has_auteur on strip.id = strip_has_auteur.strip_id join dbo.reeks on reeks.id = strip.reeks_id join dbo.auteur on strip_has_auteur.auteur_id = auteur.id join dbo.uitgeverij on strip.uitgeverij_id = uitgeverij.id";
             using (DbCommand command = connection.CreateCommand()) {
                 command.CommandText = query;
                 connection.Open();
                 try {
-                    //enkel voor 1 auteur
+                    
                     IDataReader datareader = command.ExecuteReader();
-                    int index = 0;
+                    Strip strip = new Strip();
                     while (datareader.Read()) {
                         List<Auteur> auteurList = new List<Auteur>();
                         Reeks reeksStrip = new Reeks((int)datareader["Reeks_Id"], (string)datareader[8]);
                         Uitgeverij uitgeverijStrip = new Uitgeverij((int)datareader["Strip_Id"], (string)datareader[12]);
-                        Strip strip;
+                        
                         //Controle meerdere Auteurs
+                        //Op ID controleren
                         string vorigeStripTitel = "";
                         if(vorigeStripTitel == (string)datareader["Titel"]) {
-                            lg[index].voegAuteurToeAanList(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
+                            listStrip[listStrip.Count-1].Auteurs.Add(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
                         } else if(vorigeStripTitel != (string)datareader["Titel"]) {
                             auteurList.Add(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
-                            strip = new Strip((int)datareader["id"], (string)datareader["titel"], auteurList, reeksStrip, (int)datareader["nummer"], uitgeverijStrip);
+                            strip = new Strip((int)datareader["id"], (string)datareader["Titel"], auteurList, reeksStrip, (int)datareader["nummer"], uitgeverijStrip);
                             vorigeStripTitel = strip.StripTitel;
                         }
-                        lg.Add(strip);
+                        listStrip.Add(strip);
                     }
                     datareader.Close();
                 }
@@ -360,7 +361,7 @@ namespace Datalaag.Repositories
                     connection.Close();
                 }
             }
-            return lg;
+            return listStrip;
             throw new NotImplementedException();
         }
 
