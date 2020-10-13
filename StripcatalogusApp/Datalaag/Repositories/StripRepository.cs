@@ -59,7 +59,7 @@ namespace Datalaag.Repositories
                     dictReeks.Add(s.Reeks.ID, s.Reeks);
 
                 }
-                
+
             }
             #endregion
             DbConnection connection = getConnection();
@@ -304,16 +304,16 @@ namespace Datalaag.Repositories
 
             }
             #endregion
-           
+
         }
 
 
         public void AddStrip(Strip strip)
         {
             DbConnection connection = getConnection();
-            
-     
-            string query = "INSERT into Strip  values(@id,@title, @nummer, @reeks_id, @uitgeverij_id)";
+
+
+            string query = "INSERT into Strip  values(@id,@title, @Nummer, @reeks_id, @uitgeverij_id)";
 
             using (DbCommand command = connection.CreateCommand())
             {
@@ -369,7 +369,40 @@ namespace Datalaag.Repositories
 
         public IEnumerable<Strip> FindAll_ByAuteur(Auteur auteur)
         {
-            throw new NotImplementedException();
+            DbConnection connection = getConnection();
+
+            IList<Strip> listStrip = new List<Strip>();
+            string query = "SELECT * from Strip Join Strip_has_Auteur on strip.Id =  Strip_Id Where Auteur_id = @auteur ";
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                #region sqlparameters
+
+                command.CommandText = query;
+                SqlParameter prID = new SqlParameter();
+                prID.ParameterName = "@auteur";
+                prID.DbType = DbType.Int32;
+                prID.Value = auteur.ID;
+                command.Parameters.Add(prID);
+
+                #endregion
+                connection.Open();
+                try
+                {
+                    
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return listStrip;
+            }
         }
 
         public IEnumerable<Strip> FindAll_ByReeks(Reeks reeks)
@@ -382,24 +415,30 @@ namespace Datalaag.Repositories
             DbConnection connection = getConnection();
             IList<Strip> listStrip = new List<Strip>();
             string query = "select * from dbo.strip join dbo.strip_has_auteur on strip.id = strip_has_auteur.strip_id join dbo.reeks on reeks.id = strip.reeks_id join dbo.auteur on strip_has_auteur.auteur_id = auteur.id join dbo.uitgeverij on strip.uitgeverij_id = uitgeverij.id";
-            using (DbCommand command = connection.CreateCommand()) {
+            using (DbCommand command = connection.CreateCommand())
+            {
                 command.CommandText = query;
                 connection.Open();
-                try {
-                    
+                try
+                {
+
                     IDataReader datareader = command.ExecuteReader();
                     Strip strip = new Strip();
-                    while (datareader.Read()) {
+                    while (datareader.Read())
+                    {
                         List<Auteur> auteurList = new List<Auteur>();
                         Reeks reeksStrip = new Reeks((int)datareader["Reeks_Id"], (string)datareader[8]);
                         Uitgeverij uitgeverijStrip = new Uitgeverij((int)datareader["Strip_Id"], (string)datareader[12]);
-                        
+
                         //Controle meerdere Auteurs
                         //Op ID controleren
                         string vorigeStripTitel = "";
-                        if(vorigeStripTitel == (string)datareader["Titel"]) {
-                            listStrip[listStrip.Count-1].Auteurs.Add(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
-                        } else if(vorigeStripTitel != (string)datareader["Titel"]) {
+                        if (vorigeStripTitel == (string)datareader["Titel"])
+                        {
+                            listStrip[listStrip.Count - 1].Auteurs.Add(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
+                        }
+                        else if (vorigeStripTitel != (string)datareader["Titel"])
+                        {
                             auteurList.Add(new Auteur((int)datareader["Auteur_Id"], (string)datareader[10]));
                             strip = new Strip((int)datareader["id"], (string)datareader["Titel"], auteurList, reeksStrip, (int)datareader["nummer"], uitgeverijStrip);
                             vorigeStripTitel = strip.StripTitel;
@@ -408,10 +447,12 @@ namespace Datalaag.Repositories
                     }
                     datareader.Close();
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     Console.WriteLine(ex);
                 }
-                finally {
+                finally
+                {
                     connection.Close();
                 }
             }
@@ -456,7 +497,37 @@ namespace Datalaag.Repositories
 
         public void RemoveStripById(int id)
         {
-            throw new NotImplementedException();
+            DbConnection connection = getConnection();
+
+            string query = "DELETE * FROM Strip where Strip.id = @id";
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+
+                #region sqlparameters
+                command.CommandText = query;
+                SqlParameter prID = new SqlParameter();
+                prID.ParameterName = "@id";
+                prID.DbType = DbType.Int32;
+                prID.Value = id;
+                command.Parameters.Add(prID);
+
+                #endregion
+                connection.Open();
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }
