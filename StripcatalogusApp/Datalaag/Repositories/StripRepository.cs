@@ -390,7 +390,9 @@ namespace Datalaag.Repositories
                 try
                 {
                     
-                    command.ExecuteNonQuery();
+                   // command.ExecuteNonQuery();
+                Strip strip = (Strip)command.ExecuteScalar();
+                    listStrip.Add(strip);
                 }
                 catch (Exception e)
                 {
