@@ -15,6 +15,10 @@ namespace Businesslaag
             Naam = naam;
         }
 
+        public Uitgeverij()
+        {
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Uitgeverij uitgeverij &&

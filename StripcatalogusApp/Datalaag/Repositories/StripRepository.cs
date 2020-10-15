@@ -335,7 +335,7 @@ namespace Datalaag.Repositories
                 SqlParameter prNummer = new SqlParameter();
                 prNummer.ParameterName = "@Nummer";
                 prNummer.DbType = DbType.Int32;
-                prNummer.Value = strip.StripTitel;
+                prNummer.Value = strip.StripNr;
                 command.Parameters.Add(prNummer);
 
                 SqlParameter prReeks_Id = new SqlParameter();
@@ -348,7 +348,7 @@ namespace Datalaag.Repositories
                 prUitgeverij_id.ParameterName = "@uitgeverij_id";
                 prUitgeverij_id.DbType = DbType.Int32;
                 prUitgeverij_id.Value = strip.Uitgeverij.ID;
-                command.Parameters.Add(prReeks_Id);
+                command.Parameters.Add(prUitgeverij_id);
 
                 #endregion
                 connection.Open();
@@ -417,7 +417,7 @@ namespace Datalaag.Repositories
         {
             DbConnection connection = getConnection();
             IList<Strip> listStrip = new List<Strip>();
-            string query = "select * from dbo.strip join dbo.strip_has_auteur on strip.id = strip_has_auteur.strip_id join dbo.reeks on reeks.id = strip.reeks_id join dbo.auteur on strip_has_auteur.auteur_id = auteur.id join dbo.uitgeverij on strip.uitgeverij_id = uitgeverij.id";
+            string query = "select * from dbo.strip join dbo.strip_has_auteur on strip.id = strip_has_auteur.strip_id join dbo.reeks on reeks.id = strip.reeks_id join dbo.auteur on strip_has_auteur.auteur_id = auteur.id join dbo.uitgeverij on strip.uitgeverij_id = uitgeverij.id ORDER BY strip.id";
             using (DbCommand command = connection.CreateCommand())
             {
                 command.CommandText = query;
@@ -534,6 +534,8 @@ namespace Datalaag.Repositories
         }
 
         #region GUI
+
+        //De laatste id krijgen (dan kan je een nieuwe aanmake met +1 te doen)
         public int latestStripId() {
             //werkt
             //telt op hoeveel strips er zijn
@@ -556,13 +558,86 @@ namespace Datalaag.Repositories
         
                 return x;
         }
+        public int latestAuteurId()
+        {
+            //werkt
+            //telt op hoeveel strips er zijn
+            //zo kan de nieuwe id gemaakt worden
+
+            DbConnection connection = getConnection();
+
+            string query = "SELECT COUNT(*) from dbo.Auteur;";
+            int x = 0;
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                command.CommandText = query;
+                connection.Open();
+
+                x = (int)command.ExecuteScalar();
+                connection.Close();
+            }
+
+
+            return x;
+        }
+        public int latestReeksId()
+        {
+            //werkt
+            //telt op hoeveel strips er zijn
+            //zo kan de nieuwe id gemaakt worden
+
+            DbConnection connection = getConnection();
+
+            string query = "SELECT COUNT(*) from dbo.Reeks;";
+            int x = 0;
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                command.CommandText = query;
+                connection.Open();
+
+                x = (int)command.ExecuteScalar();
+                connection.Close();
+            }
+
+
+            return x;
+        }
+        public int latestUitgeverijId()
+        {
+            //werkt
+            //telt op hoeveel strips er zijn
+            //zo kan de nieuwe id gemaakt worden
+
+            DbConnection connection = getConnection();
+
+            string query = "SELECT COUNT(*) from dbo.Uitgeverij;";
+            int x = 0;
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                command.CommandText = query;
+                connection.Open();
+
+                x = (int)command.ExecuteScalar();
+                connection.Close();
+            }
+
+
+            return x;
+        }
+
+
+        //Methodes om na te kijken of Auteur/Reeks/Uitgeverij al bestaat in databank
+        //zoniet, dan weet men dat die een nieuwe mag maken.
         public Auteur GetAuteur_fromName(string naam)
         {
             //nodig om te zien of die auteur al bestaat
 
             DbConnection connection = getConnection();
-            string query = "SELECT * FROM AuteurWHERE Name='@naam'; ";
-            
+            string query = "SELECT * FROM Auteur WHERE Name=@naam; ";
+
 
             using (DbCommand command = connection.CreateCommand())
             {
@@ -594,13 +669,95 @@ namespace Datalaag.Repositories
                 {
                     connection.Close();
                 }
-            
+
+            }
         }
+        public Reeks GetReeks_fromName(string naam)
+        {
+            //nodig om te zien of die Reeks al bestaat
+
+            DbConnection connection = getConnection();
+            string query = "SELECT * FROM Reeks WHERE Name=@naam; ";
+
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                command.CommandText = query;
+
+                DbParameter paramId = sqlFactory.CreateParameter();
+                paramId.ParameterName = "@naam";
+                paramId.DbType = DbType.String;
+                paramId.Value = naam;
+                command.Parameters.Add(paramId);
+
+                connection.Open();
+                try
+                {
+                    //als Reeks is gevonden
+                    IDataReader datareader = command.ExecuteReader();
+                    datareader.Read();
+                    Reeks reek = new Reeks((int)datareader["id"], (string)datareader["Name"]);
+
+                    datareader.Close();
+                    return reek;
+                }
+                catch (Exception ex)
+                {
+                    //als er geen is gevonden
+                    return null;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
 
 
         }
+        public Uitgeverij GetUitgeverij_fromName(string naam)
+        {
+            //nodig om te zien of die Uitgeverij al bestaat
+
+            DbConnection connection = getConnection();
+            string query = "SELECT * FROM Uitgeverij WHERE Name=@naam; ";
 
 
+            using (DbCommand command = connection.CreateCommand())
+            {
+                command.CommandText = query;
+
+                DbParameter paramId = sqlFactory.CreateParameter();
+                paramId.ParameterName = "@naam";
+                paramId.DbType = DbType.String;
+                paramId.Value = naam;
+                command.Parameters.Add(paramId);
+
+                connection.Open();
+                try
+                {
+                    //als Uitgeverij is gevonden
+                    IDataReader datareader = command.ExecuteReader();
+                    datareader.Read();
+                    Uitgeverij uitgeverij = new Uitgeverij((int)datareader["id"], (string)datareader["Name"]);
+
+                    datareader.Close();
+                    return uitgeverij;
+                }
+                catch (Exception ex)
+                {
+                    //als er geen is gevonden
+                    return null;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+
+
+        }
         #endregion
     }
 }

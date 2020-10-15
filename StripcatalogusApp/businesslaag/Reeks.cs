@@ -16,6 +16,10 @@ namespace Businesslaag
             Naam = naam;
         }
 
+        public Reeks()
+        {
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Reeks reeks &&

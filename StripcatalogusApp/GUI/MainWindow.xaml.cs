@@ -1,6 +1,9 @@
-﻿using System;
+﻿using businesslaag;
+using Datalaag.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Linq;
@@ -37,47 +40,15 @@ namespace GUI
             Uri iconUri = new Uri("../../../Images/book.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
 
-            ////connectie met DB
-            //using (SqlConnection conn = new SqlConnection())
-            //{
-            //    //Verander connection string als u connectie wil maken met uw databank!
-            //    conn.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StripCatDB;Integrated Security=True";
-            //    conn.Open();
-            //    // use the connection here  
-            //    string queryString = "SELECT CustomerID,CompanyName,Address,City FROM  customers";
-            //    List<Strip> strips = new List<Strip>();
+            #region connectie db
+            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
+            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            //    using (SqlCommand command = conn.CreateCommand())
-            //    {
+            StripRepository sr = new StripRepository(sqlFactory);
+            #endregion
 
-            //        command.CommandText = queryString;
-
-            //        conn.Open();
-
-            //        try
-            //        {
-            //            SqlDataReader dataReader = command.ExecuteReader();
-            //            while (dataReader.Read())
-            //            {
-            //                string id = (string)dataReader["straatNaam"];
-
-            //                lg.Add(id);
-            //            }
-
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            Console.WriteLine(ex);
-            //            return null;
-            //        }
-            //        finally
-            //        {
-            //            connection.Close();
-            //        }
-            //    }
-            //    return lg;
-            //}
-
+            IEnumerable<Strip> stripsFromDb = sr.FindAll_strip();
+            StripDataGrid.ItemsSource = stripsFromDb;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
