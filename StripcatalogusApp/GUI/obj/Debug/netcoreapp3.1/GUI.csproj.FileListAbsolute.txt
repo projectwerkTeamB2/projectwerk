@@ -66,3 +66,28 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\ob
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.pdb
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.genruntimeconfig.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.exe
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\GUI.dll.config
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll.config

@@ -20,6 +20,7 @@ namespace Datalaag.Repositories
 
         #region
         private DbProviderFactory sqlFactory;
+
         public StripRepository(DbProviderFactory sqlFactory)
         {
             this.sqlFactory = sqlFactory;
@@ -31,7 +32,7 @@ namespace Datalaag.Repositories
             connection.ConnectionString = connectionString;
             return connection;
         }
-        #endregion ljena connetion code
+        #endregion  connetion code
 
         public void allesWegSchijvenNaarDataBank(List<Strip> strips)
         {
@@ -458,5 +459,75 @@ namespace Datalaag.Repositories
         {
             throw new NotImplementedException();
         }
+
+        #region GUI
+        public int latestStripId() {
+            //werkt
+            //telt op hoeveel strips er zijn
+            //zo kan de nieuwe id gemaakt worden
+
+            DbConnection connection = getConnection();
+            
+            string query = "SELECT COUNT(*) from dbo.Strip;";
+            int x = 0;
+            
+                using (DbCommand command = connection.CreateCommand())
+                            {
+                command.CommandText = query;
+                connection.Open();
+
+                x = (int)command.ExecuteScalar();
+                connection.Close();
+            }
+            
+        
+                return x;
+        }
+        public Auteur GetAuteur_fromName(string naam)
+        {
+            //nodig om te zien of die auteur al bestaat
+
+            DbConnection connection = getConnection();
+            string query = "SELECT * FROM AuteurWHERE Name='@naam'; ";
+            
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+                command.CommandText = query;
+
+                DbParameter paramId = sqlFactory.CreateParameter();
+                paramId.ParameterName = "@naam";
+                paramId.DbType = DbType.String;
+                paramId.Value = naam;
+                command.Parameters.Add(paramId);
+
+                connection.Open();
+                try
+                {
+                    //als auteur is gevonden
+                    IDataReader datareader = command.ExecuteReader();
+                    datareader.Read();
+                    Auteur auteur = new Auteur((int)datareader["Id"], (string)datareader["Name"]);
+
+                    datareader.Close();
+                    return auteur;
+                }
+                catch (Exception ex)
+                {
+                    //als er geen is gevonden
+                    return null;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            
+        }
+
+
+        }
+
+
+        #endregion
     }
 }

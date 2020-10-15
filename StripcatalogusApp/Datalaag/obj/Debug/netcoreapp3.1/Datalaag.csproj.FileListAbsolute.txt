@@ -35,7 +35,6 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\n
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.genruntimeconfig.cache
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
@@ -112,3 +111,4 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datala
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CoreCompileInputs.cache
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config

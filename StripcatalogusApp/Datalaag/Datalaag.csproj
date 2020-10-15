@@ -8,17 +8,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\book.ico" />
+    <None Remove="Images\BoomIMG.png" />
+    <None Remove="Images\CloudIMG.png" />
+    <None Remove="Images\Text.png" />
+    <None Remove="Images\WonderWIMG.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="6.7.1" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\businesslaag\Businesslaag.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\app.config" />
+    <Resource Include="Images\book.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\BoomIMG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CloudIMG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Text.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\WonderWIMG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

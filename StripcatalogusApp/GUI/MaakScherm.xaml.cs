@@ -1,5 +1,10 @@
-﻿using System;
+﻿using businesslaag;
+using Businesslaag;
+using Datalaag.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -87,14 +92,31 @@ namespace GUI
             { inteVullenGeg = inteVullenGeg - 1; }
             if (TextBox_auteurs.Text != "" || TextBox_auteurs.Text.Length > 1)
             {
+                List<Auteur> auteursList = new List<Auteur>();
                 //meedere auteurs
-                if (TextBox_auteurs.Text.Contains(',')) { }
+                if (TextBox_auteurs.Text.Contains(',')) { 
+                
+                }
                 //maar 1 auteur
-                else { }
+                else {
+                  //  auteursList.Add(new Auteur(, auteurs));
+                }
                 inteVullenGeg = inteVullenGeg - 1; }
             //controleren of er duplicaten zijn
             //foutcode eventueel teruggeven
             //aanmaken en naar databank sturen
+            #region connectie db
+            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
+            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
+
+            StripRepository sr = new StripRepository(sqlFactory);
+            #endregion
+            int LastStipID = sr.latestStripId();
+
+
+
+            //   Strip newStrip = new Strip(LastStipID+1,)
+            //sr.AddStrip();
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
