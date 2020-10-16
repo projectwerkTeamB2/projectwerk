@@ -12,7 +12,7 @@ namespace Datalaag
    public class JsonFileReader_ToObjects
     //Hierin lees ik het data bestand in en geef ik hun terug als List<Objects>
     {
-        
+        public string locatieJson = @"..\..\..\..\..\dump.json";
         public List<Strip> listAlleStrips;
 
         //stripcatalogusVOORBEELD.json ->"0":"Titel;Reeks;Nummer;Uitgeverij;Auteurs;", ...
@@ -20,7 +20,7 @@ namespace Datalaag
             List<string> readerStringList;
 
             //TODO remove hardcoded path from file open, and add reader function to UI
-            using (FileStream fs = File.Open(@"..\..\..\..\..\dump.json", FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fs = File.Open(locatieJson, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             using (BufferedStream bs = new BufferedStream(fs))
             using (StreamReader sreader = new StreamReader(bs))
             {

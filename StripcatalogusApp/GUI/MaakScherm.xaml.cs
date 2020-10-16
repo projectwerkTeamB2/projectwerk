@@ -138,11 +138,11 @@ namespace GUI
             //foutcode eventueel teruggeven
             //aanmaken en naar databank sturen
           
-            int LastStipID = sr.latestStripId();
+            int LastStripID = sr.latestStripId();
 
             if (!ietsLeeg) {
 
-                Strip newStrip = new Strip(LastStipID + 1, titel, auteursList, reeks1,Convert.ToInt32( nr), uitgeverij1);
+                Strip newStrip = new Strip(LastStripID + 1, titel, auteursList, reeks1,Convert.ToInt32( nr), uitgeverij1);
                 sr.AddStrip(newStrip);
             }
 

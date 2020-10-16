@@ -29,13 +29,13 @@ namespace Datalaag
 
 
             StripRepository sp = new StripRepository(sqlFactory);
-            // sp.FindAll_strip();
+             sp.FindAll_strip();
             int LastStipID = sp.latestStripId();
             Auteur fr = sp.GetAuteur_fromName("Hermann");
             Reeks r = sp.GetReeks_fromName("Aldebaran");
            // sp.allesWegSchijvenNaarDataBank(stripsFromJson); //om JSON strips naar databank te sturen
             #endregion
-           sp.AddStrip()
+          // sp.AddStrip()
 
         }
     }
