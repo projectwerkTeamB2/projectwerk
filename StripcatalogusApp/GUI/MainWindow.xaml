@@ -10,6 +10,8 @@
          Loaded="Window_Loaded"
         Title="Strip Applicatie" Height="500" Width="900">
     <Grid Background="#E9C46A">
+        <Button  Style="{StaticResource ButtonStyle}" Content="Een nieuwe strip toevoegen." HorizontalAlignment="Left" Margin="84,10,0,0" VerticalAlignment="Top" Width="781" Height="34" Click="Button_Click" />
+
         <DataGrid x:Name="StripDataGrid"  Margin="239,87,35,23" />
         <Image x:Name="WonderWomanImage" HorizontalAlignment="Left" Height="394" Margin="21,62,0,0" VerticalAlignment="Top" Width="394" Source="Images/WonderWIMG.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>

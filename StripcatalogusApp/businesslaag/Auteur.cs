@@ -6,11 +6,14 @@ namespace Businesslaag
 {
     public class Auteur
     {
+        public int ID { get; set; }
+
         public string Naam { get; set; }
 
-        public Auteur(string naamAuteur)
+        public Auteur(int iD, string naam)
         {
-            this.Naam = naamAuteur;
+            ID = iD;
+            Naam = naam;
         }
 
         public override bool Equals(object obj)

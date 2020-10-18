@@ -36,22 +36,29 @@
         <Label Content="Laten we een nieuwe strip toevoegen" FontWeight="Black" FontSize="32" HorizontalAlignment="Left" Margin="45,20,0,0" VerticalAlignment="Top"/>
         <Label Content="( Vul hieronder de gegevens van de nieuwe strip in aub. )" HorizontalAlignment="Left" Margin="45,73,0,0" VerticalAlignment="Top"/>
 
-        <Image HorizontalAlignment="Left" Source="/Images/Text.png" Height="538" Margin="-73,104,0,0" VerticalAlignment="Top" Width="578"/>
+        <Image HorizontalAlignment="Left" Source="/Images/Text.png" Height="522" Margin="-63,110,0,0" VerticalAlignment="Top" Width="560"/>
 
         <Button  Style="{StaticResource ButtonStyle}"    Content="Annuleren" HorizontalAlignment="Left" Margin="626,414,0,0" VerticalAlignment="Top" Width="148" Height="34" Background="#902C14"  Click="Button_Annuleren_Click" />
         <Button  Style="{StaticResource ButtonStyle}"  Content="strip aanmaken" HorizontalAlignment="Left" Margin="282,414,0,0" VerticalAlignment="Top" Width="288" Height="34" Click="Button_Aanmaken_Click" />
 
         <TextBox HorizontalAlignment="Left"  Name="TextBox_titel" Margin="178,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,140,0,0" Text="Strip titel:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,144,0,0" Text="Strip titel:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Name="TextBox_nr" Margin="178,186,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,188,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Name="TextBox_nr" Margin="178,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,176,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Name="TextBox_reeks" Margin="178,237,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="25"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,237,0,0" Text="Strip Reeks:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox  HorizontalAlignment="Left" Name="TextBox_reeks" Margin="178,210,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,213,0,0" Text="Strip Reeks:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="178,284,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="45,286,0,0" Text="Strip Uitgeverij:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="178,245,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,245,0,0" Text="Strip Uitgeverij:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+
+        <Label Content="( Meerdere auteurs? splits ze met een comma en spatie )" HorizontalAlignment="Left" Margin="45,278,0,0" VerticalAlignment="Top"/>
+
+        <TextBox HorizontalAlignment="Left"  Name="TextBox_auteurs" Margin="178,299,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="53,301,0,0" Text="Auteur(s)" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
         <Image HorizontalAlignment="Left" Source="/Images/BoomIMG.png" Height="94" Margin="736,386,0,0" VerticalAlignment="Top" Width="95"/>
 
 

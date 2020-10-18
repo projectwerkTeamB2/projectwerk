@@ -9,7 +9,6 @@
       "UnitTests/1.0.0": {
         "dependencies": {
           "Businesslaag": "1.0.0",
-          "Datalaag": "1.0.0",
           "MSTest.TestAdapter": "2.1.0",
           "MSTest.TestFramework": "2.1.0",
           "Microsoft.NET.Test.Sdk": "16.5.0",
@@ -1076,14 +1075,6 @@
         "runtime": {
           "Businesslaag.dll": {}
         }
-      },
-      "Datalaag/1.0.0": {
-        "dependencies": {
-          "Businesslaag": "1.0.0"
-        },
-        "runtime": {
-          "Datalaag.dll": {}
-        }
       }
     }
   },
@@ -1703,11 +1694,6 @@
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
     "Businesslaag/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Datalaag/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

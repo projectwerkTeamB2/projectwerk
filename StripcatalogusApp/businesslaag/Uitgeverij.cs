@@ -6,11 +6,17 @@ namespace Businesslaag
 {
     public class Uitgeverij
     {
+        public int ID { get; set; }
         public string Naam { get; set; }
 
-        public Uitgeverij(string naamUitgeverij)
+        public Uitgeverij(int iD, string naam)
         {
-            this.Naam = naamUitgeverij;
+            ID = iD;
+            Naam = naam;
+        }
+
+        public Uitgeverij()
+        {
         }
 
         public override bool Equals(object obj)

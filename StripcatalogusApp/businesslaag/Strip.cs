@@ -6,7 +6,8 @@ namespace businesslaag
 {
    public class Strip
     {
-      public string StripTitel { get; set; }
+        public int ID { get; set; }
+        public string StripTitel { get; set; }
       public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
       public Reeks Reeks { get; set; }
       public int StripNr { get; set; }
@@ -14,31 +15,16 @@ namespace businesslaag
 
 
         //Als er meerdere auteurs zijn
-        public Strip(string stripTitel, List<Auteur> auteurs, Reeks reeks, int stripNr, Uitgeverij uitgeverij)
+        public Strip(int id,string stripTitel, List<Auteur> auteurs, Reeks reeks, int stripNr, Uitgeverij uitgeverij)
         {
+            this.ID = id;
             this.StripTitel = stripTitel;
             this.Auteurs = auteurs;
             this.Reeks = reeks;
             this.StripNr = stripNr;
             this.Uitgeverij = uitgeverij;
         }
-
-        //Als er maar 1 auteur is
-        public Strip(string stripTitel, Auteur auteur, Reeks reeks, int stripNr, Uitgeverij uitgeverij)
-        {
-            List<Auteur> auteursHelp = new List<Auteur>
-            {
-                auteur
-            };
-            this.StripTitel = stripTitel;
-            
-            this.Auteurs= auteursHelp;
-            this.Reeks = reeks;
-            this.StripNr = stripNr;
-            this.Uitgeverij = uitgeverij;
-        }
-
-
+        public Strip() { }
 
         //vb.= Strip : De boze geest, Pascal, Merel, GeesteJacht, 1, De standaard
         public override string ToString()
@@ -46,7 +32,7 @@ namespace businesslaag
             List<string> auteurNamen = new List<string>();
             Auteurs.ForEach(a => auteurNamen.Add( a.Naam));
 
-            string begin = $"Strip : {StripTitel}, ";
+            string begin = $"Strip :  {ID}, {StripTitel}, ";
             auteurNamen.ForEach(s => begin = begin+ s + ", ");
             begin = begin + $"{Reeks.Naam}, {StripNr.ToString()}, {Uitgeverij.Naam}";
 
