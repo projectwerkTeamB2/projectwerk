@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 
 namespace Datalaag
@@ -29,10 +30,12 @@ namespace Datalaag
 
 
             StripRepository sp = new StripRepository(sqlFactory);
-             sp.FindAll_strip();
-            int LastStipID = sp.latestStripId();
-            Auteur fr = sp.GetAuteur_fromName("Hermann");
-            Reeks r = sp.GetReeks_fromName("Aldebaran");
+        //    List<Strip> test = sp.FindAll_ByReeks(new Reeks(7, "maakt niet uit")).ToList();
+          //  Console.WriteLine(test[2].ID);
+         //    sp.FindAll_strip();
+        //    int LastStipID = sp.latestStripId();
+         //   Auteur fr = sp.GetAuteur_fromName("Hermann");
+         //   Reeks r = sp.GetReeks_fromName("Aldebaran");
            // sp.allesWegSchijvenNaarDataBank(stripsFromJson); //om JSON strips naar databank te sturen
             #endregion
           // sp.AddStrip()
