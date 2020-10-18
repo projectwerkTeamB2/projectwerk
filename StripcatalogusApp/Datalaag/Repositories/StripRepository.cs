@@ -410,7 +410,143 @@ namespace Datalaag.Repositories
 
         public IEnumerable<Strip> FindAll_ByReeks(Reeks reeks)
         {
-            throw new NotImplementedException();
+            DbConnection connection = getConnection();
+
+            IList<Strip> listStrips = new List<Strip>();
+
+            int teller = 0;
+
+
+            string query = "select s.id,s.Titel,a.Id,a.name,r.id,r.Name,s.Nummer,u.id,u.Name" +
+                " from Strip as s join Reeks as r on s.Reeks_id = r.id join Uitgeverij as u on s.Uitgeverij_id = u.id" +
+                " join Strip_has_Auteur as sa on s.id = sa.Strip_id join Auteur as a on a.Id = sa.Auteur_Id where r.id = @r";
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+
+                command.CommandText = query;
+                SqlParameter prID = new SqlParameter();
+                prID.ParameterName = "@r";
+                prID.DbType = DbType.Int32;
+                prID.Value = reeks.ID;
+                command.Parameters.Add(prID);
+
+                connection.Open();
+                try
+                {
+
+
+                    DbDataReader data = command.ExecuteReader();
+                    while (data.Read())
+                    {
+                        if (!listStrips.Any())
+                        {
+                            List<Auteur> list = new List<Auteur>();
+                            Auteur auteur = new Auteur((int)data[2], (string)data[3]);
+                            list.Add(auteur);
+                            Reeks reek = new Reeks((int)data[4], (string)data[5]);
+                            Uitgeverij uitgeverij = new Uitgeverij((int)data[7], (string)data[8]);
+                            listStrips.Add(new Strip((int)data[0], (string)data[1], list, reek, (int)data[6], uitgeverij));
+                        }
+                        else if (listStrips[teller].ID == (int)data[0])
+                        {
+                            listStrips[teller].Auteurs.Add(new Auteur((int)data[2], (string)data[3]));
+
+                        }
+                        else if (!(listStrips[teller].ID == (int)data[0]))
+                        {
+                            List<Auteur> list = new List<Auteur>();
+                            Auteur auteur = new Auteur((int)data[2], (string)data[3]);
+                            list.Add(auteur);
+                            Reeks reek = new Reeks((int)data[4], (string)data[5]);
+                            Uitgeverij uitgeverij = new Uitgeverij((int)data[7], (string)data[8]);
+                            listStrips.Add(new Strip((int)data[0], (string)data[1], list, reek, (int)data[6], uitgeverij));
+                            teller++;
+                        }
+                    }
+
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return listStrips;
+            }
+        }
+
+        public IEnumerable<Strip> FindAll_ByUitgeverij(Uitgeverij uitgeverij)
+        {
+            DbConnection connection = getConnection();
+
+            IList<Strip> listStrips = new List<Strip>();
+
+            int teller = 0;
+
+
+            string query = "select s.id,s.Titel,a.Id,a.name,r.id,r.Name,s.Nummer,u.id,u.Name" +
+                " from Strip as s join Reeks as r on s.Reeks_id = r.id join Uitgeverij as u on s.Uitgeverij_id = u.id" +
+                " join Strip_has_Auteur as sa on s.id = sa.Strip_id join Auteur as a on a.Id = sa.Auteur_Id where u.id = @u";
+
+            using (DbCommand command = connection.CreateCommand())
+            {
+
+                command.CommandText = query;
+                SqlParameter prID = new SqlParameter();
+                prID.ParameterName = "@u";
+                prID.DbType = DbType.Int32;
+                prID.Value = uitgeverij.ID;
+                command.Parameters.Add(prID);
+
+                connection.Open();
+                try
+                {
+
+
+                    DbDataReader data = command.ExecuteReader();
+                    while (data.Read())
+                    {
+                        if (!listStrips.Any())
+                        {
+                            List<Auteur> list = new List<Auteur>();
+                            Auteur auteur = new Auteur((int)data[2], (string)data[3]);
+                            list.Add(auteur);
+                            Reeks reek = new Reeks((int)data[4], (string)data[5]);
+                            Uitgeverij uitgeveri = new Uitgeverij((int)data[7], (string)data[8]);
+                            listStrips.Add(new Strip((int)data[0], (string)data[1], list, reek, (int)data[6], uitgeverij));
+                        }
+                        else if (listStrips[teller].ID == (int)data[0])
+                        {
+                            listStrips[teller].Auteurs.Add(new Auteur((int)data[2], (string)data[3]));
+
+                        }
+                        else if (!(listStrips[teller].ID == (int)data[0]))
+                        {
+                            List<Auteur> list = new List<Auteur>();
+                            Auteur auteur = new Auteur((int)data[2], (string)data[3]);
+                            list.Add(auteur);
+                            Reeks reek = new Reeks((int)data[4], (string)data[5]);
+                            Uitgeverij uitgeveri = new Uitgeverij((int)data[7], (string)data[8]);
+                            listStrips.Add(new Strip((int)data[0], (string)data[1], list, reek, (int)data[6], uitgeverij));
+                            teller++;
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return listStrips;
+            }
         }
 
         public IEnumerable<Strip> FindAll_strip()
