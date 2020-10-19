@@ -1,4 +1,4 @@
-﻿using businesslaag;
+﻿using Businesslaag;
 using Businesslaag;
 using Datalaag.Repositories;
 using System;
@@ -29,7 +29,7 @@ namespace Datalaag
            
 
 
-            StripRepository sp = new StripRepository(sqlFactory);
+            StripRepository_OG sp = new StripRepository_OG(sqlFactory);
         //    List<Strip> test = sp.FindAll_ByReeks(new Reeks(7, "maakt niet uit")).ToList();
           //  Console.WriteLine(test[2].ID);
          //    sp.FindAll_strip();

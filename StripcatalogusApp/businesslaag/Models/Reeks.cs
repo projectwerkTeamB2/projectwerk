@@ -1,9 +1,9 @@
-﻿using businesslaag;
+﻿using Businesslaag;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Businesslaag
+namespace Businesslaag.Models
 {
     public class Reeks
     {

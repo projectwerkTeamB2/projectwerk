@@ -20,7 +20,7 @@ namespace Datalaag
             conString = GetprojectwerkconnectionString();
         }
 
-         static  string GetprojectwerkconnectionString()
+      public static  string GetprojectwerkconnectionString()
         {
             return ConfigurationManager.ConnectionStrings["projectwerkconnectionString"].ConnectionString;
                 

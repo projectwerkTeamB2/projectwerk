@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Businesslaag
+namespace Businesslaag.Models
 {
     public class Auteur
     {
@@ -15,6 +15,8 @@ namespace Businesslaag
             ID = iD;
             Naam = naam;
         }
+        public Auteur() 
+        { }
 
         public override bool Equals(object obj)
         {

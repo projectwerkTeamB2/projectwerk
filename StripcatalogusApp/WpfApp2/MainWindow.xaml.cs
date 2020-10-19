@@ -1,4 +1,4 @@
-﻿using businesslaag;
+﻿using Businesslaag;
 using Datalaag;
 using Datalaag.Repositories;
 using System;
@@ -26,7 +26,7 @@ namespace WpfApp2
     public partial class MainWindow : Window
     {
 
-        StripRepository sr;
+        StripRepository_OG sr;
         List<Strip> stripsFromJson;
         public MainWindow()
         {
@@ -101,7 +101,7 @@ namespace WpfApp2
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            sr = new StripRepository(sqlFactory);
+            sr = new StripRepository_OG(sqlFactory);
             #endregion
 
             NaarDBLabel.Visibility = Visibility.Hidden;

@@ -1,4 +1,4 @@
-﻿using businesslaag;
+﻿using Businesslaag;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace GUI
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            StripRepository sr = new StripRepository(sqlFactory);
+            StripRepository_OG sr = new StripRepository_OG(sqlFactory);
             #endregion
 
             IEnumerable<Strip> stripsFromDb = sr.FindAll_strip();

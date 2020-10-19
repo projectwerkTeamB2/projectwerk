@@ -1,8 +1,7 @@
-﻿using Businesslaag;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace businesslaag
+namespace Businesslaag.Models
 {
    public class Strip
     {

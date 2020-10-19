@@ -1,4 +1,4 @@
-﻿using businesslaag;
+﻿using Businesslaag;
 using Businesslaag;
 using Datalaag.Repositories;
 using System;
@@ -71,9 +71,9 @@ namespace GUI
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            StripRepository sr = new StripRepository(sqlFactory);
+            StripRepository_OG sr = new StripRepository_OG(sqlFactory);
             #endregion
-            List<Auteur> auteursList = new List<Auteur>();
+            List<AuteurRepository> auteursList = new List<AuteurRepository>();
             Reeks reeks1 = new Reeks();
             Uitgeverij uitgeverij1 = new Uitgeverij();
             int inteVullenGeg = 5; //voor elke correcte ingevulde vakje -1. dus op 0 is alles correct
@@ -126,10 +126,10 @@ namespace GUI
                 }
                 //maar 1 auteur
                 else {
-                    Auteur bestaandeAuteur = sr.GetAuteur_fromName(auteurs);
+                    AuteurRepository bestaandeAuteur = sr.GetAuteur_fromName(auteurs);
 
                     if (bestaandeAuteur == null) {
-                        auteursList.Add(new Auteur(sr.latestAuteurId() +1, auteurs));
+                        auteursList.Add(new AuteurRepository(sr.latestAuteurId() +1, auteurs));
                     }
                     else { auteursList.Add(bestaandeAuteur); }
                 }
