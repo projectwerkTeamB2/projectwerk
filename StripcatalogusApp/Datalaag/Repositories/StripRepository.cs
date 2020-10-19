@@ -48,10 +48,6 @@ namespace Datalaag.Repositories
                 Reeks = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3)),
                 Uitgeverij = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4))
 
-                //  public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
-                //    public Reeks Reeks { get; set; }
-
-                //  public Uitgeverij Uitgeverij { get; set; }
             };
         }
      
