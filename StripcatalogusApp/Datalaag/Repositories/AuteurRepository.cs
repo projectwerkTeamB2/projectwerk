@@ -50,7 +50,7 @@ namespace Datalaag.Repositories
 
         public List<Auteur> GetStripAuteurs( int id) 
         {
-            var command = new SqlCommand("query comes here");
+            var command = new SqlCommand("select * from Auteur join Strip_has_Auteur on auteur.id = Strip_has_Auteur.Auteur_id Where Strip_id = @id");
             command.Parameters.Add(new SqlParameter("id", id));
             return (List<Auteur>)GetRecords(command);
 

@@ -42,13 +42,18 @@ namespace Datalaag.Repositories
         {
             return new Strip
             {
-                ID = reader.GetInt32(1),
-                StripTitel = reader.GetString(2)
-             //  public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
-             //    public Reeks Reeks { get; set; }
-                 public int StripNr { get; set; }
-               //  public Uitgeverij Uitgeverij { get; set; }
-    };
+                ID = reader.GetInt32(0),
+                StripTitel = reader.GetString(1),
+                StripNr = reader.GetInt32(2),
+                Reeks = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3)),
+                Uitgeverij = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4))
+
+                //  public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
+                //    public Reeks Reeks { get; set; }
+
+                //  public Uitgeverij Uitgeverij { get; set; }
+            };
+        }
      
-}
+    }
 }
