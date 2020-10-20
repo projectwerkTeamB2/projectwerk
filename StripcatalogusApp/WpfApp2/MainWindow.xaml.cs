@@ -69,7 +69,7 @@ namespace WpfApp2
                 catch {
                     stripsFromJson = null;
                 }
-                if (stripsFromJson != null) { 
+                if (stripsFromJson != null && stripsFromJson.Count != 0) { 
                 TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
 
                 NaarDBLabel.Visibility = Visibility.Visible;

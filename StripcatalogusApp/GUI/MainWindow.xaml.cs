@@ -1,4 +1,5 @@
 ﻿using businesslaag;
+using Businesslaag;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,22 @@ namespace GUI
             #endregion
 
             IEnumerable<Strip> stripsFromDb = sr.FindAll_strip();
-            StripDataGrid.ItemsSource = stripsFromDb;
+
+            string AuteursToString(List<Businesslaag.Auteur> deze){
+                if (deze.Count > 1)
+                {
+                    var res = deze.Select(o => o.Naam).Aggregate(
+                     "", // start with empty string to handle empty list case.
+                    (current, next) => current + ", " + next);
+                    return res;
+                }
+                else return deze.Select(o => o.Naam).FirstOrDefault();
+            }
+          
+
+            var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }) ;
+
+            StripDataGrid.ItemsSource = smallList;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
