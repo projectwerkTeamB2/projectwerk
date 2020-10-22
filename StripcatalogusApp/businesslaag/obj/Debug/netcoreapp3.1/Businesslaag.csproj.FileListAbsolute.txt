@@ -41,9 +41,9 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\busine
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.deps.json
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
-C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfoInputs.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfo.cs
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache

@@ -3,7 +3,7 @@ using Businesslaag.Models;
 
 namespace Businesslaag.Repositories
 {
-   public interface IStripRepository : CRUDRepository<Strip>
+   public interface IStripRepository 
     {
         IEnumerable<Strip> FindAll_ByReeks(Reeks reeks); 
         IEnumerable<Strip> FindAll_ByAuteur(Auteur auteur); 

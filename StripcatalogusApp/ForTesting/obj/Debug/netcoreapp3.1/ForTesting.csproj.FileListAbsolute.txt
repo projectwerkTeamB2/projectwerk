@@ -1,0 +1,4 @@
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.csprojAssemblyReference.cache
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.AssemblyInfoInputs.cache
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.AssemblyInfo.cs
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.csproj.CoreCompileInputs.cache

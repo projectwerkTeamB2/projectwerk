@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Businesslaag.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -34,8 +35,12 @@ namespace Datalaag
             var properties = _item.GetType().GetProperties();
             foreach (var propertyInfo in properties)
             {
-                var property = GetSqlValue(_item, propertyInfo);
-                sb.Append(GetFormattedInsertField(propertyInfo, property));
+                if (propertyInfo.GetCustomAttribute(typeof(ColumnAttribute)) != null) 
+                
+                {
+                    var property = GetSqlValue(_item, propertyInfo);
+                    sb.Append(GetFormattedInsertField(propertyInfo, property));
+                }        
             }
             var query = sb.ToString();
             return query.Remove(query.Length - 1);
@@ -53,6 +58,18 @@ namespace Datalaag
             else if (propertyInfo.PropertyType == typeof(DateTime))
             {
                 result = String.Format("'{0:u}' as {1},", property.Value, propertyInfo.Name);
+            }
+            else if (propertyInfo.PropertyType.Name == "Reeks")// compare strings
+            {
+                result = String.Format("{0} as {1},", (_item as Strip).Reeks.ID, "Reeks_ID");
+            }
+            else if (propertyInfo.PropertyType.Name == "Auteur")
+            {
+                result = String.Format("{0} as {1},", (_item as Auteur).ID, "Auteur_ID");
+            }
+            else if (propertyInfo.PropertyType.Name == "Uitgeverij")
+            {
+                result = String.Format("{0} as {1},", (_item as Strip).Uitgeverij.ID, "Uitgeverij_ID");
             }
             return result;
         }

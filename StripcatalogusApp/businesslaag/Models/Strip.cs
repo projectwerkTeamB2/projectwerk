@@ -1,15 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Businesslaag.Models
 {
+   [Table("Strip")]
    public class Strip
     {
+        [Key]
+        [Column("id")]
         public int ID { get; set; }
+        [Column("Titel")]
         public string StripTitel { get; set; }
       public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
+        [Column("Reeks_id")]
       public Reeks Reeks { get; set; }
+        [Column("Nummer")]
       public int StripNr { get; set; }
+        [Column("Uitgeverij_id")]
       public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 

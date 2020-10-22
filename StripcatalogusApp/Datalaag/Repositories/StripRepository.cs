@@ -12,6 +12,7 @@ namespace Datalaag.Repositories
     /// </summary>
     public class StripRepository : CRUDRepository<Strip>
     {
+      
         public StripRepository(string connectionString)
          : base(connectionString)
         {
@@ -46,10 +47,36 @@ namespace Datalaag.Repositories
                 StripTitel = reader.GetString(1),
                 StripNr = reader.GetInt32(2),
                 Reeks = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3)),
-                Uitgeverij = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4))
+                Uitgeverij = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4)),
+                Auteurs = new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()).GetStripAuteurs(reader.GetInt32(0))
 
             };
         }
-     
+        public void AddStrip(Strip strip)
+        {
+           
+            var sqlQueryBuilder = new SqlQueryBuilder<Strip>(strip);
+            ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
+            UpdateStripHasAuteur(strip);
+
+        }
+
+        private void UpdateStripHasAuteur(Strip strip) 
+        {
+            
+            for (int i = 0; i < strip.Auteurs.Count; i++)
+            {
+                SqlCommand command = new SqlCommand("Insert INTO Strip_has_Auteur values(@strip_id, @auteur_id)");
+                command.Parameters.AddWithValue("strip_id", strip.ID);
+                command.Parameters.AddWithValue("auteur_id", strip.Auteurs[i].ID);
+
+                ExecuteCommand(command);
+               
+            }
+          
+            
+               
+            
+        }
     }
 }
