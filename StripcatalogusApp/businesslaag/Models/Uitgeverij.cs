@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Businesslaag.Models
 {
+    [Table("Uitgeverij")]
     public class Uitgeverij
     {
         [Key]

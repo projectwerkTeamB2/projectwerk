@@ -48,5 +48,12 @@ namespace Datalaag.Repositories
             };
         }
 
+        public void addUitgeverij(Uitgeverij uitgeverij)
+        {
+
+            var sqlQueryBuilder = new SqlQueryBuilder<Uitgeverij>(uitgeverij);
+            ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
+        }
+
     }
 }

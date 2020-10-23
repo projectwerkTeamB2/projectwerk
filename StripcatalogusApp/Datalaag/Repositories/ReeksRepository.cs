@@ -47,6 +47,11 @@ namespace Datalaag.Repositories
                 Naam = reader.GetString(1)
             };
         }
+        public void addReeks(Reeks reeks)
+        {
 
+            var sqlQueryBuilder = new SqlQueryBuilder<Reeks>(reeks);
+            ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
+        }
     }
 }
