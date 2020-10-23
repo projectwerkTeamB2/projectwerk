@@ -30,11 +30,18 @@ namespace Datalaag.Repositories
         public Auteur GetById(string id)
         {
             // PARAMETERIZED QUERIES!
-            using (var command = new SqlCommand("SELECT * FROM auteur WHERE id = @id"))
+            using (var command = new SqlCommand("SELECT * FROM Auteur WHERE id = @id"))
             {
                 command.Parameters.Add(new SqlParameter("id", id));
                 return GetRecord(command);
             }
+        }
+
+        public List<Auteur> GetStripAuteurs(int id)
+        {
+            var command = new SqlCommand("select * from Auteur join Strip_has_Auteur on auteur.id = Strip_has_Auteur.Auteur_id Where Strip_id = @id");
+            command.Parameters.Add(new SqlParameter("id", id));
+            return (List<Auteur>)GetRecords(command);
         }
 
         #endregion
@@ -48,11 +55,11 @@ namespace Datalaag.Repositories
             };
         }
 
-        public List<Auteur> GetStripAuteurs( int id) 
+        public void addAuteur(Auteur auteur)
         {
-            var command = new SqlCommand("select * from Auteur join Strip_has_Auteur on auteur.id = Strip_has_Auteur.Auteur_id Where Strip_id = @id");
-            command.Parameters.Add(new SqlParameter("id", id));
-            return (List<Auteur>)GetRecords(command);
+
+            var sqlQueryBuilder = new SqlQueryBuilder<Auteur>(auteur);
+            ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
         }
 
     }
