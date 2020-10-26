@@ -1,7 +1,6 @@
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.AssemblyInfoInputs.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.AssemblyInfo.cs
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.csproj.CoreCompileInputs.cache
-C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.exe
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\test.exe
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\test.deps.json
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\test.runtimeconfig.json

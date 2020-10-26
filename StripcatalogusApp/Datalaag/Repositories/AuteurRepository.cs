@@ -25,7 +25,7 @@ namespace Datalaag.Repositories
             }
         }
 
-        public Auteur GetById(string id)
+        public Auteur GetById(int id)
         {
             // PARAMETERIZED QUERIES!
             using (var command = new SqlCommand("SELECT * FROM Auteur WHERE id = @id"))
@@ -58,6 +58,13 @@ namespace Datalaag.Repositories
 
             var sqlQueryBuilder = new SqlQueryBuilder<Auteur>(auteur);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
+        }
+
+        public void deleteAuteurById(int id)
+        {
+            Auteur auteur = GetById(id);
+            var sqlQueryBuilder = new SqlQueryBuilder<Auteur>(auteur);
+            ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
     }
