@@ -4,8 +4,6 @@ using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -33,8 +31,8 @@ namespace GUI
             this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
 
             #region connectie db
-            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
+            //DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
+            //DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
             StripRepository sr = new StripRepository(DbFunctions.GetprojectwerkconnectionString()); //werkt
             #endregion
