@@ -1,9 +1,7 @@
-﻿using Businesslaag.Models;
-using DataLayer.Repositories;
-using System;
+﻿using DataLayer.Repositories;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
+using Datalaag.Models;
 
 namespace Datalaag.Repositories
 {

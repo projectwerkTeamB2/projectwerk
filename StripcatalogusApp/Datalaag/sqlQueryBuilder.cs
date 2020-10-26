@@ -1,4 +1,4 @@
-﻿using Businesslaag.Models;
+﻿using Datalaag.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

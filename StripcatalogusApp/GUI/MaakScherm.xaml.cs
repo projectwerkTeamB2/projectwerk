@@ -1,20 +1,14 @@
-﻿using Businesslaag;
-using Businesslaag;
-using Datalaag.Repositories;
+﻿using Datalaag.Repositories;
+using Datalaag.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Datalaag;
 
 namespace GUI
 {
@@ -71,7 +65,7 @@ namespace GUI
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            StripRepository_OG sr = new StripRepository_OG(sqlFactory);
+            StripRepository sr = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
             #endregion
             List<AuteurRepository> auteursList = new List<AuteurRepository>();
             Reeks reeks1 = new Reeks();
@@ -90,61 +84,61 @@ namespace GUI
                 ietsLeeg = true;
             }
             //controleren of er fouten zijn
-            //TITEL
-            if ( TextBox_titel.Text != "" || TextBox_titel.Text.Length > 1)
-            { inteVullenGeg = inteVullenGeg - 1; }
-            //NUMMER
-            if (TextBox_nr.Text != "" )
-            { inteVullenGeg = inteVullenGeg - 1; }
-            //REEKS
-            if (TextBox_reeks.Text != "" || TextBox_reeks.Text.Length > 1)
-            {
-                Reeks reeksX = sr.GetReeks_fromName(reeks);
-                if (reeksX == null)// als reeks niet bestaat -> maak aan
-                {
-                    reeks1 = new Reeks(sr.latestReeksId() + 1, reeks);
-                }
-                else { reeks1 = reeksX; }
-                inteVullenGeg = inteVullenGeg - 1; }
-            //UITGEVERIJ
-            if (TextBox_uitgeverij.Text != "" || TextBox_uitgeverij.Text.Length > 1)
-            {
-                Uitgeverij uitgeverijX = sr.GetUitgeverij_fromName(uitgeverij);
-                if (uitgeverijX == null)// als reeks niet bestaat -> maak aan
-                {
-                    uitgeverij1 = new Uitgeverij(sr.latestReeksId() + 1, uitgeverij);
-                }
-                else { uitgeverij1 = uitgeverijX; }
-                inteVullenGeg = inteVullenGeg - 1; }
-            //AUTEURS
-            if (TextBox_auteurs.Text != "" || TextBox_auteurs.Text.Length > 1)
-            {
+          //  //TITEL
+          //  if ( TextBox_titel.Text != "" || TextBox_titel.Text.Length > 1)
+          //  { inteVullenGeg = inteVullenGeg - 1; }
+          //  //NUMMER
+          //  if (TextBox_nr.Text != "" )
+          //  { inteVullenGeg = inteVullenGeg - 1; }
+          //  //REEKS
+          //  if (TextBox_reeks.Text != "" || TextBox_reeks.Text.Length > 1)
+          //  {
+          //      Reeks reeksX = sr.GetReeks_fromName(reeks);
+          //      if (reeksX == null)// als reeks niet bestaat -> maak aan
+          //      {
+          //          reeks1 = new Reeks(sr.latestReeksId() + 1, reeks);
+          //      }
+          //      else { reeks1 = reeksX; }
+          //      inteVullenGeg = inteVullenGeg - 1; }
+          //  //UITGEVERIJ
+          //  if (TextBox_uitgeverij.Text != "" || TextBox_uitgeverij.Text.Length > 1)
+          //  {
+          //      Uitgeverij uitgeverijX = sr.GetUitgeverij_fromName(uitgeverij);
+          //      if (uitgeverijX == null)// als reeks niet bestaat -> maak aan
+          //      {
+          //          uitgeverij1 = new Uitgeverij(sr.latestReeksId() + 1, uitgeverij);
+          //      }
+          //      else { uitgeverij1 = uitgeverijX; }
+          //      inteVullenGeg = inteVullenGeg - 1; }
+          //  //AUTEURS
+          //  if (TextBox_auteurs.Text != "" || TextBox_auteurs.Text.Length > 1)
+          //  {
                 
-                //meedere auteurs
-                if (TextBox_auteurs.Text.Contains(',')) { 
+          //      //meedere auteurs
+          //      if (TextBox_auteurs.Text.Contains(',')) { 
                 
-                }
-                //maar 1 auteur
-                else {
-                    AuteurRepository bestaandeAuteur = sr.GetAuteur_fromName(auteurs);
+          //      }
+          //      //maar 1 auteur
+          //      else {
+          //          AuteurRepository bestaandeAuteur = sr.GetAuteur_fromName(auteurs);
 
-                    if (bestaandeAuteur == null) {
-                        auteursList.Add(new AuteurRepository(sr.latestAuteurId() +1, auteurs));
-                    }
-                    else { auteursList.Add(bestaandeAuteur); }
-                }
-                inteVullenGeg = inteVullenGeg - 1; }
-            //controleren of er duplicaten zijn
-            //foutcode eventueel teruggeven
-            //aanmaken en naar databank sturen
+          //          if (bestaandeAuteur == null) {
+          //       //       auteursList.Add(new AuteurRepository(sr.latestAuteurId() +1, auteurs));
+          //          }
+          //          else { auteursList.Add(bestaandeAuteur); }
+          //      }
+          //      inteVullenGeg = inteVullenGeg - 1; }
+          //  //controleren of er duplicaten zijn
+          //  //foutcode eventueel teruggeven
+          //  //aanmaken en naar databank sturen
           
-            int LastStripID = sr.latestStripId();
+          //  int LastStripID = sr.latestStripId();
 
-            if (!ietsLeeg) {
+          //  if (!ietsLeeg) {
 
-                Strip newStrip = new Strip(LastStripID + 1, titel, auteursList, reeks1,Convert.ToInt32( nr), uitgeverij1);
-                sr.AddStrip(newStrip);
-            }
+          ////      Strip newStrip = new Strip(LastStripID + 1, titel, auteursList, reeks1,Convert.ToInt32( nr), uitgeverij1);
+          // //     sr.AddStrip(newStrip);
+          //  }
 
             
         }

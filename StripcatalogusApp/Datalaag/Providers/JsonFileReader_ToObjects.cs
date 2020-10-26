@@ -1,16 +1,12 @@
-﻿using Businesslaag;
-using Businesslaag;
-using Businesslaag.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Datalaag.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Datalaag
 {
-   public class JsonFileReader_ToObjects
+    public class JsonFileReader_ToObjects
     //Hierin lees ik het data bestand in en geef ik hun terug als List<Objects>
     {
         public string locatieJson = @"..\..\..\..\..\dump.json";
