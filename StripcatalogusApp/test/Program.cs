@@ -13,7 +13,7 @@ namespace test
 
            
             ReeksRepository reeksRepository = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString());
-            Reeks astrix = reeksRepository.GetById(1);
+         //   Reeks astrix = reeksRepository.GetById(1);
             Reeks test = new Reeks(666, "test");
           //  reeksRepository.addReeks(test);
             UitgeverijRepository uitgeverijRepository = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString());
@@ -36,8 +36,9 @@ namespace test
                   foreach (var a in item.Auteurs)
                       Console.WriteLine(item.ID + " " + item.Reeks.Naam + " " + item.StripNr + " " + item.StripTitel + " " + a.Naam + " " + item.Uitgeverij.Naam);
               }*/
-            auteurRepository.deleteAuteurById(666);
-            foreach (var a in auteurRepository.GetAll())
+            // auteurRepository.deleteAuteurById(666);
+            reeksRepository.DeleteReeksById(666);
+            foreach (var a in reeksRepository.GetAll())
             {
                 Console.WriteLine(a.ID + " " + a.Naam);
             }
