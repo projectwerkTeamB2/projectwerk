@@ -6,7 +6,6 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Fo
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.AssemblyInfoInputs.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.AssemblyInfo.cs
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.csproj.CoreCompileInputs.cache
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\bin\Debug\netcoreapp3.1\Datalaag.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\bin\Debug\netcoreapp3.1\ForTesting.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\bin\Debug\netcoreapp3.1\ForTesting.deps.json
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\bin\Debug\netcoreapp3.1\ForTesting.runtimeconfig.json
@@ -59,4 +58,3 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Fo
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\obj\Debug\netcoreapp3.1\ForTesting.genruntimeconfig.cache
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\ForTesting\bin\Debug\netcoreapp3.1\ForTesting.dll.config

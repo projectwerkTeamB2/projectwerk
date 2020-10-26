@@ -292,7 +292,6 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\n
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.dll
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.genruntimeconfig.cache
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Datalaag.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll

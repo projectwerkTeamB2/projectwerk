@@ -55,7 +55,6 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\obj\Debug\netcor
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.genruntimeconfig.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\test.dll.config
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\test.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\test.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\test.deps.json

@@ -13,18 +13,18 @@ namespace Businesslaag.Models
         public int ID { get; set; }
         [Column("Titel")]
         public string StripTitel { get; set; }
-
-      public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
+        [Column("Nummer")]
+        public int StripNr { get; set; }
+        public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
         [Column("Reeks_id")]
       public Reeks Reeks { get; set; }
-        [Column("Nummer")]
-      public int StripNr { get; set; }
+      
         [Column("Uitgeverij_id")]
       public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 
         //Er kunnen meerdere auteurs zijn
-        public Strip(int id,string stripTitel, List<Auteur> auteurs, Reeks reeks, int stripNr, Uitgeverij uitgeverij)
+        public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij)
         {
             this.ID = id;
             this.StripTitel = stripTitel;

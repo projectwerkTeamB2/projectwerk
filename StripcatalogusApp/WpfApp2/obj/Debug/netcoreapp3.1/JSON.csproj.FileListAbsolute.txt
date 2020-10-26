@@ -13,7 +13,6 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Wp
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.csproj.CoreCompileInputs.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON_MarkupCompile.lref
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\JSON.exe
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\JSON.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\JSON.deps.json

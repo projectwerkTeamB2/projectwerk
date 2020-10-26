@@ -41,7 +41,7 @@ namespace ForTesting
             Auteur auteur = new Auteur(666, "test");
             List<Auteur> auteurs = new List<Auteur>();
             auteurs.Add(auteur);
-            Strip strip = new Strip(666, "robin fixed smiddags de dingen", auteurs, reeks, 12345, uitgeverij);
+            Strip strip = new Strip(666, "robin fixed smiddags de dingen", 12345, auteurs, reeks,  uitgeverij);
             StripRepository stripRepository = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
             IEnumerable<Strip> striplist = stripRepository.GetAll();
 
