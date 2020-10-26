@@ -28,7 +28,7 @@ namespace Datalaag.Repositories
             }
         }
 
-        public Strip GetById(string id)
+        public Strip GetById(int id)
         {
             // PARAMETERIZED QUERIES!
             using (var command = new SqlCommand("SELECT * FROM Strip WHERE id = @id"))
@@ -57,11 +57,11 @@ namespace Datalaag.Repositories
            
             var sqlQueryBuilder = new SqlQueryBuilder<Strip>(strip);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
-            UpdateStripHasAuteur(strip);
+            AddStripHasAuteur(strip);
 
         }
 
-        private void UpdateStripHasAuteur(Strip strip) 
+        private void AddStripHasAuteur(Strip strip) 
         {
             
             for (int i = 0; i < strip.Auteurs.Count; i++)
@@ -78,5 +78,22 @@ namespace Datalaag.Repositories
                
             
         }
+
+        private void DeleteStripIdFromStripHasAuteur(int id) 
+        {
+            {
+                var command = new SqlCommand("delete FROM Strip_has_Auteur WHERE Strip_id = @id");
+                command.Parameters.Add(new SqlParameter("id", id));
+                ExecuteCommand(command);
+            }
+        }
+        public void DeleteStripById(int id) 
+        {
+            DeleteStripIdFromStripHasAuteur(id);
+          Strip Strip = GetById(id);
+          var sqlQueryBuilder = new SqlQueryBuilder<Strip>(Strip);
+            ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
+        }
+
     }
 }

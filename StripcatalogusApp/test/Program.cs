@@ -26,15 +26,16 @@ namespace test
            // AuteurRepository auteurRepository = new AuteurRepository(DbFunctions.GetprojectwerkconnectionString());
           //  auteurRepository.addAuteur(auteur);
             Strip strip = new Strip(666, "robin fixed smiddags de dingen", auteurs, test, 12345, uitgeverij1);
+
+           
             StripRepository stripRepository = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
+            // stripRepository.AddStrip(strip);
+            stripRepository.DeleteStripById(2);
             foreach (var item in stripRepository.GetAll())
             {
-                foreach(var a in item.Auteurs)
-                Console.WriteLine(item.ID + " " + item.Reeks.Naam + " " + item.StripNr + " " + item.StripTitel + " " + a.Naam + " " + item.Uitgeverij.Naam);
+                foreach (var a in item.Auteurs)
+                    Console.WriteLine(item.ID + " " + item.Reeks.Naam + " " + item.StripNr + " " + item.StripTitel + " " + a.Naam + " " + item.Uitgeverij.Naam);
             }
-            stripRepository.AddStrip(strip);
-
-
         }
     }
 }
