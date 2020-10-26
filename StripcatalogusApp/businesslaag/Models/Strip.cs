@@ -13,6 +13,7 @@ namespace Businesslaag.Models
         public int ID { get; set; }
         [Column("Titel")]
         public string StripTitel { get; set; }
+
       public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
         [Column("Reeks_id")]
       public Reeks Reeks { get; set; }
@@ -22,7 +23,7 @@ namespace Businesslaag.Models
       public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 
-        //Als er meerdere auteurs zijn
+        //Er kunnen meerdere auteurs zijn
         public Strip(int id,string stripTitel, List<Auteur> auteurs, Reeks reeks, int stripNr, Uitgeverij uitgeverij)
         {
             this.ID = id;
@@ -33,6 +34,35 @@ namespace Businesslaag.Models
             this.Uitgeverij = uitgeverij;
         }
         public Strip() { }
+
+        //toevoegingen
+        public void addAuteur(Auteur auteur) {
+            if (nietBestaandeAuteurCheck(auteur)) { //kijken of hij al bestaat
+                this.Auteurs.Add(auteur);
+            }
+           
+        }
+        public void addAuteurs(List<Auteur> auteurs)
+        {
+            foreach (var aut in auteurs)
+            {
+                if (nietBestaandeAuteurCheck(aut))
+                {
+                    //kijken of hij al bestaat
+                    this.Auteurs.Add(aut);
+                }
+            }
+           
+        }
+        private Boolean nietBestaandeAuteurCheck(Auteur auteur) { //true
+            if (this.Auteurs.Contains(auteur))
+            {
+                return false; //hij bestaat al
+            }
+            else return true; // hij bestaat niet
+        }
+      
+
 
         //vb.= Strip : De boze geest, Pascal, Merel, GeesteJacht, 1, De standaard
         public override string ToString()

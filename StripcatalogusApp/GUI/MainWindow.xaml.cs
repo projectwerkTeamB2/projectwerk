@@ -1,4 +1,6 @@
 ﻿using Businesslaag;
+using Datalaag;
+using Datalaag.Models;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
@@ -44,10 +46,10 @@ namespace GUI
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            StripRepository_OG sr = new StripRepository_OG(sqlFactory);
+            StripRepository sr = new StripRepository(DbFunctions.GetprojectwerkconnectionString()); //werkt
             #endregion
 
-            IEnumerable<Strip> stripsFromDb = sr.FindAll_strip();
+            IEnumerable<Strip> stripsFromDb = sr.GetAll(); //zit vast
             StripDataGrid.ItemsSource = stripsFromDb;
         }
 

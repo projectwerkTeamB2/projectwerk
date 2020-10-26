@@ -1,14 +1,8 @@
-﻿using Businesslaag;
-using Businesslaag;
-using Businesslaag.Models;
+﻿using Datalaag.Models;
 using Datalaag;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
 namespace ForTesting
 {

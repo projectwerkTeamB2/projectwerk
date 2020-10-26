@@ -1,14 +1,9 @@
-﻿using Businesslaag;
-using Businesslaag;
-using Businesslaag.Models;
-using Datalaag;
+﻿using Datalaag;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.SqlClient;
+using Datalaag.Models;
 using System.Linq;
-using System.Text;
 
 namespace ForTesting
 {
@@ -48,7 +43,15 @@ namespace ForTesting
             auteurs.Add(auteur);
             Strip strip = new Strip(666, "robin fixed smiddags de dingen", auteurs, reeks, 12345, uitgeverij);
             StripRepository stripRepository = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
-            Console.WriteLine(stripRepository.GetAll());
+            IEnumerable<Strip> striplist = stripRepository.GetAll();
+
+
+            foreach (var row in striplist.ToList())
+            {
+                Console.WriteLine( row.ToString());
+                
+            }
+           
           //  stripRepository.AddStrip(strip);
 
         }

@@ -11,19 +11,10 @@ C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk
 C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\ciki3\source\repos\TrainingManagerProject\projectwerkTeamB2\projectwerk\StripcatalogusApp\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.genruntimeconfig.cache
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfoInputs.cache
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfo.cs
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfoInputs.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfo.cs
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.deps.json
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.dll
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.deps.json
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
@@ -47,3 +38,17 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debu
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.exe
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.deps.json
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfoInputs.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.AssemblyInfo.cs
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CopyComplete
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.dll
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config
