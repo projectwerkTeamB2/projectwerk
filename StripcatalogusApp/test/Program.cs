@@ -37,8 +37,9 @@ namespace test
                       Console.WriteLine(item.ID + " " + item.Reeks.Naam + " " + item.StripNr + " " + item.StripTitel + " " + a.Naam + " " + item.Uitgeverij.Naam);
               }*/
             // auteurRepository.deleteAuteurById(666);
-            reeksRepository.DeleteReeksById(666);
-            foreach (var a in reeksRepository.GetAll())
+            //  reeksRepository.DeleteReeksById(666);
+            uitgeverijRepository.DeleteUitgeverijById(666);
+            foreach (var a in uitgeverijRepository.GetAll())
             {
                 Console.WriteLine(a.ID + " " + a.Naam);
             }

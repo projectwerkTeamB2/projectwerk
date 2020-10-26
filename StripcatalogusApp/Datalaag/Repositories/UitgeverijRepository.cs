@@ -21,7 +21,7 @@ namespace Datalaag.Repositories
         {
             // DBAs across the country are having strokes 
             //  over this next command!
-            using (var command = new SqlCommand("SELECT * FROM Auteur"))
+            using (var command = new SqlCommand("SELECT * FROM Uitgeverij"))
             {
                 return GetRecords(command);
             }
@@ -53,6 +53,13 @@ namespace Datalaag.Repositories
 
             var sqlQueryBuilder = new SqlQueryBuilder<Uitgeverij>(uitgeverij);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
+        }
+
+        public void DeleteUitgeverijById(int id) 
+        {
+            Uitgeverij uitgeverij = GetById(id);
+            var sqlQueryBuilder = new SqlQueryBuilder<Uitgeverij>(uitgeverij);
+            ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
     }
