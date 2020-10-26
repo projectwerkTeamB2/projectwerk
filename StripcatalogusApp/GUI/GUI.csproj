@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App.config" />
     <None Remove="Images\book.ico" />
     <None Remove="Images\BoomIMG.png" />
     <None Remove="Images\CloudIMG.png" />
