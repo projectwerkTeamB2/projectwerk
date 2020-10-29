@@ -1,15 +1,12 @@
-﻿using businesslaag;
-using Businesslaag;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Datalaag.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Datalaag
 {
-   public class JsonFileReader_ToObjects
+    public class JsonFileReader_ToObjects
     //Hierin lees ik het data bestand in en geef ik hun terug als List<Objects>
     {
         public string locatieJson = @"..\..\..\..\..\dump.json";
@@ -131,14 +128,14 @@ namespace Datalaag
                                     auteurs.Add(new Auteur(Convert.ToInt32(stripAuteur1ID), stripAuteur1Naam));
                                 }
                                 //als er meerdere auteurs zijn
-                                listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), Convert.ToInt32(stripNr), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
+                                listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, Convert.ToInt32(stripNr), auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
                             }
                             else
                             {
                                 List<Auteur> auteurs = new List<Auteur>();
                                 ////als er maar 1 auteur is
                                 auteurs.Add(new Auteur(Convert.ToInt32(stripAuteur1ID), stripAuteur1Naam));
-                                listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), Convert.ToInt32(stripNr), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
+                                listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, Convert.ToInt32(stripNr), auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks),  new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
 
                             }
 
@@ -147,7 +144,7 @@ namespace Datalaag
                         else //als er geen auteurs zijn
                         {
                             List<Auteur> auteurs = new List<Auteur>();
-                            listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), Convert.ToInt32(stripNr), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
+                            listAlleStrips.Add(new Strip(Convert.ToInt32(StripID), stripTitel, Convert.ToInt32(stripNr), auteurs, new Reeks(Convert.ToInt32(stripReeksID), stripReeks), new Uitgeverij(Convert.ToInt32(stripUitgeverijID), stripUitgeverij)));
 
 
                         }

@@ -1,22 +1,11 @@
-﻿using businesslaag;
+﻿using Datalaag.Models;
 using Datalaag;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp2
 {
@@ -47,7 +36,7 @@ namespace WpfApp2
             // Create OpenFileDialog
             Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
             openFileDlg.DefaultExt = ".json";// Set filter for file extension and default file extension  
-            openFileDlg.Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt";
+            openFileDlg.Filter = "Json files (*.json)|*.json";
 
             openFileDlg.Multiselect = false;// Multiple selection with all file types  
             // Launch OpenFileDialog by calling ShowDialog method
@@ -64,6 +53,7 @@ namespace WpfApp2
                 jfr.locatieJson = openFileDlg.FileName;
                 try
                 {
+
                     stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
                 }
                 catch {
@@ -87,7 +77,7 @@ namespace WpfApp2
             if (stripsFromJson != null) {
                 try
                 {
-                    sr.allesWegSchijvenNaarDataBank(stripsFromJson);
+                //    sr.allesWegSchijvenNaarDataBank(stripsFromJson); //vladik zijn code is weg
                     TextBlock2.Text = "Gelukt!";
                 }
                 catch { TextBlock2.Text = "Er is iets fout gegaan"; }
@@ -101,7 +91,7 @@ namespace WpfApp2
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            sr = new StripRepository(sqlFactory);
+             sr = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
             #endregion
 
             NaarDBLabel.Visibility = Visibility.Hidden;

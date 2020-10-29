@@ -1,24 +1,13 @@
-﻿using businesslaag;
-using Businesslaag;
+﻿using Datalaag;
+using Datalaag.Models;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Data.OleDb;
-using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GUI
 {
@@ -26,7 +15,7 @@ namespace GUI
     //Voor de user interface wordt er gebruik gemaakt van WPF
     public partial class MainWindow : Window
     {
-
+        IEnumerable<Strip> stripsFromDb;
 
         public MainWindow()
         {
@@ -42,27 +31,40 @@ namespace GUI
             this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
 
             #region connectie db
-            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
+            //DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
+            //DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            StripRepository sr = new StripRepository(sqlFactory);
+            StripRepository sr = new StripRepository(DbFunctions.GetprojectwerkconnectionString()); //werkt
             #endregion
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            stripsFromDb = sr.GetAll(); // duurt heel lang...
+            stopWatch.Stop();
+            // Kijken hoelang het duurde
+            // duurt 01min 49sec
+            TimeSpan ts = stopWatch.Elapsed;
 
-            IEnumerable<Strip> stripsFromDb = sr.FindAll_strip();
 
-            string AuteursToString(List<Businesslaag.Auteur> deze){
+
+            string AuteursToString(List<Auteur> deze)
+            {
                 if (deze.Count > 1)
-                {
-                    var res = deze.Select(o => o.Naam).Aggregate(
+                { //als meerdere auteurs
+                    var res = deze.Select(o => o.Naam.Trim()).Aggregate(
                      "", // start with empty string to handle empty list case.
-                    (current, next) => current + ", " + next);
+
+                    (current, next) => current + ", " + next );
+                    res = res.Remove(0, 2); //hij voegt ", " toe in de begin, ik verwijder die hier
                     return res;
                 }
                 else return deze.Select(o => o.Naam).FirstOrDefault();
             }
-          
 
-            var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }) ;
+            // duurt 00.0004371 seconden
+            var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam });
+            
+
+
 
             StripDataGrid.ItemsSource = smallList;
         }
