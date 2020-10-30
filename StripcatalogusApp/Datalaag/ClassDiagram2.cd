@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Datalaag.Models.Auteur">
+    <Position X="1" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAABAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Auteur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.Models.Reeks">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAABAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Reeks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.Models.Strip">
+    <Position X="1" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAwAAMgAgAAAIAAAAAAIAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Strip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.Models.Uitgeverij">
+    <Position X="2.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAABAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Uitgeverij.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.JsonFileReader_ToObjects">
+    <Position X="4.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Providers\JsonFileReader_ToObjects.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.DbFunctions">
+    <Position X="4.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DbFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.SqlQueryBuilder&lt;T&gt;">
+    <Position X="6.25" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAIAAIAIAQAAgABAoSAAAAAEACAAAAAA=</HashCode>
+      <FileName>sqlQueryBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.StripContext">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StripContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.Repositories.AuteurRepository">
+    <Position X="11" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAQgAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Repositories\AuteurRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.Repositories.ReeksRepository">
+    <Position X="15.5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAEAAAAAAAAAgAAAAAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Repositories\ReeksRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.Repositories.StripRepository">
+    <Position X="17.5" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAEAAAgAAAAIIAAgAAAAAAAIA=</HashCode>
+      <FileName>Repositories\StripRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Datalaag.Repositories.UitgeverijRepository">
+    <Position X="13.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAgAAAEAAAAgAAAAAAAIA=</HashCode>
+      <FileName>Repositories\UitgeverijRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataLayer.Repositories.CRUDRepository&lt;T&gt;">
+    <Position X="14" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAABAAIAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Repositories\CRUDRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ForTesting.Program">
+    <Position X="1" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
