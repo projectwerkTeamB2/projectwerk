@@ -40,14 +40,15 @@ namespace Businesslaag.Models
 
             if (!stripsFromDb.Contains(x))
             { //als nog niet in db
-                if (stripTitel == null || stripTitel == "") { }
+                if (stripTitel == null || stripTitel == "") { throw new System.Exception("U gaf geen StripTitel mee! "); }
 
               //kijken of auteurs al bestaan
                 ar = new AuteurRepository(connectionString);
                 if (auteurs.Count == 0 || auteurs == null) { 
-                for (int i = 0; i < auteurs.Count; i++)
+                foreach(Auteur aut in auteurs)
                 {
-                       
+                        if (true) { } //check
+                        else { ar.addAuteur(auteur)}
                 }
                 }
                 else throw new System.Exception("U gaf geen auteurs mee! ");
@@ -55,16 +56,22 @@ namespace Businesslaag.Models
                 rk = new ReeksRepository(connectionString);
                 if (reeks == null)
                 {
-                   
+                    if (true) { } //check
+                    else { rk.addReeks(reeks)}
                 }
                 else throw new System.Exception("U gaf geen reeks mee! ");
                 //kijken of uitgeverij al bestaat
                 ui = new UitgeverijRepository(connectionString);
                 if (uitgeverij == null)
                 {
-
+                    if (true) { } //check
+                    else { ui.addUitgeverij(uitgeverij)}
                 }
                 else throw new System.Exception("U gaf geen uitgeverij mee! ");
+
+
+
+
                 //Strip toevoegen
                 sr = new StripRepository(connectionString);
                 sr.AddStrip(new Datalaag.Models.Strip(sr.GetLastStrip().ID, stripTitel, stripNr, auteurs, reeks, uitgeverij));
@@ -72,6 +79,7 @@ namespace Businesslaag.Models
             }
             else throw new System.Exception("Deze strip bestaat al in databank! ");
         }
+
         public void EditStrip()
         {
 
