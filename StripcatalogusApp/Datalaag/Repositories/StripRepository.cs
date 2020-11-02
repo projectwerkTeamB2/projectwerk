@@ -27,6 +27,15 @@ namespace Datalaag.Repositories
                 return GetRecords(command);
             }
         }
+        public Strip GetLastStrip()
+        {
+            // DBAs across the country are having strokes 
+            //  over this next command!
+            using (var command = new SqlCommand("SELECT TOP 1 * FROM Strip ORDER BY ID DESC"))
+            {
+                return GetRecord(command);
+            }
+        }
 
         public Strip GetById(int id)
         {

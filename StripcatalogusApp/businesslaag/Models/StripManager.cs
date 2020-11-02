@@ -10,6 +10,8 @@ namespace Businesslaag.Models
     {
         private StripRepository sr;
         private AuteurRepository ar;
+        private ReeksRepository rk;
+        private UitgeverijRepository ui;
         private IEnumerable<Strip> stripsFromDb;
         private string connectionString;
 
@@ -34,7 +36,7 @@ namespace Businesslaag.Models
                       && strip.StripNr == stripNr //hetzelfde strip nummer
                       && strip.Uitgeverij.Naam == uitgeverij.Naam //hetzelfde uitgeverij naam
                       select strip);
-
+            
 
             if (!stripsFromDb.Contains(x))
             { //als nog niet in db
@@ -45,14 +47,27 @@ namespace Businesslaag.Models
                 if (auteurs.Count == 0 || auteurs == null) { 
                 for (int i = 0; i < auteurs.Count; i++)
                 {
-
+                       
                 }
                 }
                 else throw new System.Exception("U gaf geen auteurs mee! ");
                 //kijken of reeks al bestaat
+                rk = new ReeksRepository(connectionString);
+                if (reeks == null)
+                {
+                   
+                }
+                else throw new System.Exception("U gaf geen reeks mee! ");
                 //kijken of uitgeverij al bestaat
-                //Strip toevoegen
+                ui = new UitgeverijRepository(connectionString);
+                if (uitgeverij == null)
+                {
 
+                }
+                else throw new System.Exception("U gaf geen uitgeverij mee! ");
+                //Strip toevoegen
+                sr = new StripRepository(connectionString);
+                sr.AddStrip(new Datalaag.Models.Strip(sr.GetLastStrip().ID, stripTitel, stripNr, auteurs, reeks, uitgeverij));
 
             }
             else throw new System.Exception("Deze strip bestaat al in databank! ");
