@@ -3,6 +3,7 @@ using Datalaag;
 using Datalaag.Repositories;
 using System;
 using System.Collections.Generic;
+using Businesslaag.Managers;
 
 namespace test
 {
@@ -11,7 +12,7 @@ namespace test
    public static void Main(string[] args)
         {
 
-           
+            GeneralManager generalManager = new GeneralManager();
             ReeksRepository reeksRepository = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString());
          
             Reeks test = new Reeks(666, "test");
@@ -37,9 +38,9 @@ namespace test
             //uitgeverijRepository.addUitgeverij(testUitgeverij);
             //  auteurRepository.addAuteur(auteur);
 
-             stripRepository.AddStrip(strip);
-            stripRepository.updateStrip(2669, strip);
-            Console.WriteLine("strip updated");
+            generalManager.Addstrip(strip);
+           // stripRepository.updateStrip(2669, strip);
+          //  Console.WriteLine("strip updated");
 
 
             /*  stripRepository.DeleteStripById(2);
