@@ -71,6 +71,5 @@ namespace Datalaag.Repositories
                 ExecuteCommand(command);
             }
         }
-
     }
 }

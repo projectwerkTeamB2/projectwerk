@@ -14,7 +14,7 @@ namespace ForTesting
         {
             #region databank opvullen code
 
-            //Leest de Json bestand in en maakt er objecten van
+            /*//Leest de Json bestand in en maakt er objecten van
             JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
             List<Strip> stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
 
@@ -34,8 +34,10 @@ namespace ForTesting
                Auteur fr = sp.GetAuteur_fromName("Hermann");
                Reeks r = sp.GetReeks_fromName("Aldebaran");
              sp.allesWegSchijvenNaarDataBank(stripsFromJson); //om JSON strips naar databank te sturen
+            */
             #endregion
             // sp.AddStrip()
+            
             Uitgeverij uitgeverij = new Uitgeverij(666, "test");
             Reeks reeks = new Reeks(666, "robin fixes");
             Auteur auteur = new Auteur(666, "test");
