@@ -61,6 +61,8 @@ namespace Datalaag.Repositories
 
             };
         }
+
+        #region Add
         public void AddStrip(Strip strip)
         {
            
@@ -88,6 +90,9 @@ namespace Datalaag.Repositories
             
         }
 
+        #endregion
+
+        #region Delete
         private void DeleteStripIdFromStripHasAuteur(int id) 
         {
             {
@@ -103,6 +108,25 @@ namespace Datalaag.Repositories
           var sqlQueryBuilder = new SqlQueryBuilder<Strip>(Strip);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
+
+        #endregion
+
+        #region update
+
+        public void updateStrip(int id, Strip newstrip)
+        {
+            {
+                var command = new SqlCommand("update Strip set id = @id, Titel = @title, Nummer = @nummer, Reeks_id = @reeks, Uitgeverij_id = @uitgeverij WHERE id = @id");
+                command.Parameters.Add(new SqlParameter("id", id));
+                command.Parameters.Add(new SqlParameter("title", newstrip.StripTitel));
+                command.Parameters.Add(new SqlParameter("nummer", newstrip.StripNr));
+                command.Parameters.Add(new SqlParameter("reeks", newstrip.Reeks.ID));
+                command.Parameters.Add(new SqlParameter("uitgeverij", newstrip.Uitgeverij.ID));
+                ExecuteCommand(command);
+            }
+        }
+
+        #endregion
 
     }
 }

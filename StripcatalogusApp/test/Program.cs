@@ -24,7 +24,7 @@ namespace test
             auteurs.Add(auteur);
             AuteurRepository auteurRepository = new AuteurRepository(DbFunctions.GetprojectwerkconnectionString());
         
-            Strip strip = new Strip(2669, "robin fixed smiddags de dingen", 12345, auteurs, test, uitgeverij1);
+            Strip strip = new Strip(2669, "jeff fixed", 12345, auteurs, test, uitgeverij1);
 
            
             StripRepository stripRepository = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
@@ -38,6 +38,8 @@ namespace test
             //  auteurRepository.addAuteur(auteur);
 
              stripRepository.AddStrip(strip);
+            stripRepository.updateStrip(2669, strip);
+            Console.WriteLine("strip updated");
 
 
             /*  stripRepository.DeleteStripById(2);
