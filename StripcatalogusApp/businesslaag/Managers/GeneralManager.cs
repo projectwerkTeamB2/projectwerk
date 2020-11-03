@@ -67,7 +67,7 @@ namespace Businesslaag.Managers
         {
             if(StripRepository.GetAll().Any(i => i.ID == strip.ID && i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
             {
-                throw new ArgumentException("Strip bestaat al in de database");
+                return false;
             }
             else
             {
@@ -79,7 +79,7 @@ namespace Businesslaag.Managers
         {
             if (AuteurRepository.GetAll().Any(i => i.ID == auteur.ID && i.Naam == auteur.Naam))
             {
-                throw new ArgumentException("Auteur bestaat al in de database");
+                return false;
             }
             else
             {
@@ -90,7 +90,7 @@ namespace Businesslaag.Managers
         {
             if (ReeksRepository.GetAll().Any(i => i.ID == reeks.ID && i.Naam == reeks.Naam))
             {
-                throw new ArgumentException("Reeks bestaat al in de database");
+                return false;
             }
             else
             {
@@ -102,7 +102,7 @@ namespace Businesslaag.Managers
         {
             if (uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
             {
-                throw new ArgumentException("Uitgeverij bestaat al in de database");
+                return false;
             }
             else
             {
