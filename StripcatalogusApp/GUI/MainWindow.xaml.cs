@@ -1,6 +1,4 @@
-﻿using Datalaag;
-using Datalaag.Models;
-using Datalaag.Repositories;
+﻿using Businesslaag.Models;
 using Businesslaag.Managers;
 using System;
 using System.Collections.Generic;
@@ -32,20 +30,8 @@ namespace GUI
             Uri iconUri = new Uri("../../../Images/book.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
 
-            #region connectie db
-            //DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-            //DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
-
-           // StripRepository sr = new StripRepository(DbFunctions.GetprojectwerkconnectionString()); //werkt
-          
-            #endregion
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            stripsFromDb = generalManager.StripRepository.GetAll(); // duurt heel lang...
-            stopWatch.Stop();
-            // Kijken hoelang het duurde
-            // duurt 01min 49sec
-            TimeSpan ts = stopWatch.Elapsed;
+            stripsFromDb = (IEnumerable<Strip>)generalManager.StripRepository.GetAll(); 
+           
 
 
 
@@ -63,7 +49,6 @@ namespace GUI
                 else return deze.Select(o => o.Naam).FirstOrDefault();
             }
 
-            // duurt 00.0004371 seconden
             var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam });
             StripDataGrid.ItemsSource = smallList;
         }
