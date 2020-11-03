@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Businesslaag.Models
 {
-    public class StripManager
+  /*  public class StripManager
     {
         private StripRepository sr;
         private AuteurRepository ar;
@@ -84,5 +84,5 @@ namespace Businesslaag.Models
         {
 
         }
-    }
+    }*/
 }

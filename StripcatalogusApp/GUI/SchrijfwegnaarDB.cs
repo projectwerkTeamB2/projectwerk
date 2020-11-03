@@ -6,12 +6,12 @@ using System.Text;
 
 namespace JSON
 {
-    class SchrijfwegnaarDB
+   /* class SchrijfwegnaarDB
     {
         public void allesWegSchijvenNaarDataBank(List<Strip> strips)
         {
             #region
-            /* StripRepository stripRepo = new StripRepository(System.Configuration.ConfigurationManager.
+            *//* StripRepository stripRepo = new StripRepository(System.Configuration.ConfigurationManager.
             ConnectionStrings["projectwerkconnectionString"].ConnectionString);
              AuteurRepository auteurRepo = new AuteurRepository(System.Configuration.ConfigurationManager.
  ConnectionStrings["projectwerkconnectionString"].ConnectionString);
@@ -30,7 +30,7 @@ namespace JSON
                  reeksRepo.addReeks(str.Reeks);
                  stripRepo.AddStrip(str);
              }
-        }*/
+        }*//*
             #endregion
             StripManager stripmanager = new StripManager();
             foreach (Strip str in strips)
@@ -38,5 +38,5 @@ namespace JSON
                 stripmanager.AddStrip(str.StripTitel, str.Auteurs, str.Reeks, str.StripNr, str.Uitgeverij);
             }
         }
-    }
+    }*/
 }
