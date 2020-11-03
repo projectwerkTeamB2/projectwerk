@@ -13,4 +13,8 @@
     <ProjectReference Include="..\Datalaag\Datalaag.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
