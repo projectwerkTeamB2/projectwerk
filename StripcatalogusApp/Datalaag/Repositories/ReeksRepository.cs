@@ -64,7 +64,7 @@ namespace Datalaag.Repositories
         public void updateReeks(int id, Reeks newReeks) 
         {
             {
-                var command = new SqlCommand("update Strip set id = @id, Name = @name WHERE id = @id");
+                var command = new SqlCommand("update Reeks set id = @id, Name = @name WHERE id = @id");
                 command.Parameters.Add(new SqlParameter("id", id));
                 command.Parameters.Add(new SqlParameter("name", newReeks.Naam));
                 ExecuteCommand(command);

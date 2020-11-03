@@ -22,7 +22,7 @@ namespace Businesslaag.Managers
         public ReeksRepository ReeksRepository { get; }
         public AuteurRepository AuteurRepository { get; }
         public StripRepository StripRepository { get; }
-        public UitgeverijRepository uitgeverijRepository { get; }
+        public UitgeverijRepository UitgeverijRepository { get; }
 
         #endregion
         public GeneralManager() 
@@ -30,7 +30,7 @@ namespace Businesslaag.Managers
               ReeksRepository = _reeksRepository;
               AuteurRepository = _auteurRepository;
               StripRepository = _stripRepository;
-              uitgeverijRepository = _uitgeverijRepository;
+              UitgeverijRepository = _uitgeverijRepository;
         }
 
         #region Add
@@ -56,7 +56,7 @@ namespace Businesslaag.Managers
         public void AddUitgeverij(Uitgeverij uitgeverij)
         {
             if (DoubleUitgeverijNotFound(uitgeverij))
-                uitgeverijRepository.addUitgeverij(uitgeverij);
+                UitgeverijRepository.addUitgeverij(uitgeverij);
         }
 
         #endregion
@@ -100,7 +100,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleUitgeverijNotFound(Uitgeverij uitgeverij)
         {
-            if (uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
+            if (UitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
             {
                 throw new ArgumentException("Uitgeverij bestaat al in de database");
             }

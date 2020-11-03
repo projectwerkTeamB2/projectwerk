@@ -133,7 +133,7 @@ namespace Datalaag.Repositories
         #endregion
 
         private void updateAuteurStrip(Strip newStrip) {
-            for(int i = 0; i <= newStrip.Auteurs.Count; i++) {
+            for(int i = 0; i < newStrip.Auteurs.Count; i++) {
                 SqlCommand command = new SqlCommand("update Strip_has_Auteur SET Strip_Id=@strip_id, Auteur_Id=@auteur_id WHERE Strip_id=@strip_id");
                 command.Parameters.AddWithValue("strip_id", newStrip.ID);
                 command.Parameters.AddWithValue("auteur_id", newStrip.Auteurs[i].ID);
@@ -141,6 +141,5 @@ namespace Datalaag.Repositories
                 ExecuteCommand(command);
             }
         }
-
     }
 }
