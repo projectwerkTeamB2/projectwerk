@@ -55,3 +55,7 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\bin\Debu
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CopyComplete
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.pdb
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CopyComplete

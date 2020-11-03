@@ -60,5 +60,15 @@ namespace Datalaag.Repositories
             var sqlQueryBuilder = new SqlQueryBuilder<Reeks>(reeks);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
+
+        public void updateReeks(int id, Reeks newReeks) 
+        {
+            {
+                var command = new SqlCommand("update Strip set id = @id, Name = @name WHERE id = @id");
+                command.Parameters.Add(new SqlParameter("id", id));
+                command.Parameters.Add(new SqlParameter("name", newReeks.Naam));
+                ExecuteCommand(command);
+            }
+        }
     }
 }

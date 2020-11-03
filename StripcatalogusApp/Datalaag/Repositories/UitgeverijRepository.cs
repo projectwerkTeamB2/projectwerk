@@ -62,5 +62,15 @@ namespace Datalaag.Repositories
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
+        public void updateUitgeverijById(int id, Uitgeverij newUitgeverij) 
+        {
+            {
+                var command = new SqlCommand("update Uitgeverij set id = @id, Name = @name WHERE id = @id");
+                command.Parameters.Add(new SqlParameter("id", id));
+                command.Parameters.Add(new SqlParameter("name", newUitgeverij.Naam));
+                ExecuteCommand(command);
+            }
+        }
+
     }
 }
