@@ -21,6 +21,10 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\businesslaag\Businesslaag.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\book.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

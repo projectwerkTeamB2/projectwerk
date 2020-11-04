@@ -1,4 +1,4 @@
-﻿using Datalaag.Models;
+﻿using Businesslaag.Models;
 using Datalaag;
 using Datalaag.Repositories;
 using System;
@@ -12,33 +12,28 @@ namespace test
    public static void Main(string[] args)
         {
 
-            GeneralManager generalManager = new GeneralManager();
-            ReeksRepository reeksRepository = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString());
+            GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+           
          
             Reeks test = new Reeks(666, "test");
       
-            UitgeverijRepository uitgeverijRepository = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString());
-
-            Uitgeverij uitgeverij1 = uitgeverijRepository.GetById(1);
             Auteur auteur = new Auteur(666, "test");
             List<Auteur> auteurs = new List<Auteur>();
             auteurs.Add(auteur);
-            AuteurRepository auteurRepository = new AuteurRepository(DbFunctions.GetprojectwerkconnectionString());
-        
-            Strip strip = new Strip(2669, "jeff fixed", 12345, auteurs, test, uitgeverij1);
 
-           
-            StripRepository stripRepository = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
+            Uitgeverij testUitgeverij = new Uitgeverij(666, "test");
+            Strip strip = new Strip(2278, "jeff fixed", 12345, auteurs, test, testUitgeverij);
+
 
 
 
             //   Reeks astrix = reeksRepository.GetById(1);
             //  reeksRepository.addReeks(test);
-            //    Uitgeverij testUitgeverij = new Uitgeverij(666, "test");
+              
             //uitgeverijRepository.addUitgeverij(testUitgeverij);
             //  auteurRepository.addAuteur(auteur);
 
-            generalManager.Addstrip(strip);
+            generalManager.StripManager.Add(strip);
            // stripRepository.updateStrip(2669, strip);
           //  Console.WriteLine("strip updated");
 

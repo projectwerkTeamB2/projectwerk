@@ -81,3 +81,6 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datala
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.deps.json
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.pdb
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CopyComplete

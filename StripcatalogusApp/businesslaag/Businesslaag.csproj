@@ -9,12 +9,4 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Datalaag\Datalaag.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>

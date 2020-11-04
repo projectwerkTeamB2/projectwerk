@@ -1,14 +1,17 @@
 ﻿using DataLayer.Repositories;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Datalaag.Models;
+using Businesslaag.Models;
+using Businesslaag.Repositories;
+using System.Linq.Expressions;
+using System;
 
 namespace Datalaag.Repositories
 {
     /// <summary>
     ///
     /// </summary>
-    public class AuteurRepository : CRUDRepository<Auteur>
+    public class AuteurRepository : CRUDRepository<Auteur> , IAuteurRepository
     {
         public AuteurRepository(string connectionString)
    : base(connectionString)
@@ -53,28 +56,30 @@ namespace Datalaag.Repositories
             };
         }
 
-        public void addAuteur(Auteur auteur)
+        public void Add(Auteur auteur)
         {
 
             var sqlQueryBuilder = new SqlQueryBuilder<Auteur>(auteur);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
         }
 
-        public void deleteAuteurById(int id)
+        public void DeleteById(int id)
         {
             Auteur auteur = GetById(id);
             var sqlQueryBuilder = new SqlQueryBuilder<Auteur>(auteur);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
-        public void updateAteursById(int id, Auteur newAuteur) {
+        public void Update(Auteur newAuteur) 
             {
                 var command = new SqlCommand("update Auteur set Id = @id, Name = @name WHERE Id = @id");
-                command.Parameters.Add(new SqlParameter("id", id));
+                command.Parameters.Add(new SqlParameter("id", newAuteur.ID));
                 command.Parameters.Add(new SqlParameter("name", newAuteur.Naam));
                 ExecuteCommand(command);
             }
-        }
+
+       
+    }
 
     }
-}
+

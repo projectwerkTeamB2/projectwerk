@@ -26,11 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {
-              "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
-                "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -88,7 +84,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+                "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

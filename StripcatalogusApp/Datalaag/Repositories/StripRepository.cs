@@ -1,4 +1,5 @@
-﻿using Datalaag.Models;
+﻿using Businesslaag.Repositories;
+using Businesslaag.Models;
 using DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Datalaag.Repositories
     /// <summary>
     ///
     /// </summary>
-    public class StripRepository : CRUDRepository<Strip>
+    public class StripRepository : CRUDRepository<Strip> , IStripRepository
     {
       
         public StripRepository(string connectionString)
@@ -63,7 +64,7 @@ namespace Datalaag.Repositories
         }
 
         #region Add
-        public void AddStrip(Strip strip)
+        public void Add(Strip strip)
         {
            
             var sqlQueryBuilder = new SqlQueryBuilder<Strip>(strip);
@@ -101,7 +102,7 @@ namespace Datalaag.Repositories
                 ExecuteCommand(command);
             }
         }
-        public void DeleteStripById(int id) 
+        public void DeleteById(int id) 
         {
             DeleteStripIdFromStripHasAuteur(id);
           Strip Strip = GetById(id);
@@ -113,11 +114,11 @@ namespace Datalaag.Repositories
 
         #region update
 
-        public void updateStrip(int id, Strip newstrip)
+        public void Update(Strip newstrip)
         {
             {
                 var command = new SqlCommand("update Strip set id = @id, Titel = @title, Nummer = @nummer, Reeks_id = @reeks, Uitgeverij_id = @uitgeverij WHERE id = @id");
-                command.Parameters.Add(new SqlParameter("id", id));
+                command.Parameters.Add(new SqlParameter("id", newstrip.ID));
                 command.Parameters.Add(new SqlParameter("title", newstrip.StripTitel));
                 command.Parameters.Add(new SqlParameter("nummer", newstrip.StripNr));
                 command.Parameters.Add(new SqlParameter("reeks", newstrip.Reeks.ID));

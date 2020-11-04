@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Datalaag.Models;
-using Datalaag;
-using Datalaag.Repositories;
 using System.Linq;
+using Businesslaag.Models;
+using Businesslaag.Repositories;
 
 namespace Businesslaag.Managers
 {
@@ -14,104 +13,35 @@ namespace Businesslaag.Managers
     public class GeneralManager
     {
         #region Properties
-        private ReeksRepository _reeksRepository = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString());
-        private AuteurRepository _auteurRepository =  new AuteurRepository(DbFunctions.GetprojectwerkconnectionString());
-        private StripRepository _stripRepository = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
-        private UitgeverijRepository _uitgeverijRepository = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString());
+        internal IReeksRepository _reeksRepository;
+        internal IAuteurRepository _auteurRepository;
+        internal IStripRepository _stripRepository;
+        internal IUitgeverijRepository _uitgeverijRepository;
 
-        public ReeksRepository ReeksRepository { get; }
-        public AuteurRepository AuteurRepository { get; }
-        public StripRepository StripRepository { get; }
-        public UitgeverijRepository UitgeverijRepository { get; }
+       
 
-        #endregion
-        public GeneralManager() 
-        {
-              ReeksRepository = _reeksRepository;
-              AuteurRepository = _auteurRepository;
-              StripRepository = _stripRepository;
-              UitgeverijRepository = _uitgeverijRepository;
-        }
-
-        #region Add
-        public void Addstrip(Strip strip) 
-    {
-            if (DoubleStripNotFound(strip))
-                StripRepository.AddStrip(strip);
+        public ReeksManager ReeksManager { get; }
+       public AuteurManager AuteurManager { get; }
+       public UitgeverijManager UitgeverijManager { get; }
+       public StripManager StripManager { get; }
           
-    }
-        public void AddAuteur(Auteur auteur)
-        {
-            if (DoubleAuteurNotFound(auteur))
-                AuteurRepository.addAuteur(auteur);
-
-        }
-
-        public void AddReeks(Reeks reeks) 
-        {
-            if (DoubleReeksNotFound(reeks))
-                ReeksRepository.addReeks(reeks);
-        }
-
-        public void AddUitgeverij(Uitgeverij uitgeverij)
-        {
-            if (DoubleUitgeverijNotFound(uitgeverij))
-                UitgeverijRepository.addUitgeverij(uitgeverij);
-        }
 
         #endregion
-
-        #region helpers
-
-        private Boolean DoubleStripNotFound(Strip strip) 
+        public GeneralManager(IStripRepository stripRepository, IAuteurRepository auteurRepository, IReeksRepository reeksRepository , IUitgeverijRepository uitgeverijRepository ) 
         {
-            if(StripRepository.GetAll().Any(i => i.ID == strip.ID && i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            _reeksRepository = reeksRepository;
+            _auteurRepository = auteurRepository;
+            _stripRepository = stripRepository;
+            _uitgeverijRepository = uitgeverijRepository;
+
+            ReeksManager = new ReeksManager(this);
+            AuteurManager = new AuteurManager(this);
+            UitgeverijManager = new UitgeverijManager(this);
+            StripManager = new StripManager(this);
+            
+
         }
 
-        private Boolean DoubleAuteurNotFound(Auteur auteur)
-        {
-            if (AuteurRepository.GetAll().Any(i => i.ID == auteur.ID && i.Naam == auteur.Naam))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        private Boolean DoubleReeksNotFound(Reeks reeks)
-        {
-            if (ReeksRepository.GetAll().Any(i => i.ID == reeks.ID && i.Naam == reeks.Naam))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private Boolean DoubleUitgeverijNotFound(Uitgeverij uitgeverij)
-        {
-            if (UitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-
-        #endregion
 
     }
 }

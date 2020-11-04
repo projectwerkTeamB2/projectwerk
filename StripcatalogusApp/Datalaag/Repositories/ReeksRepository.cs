@@ -1,4 +1,5 @@
-﻿using Datalaag.Models;
+﻿using Businesslaag.Repositories;
+using Businesslaag.Models;
 using DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Datalaag.Repositories
     /// <summary>
     ///
     /// </summary>
-    public class ReeksRepository : CRUDRepository<Reeks>
+    public class ReeksRepository : CRUDRepository<Reeks> , IReeksRepository
     {
         public ReeksRepository(string connectionString)
     : base(connectionString)
@@ -47,25 +48,25 @@ namespace Datalaag.Repositories
                 Naam = reader.GetString(1)
             };
         }
-        public void addReeks(Reeks reeks)
+        public void Add(Reeks reeks)
         {
 
             var sqlQueryBuilder = new SqlQueryBuilder<Reeks>(reeks);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
         }
 
-        public void DeleteReeksById(int id)
+        public void DeleteById(int id)
         {
             Reeks reeks = GetById(id);
             var sqlQueryBuilder = new SqlQueryBuilder<Reeks>(reeks);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
-        public void updateReeks(int id, Reeks newReeks) 
+        public void Update(Reeks newReeks) 
         {
             {
                 var command = new SqlCommand("update Reeks set id = @id, Name = @name WHERE id = @id");
-                command.Parameters.Add(new SqlParameter("id", id));
+                command.Parameters.Add(new SqlParameter("id", newReeks.ID));
                 command.Parameters.Add(new SqlParameter("name", newReeks.Naam));
                 ExecuteCommand(command);
             }

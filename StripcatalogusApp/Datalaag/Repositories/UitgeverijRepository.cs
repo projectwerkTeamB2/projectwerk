@@ -1,4 +1,5 @@
-﻿using Datalaag.Models;
+﻿using Businesslaag.Models;
+using Businesslaag.Repositories;
 using DataLayer.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Datalaag.Repositories
     /// <summary>
     ///
     /// </summary>
-    public class UitgeverijRepository : CRUDRepository<Uitgeverij>
+    public class UitgeverijRepository : CRUDRepository<Uitgeverij>, IUitgeverijRepository
     {
         public UitgeverijRepository(string connectionString)
     : base(connectionString)
@@ -48,25 +49,25 @@ namespace Datalaag.Repositories
             };
         }
 
-        public void addUitgeverij(Uitgeverij uitgeverij)
+        public void Add(Uitgeverij uitgeverij)
         {
 
             var sqlQueryBuilder = new SqlQueryBuilder<Uitgeverij>(uitgeverij);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
         }
 
-        public void DeleteUitgeverijById(int id) 
+        public void DeleteById(int id) 
         {
             Uitgeverij uitgeverij = GetById(id);
             var sqlQueryBuilder = new SqlQueryBuilder<Uitgeverij>(uitgeverij);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
-        public void updateUitgeverijById(int id, Uitgeverij newUitgeverij) 
+        public void Update(Uitgeverij newUitgeverij) 
         {
             {
                 var command = new SqlCommand("update Uitgeverij set id = @id, Name = @name WHERE id = @id");
-                command.Parameters.Add(new SqlParameter("id", id));
+                command.Parameters.Add(new SqlParameter("id", newUitgeverij.ID));
                 command.Parameters.Add(new SqlParameter("name", newUitgeverij.Naam));
                 ExecuteCommand(command);
             }
