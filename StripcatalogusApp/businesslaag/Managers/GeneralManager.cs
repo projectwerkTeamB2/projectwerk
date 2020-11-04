@@ -29,6 +29,8 @@ namespace Businesslaag.Managers
         #endregion
         public GeneralManager(IStripRepository stripRepository, IAuteurRepository auteurRepository, IReeksRepository reeksRepository , IUitgeverijRepository uitgeverijRepository ) 
         {
+
+
             _reeksRepository = reeksRepository;
             _auteurRepository = auteurRepository;
             _stripRepository = stripRepository;

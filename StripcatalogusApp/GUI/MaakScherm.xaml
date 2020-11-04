@@ -56,7 +56,7 @@
 
         <Label Content="( Meerdere auteurs? splits ze met een comma en spatie )" HorizontalAlignment="Left" Margin="45,278,0,0" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left"  Name="TextBox_auteurs" Margin="178,299,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBox  Style="{StaticResource placeHolder}" Tag="Voor Beeld, Jeff De Voorbeeld, ..." HorizontalAlignment="Left"  Name="TextBox_auteurs" Margin="138,302,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,301,0,0" Text="Auteur(s)" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
         <Image HorizontalAlignment="Left" Source="/Images/BoomIMG.png" Height="94" Margin="736,386,0,0" VerticalAlignment="Top" Width="95"/>

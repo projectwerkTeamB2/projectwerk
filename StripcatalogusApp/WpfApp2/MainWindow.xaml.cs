@@ -1,4 +1,4 @@
-﻿using Datalaag.Models;
+﻿
 using Datalaag;
 using Datalaag.Repositories;
 using System;
@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Windows;
+using Businesslaag.Models;
 
 namespace WpfApp2
 {

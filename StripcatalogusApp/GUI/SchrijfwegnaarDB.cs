@@ -1,8 +1,8 @@
 ﻿using Businesslaag.Models;
 using Businesslaag.Managers;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using Datalaag;
+using Datalaag.Repositories;
 
 namespace JSON
 {
@@ -10,26 +10,22 @@ namespace JSON
     {
         public void allesWegSchijvenNaarDataBank(List<Strip> strips)
         {
-            GeneralManager generalManager = new GeneralManager();
+            GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+
 
 
             foreach (Strip str in strips)
             {
                 foreach (Auteur aut in str.Auteurs)
                 {
-                    generalManager.AuteurRepository.addAuteur(aut);
+                    generalManager.AuteurManager.Add(aut);
                 }
-                generalManager.uitgeverijRepository.addUitgeverij(str.Uitgeverij);
-                generalManager.ReeksRepository.addReeks(str.Reeks);
-                generalManager.StripRepository.AddStrip(str); //checkt niet op dubbels
-                generalManager.Addstrip(str); //checkt op dubbels
+                generalManager.UitgeverijManager.Add(str.Uitgeverij);
+                generalManager.ReeksManager.Add(str.Reeks);
+                generalManager.StripManager.Add(str); //checkt niet op dubbels
             }
         }
 
 
-        /*  foreach (Strip str in strips)
-          {
-              stripmanager.AddStrip(str.StripTitel, str.Auteurs, str.Reeks, str.StripNr, str.Uitgeverij);
-          }*/
     }
 }

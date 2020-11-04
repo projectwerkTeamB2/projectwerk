@@ -6,8 +6,8 @@
       "version": "3.1.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\lieke\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\lieke\\.nuget\\packages"
+      "C:\\Users\\ciki3\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ciki3\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

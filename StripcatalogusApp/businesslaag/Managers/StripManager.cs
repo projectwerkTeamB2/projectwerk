@@ -32,6 +32,12 @@ namespace Businesslaag.Managers
               _gm._stripRepository.Add(strip);
 
         }
+        public List<Strip>  GetAll()
+        {
+            return (List<Strip>)_gm._stripRepository.GetAll();
+
+        }
+
         private Boolean DoubleStripNotFound(Strip strip)
         {
             if (_gm._stripRepository.GetAll().Any(i => i.ID == strip.ID && i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
