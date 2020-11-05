@@ -31,6 +31,40 @@ namespace Businesslaag.Managers
 
         }
 
+        public List<Auteur> GetAll()
+        {
+            return (List<Auteur>)_gm._auteurRepository.GetAll();
+
+        }
+
+        public Auteur GetById(int id)
+        {
+            return _gm._auteurRepository.GetById(id);
+
+        }
+
+        public void Update(Auteur auteur)
+        {
+            if (GetById(auteur.ID) != null)
+            {
+                throw new ArgumentException("trying to update an Author that does not exist");
+            }
+            else
+                _gm._auteurRepository.Update(auteur);
+
+        }
+
+        public void Delete(Auteur auteur)
+        {
+            if(GetById(auteur.ID) == null)
+            {
+                _gm._auteurRepository.DeleteById(auteur.ID);
+            }
+            else
+            {
+                    throw new ArgumentException("trying to delete an Author that does not exist");
+            }
+        }
 
         private Boolean DoubleAuteurNotFound(Auteur auteur)
         {

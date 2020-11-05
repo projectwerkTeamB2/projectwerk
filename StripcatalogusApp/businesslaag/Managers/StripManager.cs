@@ -38,6 +38,39 @@ namespace Businesslaag.Managers
 
         }
 
+        public Strip GetById(int id)
+        {
+            return _gm._stripRepository.GetById(id);
+
+        }
+
+        public void Update(Strip strip) 
+        {
+           if(GetById(strip.ID) != null) 
+            {
+                throw new ArgumentException("trying to update a strip that does not exist");
+            }
+            else
+            _gm._stripRepository.Update(strip);
+          
+        }
+
+        public void Delete(Strip strip) 
+        {
+           if(GetById(strip.ID) != null)
+            {
+                _gm._stripRepository.DeleteById(strip.ID);
+            }
+            else
+            {
+                throw new ArgumentException("trying to delete an Author that does not exist");
+            }
+           
+        }
+
+
+
+
         private Boolean DoubleStripNotFound(Strip strip)
         {
             if (_gm._stripRepository.GetAll().Any(i=> i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
@@ -49,10 +82,6 @@ namespace Businesslaag.Managers
                 return true;
             }
         }
-        public Strip GetById(int id)
-        {
-            return _gm._stripRepository.GetById(id);
-
-        }
+       
     }
 }
