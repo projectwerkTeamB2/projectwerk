@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App.config" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\businesslaag\Businesslaag.csproj" />
     <ProjectReference Include="..\Datalaag\Datalaag.csproj" />
   </ItemGroup>

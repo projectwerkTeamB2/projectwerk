@@ -7,6 +7,8 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Windows;
 using Businesslaag.Models;
+using Businesslaag.Managers;
+
 
 namespace WpfApp2
 {
@@ -16,7 +18,9 @@ namespace WpfApp2
     public partial class MainWindow : Window
     {
 
-        StripRepository sr;
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+
+      
         List<Strip> stripsFromJson;
         public MainWindow()
         {
@@ -78,10 +82,13 @@ namespace WpfApp2
             if (stripsFromJson != null) {
                 try
                 {
-                //    sr.allesWegSchijvenNaarDataBank(stripsFromJson); //vladik zijn code is weg
+                   
+                    SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
+                    schrijfwegnaarDB.allesWegSchijvenNaarDataBank(stripsFromJson);
                     TextBlock2.Text = "Gelukt!";
                 }
-                catch { TextBlock2.Text = "Er is iets fout gegaan"; }
+                finally { TextBlock2.Text = "Er is iets fout gegaan"; }
+
             }
         }
 
@@ -92,7 +99,7 @@ namespace WpfApp2
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-             sr = new StripRepository(DbFunctions.GetprojectwerkconnectionString());
+            
             #endregion
 
             NaarDBLabel.Visibility = Visibility.Hidden;

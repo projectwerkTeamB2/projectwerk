@@ -134,7 +134,7 @@ namespace GUI
 
             if (RadioBtnStripid.IsChecked == true)
             {
-                Strip helpstrip = generalManager.StripManager.GetStripById(Convert.ToInt32( SearchTextBox.Text));
+                Strip helpstrip = generalManager.StripManager.GetById(Convert.ToInt32( SearchTextBox.Text));
                 listStrip.Add(helpstrip);
                 try
                 {

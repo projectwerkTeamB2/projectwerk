@@ -34,7 +34,7 @@ namespace Datalaag
                 {
                     readerStringList = new List<string>();
 
-                    var clean = new[] { '"', '[', '{', '}', ':', };
+                    var clean = new[] { '"', '[', '{', '}', ':', ']' };
                     string woord = input;
                     string[] words = woord
                          // .Replace(@", """, "NEXT")
@@ -42,9 +42,8 @@ namespace Datalaag
                          .Replace(":[{", ":")
                          .Replace("]},{", "}]},")
                          .Replace(" \u0026", " ")
-                         .Split("}]},",StringSplitOptions.RemoveEmptyEntries); //]},{ID;
-
-
+                         .Split("}]},", StringSplitOptions.RemoveEmptyEntries); //]},{ID;
+                         
                          
 
 

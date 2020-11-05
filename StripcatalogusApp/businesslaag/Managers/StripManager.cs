@@ -32,7 +32,7 @@ namespace Businesslaag.Managers
               _gm._stripRepository.Add(strip);
 
         }
-        public List<Strip>  GetAll()
+        public List<Strip> GetAll()
         {
             return (List<Strip>)_gm._stripRepository.GetAll();
 
@@ -40,7 +40,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleStripNotFound(Strip strip)
         {
-            if (_gm._stripRepository.GetAll().Any(i => i.ID == strip.ID && i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
+            if (_gm._stripRepository.GetAll().Any(i=> i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
             {
                 return false;
             }
@@ -49,7 +49,7 @@ namespace Businesslaag.Managers
                 return true;
             }
         }
-        public Strip GetStripById(int id)
+        public Strip GetById(int id)
         {
             return _gm._stripRepository.GetById(id);
 
