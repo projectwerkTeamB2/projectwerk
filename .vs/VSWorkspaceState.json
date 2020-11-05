@@ -4,6 +4,7 @@
     "\\StripcatalogusApp",
     "\\StripcatalogusApp\\Datalaag",
     "\\StripcatalogusApp\\Datalaag\\Providers",
+    "\\StripcatalogusApp\\GUI",
     "\\StripcatalogusApp\\UnitTests"
   ],
   "SelectedNode": "\\StripcatalogusApp\\StripcatalogusApp.sln",

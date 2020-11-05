@@ -49,5 +49,10 @@ namespace Businesslaag.Managers
                 return true;
             }
         }
+        public Strip GetStripById(int id)
+        {
+            return _gm._stripRepository.GetById(id);
+
+        }
     }
 }

@@ -10,12 +10,13 @@
         Title="Strip Applicatie" Height="600" Width="1100">
 
     <Grid Background="#E9C46A">
-        <Button  Style="{StaticResource ButtonStyle}" Content="Een nieuwe strip toevoegen" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,514,0,0" VerticalAlignment="Top" Width="217" Height="50" Click="Button_MaakStrip_Click" />
-        <Button  Style="{StaticResource ButtonStyle}" Content="Zoeken" Background="Chocolate" HorizontalAlignment="Left" Margin="952,14,0,0" VerticalAlignment="Top" Width="127" Height="29" Click="Button_Bijwerk_Click" />
+        <Button  Style="{StaticResource ButtonStyle}" Content="Een nieuwe strip toevoegen" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,514,0,20" Width="217" Click="Button_MaakStrip_Click" />
+        <Button  Style="{StaticResource ButtonStyle}" Content="Zoeken" Background="Chocolate" HorizontalAlignment="Left" Margin="952,14,0,0" VerticalAlignment="Top" Width="127" Height="29" Click="Button_Zoek_Click" />
+        <Button   Content="RESET" HorizontalAlignment="Left" Margin="952,65,0,0" VerticalAlignment="Top" Width="127" Height="20" Click="Button_Reset_Click" />
         <Label Foreground="Peru"  FontSize="25" FontFamily="Comic Sans MS"  
  FontWeight="Bold" Content="Strip Applicatie&#10;van groep B2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
 
-        <DataGrid x:Name="StripDataGrid"  Margin="242,87,0,20" HorizontalAlignment="Left" Width="837" />
+        <DataGrid x:Name="StripDataGrid"  SelectionMode="Single" Margin="242,87,0,20" HorizontalAlignment="Left" Width="837" SelectionChanged="DataGridSelectie" />
         <Image x:Name="WonderWomanImage" HorizontalAlignment="Left" Height="465" Margin="0,58,0,0" VerticalAlignment="Top" Width="465" Source="Images/WonderWIMG.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -26,7 +27,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Button  Style="{StaticResource ButtonStyle}" Content="Geselecteerde strip bijwerken ?" Background="Chocolate" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" Width="219" Height="34" Click="Button_Bijwerk_Click" />
+        <Button  Style="{StaticResource ButtonStyle}" Name="stripBewerken_button" Content="Geselecteerde strip bijwerken ?" Background="Chocolate" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" Width="219" Height="34" Click="Button_Bijwerk_Click" />
 
         <Label Content="Sorteren op " FontSize="20" HorizontalAlignment="Left" Margin="237,16,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="SorteerBox" SelectionChanged="ComboBox_SelectionChanged" Margin="242,53,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="180"/>
@@ -34,12 +35,12 @@
 
 
 
-        <RadioButton Content="Strip id" HorizontalAlignment="Left" Margin="761,69,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Strip tittel" HorizontalAlignment="Left" Margin="761,46,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Reeks" HorizontalAlignment="Left" Margin="871,46,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Auteur" HorizontalAlignment="Left" Margin="871,69,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Uitgeverij" HorizontalAlignment="Left" Margin="951,46,0,0" VerticalAlignment="Top"/>
-        <TextBox  Style="{StaticResource placeHolder}" Tag="Vul hier de zoek waarde in"  Height="29" HorizontalAlignment="Left" Margin="761,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186"/>
+        <RadioButton GroupName="Search" Name="RadioBtnStripid" IsChecked="True" Content="Strip id" HorizontalAlignment="Left" Margin="761,69,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Search"  Name="RadioBtnStriptittel" Content="Strip tittel" HorizontalAlignment="Left" Margin="761,46,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Search" Name="RadioBtnReeks" Content="Reeks" HorizontalAlignment="Left" Margin="871,46,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Search" Name="RadioBtnAuteur" Content="Auteur" HorizontalAlignment="Left" Margin="871,69,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Search" Name="RadioBtnUitgeverij" Content="Uitgeverij" HorizontalAlignment="Left" Margin="951,46,0,0" VerticalAlignment="Top"/>
+        <TextBox  Style="{StaticResource placeHolder}" Name="SearchTextBox" Tag="Vul hier de zoek waarde in"  Height="29" HorizontalAlignment="Left" Margin="761,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186"/>
 
 
 
