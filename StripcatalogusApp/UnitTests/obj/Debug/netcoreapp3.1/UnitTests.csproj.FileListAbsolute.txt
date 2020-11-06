@@ -191,7 +191,6 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\n
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csprojAssemblyReference.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.AssemblyInfoInputs.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.AssemblyInfo.cs
-C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csproj.CoreCompileInputs.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csproj.CopyComplete
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.dll
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.pdb
@@ -298,3 +297,5 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Un
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.genruntimeconfig.cache
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Shouldly.dll
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csproj.CoreCompileInputs.cache

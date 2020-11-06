@@ -42,7 +42,6 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcore
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.dll
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\GUI.exe
-C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\GUI.dll.config
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\GUI.deps.json
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\GUI.runtimeconfig.json
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\GUI.runtimeconfig.dev.json
