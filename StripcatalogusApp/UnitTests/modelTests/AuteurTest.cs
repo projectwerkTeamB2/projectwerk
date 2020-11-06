@@ -1,10 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTests
+namespace UnitTests.modelTests
 {
     //Hier komen alle testen van business en data laag
     [TestClass]
-    public class UnitTest1
+    public class AuteurTest
     {
         [TestMethod]
         public void TestMethod1()
