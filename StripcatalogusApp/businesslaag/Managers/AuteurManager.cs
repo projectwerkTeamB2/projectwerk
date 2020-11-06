@@ -1,4 +1,5 @@
 ﻿using Businesslaag.Models;
+using Businesslaag.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,32 +15,34 @@ namespace Businesslaag.Managers
     public class AuteurManager
     {
         private GeneralManager _gm;
+        internal IAuteurRepository _auteurRepository;
         #region [Constructor]
         /// <summary>
         /// Default constructor
         /// </summary>
-        public AuteurManager(GeneralManager generalManager)
+        public AuteurManager(GeneralManager generalManager, IAuteurRepository auteurRepository)
         {
             _gm = generalManager;
+            _auteurRepository = auteurRepository;
         }
         #endregion
 
         public void Add(Auteur auteur)
         {
             if (DoubleAuteurNotFound(auteur)) 
-            _gm._auteurRepository.Add(auteur);
+            this._auteurRepository.Add(auteur);
 
         }
 
         public List<Auteur> GetAll()
         {
-            return (List<Auteur>)_gm._auteurRepository.GetAll();
+            return (List<Auteur>)this._auteurRepository.GetAll();
 
         }
 
         public Auteur GetById(int id)
         {
-            return _gm._auteurRepository.GetById(id);
+            return this._auteurRepository.GetById(id);
 
         }
 
@@ -50,7 +53,7 @@ namespace Businesslaag.Managers
                 throw new ArgumentException("trying to update an Author that does not exist");
             }
             else
-                _gm._auteurRepository.Update(auteur);
+                this._auteurRepository.Update(auteur);
 
         }
 
@@ -58,7 +61,7 @@ namespace Businesslaag.Managers
         {
             if(GetById(auteur.ID) == null)
             {
-                _gm._auteurRepository.DeleteById(auteur.ID);
+                this._auteurRepository.DeleteById(auteur.ID);
             }
             else
             {
@@ -68,7 +71,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleAuteurNotFound(Auteur auteur)
         {
-            if (_gm._auteurRepository.GetAll().Any(i => i.ID == auteur.ID && i.Naam == auteur.Naam))
+            if (this._auteurRepository.GetAll().Any(i => i.ID == auteur.ID && i.Naam == auteur.Naam))
             {
                 return false;
             }

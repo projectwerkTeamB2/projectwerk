@@ -1,4 +1,5 @@
 ﻿using Businesslaag.Models;
+using Businesslaag.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,15 @@ namespace Businesslaag.Managers
     public class StripManager
     {
         private GeneralManager _gm;
+        internal IStripRepository _stripRepository;
         #region [Constructor]
         /// <summary>
         /// Default constructor
         /// </summary>
-        public StripManager(GeneralManager generalManager)
+        public StripManager(GeneralManager generalManager , IStripRepository stripRepository)
         {
             _gm = generalManager;
-
+            _stripRepository = stripRepository;
         }
         #endregion
 
@@ -29,18 +31,18 @@ namespace Businesslaag.Managers
         public void Add(Strip strip)
         {
             if (DoubleStripNotFound(strip))
-              _gm._stripRepository.Add(strip);
+              this._stripRepository.Add(strip);
 
         }
         public List<Strip> GetAll()
         {
-            return (List<Strip>)_gm._stripRepository.GetAll();
+            return (List<Strip>)this._stripRepository.GetAll();
 
         }
 
         public Strip GetById(int id)
         {
-            return _gm._stripRepository.GetById(id);
+            return this._stripRepository.GetById(id);
 
         }
 
@@ -51,7 +53,7 @@ namespace Businesslaag.Managers
                 throw new ArgumentException("trying to update a strip that does not exist");
             }
             else
-            _gm._stripRepository.Update(strip);
+            this._stripRepository.Update(strip);
           
         }
 
@@ -59,7 +61,7 @@ namespace Businesslaag.Managers
         {
            if(GetById(strip.ID) != null)
             {
-                _gm._stripRepository.DeleteById(strip.ID);
+                this._stripRepository.DeleteById(strip.ID);
             }
             else
             {
@@ -73,7 +75,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleStripNotFound(Strip strip)
         {
-            if (_gm._stripRepository.GetAll().Any(i=> i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
+            if (this._stripRepository.GetAll().Any(i=> i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
             {
                 return false;
             }

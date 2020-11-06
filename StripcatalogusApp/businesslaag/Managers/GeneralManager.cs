@@ -13,13 +13,7 @@ namespace Businesslaag.Managers
     public class GeneralManager
     {
         #region Properties
-        internal IReeksRepository _reeksRepository;
-        internal IAuteurRepository _auteurRepository;
-        internal IStripRepository _stripRepository;
-        internal IUitgeverijRepository _uitgeverijRepository;
-
        
-
         public ReeksManager ReeksManager { get; }
        public AuteurManager AuteurManager { get; }
        public UitgeverijManager UitgeverijManager { get; }
@@ -31,15 +25,10 @@ namespace Businesslaag.Managers
         {
 
 
-            _reeksRepository = reeksRepository;
-            _auteurRepository = auteurRepository;
-            _stripRepository = stripRepository;
-            _uitgeverijRepository = uitgeverijRepository;
-
-            ReeksManager = new ReeksManager(this);
-            AuteurManager = new AuteurManager(this);
-            UitgeverijManager = new UitgeverijManager(this);
-            StripManager = new StripManager(this);
+            ReeksManager = new ReeksManager(this, reeksRepository);
+            AuteurManager = new AuteurManager(this, auteurRepository);
+            UitgeverijManager = new UitgeverijManager(this, uitgeverijRepository);
+            StripManager = new StripManager(this, stripRepository);
             
 
         }

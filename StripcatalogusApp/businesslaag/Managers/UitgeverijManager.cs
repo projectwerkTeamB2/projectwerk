@@ -1,4 +1,5 @@
 ﻿using Businesslaag.Models;
+using Businesslaag.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,12 @@ namespace Businesslaag.Managers
         /// </summary>
 
         private GeneralManager _gm;
-        public UitgeverijManager(GeneralManager generalManager)
+
+        internal IUitgeverijRepository _uitgeverijRepository;
+        public UitgeverijManager(GeneralManager generalManager, IUitgeverijRepository uitgeverijRepository)
         {
             _gm = generalManager;
+            _uitgeverijRepository = uitgeverijRepository;
         }
         #endregion
 
@@ -27,18 +31,18 @@ namespace Businesslaag.Managers
         public void Add(Uitgeverij uitgeverij)
         {
             if (DoubleUitgeverijNotFound(uitgeverij))
-                _gm._uitgeverijRepository.Add(uitgeverij);
+                this._uitgeverijRepository.Add(uitgeverij);
         }
 
-        public List<Reeks> GetAll()
+        public List<Uitgeverij> GetAll()
         {
-            return (List<Reeks>)_gm._reeksRepository.GetAll();
+            return (List<Uitgeverij>)this._uitgeverijRepository.GetAll();
 
         }
 
         public Uitgeverij GetById(int id)
         {
-            return _gm._uitgeverijRepository.GetById(id);
+            return this._uitgeverijRepository.GetById(id);
 
         }
 
@@ -46,7 +50,7 @@ namespace Businesslaag.Managers
         {
             if (GetById(uitgeverij.ID) != null)
             {
-                _gm._uitgeverijRepository.Update(uitgeverij);
+                this._uitgeverijRepository.Update(uitgeverij);
             }
             else
 
@@ -58,7 +62,7 @@ namespace Businesslaag.Managers
         {
             if (GetById(uitgeverij.ID) != null)
             {
-                _gm._reeksRepository.DeleteById(uitgeverij.ID);
+                this._uitgeverijRepository.DeleteById(uitgeverij.ID);
             }
             else
             {
@@ -70,7 +74,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleUitgeverijNotFound(Uitgeverij uitgeverij)
         {
-            if (_gm._uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
+            if (this._uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
             {
                 return false;
             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Businesslaag.Models;
+using Businesslaag.Repositories;
 
 namespace Businesslaag.Managers
 {
@@ -17,30 +18,31 @@ namespace Businesslaag.Managers
         /// <summary>
         /// Default constructor
         /// </summary>
-       
 
-        public ReeksManager(GeneralManager generalManager)
+        internal IReeksRepository _reeksRepository;
+        public ReeksManager(GeneralManager generalManager, IReeksRepository reeksRepository)
         {
             _gm = generalManager;
+            _reeksRepository = reeksRepository;
         }
 
 
         public void Add(Reeks reeks)
         {
             if (DoubleReeksNotFound(reeks))
-               _gm._reeksRepository.Add(reeks);
+               this._reeksRepository.Add(reeks);
         }
 
 
         public List<Reeks> GetAll()
         {
-            return (List<Reeks>)_gm._reeksRepository.GetAll();
+            return (List<Reeks>)this._reeksRepository.GetAll();
 
         }
 
         public Reeks GetById(int id)
         {
-            return _gm._reeksRepository.GetById(id);
+            return this._reeksRepository.GetById(id);
 
         }
 
@@ -48,7 +50,7 @@ namespace Businesslaag.Managers
         {
             if (GetById(reeks.ID) != null)
             {
-                _gm._reeksRepository.Update(reeks);
+                this._reeksRepository.Update(reeks);
             }
             else
                 
@@ -60,7 +62,7 @@ namespace Businesslaag.Managers
         {
             if(GetById(reeks.ID) != null)
             {
-                _gm._reeksRepository.DeleteById(reeks.ID);
+                this._reeksRepository.DeleteById(reeks.ID);
             }
             else
             {
@@ -71,7 +73,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleReeksNotFound(Reeks reeks)
         {
-            if (_gm._reeksRepository.GetAll().Any(i => i.ID == reeks.ID && i.Naam == reeks.Naam))
+            if (this._reeksRepository.GetAll().Any(i => i.ID == reeks.ID && i.Naam == reeks.Naam))
             {
                 return false;
             }
