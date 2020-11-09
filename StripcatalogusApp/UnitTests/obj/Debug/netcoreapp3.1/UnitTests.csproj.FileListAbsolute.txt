@@ -299,3 +299,4 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Un
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.genruntimeconfig.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Shouldly.dll
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csproj.CoreCompileInputs.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Shouldly.dll

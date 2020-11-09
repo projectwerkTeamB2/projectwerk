@@ -20,6 +20,7 @@
     </Window.Resources>
 
     <Grid Background="#E9C46A">
+        <TextBlock  x:Name="ExtraInfo_TextBox" FontSize="14" HorizontalAlignment="Left" Margin="426,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Height="271" Width="373" />
 
         <Rectangle Fill="#81b29a" HorizontalAlignment="Left" Height="404" Margin="-5,5,0,0" Stroke="Black" VerticalAlignment="Top" Width="812" Grid.RowSpan="8" Grid.ColumnSpan="7" Grid.Row="1" />
         <Rectangle Fill="#4A203B" HorizontalAlignment="Left" Height="407" Margin="-2,2,0,0"  VerticalAlignment="Top" Width="823" />

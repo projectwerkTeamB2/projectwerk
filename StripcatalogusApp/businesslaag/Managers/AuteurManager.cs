@@ -81,5 +81,10 @@ namespace Businesslaag.Managers
             }
         }
 
+        public Auteur GetByName(string auteurNaam)
+        {
+            return this._auteurRepository.GetAll().Where(n=>n.Naam.Equals(auteurNaam)).FirstOrDefault();
+        }
+
     }
 }

@@ -168,3 +168,4 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\te
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.genruntimeconfig.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.dll.config

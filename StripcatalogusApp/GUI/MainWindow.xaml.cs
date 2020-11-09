@@ -147,15 +147,87 @@ namespace GUI
                 }
             else if (RadioBtnStriptittel.IsChecked == true)
             {
+                try { 
+                List<Strip> strips = stripsFromDb.Where(b=> b.StripTitel.Equals(SearchTextBox.Text)).ToList();
+                    
+                    try
+                    {
+                        if (strips != null)
+                        {
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            StripDataGrid.ItemsSource = smallList;
+                        }
+                    }
+                    catch (NullReferenceException ex) { }
+
+                }
+                catch //als strip niet bestaat  
+                { }
+                   
+
             }
             else if (RadioBtnReeks.IsChecked == true)
             {
+                try
+                {
+                    List<Strip> strips = stripsFromDb.Where(b => b.Reeks.Equals(SearchTextBox.Text)).ToList();
+
+                    try
+                    {
+                        if (strips != null)
+                        {
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            StripDataGrid.ItemsSource = smallList;
+                        }
+                    }
+                    catch (NullReferenceException ex) { }
+
+                }
+                catch //als strip niet bestaat  
+                { }
+
             }
             else if (RadioBtnAuteur.IsChecked == true)
             {
+                try
+                {
+
+                    List<Strip> strips = stripsFromDb.Where(b => b.Auteurs.Equals(generalManager.AuteurManager.GetByName(SearchTextBox.Text))).ToList();
+
+                    try
+                    {
+                        if (strips != null)
+                        {
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            StripDataGrid.ItemsSource = smallList;
+                        }
+                    }
+                    catch (NullReferenceException ex) { }
+
+                }
+                catch //als strip niet bestaat  
+                { }
+
             }
             else if (RadioBtnUitgeverij.IsChecked == true)
             {
+                try
+                {
+                    List<Strip> strips = generalManager.StripManager.GetAll().Where(b => b.Uitgeverij.Equals(SearchTextBox.Text)).ToList();
+
+                    try
+                    {
+                        if (strips != null)
+                        {
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            StripDataGrid.ItemsSource = smallList;
+                        }
+                    }
+                    catch (NullReferenceException ex) { }
+
+                }
+                catch //als strip niet bestaat  
+                { }
             }
         }
 

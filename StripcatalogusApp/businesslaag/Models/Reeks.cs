@@ -25,7 +25,10 @@ namespace Businesslaag.Models
         public Reeks()
         {
         }
-
+        public Reeks(string Naam)
+        {
+            this.Naam = Naam;
+        }
         public override bool Equals(object obj)
         {
             return obj is Reeks reeks &&

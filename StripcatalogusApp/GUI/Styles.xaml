@@ -91,8 +91,34 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <!--COMBOBOX ITEM-->
-   
+
+    <!--TextBox ITEM-->
+    <!--Voor TextBox Background="#E9C46A" BorderBrush ="#E9C46A"  -->
+    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="White" />
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="White" />
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="#13242A" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Name="Bd" BorderThickness="{TemplateBinding BorderThickness}"
+                                             BorderBrush="{TemplateBinding BorderBrush}"
+                                             Background="{TemplateBinding Background}"
+                                             SnapsToDevicePixels="true">
+                        <ScrollViewer Name="PART_ContentHost" Background="{TemplateBinding Background}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Value="{StaticResource DisabledBackgroundBrush}" Property="Background" />
+                            <Setter Value="{StaticResource DisabledForegroundBrush}" Property="Foreground" />
+                            <Setter TargetName="PART_ContentHost" Property="Background" Value="#13242A" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

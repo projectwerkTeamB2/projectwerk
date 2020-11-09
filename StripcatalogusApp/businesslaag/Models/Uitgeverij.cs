@@ -20,7 +20,11 @@ namespace Businesslaag.Models
             ID = iD;
             Naam = naam;
         }
+        public Uitgeverij( string naam)
+        {
 
+            Naam = naam;
+        }
         public Uitgeverij()
         {
         }

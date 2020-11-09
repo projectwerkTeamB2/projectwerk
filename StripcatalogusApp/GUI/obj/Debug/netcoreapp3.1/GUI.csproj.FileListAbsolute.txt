@@ -146,3 +146,4 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GU
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.genruntimeconfig.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll.config

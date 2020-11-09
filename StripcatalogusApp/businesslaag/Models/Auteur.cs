@@ -22,6 +22,10 @@ namespace Businesslaag.Models
         }
         public Auteur() 
         { }
+        public Auteur(string naam)
+        {
+            this.Naam = naam;
+        }
 
         public override bool Equals(object obj)
         {
