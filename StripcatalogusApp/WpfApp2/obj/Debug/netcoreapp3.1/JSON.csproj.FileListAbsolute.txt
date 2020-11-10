@@ -102,3 +102,10 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\net
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\JSON.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.csprojAssemblyReference.cache
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON_MarkupCompile.cache
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON_MarkupCompile.lref
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.dll
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.pdb
