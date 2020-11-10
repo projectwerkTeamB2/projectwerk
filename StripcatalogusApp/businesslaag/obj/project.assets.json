@@ -454,19 +454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ciki3\\.nuget\\packages\\": {}
+    "C:\\Users\\lieke\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+      "projectUniqueName": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
       "projectName": "Businesslaag",
-      "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
-      "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
+      "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+      "packagesPath": "C:\\Users\\lieke\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lieke\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
