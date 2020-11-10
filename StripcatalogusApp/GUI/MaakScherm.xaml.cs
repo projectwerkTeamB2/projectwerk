@@ -118,8 +118,8 @@ namespace GUI
                       
                         // User pressed Yes button
                         this.DialogResult = true;
-                        try
-                        {
+                        //try
+                        //{
                             generalManager.StripManager.Add(newStrip);
                             //break;
                             //}
@@ -143,12 +143,12 @@ namespace GUI
                             //            break;
                             //    }
                             break;
-                        }
-                        catch (Exception ex)
-                        {
-                            throw new Exception(ex.ToString());
-                            break;
-                        }
+                        //}
+                        //catch (Exception ex)
+                        //{
+                        //    throw new Exception(ex.ToString());
+                        //    break;
+                        //}
 
                         
 

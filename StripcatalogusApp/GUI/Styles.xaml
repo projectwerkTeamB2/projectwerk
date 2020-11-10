@@ -94,7 +94,7 @@
 
     <!--TextBox ITEM-->
     <!--Voor TextBox Background="#E9C46A" BorderBrush ="#E9C46A"  -->
-    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="White" />
+    <!--<SolidColorBrush x:Key="DisabledForegroundBrush" Color="White" />
     <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="White" />
     <Style TargetType="TextBox">
         <Setter Property="Background" Value="White" />
@@ -119,6 +119,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
 </ResourceDictionary>
