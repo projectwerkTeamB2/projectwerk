@@ -101,4 +101,3 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\net
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\JSON.dll.config
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\JSON.dll.config
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll.config
