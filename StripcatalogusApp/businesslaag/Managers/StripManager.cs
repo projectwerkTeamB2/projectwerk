@@ -46,6 +46,11 @@ namespace Businesslaag.Managers
 
         }
 
+        public Strip getLastId() 
+        {
+            return this._stripRepository.GetLastStrip();
+        }
+
         public void Update(Strip strip) 
         {
            if(GetById(strip.ID) != null) 
