@@ -7,11 +7,6 @@ using System.Text;
 
 namespace Businesslaag.Managers
 {
-    /// <summary>
-    ///
-    /// </summary>
-    /// 
-    
     public class StripManager
     {
         private GeneralManager _gm;
@@ -20,7 +15,7 @@ namespace Businesslaag.Managers
         /// <summary>
         /// Default constructor
         /// </summary>
-        public StripManager(GeneralManager generalManager , IStripRepository stripRepository)
+        public StripManager(GeneralManager generalManager, IStripRepository stripRepository)
         {
             _gm = generalManager;
             _stripRepository = stripRepository;
@@ -28,10 +23,49 @@ namespace Businesslaag.Managers
         #endregion
 
 
+
         public void Add(Strip strip)
         {
             if (DoubleStripNotFound(strip))
-              this._stripRepository.Add(strip);
+            {
+                for (int i = 0; i < strip.Auteurs.Count; i++)
+                {
+                    // does this fruit exist
+                    Auteur auteur = _gm.AuteurManager.GetByName(strip.Auteurs[i].Naam);
+                    // yes good gimme
+
+                    if (auteur != null)
+                    {
+                        strip.Auteurs[i] = auteur;
+                    }
+                    // no make new bosbes error
+                    else
+                        throw new ArgumentException("the author does not exist");
+
+                }
+                Reeks reeks = _gm.ReeksManager.GetByName(strip.Reeks.Naam);
+                if (reeks != null)
+                {
+                    strip.Reeks = reeks;
+                }
+                else
+                {
+                    throw new ArgumentException("de reeks bestaat niet");
+                }
+                Uitgeverij uitgeverij = _gm.UitgeverijManager.GetByName(strip.Uitgeverij.Naam);
+                if(uitgeverij != null)
+                {
+                    strip.Uitgeverij = uitgeverij;
+                }
+                else 
+                {
+                    throw new ArgumentException("uitgeverij bestaat niet");
+                }
+
+                this._stripRepository.Add(strip);
+
+            }
+
 
         }
         public List<Strip> GetAll()
@@ -46,25 +80,25 @@ namespace Businesslaag.Managers
 
         }
 
-        public Strip getLastId() 
+        public Strip getLastId()
         {
             return this._stripRepository.GetLastStrip();
         }
 
-        public void Update(Strip strip) 
+        public void Update(Strip strip)
         {
-           if(GetById(strip.ID) != null) 
+            if (GetById(strip.ID) != null)
             {
                 throw new ArgumentException("trying to update a strip that does not exist");
             }
             else
-            this._stripRepository.Update(strip);
-          
+                this._stripRepository.Update(strip);
+
         }
 
-        public void Delete(Strip strip) 
+        public void Delete(Strip strip)
         {
-           if(GetById(strip.ID) != null)
+            if (GetById(strip.ID) != null)
             {
                 this._stripRepository.DeleteById(strip.ID);
             }
@@ -72,7 +106,7 @@ namespace Businesslaag.Managers
             {
                 throw new ArgumentException("trying to delete an Author that does not exist");
             }
-           
+
         }
 
 
@@ -80,7 +114,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleStripNotFound(Strip strip)
         {
-            if (this._stripRepository.GetAll().Any(i=> i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
+            if (this._stripRepository.GetAll().Any(i => i.StripNr == strip.StripNr && i.StripTitel == strip.StripTitel))
             {
                 return false;
             }
@@ -89,6 +123,6 @@ namespace Businesslaag.Managers
                 return true;
             }
         }
-       
+
     }
 }
