@@ -7,5 +7,6 @@ namespace Businesslaag.Repositories
 {
   public  interface IStripRepository : IRepository<Strip>
     {
+        public Strip GetLastStrip();
     }
 }

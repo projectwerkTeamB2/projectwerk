@@ -82,6 +82,13 @@ namespace Businesslaag.Managers
                 return true;
             }
         }
+
+
+        public Reeks GetByName(string reeksnaam)
+        {
+            return this._reeksRepository.GetAll().Where(n => n.Naam.Equals(reeksnaam)).FirstOrDefault();
+        }
+
         #endregion
 
     }

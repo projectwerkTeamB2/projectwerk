@@ -20,6 +20,8 @@ namespace Businesslaag.Managers
        public StripManager StripManager { get; }
           
 
+        
+
         #endregion
         public GeneralManager(IStripRepository stripRepository, IAuteurRepository auteurRepository, IReeksRepository reeksRepository , IUitgeverijRepository uitgeverijRepository ) 
         {

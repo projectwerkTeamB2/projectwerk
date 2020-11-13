@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\businesslaag\Businesslaag.csproj" />
     <ProjectReference Include="..\Datalaag\Datalaag.csproj" />
+    <ProjectReference Include="..\WpfApp2\JSON.csproj" />
   </ItemGroup>
 
 </Project>

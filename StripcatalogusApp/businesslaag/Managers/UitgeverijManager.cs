@@ -84,5 +84,10 @@ namespace Businesslaag.Managers
             }
         }
 
+        public Uitgeverij GetByName(string uitgeverijnaam)
+        {
+            return this._uitgeverijRepository.GetAll().Where(n => n.Naam.Equals(uitgeverijnaam)).FirstOrDefault();
+        }
+
     }
 }
