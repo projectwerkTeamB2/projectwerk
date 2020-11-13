@@ -27,7 +27,19 @@ namespace GUI
             Uri iconUri = new Uri("../../../Images/book.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
             generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+           
+            List<Reeks> reeksList = generalManager.ReeksManager.GetAll().OrderBy(b=>b.Naam).ToList();
+            List<Uitgeverij> uitgeverijList = generalManager.UitgeverijManager.GetAll().OrderBy(b => b.Naam).ToList();
+            for (int i = 0; i < reeksList.Count; i++)
+            {
+                TextBox_reeks.Items.Add(reeksList[i].Naam);
+            }
 
+            
+            for (int i = 0; i < uitgeverijList.Count; i++)
+            {
+                TextBox_uitgeverij.Items.Add(uitgeverijList[i].Naam);
+            }
 
         }
         public MaakScherm()
