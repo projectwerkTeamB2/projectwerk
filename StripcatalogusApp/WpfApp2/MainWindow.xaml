@@ -27,15 +27,19 @@
         <TextBlock HorizontalAlignment="Left" Height="58" Margin="50,128,0,0"   
                    TextWrapping="Wrap" Text="" VerticalAlignment="Top"  
                    Width="350" Name="TextBlock1"/>
-        <ProgressBar Width="320" Height="35" Minimum="0"  ValueChanged="pbStatus_ValueChanged" Name="pbStatus"  Margin="239,334,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
-        
+        <ProgressBar  Width="320" Height="35" Minimum="0"  Value="{Binding x}" ValueChanged="pbStatus_ValueChanged" Name="pbStatus"  Margin="239,334,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" >
+
+
+        </ProgressBar>
+        <TextBlock Name="pbStatusTEXTBLOCK" Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0} strips bewerkt}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,344,0,0" />
+
         <Label  Name="NaarDBLabel" HorizontalContentAlignment="Center"  Foreground="DarkSlateBlue" FontSize="20" Content="Wenst u met deze strips, uw databank updaten?" Margin="0,186,2,187"/>
 
         <Button Name="NaarDBButton" Content="Naar databank versturen" HorizontalAlignment="Center" Background="#b2deec"   
                 Margin="0,239,0,0" VerticalAlignment="Top" Width="228" Click="NaarDBButton_Click"   
                 RenderTransformOrigin="1.047,0.821" Height="33"/>
-        <TextBlock HorizontalAlignment="Center" Height="125" Margin="0,289,0,0"   
-                   TextWrapping="Wrap" Text="" VerticalAlignment="Top"  
+        <TextBlock HorizontalAlignment="Left" Height="125" Margin="-3,217,0,0"   
+                   TextWrapping="Wrap"  VerticalAlignment="Top"  
                    Width="228" Name="TextBlock2" />
     </Grid>
 </Window>

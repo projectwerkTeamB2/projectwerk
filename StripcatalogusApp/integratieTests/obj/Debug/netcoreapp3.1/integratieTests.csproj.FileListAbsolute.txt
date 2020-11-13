@@ -410,3 +410,4 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\obj\
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.genruntimeconfig.cache
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\integratieTests.dll.config
