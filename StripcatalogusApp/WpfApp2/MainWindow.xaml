@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Json inreader" Height="450" Width="800"
         Background="#fadcaa"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        
+        >
     <Grid>
 
         <Border BorderThickness="15" BorderBrush="#794c74"></Border>
@@ -24,8 +26,9 @@
                 RenderTransformOrigin="1.047,0.821" Height="27"/>
         <TextBlock HorizontalAlignment="Left" Height="58" Margin="50,128,0,0"   
                    TextWrapping="Wrap" Text="" VerticalAlignment="Top"  
-                   Width="611" Name="TextBlock1"/>
-
+                   Width="350" Name="TextBlock1"/>
+        <ProgressBar Width="320" Height="35" Minimum="0"  ValueChanged="pbStatus_ValueChanged" Name="pbStatus"  Margin="239,334,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        
         <Label  Name="NaarDBLabel" HorizontalContentAlignment="Center"  Foreground="DarkSlateBlue" FontSize="20" Content="Wenst u met deze strips, uw databank updaten?" Margin="0,186,2,187"/>
 
         <Button Name="NaarDBButton" Content="Naar databank versturen" HorizontalAlignment="Center" Background="#b2deec"   
@@ -33,6 +36,6 @@
                 RenderTransformOrigin="1.047,0.821" Height="33"/>
         <TextBlock HorizontalAlignment="Center" Height="125" Margin="0,289,0,0"   
                    TextWrapping="Wrap" Text="" VerticalAlignment="Top"  
-                   Width="228" Name="TextBlock2"/>
+                   Width="228" Name="TextBlock2" />
     </Grid>
 </Window>

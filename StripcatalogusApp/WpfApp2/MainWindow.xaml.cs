@@ -8,7 +8,11 @@ using System.Data.SqlClient;
 using System.Windows;
 using Businesslaag.Models;
 using Businesslaag.Managers;
-
+using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Media.Animation;
+using System.Windows.Controls;
 
 namespace WpfApp2
 {
@@ -17,14 +21,14 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        public int x = 0;
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
 
-      
+
         List<Strip> stripsFromJson;
         public MainWindow()
         {
-            
+
 
             InitializeComponent();
         }
@@ -61,14 +65,16 @@ namespace WpfApp2
 
                     stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
                 }
-                catch {
+                catch
+                {
                     stripsFromJson = null;
                 }
-                if (stripsFromJson != null && stripsFromJson.Count != 0) { 
-                TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
+                if (stripsFromJson != null && stripsFromJson.Count != 0)
+                {
+                    TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
 
-                NaarDBLabel.Visibility = Visibility.Visible;
-                NaarDBButton.Visibility = Visibility.Visible;
+                    NaarDBLabel.Visibility = Visibility.Visible;
+                    NaarDBButton.Visibility = Visibility.Visible;
                 }
                 else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
             }
@@ -76,19 +82,42 @@ namespace WpfApp2
 
         }
 
-     
+
         private void NaarDBButton_Click(object sender, RoutedEventArgs e)
         {
-            if (stripsFromJson != null) {
-                try
-                {
-                   
-                    SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
-                    schrijfwegnaarDB.allesWegSchijvenNaarDataBank(stripsFromJson);
-                    TextBlock2.Text = "Gelukt!";
-                }
-                finally { TextBlock2.Text = "Er is iets fout gegaan"; }
+            if (stripsFromJson != null)
+            {
+                
 
+                    SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
+                    pbStatus.Value = 0;
+
+                    pbStatus.Maximum = stripsFromJson.Count;
+
+                TextBlock2.Text ="0"+"/"+ pbStatus.Maximum + " strips verwerkt";
+                for (int i = 0; i < stripsFromJson.Count; i++)
+                    {
+                   
+                    
+                        schrijfwegnaarDB.allesWegSchijvenNaarDataBank(stripsFromJson[i]);
+                    x = i;
+                    pbStatus.Value = x;
+                   
+                }
+
+
+                    TextBlock2.Text = "Gelukt!";
+              
+
+            }
+        }
+        public void UpdateProgressBar(int value)
+        {
+            if (CheckAccess())
+                this.pbStatus.Value = value;
+            else
+            {
+                Dispatcher.Invoke(() => { this.pbStatus.Value = value; });
             }
         }
 
@@ -99,11 +128,20 @@ namespace WpfApp2
             DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
             DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
 
-            
+
+
+
             #endregion
 
             NaarDBLabel.Visibility = Visibility.Hidden;
             NaarDBButton.Visibility = Visibility.Hidden;
+        }
+
+        private void pbStatus_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            pbStatus.Value = x;
+            TextBlock2.Text = pbStatus.Value + "/" + pbStatus.Maximum + " strips verwerkt";
+         
         }
     }
 }
