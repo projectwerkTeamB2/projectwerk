@@ -284,6 +284,15 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -551,6 +560,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
           "System.Data.SqlClient": "4.8.2"
         },
         "compile": {
@@ -1060,6 +1070,37 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -1757,19 +1798,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jeffr\\.nuget\\packages\\": {}
+    "C:\\Users\\lieke\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
+      "projectUniqueName": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
       "projectName": "GUI",
-      "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
-      "packagesPath": "C:\\Users\\jeffr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\GUI\\obj\\",
+      "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
+      "packagesPath": "C:\\Users\\lieke\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\GUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lieke\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1782,11 +1823,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-              "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
+            "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+              "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
             },
-            "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
-              "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
+            "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
+              "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
             }
           }
         }
@@ -1827,7 +1868,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

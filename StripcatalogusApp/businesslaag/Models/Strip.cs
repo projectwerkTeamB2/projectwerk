@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,17 +11,23 @@ namespace Businesslaag.Models
     {
         [Key]
         [Column("id")]
+        [JsonProperty(Order = 1)]
         public int ID { get; set; }
+        [JsonProperty(Order = 2)]
         [Column("Titel")]
         public string StripTitel { get; set; }
         [Column("Nummer")]
+        [JsonProperty(Order = 3)]
         public int StripNr { get; set; }
+        [JsonProperty(Order = 6)]
         public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
         [Column("Reeks_id")]
-      public Reeks Reeks { get; set; }
+        [JsonProperty(Order = 4)]
+        public Reeks Reeks { get; set; }
       
         [Column("Uitgeverij_id")]
-      public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
+        [JsonProperty(Order = 5)]
+        public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 
         //Er kunnen meerdere auteurs zijn
