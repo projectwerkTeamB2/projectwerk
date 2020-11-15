@@ -7,10 +7,14 @@ namespace UnitTests.modelTests
     public class AuteurTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Create_New_Auteur_NoError()
         {
+
         }
-    }
-  
-    }
+        [TestMethod]
+        public void Update_Auteur_NoError() {
+
+        }
+    }  
+}
 

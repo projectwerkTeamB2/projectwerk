@@ -48,10 +48,10 @@
         <TextBox PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Name="TextBox_nr" Margin="178,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,176,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox  HorizontalAlignment="Left" Name="TextBox_reeks" Margin="178,210,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="25"/>
+        <ComboBox  HorizontalAlignment="Left" Name="TextBox_reeks" Margin="178,210,0,0" Text="" VerticalAlignment="Top" Width="152" Height="25"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,213,0,0" Text="Strip Reeks:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="178,245,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <ComboBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="178,245,0,0" Text=""  VerticalAlignment="Top" Width="152" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,245,0,0" Text="Strip Uitgeverij:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
 

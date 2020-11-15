@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "75mM35v6kt9iCMwKdjCwZCY0RJiBxBDDYxF3wpXIbAORpultigCwnZse07YzrWCdm5tUT8McEa/W5X8beDQM9A==",
+  "dgSpecHash": "jInsivpGpbZbxvYc9A8qRPwNmSPSWuRukaEbqgm6kP+EVVcIhmcK0xA3MHJ3T8Noj8Z8YSYyesN4XViKqNYZhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\WpfApp2\\JSON.csproj",
   "expectedPackageFiles": [
@@ -45,5 +45,12 @@
     "C:\\Users\\lieke\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\lieke\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\WpfApp2\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

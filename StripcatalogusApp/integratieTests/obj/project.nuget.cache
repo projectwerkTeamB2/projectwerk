@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vGw7RkFnpACQNErAUGRLkct1IJgEaU3Z19wYb5e5Nt8z5EXSerivE8tPPaEzsqDh0n56anBy5+1wwBNwJoCj8Q==",
+  "dgSpecHash": "TNHH3mm+si/sCpkLJZIR8SyjMZbr1WQnGEwisZMC001gTdsMsmS2SpThbzt/CPopat6jALTaPexhcKRXiCL2qA==",
   "success": true,
   "projectFilePath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\integratieTests\\integratieTests.csproj",
   "expectedPackageFiles": [
@@ -125,5 +125,12 @@
     "C:\\Users\\lieke\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\lieke\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\integratieTests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -4,7 +4,6 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\n
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csprojAssemblyReference.cache
-C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CoreCompileInputs.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.AssemblyInfoInputs.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.AssemblyInfo.cs
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CopyComplete
@@ -44,3 +43,4 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Da
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CopyComplete
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.pdb
+C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CoreCompileInputs.cache

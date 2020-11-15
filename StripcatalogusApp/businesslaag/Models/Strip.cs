@@ -11,22 +11,22 @@ namespace Businesslaag.Models
     {
         [Key]
         [Column("id")]
-        [JsonProperty(Order = 1)]
+        [JsonProperty("ID",Order = 1)]
         public int ID { get; set; }
-        [JsonProperty(Order = 2)]
+        [JsonProperty("Titel",Order = 2)]
         [Column("Titel")]
         public string StripTitel { get; set; }
         [Column("Nummer")]
-        [JsonProperty(Order = 3)]
+        [JsonProperty("Nr",Order = 3, NullValueHandling = NullValueHandling.Ignore)]
         public int StripNr { get; set; }
-        [JsonProperty(Order = 6)]
+        [JsonProperty("Auteurs", Order = 6)]
         public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
         [Column("Reeks_id")]
-        [JsonProperty(Order = 4)]
+        [JsonProperty("Reeks",Order = 4)]
         public Reeks Reeks { get; set; }
       
         [Column("Uitgeverij_id")]
-        [JsonProperty(Order = 5)]
+        [JsonProperty("Uitgeverij", Order = 5)]
         public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 

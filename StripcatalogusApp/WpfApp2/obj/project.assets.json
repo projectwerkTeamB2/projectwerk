@@ -535,6 +535,7 @@
           "Businesslaag": "1.0.0",
           "Microsoft.EntityFrameworkCore": "3.1.8",
           "Microsoft.IdentityModel.Protocols": "6.7.1",
+          "Newtonsoft.Json": "12.0.3",
           "System.Configuration.ConfigurationManager": "4.7.0",
           "System.Data.SqlClient": "4.8.2"
         },
@@ -1757,5 +1758,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\WpfApp2\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

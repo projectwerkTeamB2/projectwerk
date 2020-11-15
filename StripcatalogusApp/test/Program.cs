@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Businesslaag.Managers;
 using JSON;
+using WpfApp2;
 
 namespace test
 {
@@ -14,10 +15,20 @@ namespace test
 
         public static void Main(string[] args)
         {
-            SchrijfwegnaarJSON f = new SchrijfwegnaarJSON();
-            f.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk","SchrijfwegNaarJSONTest");
+            // SchrijfwegnaarJSON f = new SchrijfwegnaarJSON();
+            // f.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk","SchrijfwegNaarJSONTest");
             // GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
-           
+            JsonFileReader_ToObjects f = new JsonFileReader_ToObjects();
+            List < Strip > str = new List<Strip>();
+            str = f.leesJson_GeefAlleStripsTerug(@"C:\Users\lieke\OneDrive\scool\projectwerk\dump.json");
+            SchrijfwegnaarJSON schrijfwegnaarJSON = new SchrijfwegnaarJSON();
+            SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
+            foreach(Strip s in str)
+            {
+                schrijfwegnaarDB.stripWegSchijvenNaarDataBank(s);
+            }
+
+            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk", "SchrijfwegNaarJSONTest2");
 
            /* Reeks test = new Reeks(666, "test");
       

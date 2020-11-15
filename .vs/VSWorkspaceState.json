@@ -5,7 +5,8 @@
     "\\StripcatalogusApp\\Datalaag",
     "\\StripcatalogusApp\\Datalaag\\Providers",
     "\\StripcatalogusApp\\GUI",
-    "\\StripcatalogusApp\\UnitTests"
+    "\\StripcatalogusApp\\UnitTests",
+    "\\StripcatalogusApp\\WpfApp2"
   ],
   "SelectedNode": "\\StripcatalogusApp\\StripcatalogusApp.sln",
   "PreviewInSolutionExplorer": false

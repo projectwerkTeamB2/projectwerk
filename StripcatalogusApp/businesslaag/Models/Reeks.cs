@@ -1,4 +1,5 @@
 ﻿using Businesslaag;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,8 +13,10 @@ namespace Businesslaag.Models
     {
         [Key]
         [Column("id")]
+        [JsonProperty("ID")]
         public int ID { get; set; }
         [Column("Name")]
+        [JsonProperty("Naam")]
         public string Naam { get; set; }
 
         public Reeks(int iD, string naam)

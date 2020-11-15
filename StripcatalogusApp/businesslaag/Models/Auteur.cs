@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,8 +12,10 @@ namespace Businesslaag.Models
     {
         [Key]
         [Column("id")]
+        [JsonProperty("ID")]
         public int ID { get; set; }
         [Column("Name")]
+        [JsonProperty("Naam")]
         public string Naam { get; set; }
 
         public Auteur(int iD, string naam)

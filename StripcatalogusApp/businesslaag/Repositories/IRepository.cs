@@ -10,7 +10,7 @@ namespace Businesslaag.Repositories
          void Add(T entity);
          void Update(T entity);
          void DeleteById(int id);   
-        T GetById(int id);
+         T GetById(int id);
          IEnumerable<T> GetAll();
        //  IEnumerable<T> Find(Expression<Func<T, bool>> expr);
         // int Count();
