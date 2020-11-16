@@ -13,7 +13,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="4" Background="{TemplateBinding Background}">
                         <Grid>
-                            <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#F4A261" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z " />
+                            <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill"  HorizontalAlignment="Left" Margin="17,0,0,0"  />
                             <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                         </Grid>
                     </Border>
@@ -22,7 +22,6 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#2A9D8F" />
                             <Setter Property="Foreground" Value="White" />
-                            <Setter TargetName="PathIcon" Property="Fill" Value="#E76F51" />
                         </Trigger>
 
                         <Trigger Property="IsPressed" Value="True">
@@ -61,5 +60,65 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--PLACEHOLDER-->
+    <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid>
+                        <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                        <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                            <TextBox.Style>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="Foreground" Value="Transparent"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                            <Setter Property="Foreground" Value="Gray"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TextBox ITEM-->
+    <!--Voor TextBox Background="#E9C46A" BorderBrush ="#E9C46A"  -->
+    <!--<SolidColorBrush x:Key="DisabledForegroundBrush" Color="White" />
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="White" />
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="#13242A" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Name="Bd" BorderThickness="{TemplateBinding BorderThickness}"
+                                             BorderBrush="{TemplateBinding BorderBrush}"
+                                             Background="{TemplateBinding Background}"
+                                             SnapsToDevicePixels="true">
+                        <ScrollViewer Name="PART_ContentHost" Background="{TemplateBinding Background}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Value="{StaticResource DisabledBackgroundBrush}" Property="Background" />
+                            <Setter Value="{StaticResource DisabledForegroundBrush}" Property="Foreground" />
+                            <Setter TargetName="PART_ContentHost" Property="Background" Value="#13242A" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
 
 </ResourceDictionary>

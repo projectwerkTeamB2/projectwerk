@@ -1,17 +1,12 @@
-﻿using businesslaag;
+﻿using Businesslaag.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Businesslaag.Repositories
 {
-   public interface IStripRepository
+  public  interface IStripRepository : IRepository<Strip>
     {
-        void AddStrip(Strip strip);
-        void RemoveStripById(int id);
-        Strip FindStripById(int id);
-        IEnumerable<Strip> FindAll_strip();
-        IEnumerable<Strip> FindAll_ByReeks(Reeks reeks); 
-        IEnumerable<Strip> FindAll_ByAuteur(Auteur auteur); 
+        public Strip GetLastStrip();
     }
 }

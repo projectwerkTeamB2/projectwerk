@@ -28,9 +28,9 @@ CREATE TABLE Uitgeverij (
 DROP TABLE IF EXISTS [projectwerk`.`Auteur] ;
 
 CREATE TABLE Auteur (
-  [Id] INT NOT NULL,
+  [id] INT NOT NULL,
   [Name] VARCHAR(255) NULL,
-  PRIMARY KEY ([Id]))
+  PRIMARY KEY ([id]))
 ;
 
 
@@ -67,21 +67,21 @@ DROP TABLE IF EXISTS [projectwerk`.`Strip_has_Auteur] ;
 
 CREATE TABLE Strip_has_Auteur (
   [Strip_id] INT NOT NULL,
-  [Auteur_Id] INT NOT NULL,
-  PRIMARY KEY ([Strip_id], [Auteur_Id]),
+  [Auteur_id] INT NOT NULL,
+  PRIMARY KEY ([Strip_id], [Auteur_id]),
   CONSTRAINT [fk_Strip_has_Auteur_Strip1]
     FOREIGN KEY ([Strip_id])
     REFERENCES Strip ([id])
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT [fk_Strip_has_Auteur_Auteur1]
-    FOREIGN KEY ([Auteur_Id])
-    REFERENCES Auteur ([Id])
+    FOREIGN KEY ([Auteur_id])
+    REFERENCES Auteur ([id])
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ;
 
-CREATE INDEX fk_Strip_has_Auteur_Auteur1_idx ON Strip_has_Auteur ([Auteur_Id] ASC) ;
+CREATE INDEX fk_Strip_has_Auteur_Auteur1_idx ON Strip_has_Auteur ([Auteur_id] ASC) ;
 
 CREATE INDEX fk_Strip_has_Auteur_Strip1_idx ON Strip_has_Auteur ([Strip_id] ASC) ;
 

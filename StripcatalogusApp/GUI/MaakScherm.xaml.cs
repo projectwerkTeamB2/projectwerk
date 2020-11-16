@@ -1,20 +1,17 @@
-﻿using businesslaag;
-using Businesslaag;
-using Datalaag.Repositories;
+﻿using Datalaag.Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Datalaag;
+using Businesslaag.Models;
+using Businesslaag.Managers;
+using System.Linq;
 
 namespace GUI
 {
@@ -23,13 +20,26 @@ namespace GUI
     /// </summary>
     public partial class MaakScherm : Window
     {
-
+        GeneralManager generalManager;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //dit zet boeken icoontje links vanboven
             Uri iconUri = new Uri("../../../Images/book.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
+            generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+           
+            List<Reeks> reeksList = generalManager.ReeksManager.GetAll().OrderBy(b=>b.Naam).ToList();
+            List<Uitgeverij> uitgeverijList = generalManager.UitgeverijManager.GetAll().OrderBy(b => b.Naam).ToList();
+            for (int i = 0; i < reeksList.Count; i++)
+            {
+                TextBox_reeks.Items.Add(reeksList[i].Naam);
+            }
 
+            
+            for (int i = 0; i < uitgeverijList.Count; i++)
+            {
+                TextBox_uitgeverij.Items.Add(uitgeverijList[i].Naam);
+            }
 
         }
         public MaakScherm()
@@ -66,17 +76,13 @@ namespace GUI
 
         private void Button_Aanmaken_Click(object sender, RoutedEventArgs e)
         {
+            ExtraInfo_TextBox.Text = "";
             string fouten = "";
-            #region connectie db
-            DbProviderFactories.RegisterFactory("sqlserver", SqlClientFactory.Instance);
-            DbProviderFactory sqlFactory = DbProviderFactories.GetFactory("sqlserver");
-
-            StripRepository sr = new StripRepository(sqlFactory);
-            #endregion
-            List<Auteur> auteursList = new List<Auteur>();
+           
             Reeks reeks1 = new Reeks();
             Uitgeverij uitgeverij1 = new Uitgeverij();
-            int inteVullenGeg = 5; //voor elke correcte ingevulde vakje -1. dus op 0 is alles correct
+            List<Auteur> auteurLijst = new List<Auteur>();
+
             string titel = TextBox_titel.Text;
             string nr = TextBox_nr.Text;
             string reeks = TextBox_reeks.Text;
@@ -88,63 +94,88 @@ namespace GUI
             if (TextBox_auteurs.Text =="" || TextBox_titel.Text == "" || TextBox_nr.Text == "" || TextBox_reeks.Text == "" || TextBox_uitgeverij.Text == "" ) {
                 fouten = fouten + "U heeft iets niet ingevuld.";
                 ietsLeeg = true;
-            }
-            //controleren of er fouten zijn
-            //TITEL
-            if ( TextBox_titel.Text != "" || TextBox_titel.Text.Length > 1)
-            { inteVullenGeg = inteVullenGeg - 1; }
-            //NUMMER
-            if (TextBox_nr.Text != "" )
-            { inteVullenGeg = inteVullenGeg - 1; }
-            //REEKS
-            if (TextBox_reeks.Text != "" || TextBox_reeks.Text.Length > 1)
-            {
-                Reeks reeksX = sr.GetReeks_fromName(reeks);
-                if (reeksX == null)// als reeks niet bestaat -> maak aan
-                {
-                    reeks1 = new Reeks(sr.latestReeksId() + 1, reeks);
-                }
-                else { reeks1 = reeksX; }
-                inteVullenGeg = inteVullenGeg - 1; }
-            //UITGEVERIJ
-            if (TextBox_uitgeverij.Text != "" || TextBox_uitgeverij.Text.Length > 1)
-            {
-                Uitgeverij uitgeverijX = sr.GetUitgeverij_fromName(uitgeverij);
-                if (uitgeverijX == null)// als reeks niet bestaat -> maak aan
-                {
-                    uitgeverij1 = new Uitgeverij(sr.latestReeksId() + 1, uitgeverij);
-                }
-                else { uitgeverij1 = uitgeverijX; }
-                inteVullenGeg = inteVullenGeg - 1; }
-            //AUTEURS
-            if (TextBox_auteurs.Text != "" || TextBox_auteurs.Text.Length > 1)
-            {
+                ExtraInfo_TextBox.Text = fouten;
+
                 
-                //meedere auteurs
-                if (TextBox_auteurs.Text.Contains(',')) { 
-                
-                }
-                //maar 1 auteur
-                else {
-                    Auteur bestaandeAuteur = sr.GetAuteur_fromName(auteurs);
-
-                    if (bestaandeAuteur == null) {
-                        auteursList.Add(new Auteur(sr.latestAuteurId() +1, auteurs));
-                    }
-                    else { auteursList.Add(bestaandeAuteur); }
-                }
-                inteVullenGeg = inteVullenGeg - 1; }
-            //controleren of er duplicaten zijn
-            //foutcode eventueel teruggeven
-            //aanmaken en naar databank sturen
-          
-            int LastStripID = sr.latestStripId();
-
-            if (!ietsLeeg) {
-
-                Strip newStrip = new Strip(LastStripID + 1, titel, auteursList, reeks1,Convert.ToInt32( nr), uitgeverij1);
-                sr.AddStrip(newStrip);
             }
+
+            //  //foutcode eventueel teruggeven
+            try
+            {
+                String[] strlist = auteurs.Split(",", StringSplitOptions.RemoveEmptyEntries);
+                reeks1 = new Reeks(reeks);
+                uitgeverij1 = new Uitgeverij(uitgeverij);
+
+
+                foreach (var item in strlist)
+                {
+                    auteurLijst.Add(new Auteur(item.Trim()));
+                }
+
+                Strip newStrip = new Strip(generalManager.StripManager.GetAll().OrderBy(b => b.ID).Last().ID + 1, titel, Convert.ToInt32(nr), auteurLijst, reeks1, uitgeverij1);
+
+                string messageBoxText = "Wilt u deze strip aanmaken: \n " + newStrip.ToString();
+                string caption = "Strip Aanmaken?";
+                MessageBoxButton button = MessageBoxButton.YesNo;
+                MessageBoxImage icon = MessageBoxImage.Question;
+
+                // Display message box
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+               
+
+                // Process message box results
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                      
+                        // User pressed Yes button
+                        this.DialogResult = true;
+                        //try
+                        //{
+                            generalManager.StripManager.Add(newStrip);
+                            //break;
+                            //}
+                            //catch (Exception ex) {
+
+                            //    messageBoxText = fouten + "\n" + ex.ToString();
+                            //     button = MessageBoxButton.OK;
+                            //     icon = MessageBoxImage.Information;
+
+
+                            //    // Display message box
+                            //     result = MessageBox.Show(messageBoxText, caption, button, icon);
+
+                            //    // Process message box results
+                            //    switch (result)
+                            //    {
+                            //        case MessageBoxResult.OK:
+                            //            // User pressed Yes button
+                            //            this.DialogResult = true;
+
+                            //            break;
+                            //    }
+                            break;
+                        //}
+                        //catch (Exception ex)
+                        //{
+                        //    throw new Exception(ex.ToString());
+                        //    break;
+                        //}
+
+                        
+
+
+
+                    case MessageBoxResult.No:
+                        // User pressed No button
+                        // nothing happends
+                        break;
+                }
+
+              
+            }
+            catch(Exception ex) { ExtraInfo_TextBox.Text = fouten + "\n" + ex.ToString(); }
+         
 
             
         }
@@ -154,5 +185,7 @@ namespace GUI
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+    
     }
 }

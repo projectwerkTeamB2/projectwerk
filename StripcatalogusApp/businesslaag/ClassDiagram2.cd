@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Businesslaag.Models.Auteur">
+    <Position X="0.5" Y="1.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAABAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Auteur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Businesslaag.Models.Reeks">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAABAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Reeks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Businesslaag.Models.Strip">
+    <Position X="0.5" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IAEAAAAAAAAAwAAMgAgAAAIAAAgAAIAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Strip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Businesslaag.Models.StripManager">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAgAAAAIAAAAgAAAAoAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\StripManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Businesslaag.Models.Uitgeverij">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAABAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Uitgeverij.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Businesslaag.Repositories.IStripRepository">
+    <Position X="4.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEA=</HashCode>
+      <FileName>Repositories\IStripRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

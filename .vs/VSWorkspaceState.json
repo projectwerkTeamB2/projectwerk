@@ -4,8 +4,10 @@
     "\\StripcatalogusApp",
     "\\StripcatalogusApp\\Datalaag",
     "\\StripcatalogusApp\\Datalaag\\Providers",
-    "\\StripcatalogusApp\\UnitTests"
+    "\\StripcatalogusApp\\GUI",
+    "\\StripcatalogusApp\\UnitTests",
+    "\\StripcatalogusApp\\WpfApp2"
   ],
-  "SelectedNode": "\\Logboek Team B2.xlsx",
+  "SelectedNode": "\\StripcatalogusApp\\StripcatalogusApp.sln",
   "PreviewInSolutionExplorer": false
 }
