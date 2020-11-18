@@ -403,3 +403,10 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.genruntimeconfig.cache
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\Shouldly.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\UnitTests\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
