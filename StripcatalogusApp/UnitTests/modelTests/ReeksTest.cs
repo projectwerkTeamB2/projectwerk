@@ -21,6 +21,10 @@ namespace UnitTests.modelTests
 
         }
         #endregion
+        [TestMethod]
+        public void testClass() {
+
+        }
 
     }
 }

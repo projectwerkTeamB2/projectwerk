@@ -80,30 +80,18 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\b
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.pdb
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.csprojAssemblyReference.cache
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.AssemblyInfoInputs.cache
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.AssemblyInfo.cs
@@ -214,3 +202,8 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\te
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.dll.config
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.exe
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.dll
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.pdb
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.dll.config
