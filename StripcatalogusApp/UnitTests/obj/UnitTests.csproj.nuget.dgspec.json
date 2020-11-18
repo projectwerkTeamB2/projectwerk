@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
@@ -16,22 +15,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
-        "projectName": "Businesslaag",
-        "projectPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
-        "packagesPath": "C:\\Users\\Cesar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 1617deaa86a65f6acfe572215a7982b26b81dbb7
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +66,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -95,19 +77,6 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
-        "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\Cesar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 1617deaa86a65f6acfe572215a7982b26b81dbb7
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,13 +89,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
                 "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
-=======
-              "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-                "projectPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
->>>>>>> 1617deaa86a65f6acfe572215a7982b26b81dbb7
               }
             }
           }

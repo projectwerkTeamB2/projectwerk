@@ -6081,16 +6081,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\jeffr\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\Cesar\\.nuget\\packages\\": {}
->>>>>>> 1617deaa86a65f6acfe572215a7982b26b81dbb7
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
       "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
@@ -6099,16 +6094,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
-      "projectName": "UnitTests",
-      "projectPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\UnitTests.csproj",
-      "packagesPath": "C:\\Users\\Cesar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\UnitTests\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\Cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 1617deaa86a65f6acfe572215a7982b26b81dbb7
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6121,13 +6106,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
               "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
-=======
-            "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-              "projectPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
->>>>>>> 1617deaa86a65f6acfe572215a7982b26b81dbb7
             }
           }
         }
@@ -6180,5 +6160,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\UnitTests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
