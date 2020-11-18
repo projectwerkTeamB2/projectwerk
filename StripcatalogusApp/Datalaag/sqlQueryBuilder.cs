@@ -1,4 +1,5 @@
 ﻿using Businesslaag.Models;
+using Datalaag.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -59,17 +60,17 @@ namespace Datalaag
             {
                 result = String.Format("'{0:u}' as {1},", property.Value, propertyInfo.Name);
             }
-            else if (propertyInfo.PropertyType.Name == "Reeks")// compare strings
+            else if (propertyInfo.PropertyType.Name == "ReeksDB")// compare strings
             {
-                result = String.Format("{0} as {1},", (_item as Strip).Reeks.ID, "Reeks_ID");
+                result = String.Format("{0} as {1},", (_item as StripDB).Reeks.ID, "Reeks_ID");
             }
-            else if (propertyInfo.PropertyType.Name == "Auteur")
+            else if (propertyInfo.PropertyType.Name == "AuteurDB")
             {
-                result = String.Format("{0} as {1},", (_item as Auteur).ID, "Auteur_ID");
+                result = String.Format("{0} as {1},", (_item as AuteurDB).ID, "Auteur_ID");
             }
-            else if (propertyInfo.PropertyType.Name == "Uitgeverij")
+            else if (propertyInfo.PropertyType.Name == "UitgeverijDB")
             {
-                result = String.Format("{0} as {1},", (_item as Strip).Uitgeverij.ID, "Uitgeverij_ID");
+                result = String.Format("{0} as {1},", (_item as StripDB).Uitgeverij.ID, "Uitgeverij_ID");
             }
             return result;
         }

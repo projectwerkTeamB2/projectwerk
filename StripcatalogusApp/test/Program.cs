@@ -17,8 +17,16 @@ namespace test
         {
             // SchrijfwegnaarJSON f = new SchrijfwegnaarJSON();
             // f.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk","SchrijfwegNaarJSONTest");
-            // GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
-            JsonFileReader_ToObjects f = new JsonFileReader_ToObjects();
+             GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+            Auteur mytestauteur = new Auteur(999, "mytest");
+            Reeks mytestreeks = new Reeks(999, "schaap");
+            Uitgeverij myTestuitgeverij = new Uitgeverij(999, "myUitgeverij");
+            List<Auteur> auteurs = new List<Auteur>();
+            auteurs.Add(mytestauteur);
+            Strip myTestStrip = new Strip(3687, "my test duh", 999, auteurs, mytestreeks, myTestuitgeverij);
+            generalManager.StripManager.Add(myTestStrip);
+
+           /* JsonFileReader_ToObjects f = new JsonFileReader_ToObjects();
             List < Strip > str = new List<Strip>();
             str = f.leesJson_GeefAlleStripsTerug(@"C:\Users\lieke\OneDrive\scool\projectwerk\dump.json");
             SchrijfwegnaarJSON schrijfwegnaarJSON = new SchrijfwegnaarJSON();
@@ -27,8 +35,9 @@ namespace test
             {
                 schrijfwegnaarDB.stripWegSchijvenNaarDataBank(s);
             }
+           
 
-            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk", "SchrijfwegNaarJSONTest2");
+            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk", "SchrijfwegNaarJSONTest2");*/
 
            /* Reeks test = new Reeks(666, "test");
       

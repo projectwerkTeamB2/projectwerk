@@ -7,15 +7,10 @@ using System.Text;
 
 namespace Businesslaag.Models
 {
-    [Table("Uitgeverij")]
     public class Uitgeverij
     {
-        [Key]
-        [Column("id")]
-        [JsonProperty("ID")]
         public int ID { get; set; }
-        [Column("Name")]
-        [JsonProperty("Naam")]
+       
         public string Naam { get; set; }
 
         public Uitgeverij(int iD, string naam)
