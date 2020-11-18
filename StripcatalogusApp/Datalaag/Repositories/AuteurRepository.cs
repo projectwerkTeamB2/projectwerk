@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Businesslaag.Models;
 using Businesslaag.Repositories;
+using Datalaag.Mappers;
 using System.Linq.Expressions;
 using System;
+using Datalaag.Models;
 
 namespace Datalaag.Repositories
 {
     /// <summary>
     ///
     /// </summary>
-    public class AuteurRepository : CRUDRepository<Auteur> , IAuteurRepository
+    public class AuteurRepository : CRUDRepository<AuteurDB> , IAuteurRepository
     {
         public AuteurRepository(string connectionString)
    : base(connectionString)
@@ -24,7 +26,8 @@ namespace Datalaag.Repositories
             //  over this next command!
             using (var command = new SqlCommand("SELECT * FROM Auteur"))
             {
-                return GetRecords(command);
+                return ConvertToBusinesslaag.ConvertToAuteurs((List<AuteurDB>)GetRecords(command));
+
             }
         }
 
@@ -34,7 +37,8 @@ namespace Datalaag.Repositories
             using (var command = new SqlCommand("SELECT * FROM Auteur WHERE id = @id"))
             {
                 command.Parameters.Add(new SqlParameter("id", id));
-                return GetRecord(command);
+                return ConvertToBusinesslaag.ConvertToAuteur(GetRecord(command));
+                
             }
         }
 
@@ -42,14 +46,14 @@ namespace Datalaag.Repositories
         {
             var command = new SqlCommand("select * from Auteur join Strip_has_Auteur on auteur.id = Strip_has_Auteur.Auteur_id Where Strip_id = @id");
             command.Parameters.Add(new SqlParameter("id", id));
-            return (List<Auteur>)GetRecords(command);
+            return ConvertToBusinesslaag.ConvertToAuteurs((List<AuteurDB>)GetRecords(command));
         }
 
         #endregion
 
-        public override Auteur PopulateRecord(SqlDataReader reader)
+        public override AuteurDB PopulateRecord(SqlDataReader reader)
         {
-            return new Auteur
+            return new AuteurDB
             {
                 ID = reader.GetInt32(0),
                 Naam = reader.GetString(1)
@@ -58,20 +62,21 @@ namespace Datalaag.Repositories
 
         public void Add(Auteur auteur)
         {
-
-            var sqlQueryBuilder = new SqlQueryBuilder<Auteur>(auteur);
+          AuteurDB dbauteur =  ConvertToDatalayer.ConvertToAuteurDb(auteur);
+            var sqlQueryBuilder = new SqlQueryBuilder<AuteurDB>(dbauteur);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
         }
 
         public void DeleteById(int id)
         {
-            Auteur auteur = GetById(id);
-            var sqlQueryBuilder = new SqlQueryBuilder<Auteur>(auteur);
+            AuteurDB auteur = ConvertToDatalayer.ConvertToAuteurDb(GetById(id));
+            var sqlQueryBuilder = new SqlQueryBuilder<AuteurDB>(auteur);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
-        public void Update(Auteur newAuteur) 
+        public void Update(Auteur Auteur) 
             {
+            AuteurDB newAuteur = ConvertToDatalayer.ConvertToAuteurDb(Auteur);
                 var command = new SqlCommand("update Auteur set Id = @id, Name = @name WHERE Id = @id");
                 command.Parameters.Add(new SqlParameter("id", newAuteur.ID));
                 command.Parameters.Add(new SqlParameter("name", newAuteur.Naam));

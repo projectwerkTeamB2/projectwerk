@@ -18,6 +18,17 @@ namespace Datalaag.Mappers
             return convertedAuteur;
         }
 
+        static public List<AuteurDB> ConvertToAuteursDb(List<Auteur> auteurs) 
+        {
+            List<AuteurDB> convertedauteurs = new List<AuteurDB>();
+            foreach (var a in auteurs)
+            {
+                AuteurDB ca = new AuteurDB(a.ID, a.Naam);
+                convertedauteurs.Add(ca);
+            }
+            return convertedauteurs;
+        }
+
         static public UitgeverijDB ConvertToUitgeverijDb(Uitgeverij uitgeverij)
         {
             UitgeverijDB convertedUitgeverij = new UitgeverijDB(uitgeverij.ID, uitgeverij.Naam);
@@ -30,7 +41,7 @@ namespace Datalaag.Mappers
             return convertedReeks;
         }
           
-        static StripDB convertToStripDb(Strip strip) 
+        static public StripDB convertToStripDb(Strip strip) 
         {
             List<AuteurDB> convertedAuteurs = new List<AuteurDB>();
           foreach (var a in strip.Auteurs)

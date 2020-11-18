@@ -156,3 +156,4 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\ne
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.genruntimeconfig.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.csproj.CoreCompileInputs.cache
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
