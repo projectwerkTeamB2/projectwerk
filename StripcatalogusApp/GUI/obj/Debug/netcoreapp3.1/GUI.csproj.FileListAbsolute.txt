@@ -207,3 +207,5 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcor
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.genruntimeconfig.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll.config

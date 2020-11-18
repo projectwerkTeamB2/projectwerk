@@ -7,15 +7,11 @@ using System.Text;
 
 namespace Businesslaag.Models
 {
-    [Table("Auteur")]
     public class Auteur
     {
-        [Key]
-        [Column("id")]
-        [JsonProperty("ID")]
+        
         public int ID { get; set; }
-        [Column("Name")]
-        [JsonProperty("Naam")]
+       
         public string Naam { get; set; }
 
         public Auteur(int iD, string naam)
