@@ -48,7 +48,7 @@ namespace Businesslaag.Managers
 
         public void Update(Auteur auteur)
         {
-            if (GetById(auteur.ID) != null)
+            if (GetById(auteur.ID) == null)
             {
                 throw new ArgumentException("trying to update an Author that does not exist");
             }
@@ -59,7 +59,7 @@ namespace Businesslaag.Managers
 
         public void Delete(Auteur auteur)
         {
-            if(GetById(auteur.ID) == null)
+            if(GetById(auteur.ID) != null)
             {
                 this._auteurRepository.DeleteById(auteur.ID);
             }

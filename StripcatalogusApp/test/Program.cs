@@ -24,8 +24,10 @@ namespace test
             List<Auteur> auteurs = new List<Auteur>();
             auteurs.Add(mytestauteur);
             Strip myTestStrip = new Strip(3687, "my test duh", 999, auteurs, mytestreeks, myTestuitgeverij);
-            generalManager.StripManager.Add(myTestStrip);
-
+            //  generalManager.StripManager.Add(myTestStrip);
+          var gotten =  generalManager.AuteurManager.GetById(999);
+            Console.WriteLine(gotten.ID.ToString() + gotten.Naam);
+            
            /* JsonFileReader_ToObjects f = new JsonFileReader_ToObjects();
             List < Strip > str = new List<Strip>();
             str = f.leesJson_GeefAlleStripsTerug(@"C:\Users\lieke\OneDrive\scool\projectwerk\dump.json");

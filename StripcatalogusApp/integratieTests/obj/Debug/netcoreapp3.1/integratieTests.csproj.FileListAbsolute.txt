@@ -125,7 +125,6 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\bin\D
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.pdb
-C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.csprojAssemblyReference.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.AssemblyInfoInputs.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.AssemblyInfo.cs
