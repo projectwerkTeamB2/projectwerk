@@ -80,6 +80,13 @@ namespace Businesslaag.Managers
 
         }
 
+        public Strip GetByName(string stripnaam)
+        {
+            return this._stripRepository.GetAll().Where(n => n.StripTitel.Equals(stripnaam)).FirstOrDefault();
+        }
+
+
+
         public Strip getLastId()
         {
             return this._stripRepository.GetLastStrip();
@@ -108,9 +115,6 @@ namespace Businesslaag.Managers
             }
 
         }
-
-
-
 
         private Boolean DoubleStripNotFound(Strip strip)
         {

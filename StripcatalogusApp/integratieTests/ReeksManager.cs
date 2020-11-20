@@ -37,16 +37,16 @@ namespace integratieTests {
         [TestMethod]
         public void Add_Reeks_No_Error()
         {
-            Reeks testreeks = new Reeks(9999, "testreeks");
+            Reeks testreeks = new Reeks(5, "test1");
             generalManager.ReeksManager.Add(testreeks);
 
-            Reeks reeksFromDb = generalManager.ReeksManager.GetById(9999);
+            Reeks reeksFromDb = generalManager.ReeksManager.GetById(5);
             Assert.AreEqual(testreeks, reeksFromDb);
         }
         [TestMethod]
         public void select_reeksbyID_succes()
         {
-            Reeks expected = new Reeks(9999, "testreeks");
+            Reeks expected = new Reeks(1, "test1");
             Reeks gotten = generalManager.ReeksManager.GetById(expected.ID);
             Assert.AreEqual(expected, gotten);
         }
@@ -55,14 +55,14 @@ namespace integratieTests {
 
         public void select_ReeksByName_succes()
         {
-            Reeks expected = new Reeks(9999, "testreeks");
+            Reeks expected = new Reeks(1, "test1");
             Reeks gotten = generalManager.ReeksManager.GetByName(expected.Naam);
             Assert.AreEqual(expected, gotten);
         }
         [TestMethod]
         public void updateReeks_succesvol()
         {
-            Reeks og = generalManager.ReeksManager.GetById(9999);
+            Reeks og = generalManager.ReeksManager.GetById(1);
             og.Naam = "inserted test value";
             generalManager.ReeksManager.Update(og);
             Assert.AreEqual(og.Naam, "inserted test value");
@@ -73,7 +73,7 @@ namespace integratieTests {
         public void DeleteReeks_succesvol()
         {
             int begincount = generalManager.ReeksManager.GetAll().Count;
-            Reeks reeks = new Reeks(1, "test1");
+            Reeks reeks = generalManager.ReeksManager.GetById(1);
             generalManager.ReeksManager.Delete(reeks);
             Assert.IsTrue(generalManager.ReeksManager.GetAll().Count == begincount - 1);
         }

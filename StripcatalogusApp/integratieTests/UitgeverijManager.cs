@@ -46,7 +46,7 @@ namespace integratieTests {
         [TestMethod]
         public void select_uitgeverijbyID_succes()
         {
-            Uitgeverij expected = new Uitgeverij(9999, "testuitgeverij");
+            Uitgeverij expected = new Uitgeverij(4, "testuitgeverij");
             Uitgeverij gotten = generalManager.UitgeverijManager.GetById(expected.ID);
             Assert.AreEqual(expected, gotten);
         }
@@ -55,14 +55,14 @@ namespace integratieTests {
 
         public void select_uitgeverijByName_succes()
         {
-            Uitgeverij expected = new Uitgeverij(9999, "testuitgeverij");
+            Uitgeverij expected = new Uitgeverij(4, "Uitgeverij4");
             Uitgeverij gotten = generalManager.UitgeverijManager.GetByName(expected.Naam);
             Assert.AreEqual(expected, gotten);
         }
         [TestMethod]
         public void updateUitgeverij_succesvol()
         {
-            Uitgeverij og = generalManager.UitgeverijManager.GetById(9999);
+            Uitgeverij og = generalManager.UitgeverijManager.GetById(4);
             og.Naam = "inserted test value";
             generalManager.UitgeverijManager.Update(og);
             Assert.AreEqual(og.Naam, "inserted test value");
@@ -73,7 +73,7 @@ namespace integratieTests {
         public void DeleteUitgeverij_succesvol()
         {
             int begincount = generalManager.UitgeverijManager.GetAll().Count;
-            Uitgeverij uitgeverij = new Uitgeverij(1, "test1");
+            Uitgeverij uitgeverij = generalManager.UitgeverijManager.GetById(9999);
             generalManager.UitgeverijManager.Delete(uitgeverij);
             Assert.IsTrue(generalManager.UitgeverijManager.GetAll().Count == begincount - 1);
         }
