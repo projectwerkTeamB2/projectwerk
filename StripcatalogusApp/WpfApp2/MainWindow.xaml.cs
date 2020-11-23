@@ -8,6 +8,8 @@ using System.Windows;
 using Businesslaag.Models;
 using Businesslaag.Managers;
 using System.ComponentModel;
+using JSON;
+using Datalaag.Models;
 
 namespace WpfApp2
 {
@@ -34,7 +36,8 @@ namespace WpfApp2
         //nodig? V
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
 
-        List<Strip> stripsFromJson; //list die alle strips van db gaat bevatten
+        List<Strip> stripsFromJson; //list die alle strips van json bestad gaat bevatten
+        List<StripDB> stripsFromDB; //list die alle strips van db gaat bevatten
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
@@ -74,15 +77,15 @@ namespace WpfApp2
                 try
                 {
 
-              //      stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
+                    stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
                 }
                 catch
                 {
-                    stripsFromJson = null;
+                    stripsFromDB = null;
                 }
-                if (stripsFromJson != null && stripsFromJson.Count != 0)
+                if (stripsFromDB != null && stripsFromDB.Count != 0)
                 {
-                    TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
+                    TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromDB.Count.ToString() + " strips.";
 
                     NaarDBLabel.Visibility = Visibility.Visible;
                     NaarDBButton.Visibility = Visibility.Visible;
@@ -151,6 +154,39 @@ namespace WpfApp2
         private void pbStatus_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             pbStatus.Value = x;
+        }
+
+        //Databank naar text bestand zetten? -> geklikt
+        private void VanDBButtonn_Click(object sender, RoutedEventArgs e)
+        {
+            NaarDBButtonKeuze.Visibility = Visibility.Visible; //toon button om terug naar andere scherm te gaan
+            NaarJSONButton.Visibility = Visibility.Visible;
+            NaarDBLabel.Visibility = Visibility.Collapsed;
+            FileNameTextBox.Visibility = Visibility.Collapsed;
+            FileNameTextBox.Text = "";
+          //  allesWegSchrijvenNaarJSONFile()
+
+            Hoofdlabel.Content = "Kies een locatie waar je het wil schrijven";
+
+
+        }
+        //Json naar Databank versturen? -> geklikt
+        private void NaarDBButtonKeuze_Click(object sender, RoutedEventArgs e)
+        {
+            NaarJSONButton.Visibility = Visibility.Collapsed;
+            NaarDBButtonKeuze.Visibility = Visibility.Collapsed;
+            VanDBButton.Visibility = Visibility.Visible;
+            FileNameTextBox.Text = "";
+            TextBlock1.Text = "";
+
+            Hoofdlabel.Content = "Laad uw Json in en wij updaten uw databank.";
+        }
+
+        private void NaarJSONButton_Click(object sender, RoutedEventArgs e)
+        {
+            SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
+            string time = DateTime.Now.ToString();
+            swj.allesWegSchrijvenNaarJSONFile(FileNameTextBox.Text, "StripCatDB_" + time + ".txt");
         }
     }
 }
