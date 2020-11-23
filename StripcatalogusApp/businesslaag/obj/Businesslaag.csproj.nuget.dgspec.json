@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {}
+    "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {}
   },
   "projects": {
-    "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+    "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+        "projectUniqueName": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
         "projectName": "Businesslaag",
-        "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
-        "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
+        "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj",
+        "packagesPath": "C:\\Users\\lieke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk\\StripcatalogusApp\\businesslaag\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lieke\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
@@ -62,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
