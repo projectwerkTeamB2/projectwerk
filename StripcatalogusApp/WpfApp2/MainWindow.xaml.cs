@@ -8,6 +8,9 @@ using System.Windows;
 using Businesslaag.Models;
 using Businesslaag.Managers;
 using System.ComponentModel;
+using JSON;
+using Datalaag.Models;
+using Datalaag.Mappers;
 
 namespace WpfApp2
 {
@@ -34,7 +37,8 @@ namespace WpfApp2
         //nodig? V
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
 
-        List<Strip> stripsFromJson; //list die alle strips van db gaat bevatten
+        List<Strip> stripsFromJson; //list die alle strips van json bestad gaat bevatten
+        List<StripDB> stripsFromDB; //list die alle strips van db gaat bevatten
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
@@ -53,52 +57,55 @@ namespace WpfApp2
             NaarDBButton.Visibility = Visibility.Hidden;
             stripsFromJson = null;
 
-            // Create OpenFileDialog
-            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
-            openFileDlg.DefaultExt = ".json";// Set filter for file extension and default file extension  
-            openFileDlg.Filter = "Json files (*.json)|*.json";
+            if (Hoofdlabel.Content.Equals("Laad uw Json in en wij updaten uw databank.")) {
+                // Create OpenFileDialog
+                Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+                openFileDlg.DefaultExt = ".json";// Set filter for file extension and default file extension  
+                openFileDlg.Filter = "Json files (*.json)|*.json";
 
-            openFileDlg.Multiselect = false;// Multiple selection with all file types  
-            // Launch OpenFileDialog by calling ShowDialog method
-            Nullable<bool> result = openFileDlg.ShowDialog();
-            // Get the selected file name and display in a TextBox.
-            // Load content of file in a TextBlock
-            if (result == true)
-            {
-                FileNameTextBox.Text = openFileDlg.FileName;
-
-
-                //Leest de Json bestand in en maakt er objecten van
-                JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
-           //     jfr.locatieJson = openFileDlg.FileName;
-                try
+                openFileDlg.Multiselect = false;// Multiple selection with all file types  
+                                                // Launch OpenFileDialog by calling ShowDialog method
+                Nullable<bool> result = openFileDlg.ShowDialog();
+                // Get the selected file name and display in a TextBox.
+                // Load content of file in a TextBlock
+                if (result == true)
                 {
+                    FileNameTextBox.Text = openFileDlg.FileName;
 
-              //      stripsFromJson = jfr.leesJson_GeefAlleStripsTerug();
-                }
-                catch
-                {
-                    stripsFromJson = null;
-                }
-                if (stripsFromJson != null && stripsFromJson.Count != 0)
-                {
-                    TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
 
-                    NaarDBLabel.Visibility = Visibility.Visible;
-                    NaarDBButton.Visibility = Visibility.Visible;
+                    //Leest de Json bestand in en maakt er objecten van
+                    JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
+                    //     jfr.locatieJson = openFileDlg.FileName;
+                    try
+                    {
+
+                        stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                    }
+                    catch
+                    {
+                        stripsFromDB = null;
+                    }
+                    if (stripsFromDB != null && stripsFromDB.Count != 0)
+                    {
+                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromDB.Count.ToString() + " strips.";
+
+                        NaarDBLabel.Visibility = Visibility.Visible;
+                        NaarDBButton.Visibility = Visibility.Visible;
+                    }
+                    else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
                 }
                 else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
             }
-            else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
+            else if (Hoofdlabel.Content.Equals("Kies een locatie waar je het wil schrijven.")) { }
 
         }
 
         public void Bewerk(List<Strip> strips) {
-            if (stripsFromJson != null)
+            if (stripsFromDB != null)
             {
                 NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
 
-                pbStatus.Maximum = stripsFromJson.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
+                pbStatus.Maximum = stripsFromDB.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
                 SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
                 pbStatus.Value = 0; //progresbar start bij 0
 
@@ -133,7 +140,7 @@ namespace WpfApp2
         private void NaarDBButton_Click(object sender, RoutedEventArgs e)
         {
             
-            Bewerk(stripsFromJson); //voer uit, schijf strips weg naar db
+            Bewerk(ConvertToBusinesslaag.convertToStrips(stripsFromDB)); //voer uit, schijf strips weg naar db
             
         }
         
@@ -151,6 +158,38 @@ namespace WpfApp2
         private void pbStatus_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             pbStatus.Value = x;
+        }
+
+        //Databank naar text bestand zetten? -> geklikt
+        private void VanDBButtonn_Click(object sender, RoutedEventArgs e)
+        {
+            NaarDBButtonKeuze.Visibility = Visibility.Visible; //toon button om terug naar andere scherm te gaan
+            NaarJSONButton.Visibility = Visibility.Visible;
+            NaarDBLabel.Visibility = Visibility.Collapsed;
+            FileNameTextBox.Text = "";
+          //  allesWegSchrijvenNaarJSONFile()
+
+            Hoofdlabel.Content = "Kies een locatie waar je het wil schrijven.";
+
+
+        }
+        //Json naar Databank versturen? -> geklikt
+        private void NaarDBButtonKeuze_Click(object sender, RoutedEventArgs e)
+        {
+            NaarJSONButton.Visibility = Visibility.Collapsed;
+            NaarDBButtonKeuze.Visibility = Visibility.Collapsed;
+            VanDBButton.Visibility = Visibility.Visible;
+            FileNameTextBox.Text = "";
+            TextBlock1.Text = "";
+
+            Hoofdlabel.Content = "Laad uw Json in en wij updaten uw databank.";
+        }
+
+        private void NaarJSONButton_Click(object sender, RoutedEventArgs e)
+        {
+            SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
+            string time = DateTime.Now.ToString();
+            swj.allesWegSchrijvenNaarJSONFile(FileNameTextBox.Text, "StripCatDB_" + time + ".txt");
         }
     }
 }

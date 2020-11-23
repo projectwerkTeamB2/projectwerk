@@ -15,7 +15,7 @@
         <Border BorderThickness="15" BorderBrush="#794c74"></Border>
         <Rectangle HorizontalAlignment="Center" Fill="#b2deec" Height="60" Margin="0,23,0,0"  Stroke="#794c74" VerticalAlignment="Top" Width="800"/>
 
-        <Label FontWeight="Normal" HorizontalContentAlignment="Center"  Foreground="DarkSlateBlue" FontSize="25" Content="Laad uw Json in en wij updaten uw databank." Margin="1,23,1,338" FontFamily="Segoe UI Black"/>
+        <Label Name="Hoofdlabel" FontWeight="Normal" HorizontalContentAlignment="Center"  Foreground="DarkSlateBlue" FontSize="25" Content="Laad uw Json in en wij updaten uw databank." Margin="1,23,1,338" FontFamily="Segoe UI Black"/>
 
 
         <TextBox HorizontalAlignment="Left" Height="27" Margin="50,96,0,0" TextWrapping="Wrap"   
@@ -24,22 +24,34 @@
         <Button x:Name="BrowseButton" Content="Browse a file" HorizontalAlignment="Left"   
                 Margin="549,96,0,0" VerticalAlignment="Top" Width="112" Click="BrowseButton_Click"   
                 RenderTransformOrigin="1.047,0.821" Height="27"/>
-        <TextBlock HorizontalAlignment="Left" Height="58" Margin="50,128,0,0"   
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="50,128,0,0"   
                    TextWrapping="Wrap" Text="" VerticalAlignment="Top"  
                    Width="350" Name="TextBlock1"/>
-        <ProgressBar  Width="320" Height="35" Minimum="0"  Value="{Binding x}" ValueChanged="pbStatus_ValueChanged" Name="pbStatus"  Margin="239,334,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" >
+        <ProgressBar  Width="320" Height="35" Minimum="0"  Value="{Binding x}" ValueChanged="pbStatus_ValueChanged" Name="pbStatus"  Margin="0,282,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" >
 
 
         </ProgressBar>
-        <TextBlock Name="pbStatusTEXTBLOCK" Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0} strips bewerkt}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,344,0,0" />
+        <TextBlock Name="pbStatusTEXTBLOCK" Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0} strips bewerkt}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,292,0,0" />
 
         <Label  Name="NaarDBLabel" HorizontalContentAlignment="Center"  Foreground="DarkSlateBlue" FontSize="20" Content="Wenst u met deze strips, uw databank updaten?" Margin="0,186,2,187"/>
 
         <Button Name="NaarDBButton" Content="Naar databank versturen" HorizontalAlignment="Center" Background="#b2deec"   
                 Margin="0,239,0,0" VerticalAlignment="Top" Width="228" Click="NaarDBButton_Click"   
                 RenderTransformOrigin="1.047,0.821" Height="33"/>
-        <TextBlock HorizontalAlignment="Left" Height="125" Margin="-3,217,0,0"   
+        <Button Name="NaarJSONButton" Content="Zet om naar json file" HorizontalAlignment="Center" Background="#b2deec"   
+                Margin="0,239,0,0" VerticalAlignment="Top" Width="228" Click="NaarJSONButton_Click"   
+                RenderTransformOrigin="1.047,0.821" Height="33" Visibility="Collapsed"/>
+
+        <Button Name="VanDBButton" Content="Databank naar text bestand zetten?" HorizontalAlignment="Center" Background="#b2deec"   
+                Margin="0,344,0,0" Width="228" Click="VanDBButtonn_Click"   
+                RenderTransformOrigin="1.047,0.821" Height="33" VerticalAlignment="Top"/>
+        <Button Name="NaarDBButtonKeuze" Content="Json naar Databank versturen?" HorizontalAlignment="Center" Background="#b2deec"   
+                Margin="0,344,0,0" Width="228" Click="NaarDBButtonKeuze_Click"   
+                RenderTransformOrigin="1.047,0.821" Height="33" VerticalAlignment="Top" Visibility="Collapsed" />
+
+
+        <TextBlock HorizontalAlignment="Left" Height="29" Margin="50,157,0,0"   
                    TextWrapping="Wrap"  VerticalAlignment="Top"  
-                   Width="228" Name="TextBlock2" />
+                   Width="349" Name="TextBlock2" />
     </Grid>
 </Window>
