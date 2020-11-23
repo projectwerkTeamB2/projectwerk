@@ -11,38 +11,38 @@ namespace Datalaag
     public class JsonFileReader_ToObjects
    
     {
-        public List<StripDB> leesJson_GeefAlleStripsTerug(string locatieString)
+        public List<Strip> leesJson_GeefAlleStripsTerug(string locatieString)
         {
-            List<StripDB> listStrips = new List<StripDB>();
+            List<Strip> listStrips = new List<Strip>();
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
             //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
-                listStrips = JsonConvert.DeserializeObject<List<StripDB>>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
             }
             bool verwijder = false;
             for (int i = 0; i < listStrips.Count; i++)
             {
                 verwijder = false;
-                if (listStrips[i].Auteurs == null)
+                if (listStrips[i].Auteurs == null || listStrips[i].Auteurs.Count ==0)
                 {
-                    System.IO.File.AppendAllText(@locatieString+"Fouten.json",listStrips[i].ToString());
+                    System.IO.File.AppendAllText(@locatieString+"Fouten.json",listStrips[i].ID.ToString()+"\n");
                     verwijder = true;
                 }
                 if (listStrips[i].Uitgeverij == null)
                 {
-                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ToString());
+                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ID.ToString() + "\n");
                     verwijder = true;
                 }
                 if (listStrips[i].Reeks == null)
                 {
-                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ToString());
+                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ID.ToString() + "\n");
                     verwijder = true;
                 }
                 if (listStrips[i].StripTitel == null)
                 {
-                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ToString());
+                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ID.ToString() + "\n");
                     verwijder = true;
                 }
                 if (verwijder == true)
@@ -57,13 +57,13 @@ namespace Datalaag
                 
 
             }
-            foreach(StripDB s in listStrips)
+            foreach(Strip s in listStrips)
             {
                 if (s.StripTitel.Contains(@"'"))
                 {
                     s.StripTitel = s.StripTitel.Replace(@"'", @"''");
                 };
-                foreach(AuteurDB a in s.Auteurs)
+                foreach(Auteur a in s.Auteurs)
                 {
                     if (a.Naam.Contains(@"'"))
                     {

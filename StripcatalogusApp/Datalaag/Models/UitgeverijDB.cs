@@ -11,10 +11,10 @@ namespace Datalaag.Models
     {
         [Key]
         [Column("id")]
-        [JsonProperty("ID")]
+       
         public int ID { get; set; }
         [Column("Name")]
-        [JsonProperty("Naam")]
+      
         public string Naam { get; set; }
 
         public UitgeverijDB(int iD, string naam)
