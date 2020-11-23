@@ -10,6 +10,7 @@ using Businesslaag.Managers;
 using System.ComponentModel;
 using JSON;
 using Datalaag.Models;
+using Datalaag.Mappers;
 
 namespace WpfApp2
 {
@@ -100,11 +101,11 @@ namespace WpfApp2
         }
 
         public void Bewerk(List<Strip> strips) {
-            if (stripsFromJson != null)
+            if (stripsFromDB != null)
             {
                 NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
 
-                pbStatus.Maximum = stripsFromJson.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
+                pbStatus.Maximum = stripsFromDB.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
                 SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
                 pbStatus.Value = 0; //progresbar start bij 0
 
@@ -139,7 +140,7 @@ namespace WpfApp2
         private void NaarDBButton_Click(object sender, RoutedEventArgs e)
         {
             
-            Bewerk(stripsFromJson); //voer uit, schijf strips weg naar db
+            Bewerk(ConvertToBusinesslaag.convertToStrips(stripsFromDB)); //voer uit, schijf strips weg naar db
             
         }
         
