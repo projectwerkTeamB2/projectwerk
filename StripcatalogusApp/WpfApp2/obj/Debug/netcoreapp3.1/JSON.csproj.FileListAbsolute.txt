@@ -145,7 +145,6 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\ne
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.pdb
-C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.g.resources
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.AssemblyInfoInputs.cache

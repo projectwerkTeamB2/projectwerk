@@ -186,7 +186,6 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcor
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.pdb
-C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.csprojAssemblyReference.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakScherm.baml
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MainWindow.baml

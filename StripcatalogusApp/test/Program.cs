@@ -17,7 +17,9 @@ namespace test
         {
             // SchrijfwegnaarJSON f = new SchrijfwegnaarJSON();
             // f.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk","SchrijfwegNaarJSONTest");
-             GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+            JsonFileReader_ToObjects f = new JsonFileReader_ToObjects();
+            f.leesJson_GeefAlleStripsTerug(@"C:\Users\lieke\OneDrive\scool\projectwerk\dump.json");
+         /*    GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
             Auteur mytestauteur = new Auteur(999, "mytest");
             Reeks mytestreeks = new Reeks(999, "schaap");
             Uitgeverij myTestuitgeverij = new Uitgeverij(999, "myUitgeverij");
@@ -26,7 +28,7 @@ namespace test
             Strip myTestStrip = new Strip(3687, "my test duh", 999, auteurs, mytestreeks, myTestuitgeverij);
             //  generalManager.StripManager.Add(myTestStrip);
           var gotten =  generalManager.AuteurManager.GetById(999);
-            Console.WriteLine(gotten.ID.ToString() + gotten.Naam);
+            Console.WriteLine(gotten.ID.ToString() + gotten.Naam);*/
             
            /* JsonFileReader_ToObjects f = new JsonFileReader_ToObjects();
             List < Strip > str = new List<Strip>();

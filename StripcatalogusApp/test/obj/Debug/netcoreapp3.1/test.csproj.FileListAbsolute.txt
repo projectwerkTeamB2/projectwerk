@@ -174,7 +174,6 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\bin\Debug\netco
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.pdb
-C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.dll.config
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\test\obj\Debug\netcoreapp3.1\test.csprojAssemblyReference.cache

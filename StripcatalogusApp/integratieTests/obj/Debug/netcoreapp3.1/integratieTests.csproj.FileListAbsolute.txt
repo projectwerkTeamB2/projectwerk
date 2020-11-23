@@ -400,7 +400,6 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\bin\
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.pdb
-C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.csprojAssemblyReference.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.AssemblyInfoInputs.cache
 C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.AssemblyInfo.cs

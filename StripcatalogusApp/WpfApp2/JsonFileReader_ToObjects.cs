@@ -1,4 +1,5 @@
 ﻿using Businesslaag.Models;
+using Datalaag.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,23 +11,59 @@ namespace Datalaag
     public class JsonFileReader_ToObjects
    
     {
-        public List<Strip> leesJson_GeefAlleStripsTerug(string locatieString)
+        public List<StripDB> leesJson_GeefAlleStripsTerug(string locatieString)
         {
-            List<Strip> listStrips = new List<Strip>();
+            List<StripDB> listStrips = new List<StripDB>();
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
             //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
-                listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<StripDB>>(file.ReadToEnd());
             }
-            foreach(Strip s in listStrips)
+            bool verwijder = false;
+            for (int i = 0; i < listStrips.Count; i++)
+            {
+                verwijder = false;
+                if (listStrips[i].Auteurs == null)
+                {
+                    System.IO.File.AppendAllText(@locatieString+"Fouten.json",listStrips[i].ToString());
+                    verwijder = true;
+                }
+                if (listStrips[i].Uitgeverij == null)
+                {
+                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ToString());
+                    verwijder = true;
+                }
+                if (listStrips[i].Reeks == null)
+                {
+                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ToString());
+                    verwijder = true;
+                }
+                if (listStrips[i].StripTitel == null)
+                {
+                    System.IO.File.AppendAllText(@locatieString + "Fouten.json", listStrips[i].ToString());
+                    verwijder = true;
+                }
+                if (verwijder == true)
+                {
+                    listStrips.RemoveAt(i);
+                    i--;
+
+                }else if (verwijder == false)
+                {
+                    i++;
+                }
+                
+
+            }
+            foreach(StripDB s in listStrips)
             {
                 if (s.StripTitel.Contains(@"'"))
                 {
                     s.StripTitel = s.StripTitel.Replace(@"'", @"''");
                 };
-                foreach(Auteur a in s.Auteurs)
+                foreach(AuteurDB a in s.Auteurs)
                 {
                     if (a.Naam.Contains(@"'"))
                     {
