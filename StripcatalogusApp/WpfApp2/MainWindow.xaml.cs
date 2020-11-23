@@ -56,43 +56,46 @@ namespace WpfApp2
             NaarDBButton.Visibility = Visibility.Hidden;
             stripsFromJson = null;
 
-            // Create OpenFileDialog
-            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
-            openFileDlg.DefaultExt = ".json";// Set filter for file extension and default file extension  
-            openFileDlg.Filter = "Json files (*.json)|*.json";
+            if (Hoofdlabel.Content.Equals("Laad uw Json in en wij updaten uw databank.")) {
+                // Create OpenFileDialog
+                Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+                openFileDlg.DefaultExt = ".json";// Set filter for file extension and default file extension  
+                openFileDlg.Filter = "Json files (*.json)|*.json";
 
-            openFileDlg.Multiselect = false;// Multiple selection with all file types  
-            // Launch OpenFileDialog by calling ShowDialog method
-            Nullable<bool> result = openFileDlg.ShowDialog();
-            // Get the selected file name and display in a TextBox.
-            // Load content of file in a TextBlock
-            if (result == true)
-            {
-                FileNameTextBox.Text = openFileDlg.FileName;
-
-
-                //Leest de Json bestand in en maakt er objecten van
-                JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
-           //     jfr.locatieJson = openFileDlg.FileName;
-                try
+                openFileDlg.Multiselect = false;// Multiple selection with all file types  
+                                                // Launch OpenFileDialog by calling ShowDialog method
+                Nullable<bool> result = openFileDlg.ShowDialog();
+                // Get the selected file name and display in a TextBox.
+                // Load content of file in a TextBlock
+                if (result == true)
                 {
+                    FileNameTextBox.Text = openFileDlg.FileName;
 
-                    stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
-                }
-                catch
-                {
-                    stripsFromDB = null;
-                }
-                if (stripsFromDB != null && stripsFromDB.Count != 0)
-                {
-                    TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromDB.Count.ToString() + " strips.";
 
-                    NaarDBLabel.Visibility = Visibility.Visible;
-                    NaarDBButton.Visibility = Visibility.Visible;
+                    //Leest de Json bestand in en maakt er objecten van
+                    JsonFileReader_ToObjects jfr = new JsonFileReader_ToObjects();
+                    //     jfr.locatieJson = openFileDlg.FileName;
+                    try
+                    {
+
+                        stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                    }
+                    catch
+                    {
+                        stripsFromDB = null;
+                    }
+                    if (stripsFromDB != null && stripsFromDB.Count != 0)
+                    {
+                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromDB.Count.ToString() + " strips.";
+
+                        NaarDBLabel.Visibility = Visibility.Visible;
+                        NaarDBButton.Visibility = Visibility.Visible;
+                    }
+                    else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
                 }
                 else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
             }
-            else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
+            else if (Hoofdlabel.Content.Equals("Kies een locatie waar je het wil schrijven.")) { }
 
         }
 
@@ -162,11 +165,10 @@ namespace WpfApp2
             NaarDBButtonKeuze.Visibility = Visibility.Visible; //toon button om terug naar andere scherm te gaan
             NaarJSONButton.Visibility = Visibility.Visible;
             NaarDBLabel.Visibility = Visibility.Collapsed;
-            FileNameTextBox.Visibility = Visibility.Collapsed;
             FileNameTextBox.Text = "";
           //  allesWegSchrijvenNaarJSONFile()
 
-            Hoofdlabel.Content = "Kies een locatie waar je het wil schrijven";
+            Hoofdlabel.Content = "Kies een locatie waar je het wil schrijven.";
 
 
         }
