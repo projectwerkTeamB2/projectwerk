@@ -139,9 +139,10 @@ namespace WpfApp2
 
         private void NaarDBButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            Bewerk(ConvertToBusinesslaag.convertToStrips(stripsFromDB)); //voer uit, schijf strips weg naar db
-            
+            this.Dispatcher.Invoke(() =>
+            {
+                Bewerk(ConvertToBusinesslaag.convertToStrips(stripsFromDB)); //voer uit, schijf strips weg naar db
+            });
         }
         
 
