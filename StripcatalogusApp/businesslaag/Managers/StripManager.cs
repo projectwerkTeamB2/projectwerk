@@ -94,7 +94,7 @@ namespace Businesslaag.Managers
 
         public void Update(Strip strip)
         {
-            if (GetById(strip.ID) != null)
+            if (GetById(strip.ID) == null)
             {
                 throw new ArgumentException("trying to update a strip that does not exist");
             }
