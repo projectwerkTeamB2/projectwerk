@@ -21,7 +21,7 @@ namespace GUI
     {
         List<Strip> stripsFromDb;
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
-        Strip selectedStrip;
+       public Strip selectedStrip;
 
         public MainWindow()
         {
@@ -77,6 +77,8 @@ namespace GUI
       
         private void Button_Bijwerk_Click(object sender, RoutedEventArgs e)
         {
+            selectedStrip = (StripDataGrid.SelectedItem as Strip);
+            new EditStrip().Show();
 
         }
 
