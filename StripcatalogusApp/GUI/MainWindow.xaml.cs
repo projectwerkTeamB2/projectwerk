@@ -77,8 +77,8 @@ namespace GUI
       
         private void Button_Bijwerk_Click(object sender, RoutedEventArgs e)
         {
-            selectedStrip = (StripDataGrid.SelectedItem as Strip);
-            new EditStrip().Show();
+             
+            new EditStrip(selectedStrip).Show();
 
         }
 

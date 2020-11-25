@@ -72,24 +72,20 @@ namespace Datalaag.Repositories
             var sqlQueryBuilder = new SqlQueryBuilder<StripDB>(stripDB);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
             AddStripHasAuteur(stripDB);
-
         }
 
         private void AddStripHasAuteur(StripDB strip) 
         {
-           
-            
+ 
             for (int i = 0; i < strip.Auteurs.Count; i++)
             {
                 SqlCommand command = new SqlCommand("Insert INTO Strip_has_Auteur values(@strip_id, @auteur_id)");
                 command.Parameters.AddWithValue("strip_id", strip.ID);
                 command.Parameters.AddWithValue("auteur_id", strip.Auteurs[i].ID);
-
                 ExecuteCommand(command);
                
             }
 
-            
         }
 
         #endregion
@@ -137,13 +133,10 @@ namespace Datalaag.Repositories
         #endregion
 
         private void updateAuteurStrip(StripDB newStrip) {
-            for(int i = 0; i < newStrip.Auteurs.Count; i++) {
-                SqlCommand command = new SqlCommand("update Strip_has_Auteur SET Strip_Id=@strip_id, Auteur_Id=@auteur_id WHERE Strip_id=@strip_id");
-                command.Parameters.AddWithValue("strip_id", newStrip.ID);
-                command.Parameters.AddWithValue("auteur_id", newStrip.Auteurs[i].ID);
-
-                ExecuteCommand(command);
-            }
+            SqlCommand deletecommand = new SqlCommand("delete from Strip_has_Auteur where Strip_id=@strip_id");
+            deletecommand.Parameters.AddWithValue("strip_id", newStrip.ID);
+            ExecuteCommand(deletecommand);
+            AddStripHasAuteur(newStrip);
         }
     }
 }
