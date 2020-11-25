@@ -57,6 +57,7 @@ namespace GUI
             {
                 Strip strip = new Strip(Strip_id, TextBox_titel.Text, Convert.ToInt32(TextBox_nr.Text), ConvertToBusinessLayer.ListAuteurs(_selectedAuteurs.Values.ToList()), TextBox_reeks.SelectedItem as Reeks, TextBox_uitgeverij.SelectedItem as Uitgeverij);
                 generalManager.StripManager.Update(strip);
+                this.Close();
                
             }
             
