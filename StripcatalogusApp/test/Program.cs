@@ -18,7 +18,7 @@ namespace test
             // SchrijfwegnaarJSON f = new SchrijfwegnaarJSON();
             // f.allesWegSchrijvenNaarJSONFile(@"C:\Users\lieke\OneDrive\scool\projectwerk","SchrijfwegNaarJSONTest");
             JsonFileReader_ToObjects f = new JsonFileReader_ToObjects();
-            f.leesJson_GeefAlleStripsTerug(@"C:\Users\lieke\OneDrive\scool\projectwerk\dump.json");
+            f.leesFoutiveJson_GeefAlleStripsTerug(@"C:\Users\lieke\OneDrive\scool\projectwerk\dump.json-FoutieveJSON.json");
          /*    GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
             Auteur mytestauteur = new Auteur(999, "mytest");
             Reeks mytestreeks = new Reeks(999, "schaap");

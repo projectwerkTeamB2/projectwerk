@@ -115,7 +115,6 @@ namespace Datalaag
                 //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
                 listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
             }
-
             return listStrips;
         }
 
