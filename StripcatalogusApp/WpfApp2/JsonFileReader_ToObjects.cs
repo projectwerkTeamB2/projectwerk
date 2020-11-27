@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Datalaag
+namespace JSON
 {
     public class JsonFileReader_ToObjects
    
