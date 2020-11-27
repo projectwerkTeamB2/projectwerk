@@ -79,7 +79,7 @@ namespace WpfApp2
                     try
                     {
 
-                        stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                    //    stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
                     }
                     catch
                     {
@@ -190,7 +190,7 @@ namespace WpfApp2
         {
             SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
             string time = DateTime.Now.ToString();
-            swj.allesWegSchrijvenNaarJSONFile(FileNameTextBox.Text, "StripCatDB_" + time + ".txt");
+            swj.allesWegSchrijvenNaarJSONFileVanDataBank(FileNameTextBox.Text, "StripCatDB_" + time + ".txt");
         }
     }
 }
