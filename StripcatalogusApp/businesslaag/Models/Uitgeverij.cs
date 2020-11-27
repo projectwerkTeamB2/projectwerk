@@ -17,11 +17,14 @@ namespace Businesslaag.Models
         public Uitgeverij(int iD, string naam)
         {
             ID = iD;
+            if (naam == "")
+                throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;
         }
         public Uitgeverij( string naam)
         {
-
+            if (naam == "")
+                throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;
         }
         public Uitgeverij()

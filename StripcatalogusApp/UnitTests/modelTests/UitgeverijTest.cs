@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Businesslaag.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,15 +13,17 @@ namespace UnitTests.modelTests
     [TestClass]
     public class UitgeverijTest
     {
-        #region [Constructor]
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public UitgeverijTest()
-        {
-
+        [TestMethod]
+        public void CreateUitgeverijWithId_Empty_Name_ThrowsArgumentException() {
+            Uitgeverij u;
+            Assert.ThrowsException<System.ArgumentException>(() => u = new Uitgeverij(1, ""));
         }
-        #endregion
+
+        [TestMethod]
+        public void CreateUitgeverijNoId_Empty_Name_ThrowsArgumentException() {
+            Uitgeverij u;
+            Assert.ThrowsException<System.ArgumentException>(() => u = new Uitgeverij(""));
+        }
 
     }
 }

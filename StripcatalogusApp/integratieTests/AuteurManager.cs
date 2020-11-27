@@ -31,7 +31,7 @@ namespace integratieTests {
         public void select_allAuteurs_succes()
         {
             int expected = 4;
-           List<Auteur>  gotten = generalManager.AuteurManager.GetAll();
+            List<Auteur>  gotten = generalManager.AuteurManager.GetAll();
             Assert.AreEqual(expected, gotten.Count);
         }
 
@@ -52,7 +52,6 @@ namespace integratieTests {
         }
 
         [TestMethod]
-
         public void select_auteurByName_succes() 
         {
             Auteur expected = new Auteur(1, "test1");
@@ -69,7 +68,6 @@ namespace integratieTests {
         }
 
         [TestMethod]
-
         public void DeleteAuteur_succesvol() 
         {
             int begincount = generalManager.AuteurManager.GetAll().Count;
@@ -77,7 +75,5 @@ namespace integratieTests {
             generalManager.AuteurManager.Delete(auteur);
             Assert.IsTrue(generalManager.AuteurManager.GetAll().Count == begincount - 1);
         }
-        
-
     }
 }

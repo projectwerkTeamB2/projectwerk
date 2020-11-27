@@ -65,8 +65,6 @@ namespace Businesslaag.Managers
                 this._stripRepository.Add(strip);
 
             }
-
-
         }
         public List<Strip> GetAll()
         {

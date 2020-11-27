@@ -17,12 +17,16 @@ namespace Businesslaag.Models
         public Auteur(int iD, string naam)
         {
             ID = iD;
+            if (naam == "")
+                throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;
         }
         public Auteur() 
         { }
         public Auteur(string naam)
         {
+            if (naam == "")
+                throw new ArgumentException("Naam mag niet leeg zijn");
             this.Naam = naam;
         }
 

@@ -18,6 +18,8 @@ namespace Businesslaag.Models
         public Reeks(int iD, string naam)
         {
             ID = iD;
+            if (naam == "")
+                throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;
         }
 
@@ -26,6 +28,8 @@ namespace Businesslaag.Models
         }
         public Reeks(string Naam)
         {
+            if (Naam == "")
+                throw new ArgumentException("Naam mag niet leeg zijn");
             this.Naam = Naam;
         }
         public override bool Equals(object obj)

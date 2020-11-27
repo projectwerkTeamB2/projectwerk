@@ -27,7 +27,11 @@ namespace Businesslaag.Models
         public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij)
         {
             this.ID = id;
+            if (stripTitel == "")
+                throw new ArgumentException("Striptitel mag niet leeg zijn");
             this.StripTitel = stripTitel;
+            if (auteurs.Count == 0)
+                throw new ArgumentException("List van auteurs mag niet leeg zijn");
             this.Auteurs = auteurs;
             this.Reeks = reeks;
             this.StripNr = stripNr;
@@ -40,7 +44,8 @@ namespace Businesslaag.Models
             if (nietBestaandeAuteurCheck(auteur)) { //kijken of hij al bestaat
                 this.Auteurs.Add(auteur);
             }
-           
+            else
+                throw new ArgumentException("Auteur " + auteur.Naam + " bestaat al");
         }
         public void addAuteurs(List<Auteur> auteurs)
         {
@@ -50,6 +55,8 @@ namespace Businesslaag.Models
                 {
                     //kijken of hij al bestaat
                     this.Auteurs.Add(aut);
+                } else {
+                    throw new ArgumentException("Auteur " + aut.Naam + "bestaat al");
                 }
             }
            

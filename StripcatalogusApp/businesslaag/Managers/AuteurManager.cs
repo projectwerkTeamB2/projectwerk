@@ -31,19 +31,16 @@ namespace Businesslaag.Managers
         {
             if (DoubleAuteurNotFound(auteur)) 
             this._auteurRepository.Add(auteur);
-
         }
 
         public List<Auteur> GetAll()
         {
             return (List<Auteur>)this._auteurRepository.GetAll();
-
         }
 
         public Auteur GetById(int id)
         {
             return this._auteurRepository.GetById(id);
-
         }
 
         public void Update(Auteur auteur)
@@ -54,7 +51,6 @@ namespace Businesslaag.Managers
             }
             else
                 this._auteurRepository.Update(auteur);
-
         }
 
         public void Delete(Auteur auteur)
