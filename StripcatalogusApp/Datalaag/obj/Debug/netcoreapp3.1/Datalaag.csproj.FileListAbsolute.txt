@@ -46,3 +46,4 @@ C:\Users\lieke\OneDrive\scool\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\n
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CopyComplete
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config

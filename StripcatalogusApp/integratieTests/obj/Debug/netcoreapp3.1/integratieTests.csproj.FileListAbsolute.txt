@@ -262,7 +262,6 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\in
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.dll
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Businesslaag.pdb
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.pdb
-D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\bin\Debug\netcoreapp3.1\Datalaag.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.csprojAssemblyReference.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.AssemblyInfoInputs.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\integratieTests\obj\Debug\netcoreapp3.1\integratieTests.AssemblyInfo.cs

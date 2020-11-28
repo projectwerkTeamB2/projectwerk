@@ -1669,19 +1669,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cesar\\.nuget\\packages\\": {}
+    "C:\\Users\\ciki3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj",
+      "projectUniqueName": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj",
       "projectName": "Datalaag",
-      "projectPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj",
-      "packagesPath": "C:\\Users\\Cesar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\obj\\",
+      "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj",
+      "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Cesar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1694,8 +1694,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-              "projectPath": "C:\\Users\\Cesar\\Documents\\School\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
+            "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+              "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
             }
           }
         }

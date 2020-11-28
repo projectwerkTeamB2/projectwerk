@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Nieuwe Strip toevoegen" Height="505" Width="830 "
+        Title="Strip wijzigen" Height="505" Width="830 "
         WindowStartupLocation="CenterScreen"
+         Loaded="Window_Loaded"
           ResizeMode="NoResize"
      >
 
@@ -33,14 +34,16 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Label Content="Laten we een strip bewerken" FontWeight="Black" FontSize="32" HorizontalAlignment="Left" Margin="45,20,0,0" VerticalAlignment="Top"/>
-        <Label Content="( Vul hieronder de gegevens van de strip in aub. )" HorizontalAlignment="Left" Margin="45,73,0,0" VerticalAlignment="Top"/>
+        <Label Content="Laten we een strip bewerken !" FontWeight="Black" FontSize="32" HorizontalAlignment="Left" Margin="45,29,0,0" VerticalAlignment="Top"/>
+        <Label Content="( Vul hieronder de gegevens van de strip in aub. )" HorizontalAlignment="Left" Margin="45,69,0,0" VerticalAlignment="Top"/>
+        <Label Content="( U kunt meerdere selecteren )" HorizontalAlignment="Left" Margin="366,114,0,0" VerticalAlignment="Top"/>
 
         <Button  Style="{StaticResource ButtonStyle}"    Content="Annuleren" x:Name="cancel_update" HorizontalAlignment="Left" Margin="626,414,0,0" VerticalAlignment="Top" Width="148" Height="34" Background="#902C14" Click="cancel_update_Click" />
         <Button  Style="{StaticResource ButtonStyle}"  Content="strip Bewerken" x:Name="Button_update_confirmed" HorizontalAlignment="Left" Margin="282,414,0,0" VerticalAlignment="Top" Width="288" Height="34" Click="Button_update_confirmed_Click"  />
 
         <TextBox HorizontalAlignment="Left"  Name="TextBox_titel" Margin="178,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,144,0,0" Text="Strip titel:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
 
         <TextBox  HorizontalAlignment="Left" Name="TextBox_nr" Margin="178,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Margin="53,176,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -84,7 +87,7 @@
 
 
 
-        <TextBlock HorizontalAlignment="Left" Margin="53,301,0,0" Text="Auteur(s)" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="371,97,0,0" Text="Auteur(s):" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Image HorizontalAlignment="Left" Source="/Images/BoomIMG.png" Height="94" Margin="736,386,0,0" VerticalAlignment="Top" Width="95"/>
 
 

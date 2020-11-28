@@ -190,7 +190,7 @@ namespace WpfApp2
         {
             SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
             string time = DateTime.Now.ToString();
-            swj.allesWegSchrijvenNaarJSONFileVanDataBank(FileNameTextBox.Text, "StripCatDB_" + time + ".txt");
+         //   swj.allesWegSchrijvenNaarJSONFileVanDataBank(FileNameTextBox.Text, "StripCatDB_" + time + ".txt");
         }
     }
 }

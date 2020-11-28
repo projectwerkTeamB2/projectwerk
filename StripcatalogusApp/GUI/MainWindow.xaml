@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-         WindowStartupLocation="CenterScreen"
-           ResizeMode="NoResize"
-         Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
         Title="Strip Applicatie" Height="600" Width="1100">
 
     <Grid Background="#E9C46A">

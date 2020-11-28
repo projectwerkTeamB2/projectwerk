@@ -30,8 +30,7 @@ namespace Businesslaag.Models
             if (stripTitel == "")
                 throw new ArgumentException("Striptitel mag niet leeg zijn");
             this.StripTitel = stripTitel;
-            if (auteurs.Count == 0)
-                throw new ArgumentException("List van auteurs mag niet leeg zijn");
+           
             this.Auteurs = auteurs;
             this.Reeks = reeks;
             this.StripNr = stripNr;

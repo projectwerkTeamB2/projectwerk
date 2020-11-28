@@ -236,3 +236,6 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\bi
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.pdb
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStrip.baml
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStrip.g.cs
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStrip.baml
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStrip.g.cs
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll.config
