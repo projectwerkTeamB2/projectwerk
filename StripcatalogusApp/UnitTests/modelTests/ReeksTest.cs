@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Businesslaag.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,15 +13,17 @@ namespace UnitTests.modelTests
     [TestClass]
     public class ReeksTest
     {
-        #region [Constructor]
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public ReeksTest()
-        {
-
+        [TestMethod]
+        public void CreateReeksWithId_Empty_Name_ThrowsArgumentException() {
+            Reeks r;
+            Assert.ThrowsException<System.ArgumentException>(() => r = new Reeks(1, ""));
         }
-        #endregion
+
+        [TestMethod]
+        public void CreateReeksNoId_Empty_Name_ThrowsArgumentException() {
+            Reeks r;
+            Assert.ThrowsException<System.ArgumentException>(() => r = new Reeks(""));
+        }
 
     }
 }

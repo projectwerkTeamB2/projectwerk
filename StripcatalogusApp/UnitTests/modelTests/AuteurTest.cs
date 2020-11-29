@@ -1,3 +1,4 @@
+using Businesslaag.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.modelTests
@@ -7,13 +8,15 @@ namespace UnitTests.modelTests
     public class AuteurTest
     {
         [TestMethod]
-        public void Create_New_Auteur_NoError()
-        {
-
+        public void CreateAuteur_NoName_ShouldThrowError() {
+            Auteur auteur;
+            Assert.ThrowsException<System.ArgumentException>(() => auteur = new Auteur(1, ""));
         }
-        [TestMethod]
-        public void Update_Auteur_NoError() {
 
+        [TestMethod]
+        public void CreateAuteur_NoName_OnlyName_ArgumentException() {
+            Auteur auteur;
+            Assert.ThrowsException<System.ArgumentException>(() => auteur = new Auteur(""));
         }
     }  
 }

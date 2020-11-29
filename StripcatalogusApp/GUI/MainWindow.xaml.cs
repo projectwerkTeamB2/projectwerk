@@ -3,15 +3,11 @@ using Businesslaag.Managers;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using Businesslaag.Repositories;
 using Datalaag.Repositories;
 using Datalaag;
-using System.Windows.Controls;
-using System.Collections;
 
 namespace GUI
 {
@@ -21,7 +17,7 @@ namespace GUI
     {
         List<Strip> stripsFromDb;
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
-        Strip selectedStrip;
+       public Strip selectedStrip;
 
         public MainWindow()
         {
@@ -30,7 +26,7 @@ namespace GUI
             InitializeComponent();
         }
 
-        private string AuteursToString(List<Auteur> deze)
+        private string AuteursToString(List<Auteur> deze) //om de auteurs van stripboeken duidelijk te tonen in datagrid
         {
             if (deze.Count > 1)
             { //als meerdere auteurs
@@ -64,10 +60,10 @@ namespace GUI
 
         private void Button_MaakStrip_Click(object sender, RoutedEventArgs e)
         {
-            MaakScherm w2 = new MaakScherm(); //maak reservatie window openen
+            MaakScherm w2 = new MaakScherm(); //maak window openen
             w2.ShowDialog();
 
-            // window reset// voor als er nieuwe reserveringen zijn gemaakt
+            // window reset// voor als er nieuwe strips zijn gemaakt
             MainWindow newWindow = new MainWindow();
             Application.Current.MainWindow = newWindow;
             newWindow.Show();
@@ -78,6 +74,15 @@ namespace GUI
         private void Button_Bijwerk_Click(object sender, RoutedEventArgs e)
         {
 
+            // new EditStrip(selectedStrip).Show();
+            EditStrip w2 = new EditStrip(selectedStrip); //maak window openen
+            w2.ShowDialog();
+
+            // window reset// 
+            MainWindow newWindow = new MainWindow();
+            Application.Current.MainWindow = newWindow;
+            newWindow.Show();
+            this.Close();
         }
 
         private void ComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -114,7 +119,7 @@ namespace GUI
 
         private void DataGridSelectie(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            selectedStrip = null;
+            //selectedStrip = null;
             String x = StripDataGrid.SelectedItem.ToString();
             string[] words = x.Split(',');
             

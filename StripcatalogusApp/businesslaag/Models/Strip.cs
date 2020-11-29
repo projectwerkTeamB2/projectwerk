@@ -6,26 +6,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Businesslaag.Models
 {
-   [Table("Strip")]
+ 
    public class Strip
     {
-        [Key]
-        [Column("id")]
-        [JsonProperty("ID",Order = 1)]
+        [JsonProperty("ID", Order = 1)]
         public int ID { get; set; }
-        [JsonProperty("Titel",Order = 2)]
-        [Column("Titel")]
+        [JsonProperty("Titel", Order = 2)]
         public string StripTitel { get; set; }
-        [Column("Nummer")]
-        [JsonProperty("Nr",Order = 3, NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("Nr", Order = 3, NullValueHandling = NullValueHandling.Ignore)]
         public int StripNr { get; set; }
         [JsonProperty("Auteurs", Order = 6)]
         public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
-        [Column("Reeks_id")]
-        [JsonProperty("Reeks",Order = 4)]
+        [JsonProperty("Reeks", Order = 4)]
         public Reeks Reeks { get; set; }
-      
-        [Column("Uitgeverij_id")]
         [JsonProperty("Uitgeverij", Order = 5)]
         public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
@@ -34,7 +27,10 @@ namespace Businesslaag.Models
         public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij)
         {
             this.ID = id;
+            if (stripTitel == "")
+                throw new ArgumentException("Striptitel mag niet leeg zijn");
             this.StripTitel = stripTitel;
+           
             this.Auteurs = auteurs;
             this.Reeks = reeks;
             this.StripNr = stripNr;
@@ -47,7 +43,8 @@ namespace Businesslaag.Models
             if (nietBestaandeAuteurCheck(auteur)) { //kijken of hij al bestaat
                 this.Auteurs.Add(auteur);
             }
-           
+            else
+                throw new ArgumentException("Auteur " + auteur.Naam + " bestaat al");
         }
         public void addAuteurs(List<Auteur> auteurs)
         {
@@ -57,6 +54,8 @@ namespace Businesslaag.Models
                 {
                     //kijken of hij al bestaat
                     this.Auteurs.Add(aut);
+                } else {
+                    throw new ArgumentException("Auteur " + aut.Naam + "bestaat al");
                 }
             }
            

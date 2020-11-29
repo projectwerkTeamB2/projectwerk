@@ -31,35 +31,31 @@ namespace Businesslaag.Managers
         {
             if (DoubleAuteurNotFound(auteur)) 
             this._auteurRepository.Add(auteur);
-
         }
 
         public List<Auteur> GetAll()
         {
             return (List<Auteur>)this._auteurRepository.GetAll();
-
         }
 
         public Auteur GetById(int id)
         {
             return this._auteurRepository.GetById(id);
-
         }
 
         public void Update(Auteur auteur)
         {
-            if (GetById(auteur.ID) != null)
+            if (GetById(auteur.ID) == null)
             {
                 throw new ArgumentException("trying to update an Author that does not exist");
             }
             else
                 this._auteurRepository.Update(auteur);
-
         }
 
         public void Delete(Auteur auteur)
         {
-            if(GetById(auteur.ID) == null)
+            if(GetById(auteur.ID) != null)
             {
                 this._auteurRepository.DeleteById(auteur.ID);
             }

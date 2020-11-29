@@ -5,13 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using Datalaag.Models;
+using Datalaag.Mappers;
 
 namespace Datalaag.Repositories
 {
     /// <summary>
     ///
     /// </summary>
-    public class StripRepository : CRUDRepository<Strip> , IStripRepository
+    public class StripRepository : CRUDRepository<StripDB> , IStripRepository
     {
       
         public StripRepository(string connectionString)
@@ -25,7 +27,7 @@ namespace Datalaag.Repositories
             //  over this next command!
             using (var command = new SqlCommand("SELECT * FROM Strip"))
             {
-                return GetRecords(command);
+                return ConvertToBusinesslaag.convertToStrips((List<StripDB>)GetRecords(command));
             }
         }
         public Strip GetLastStrip()
@@ -34,7 +36,7 @@ namespace Datalaag.Repositories
             //  over this next command!
             using (var command = new SqlCommand("SELECT TOP 1 * FROM Strip ORDER BY ID DESC"))
             {
-                return GetRecord(command);
+                return ConvertToBusinesslaag.convertToStrip(GetRecord(command));
             }
         }
 
@@ -44,21 +46,21 @@ namespace Datalaag.Repositories
             using (var command = new SqlCommand("SELECT * FROM Strip WHERE id = @id"))
             {
                 command.Parameters.Add(new SqlParameter("id", id));
-                return GetRecord(command);
+                return ConvertToBusinesslaag.convertToStrip(GetRecord(command));
             }
         }
 
         #endregion
-        public override Strip PopulateRecord(SqlDataReader reader)
+        public override StripDB PopulateRecord(SqlDataReader reader)
         {
-            return new Strip
+            return new StripDB
             {
                 ID = reader.GetInt32(0),
                 StripTitel = reader.GetString(1),
                 StripNr = reader.GetInt32(2),
-                Reeks = new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3)),
-                Uitgeverij = new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4)),
-                Auteurs = new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()).GetStripAuteurs(reader.GetInt32(0))
+                Reeks = ConvertToDatalayer.ConvertToReeksDb(new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3))),
+                Uitgeverij = ConvertToDatalayer.ConvertToUitgeverijDb( new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4))),
+                Auteurs = ConvertToDatalayer.ConvertToAuteursDb(new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()).GetStripAuteurs(reader.GetInt32(0)))
 
             };
         }
@@ -66,29 +68,24 @@ namespace Datalaag.Repositories
         #region Add
         public void Add(Strip strip)
         {
-           
-            var sqlQueryBuilder = new SqlQueryBuilder<Strip>(strip);
+            StripDB stripDB = ConvertToDatalayer.convertToStripDb(strip);
+            var sqlQueryBuilder = new SqlQueryBuilder<StripDB>(stripDB);
             ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
-            AddStripHasAuteur(strip);
-
+            AddStripHasAuteur(stripDB);
         }
 
-        private void AddStripHasAuteur(Strip strip) 
+        private void AddStripHasAuteur(StripDB strip) 
         {
-            
+ 
             for (int i = 0; i < strip.Auteurs.Count; i++)
             {
                 SqlCommand command = new SqlCommand("Insert INTO Strip_has_Auteur values(@strip_id, @auteur_id)");
                 command.Parameters.AddWithValue("strip_id", strip.ID);
                 command.Parameters.AddWithValue("auteur_id", strip.Auteurs[i].ID);
-
                 ExecuteCommand(command);
                
             }
-          
-            
-               
-            
+
         }
 
         #endregion
@@ -97,6 +94,7 @@ namespace Datalaag.Repositories
         private void DeleteStripIdFromStripHasAuteur(int id) 
         {
             {
+
                 var command = new SqlCommand("delete FROM Strip_has_Auteur WHERE Strip_id = @id");
                 command.Parameters.Add(new SqlParameter("id", id));
                 ExecuteCommand(command);
@@ -105,8 +103,8 @@ namespace Datalaag.Repositories
         public void DeleteById(int id) 
         {
             DeleteStripIdFromStripHasAuteur(id);
-          Strip Strip = GetById(id);
-          var sqlQueryBuilder = new SqlQueryBuilder<Strip>(Strip);
+          StripDB Stripdb = ConvertToDatalayer.convertToStripDb(GetById(id));
+          var sqlQueryBuilder = new SqlQueryBuilder<StripDB>(Stripdb);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
         }
 
@@ -114,8 +112,9 @@ namespace Datalaag.Repositories
 
         #region update
 
-        public void Update(Strip newstrip)
+        public void Update(Strip strip)
         {
+            StripDB newstrip = ConvertToDatalayer.convertToStripDb(strip);
             {
                 var command = new SqlCommand("update Strip set id = @id, Titel = @title, Nummer = @nummer, Reeks_id = @reeks, Uitgeverij_id = @uitgeverij WHERE id = @id");
                 command.Parameters.Add(new SqlParameter("id", newstrip.ID));
@@ -133,14 +132,11 @@ namespace Datalaag.Repositories
 
         #endregion
 
-        private void updateAuteurStrip(Strip newStrip) {
-            for(int i = 0; i < newStrip.Auteurs.Count; i++) {
-                SqlCommand command = new SqlCommand("update Strip_has_Auteur SET Strip_Id=@strip_id, Auteur_Id=@auteur_id WHERE Strip_id=@strip_id");
-                command.Parameters.AddWithValue("strip_id", newStrip.ID);
-                command.Parameters.AddWithValue("auteur_id", newStrip.Auteurs[i].ID);
-
-                ExecuteCommand(command);
-            }
+        private void updateAuteurStrip(StripDB newStrip) {
+            SqlCommand deletecommand = new SqlCommand("delete from Strip_has_Auteur where Strip_id=@strip_id");
+            deletecommand.Parameters.AddWithValue("strip_id", newStrip.ID);
+            ExecuteCommand(deletecommand);
+            AddStripHasAuteur(newStrip);
         }
     }
 }

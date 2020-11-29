@@ -1,15 +1,19 @@
 ﻿using Businesslaag.Models;
+using Datalaag.Models;
+using JSON;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Datalaag
+namespace JSON
 {
     public class JsonFileReader_ToObjects
    
     {
+        SchrijfwegnaarJSON schrijfwegnaarJSON = new SchrijfwegnaarJSON();
+
         public List<Strip> leesJson_GeefAlleStripsTerug(string locatieString)
         {
             List<Strip> listStrips = new List<Strip>();
@@ -20,13 +24,68 @@ namespace Datalaag
             //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
                 listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
             }
-            foreach(Strip s in listStrips)
+
+            listStrips = sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(listStrips, locatieString);
+            listStrips = doeDubbelAanhaalingtekensAanStrings(listStrips);
+            return listStrips;
+        }
+
+        
+
+
+        public List<Strip> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<Strip> listStrips,string locatieString)
+        {
+            List<Strip> foutieveStrips = new List<Strip>();
+            bool verwijder = false;
+            for (int i = 0; i < listStrips.Count; i++)
+            {
+                verwijder = false;
+                if (listStrips[i].Auteurs == null || listStrips[i].Auteurs.Count == 0)
+                {
+                    foutieveStrips.Add(listStrips[i]);
+                    verwijder = true;
+                }
+                if (listStrips[i].Uitgeverij == null)
+                {
+                    foutieveStrips.Add(listStrips[i]);
+                    verwijder = true;
+                }
+                if (listStrips[i].Reeks == null)
+                {
+                    foutieveStrips.Add(listStrips[i]);
+                    verwijder = true;
+                }
+                if (listStrips[i].StripTitel == null)
+                {
+                    foutieveStrips.Add(listStrips[i]);
+                    verwijder = true;
+                }
+                if (verwijder == true)
+                {
+                    listStrips.RemoveAt(i);
+                    i--;
+
+                }
+                else if (verwijder == false)
+                {
+                    i++;
+                }
+
+            }
+
+            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFileVanStripList(locatieString, foutieveStrips);
+            return listStrips;
+        }
+
+        public List<Strip> doeDubbelAanhaalingtekensAanStrings(List<Strip> listStrips)
+        {
+            foreach (Strip s in listStrips)
             {
                 if (s.StripTitel.Contains(@"'"))
                 {
                     s.StripTitel = s.StripTitel.Replace(@"'", @"''");
                 };
-                foreach(Auteur a in s.Auteurs)
+                foreach (Auteur a in s.Auteurs)
                 {
                     if (a.Naam.Contains(@"'"))
                     {
@@ -42,6 +101,19 @@ namespace Datalaag
                     s.Uitgeverij.Naam = s.Uitgeverij.Naam.Replace(@"'", @"''");
                 };
 
+            }
+            return listStrips;
+        }
+
+        public List<Strip> leesFoutiveJson_GeefAlleStripsTerug(string locatieString)
+        {
+            List<Strip> listStrips = new List<Strip>();
+            // deserialize JSON directly from a file
+            using (StreamReader file = File.OpenText(@locatieString))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
+                listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
             }
             return listStrips;
         }

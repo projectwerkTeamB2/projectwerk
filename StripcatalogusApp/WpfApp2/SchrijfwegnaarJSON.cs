@@ -10,10 +10,11 @@ using System.Text;
 
 namespace JSON
 {
-    public class SchrijfwegnaarJSON
+    public  class SchrijfwegnaarJSON
     {
-       
-        public void allesWegSchrijvenNaarJSONFile(string wegschrijflocatie,string naamBestandZonderDotJSON)
+
+        public SchrijfwegnaarJSON() { }
+        public void allesWegSchrijvenNaarJSONFileVanDataBank(string wegschrijflocatie,string naamBestandZonderDotJSON)
         {
             GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
             List<Strip> listStrips = new List<Strip>(generalManager.StripManager.GetAll());
@@ -24,5 +25,11 @@ namespace JSON
             
 
         }
+        public  void allesWegSchrijvenNaarJSONFileVanStripList(string wegschrijflocatie,List<Strip> listStrips)
+        {
+            File.WriteAllText(@wegschrijflocatie + @"-" + "FoutieveJSON" + ".json", JsonConvert.SerializeObject(listStrips, Formatting.Indented));
+
+        }
+
     }
 }

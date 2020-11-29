@@ -65,8 +65,6 @@ namespace Businesslaag.Managers
                 this._stripRepository.Add(strip);
 
             }
-
-
         }
         public List<Strip> GetAll()
         {
@@ -80,6 +78,13 @@ namespace Businesslaag.Managers
 
         }
 
+        public Strip GetByName(string stripnaam)
+        {
+            return this._stripRepository.GetAll().Where(n => n.StripTitel.Equals(stripnaam)).FirstOrDefault();
+        }
+
+
+
         public Strip getLastId()
         {
             return this._stripRepository.GetLastStrip();
@@ -87,7 +92,7 @@ namespace Businesslaag.Managers
 
         public void Update(Strip strip)
         {
-            if (GetById(strip.ID) != null)
+            if (GetById(strip.ID) == null)
             {
                 throw new ArgumentException("trying to update a strip that does not exist");
             }
@@ -108,9 +113,6 @@ namespace Businesslaag.Managers
             }
 
         }
-
-
-
 
         private Boolean DoubleStripNotFound(Strip strip)
         {
