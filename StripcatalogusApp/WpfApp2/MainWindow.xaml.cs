@@ -11,6 +11,7 @@ using System.ComponentModel;
 using JSON;
 using Datalaag.Models;
 using Datalaag.Mappers;
+using Microsoft.Win32;
 
 namespace WpfApp2
 {
@@ -96,9 +97,26 @@ namespace WpfApp2
                 }
                 else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
             }
-            else if (Hoofdlabel.Content.Equals("Kies een locatie waar je het wil schrijven.")) { }
+            else if (Hoofdlabel.Content.Equals("Kies een locatie waar je het wil schrijven."))
+            {
+                TextBlock1.Text = "Kies hierboven de locatie om de databank strips in op te slaan. het duurt even, maar u krijgt een seintje als het klaar is.";
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Json files (*.json)|*.json";
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
+                    swj.allesWegSchrijvenNaarJSONFile(saveFileDialog.FileName);
+                    TextBlock1.Text = "Het is gelukt!";
+
+                }
+                // File.WriteAllText(saveFileDialog.FileName, txtEditor.Text)
+
 
         }
+
+    }
 
         public void Bewerk(List<Strip> strips) {
             if (stripsFromJson != null)
