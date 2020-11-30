@@ -24,10 +24,8 @@ namespace Datalaag.Repositories
         {
             // DBAs across the country are having strokes 
             //  over this next command!
-            using (var command = new SqlCommand("SELECT * FROM Reeks"))
-            {
-                return ConvertToBusinesslaag.ConvertToReeksen((List<ReeksDB>)GetRecords(command));
-            }
+            using var command = new SqlCommand("SELECT * FROM Reeks");
+            return ConvertToBusinesslaag.ConvertToReeksen((List<ReeksDB>)GetRecords(command));
         }
 
         public Reeks GetById(int id)

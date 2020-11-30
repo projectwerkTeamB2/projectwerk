@@ -50,7 +50,7 @@ namespace GUI
             stripsFromDb = generalManager.StripManager.GetAll();
             showingStrips = stripsFromDb;
             stripBewerken_button.Visibility = Visibility.Hidden;
-            bin_image.Visibility = Visibility.Hidden;
+            bin_image.Visibility = Visibility.Collapsed;
 
             SorteerBox.Items.Add("Strip id");
             SorteerBox.Items.Add("Strip titel");
@@ -139,7 +139,8 @@ namespace GUI
                     stripBewerken_button.Visibility = Visibility.Visible;
                     bin_image.Visibility = Visibility.Visible;
                 }
-                else { stripBewerken_button.Visibility = Visibility.Collapsed; bin_image.Visibility = Visibility.Collapsed; }
+                else { stripBewerken_button.Visibility = Visibility.Collapsed; 
+                    bin_image.Visibility = Visibility.Collapsed; }
             }
         }
 
@@ -282,7 +283,7 @@ namespace GUI
         {
             try
             {
-                var result = MessageBox.Show("Ben je zeker dat je deze strip wil verwijderen?: " + selectedStrip.ToString(), "bevestiging", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = MessageBox.Show("Ben je zeker dat je deze strip wil verwijderen?: \n" + selectedStrip.ToString(), "bevestiging", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
                     generalManager.StripManager.Delete(selectedStrip);
@@ -294,6 +295,35 @@ namespace GUI
                 }
             }
             catch (Exception ex) { }
+        }
+
+        private void Button_plusReeks_Click(object sender, RoutedEventArgs e) //nieuwe reeks toevoegen
+        {
+            AddReeksOrUitgeverij inputDialog = new AddReeksOrUitgeverij("Schrijf de naam van de nieuwe reeks: ", "");
+            if (inputDialog.ShowDialog() == true) { 
+                string Answer = inputDialog.Answer;
+                try
+                {
+                    generalManager.ReeksManager.Add(new Reeks(generalManager.ReeksManager.GetAll().OrderBy(b => b.ID).Last().ID + 1, Answer.ToString().Trim()));
+                }
+                catch (Exception ex) { MessageBox.Show("Er is iets fout gegaan, mogelijks bestaat deze reeks al.\n\nDetails: " + ex); }
+
+            }
+        }
+
+        private void Button_plusUitgeverij_Click(object sender, RoutedEventArgs e) //nieuwe reeks toevoegen
+        {
+            AddReeksOrUitgeverij inputDialog = new AddReeksOrUitgeverij("Schrijf de naam van de nieuwe uitgeverij: ", "");
+            if (inputDialog.ShowDialog() == true)
+            {
+                string Answer = inputDialog.Answer;
+                try
+                {
+                    generalManager.UitgeverijManager.Add(new Uitgeverij(generalManager.UitgeverijManager.GetAll().OrderBy(b => b.ID).Last().ID + 1,Answer.ToString().Trim()));
+                }
+                catch (Exception ex) { MessageBox.Show("Er is iets fout gegaan, mogelijks bestaat deze uitgeverij al.\n\nDetails: " + ex); }
+
+            }
         }
     }
 }

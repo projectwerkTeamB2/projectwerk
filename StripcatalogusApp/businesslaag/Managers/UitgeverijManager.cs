@@ -74,8 +74,9 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleUitgeverijNotFound(Uitgeverij uitgeverij)
         {
-            if (this._uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
-            {
+            //if (this._uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
+                if (this._uitgeverijRepository.GetAll().Any(i => i.Naam == uitgeverij.Naam))
+                {
                 return false;
             }
             else

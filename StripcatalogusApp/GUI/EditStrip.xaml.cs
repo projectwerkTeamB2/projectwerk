@@ -83,7 +83,7 @@ namespace GUI
 
         private void cancel_update_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Ben je zeker dat je deze wijziging wil annuleren", "bevestiging", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show("Bent u zeker dat u deze wijziging wil annuleren", "bevestiging", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 this.Close();

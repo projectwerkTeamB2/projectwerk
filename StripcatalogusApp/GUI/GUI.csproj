@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <None Remove="Images\bin.png" />
+    <None Remove="Images\bin2.png" />
     <None Remove="Images\book.ico" />
     <None Remove="Images\BoomIMG.png" />
     <None Remove="Images\CloudIMG.png" />
+    <None Remove="Images\question.png" />
     <None Remove="Images\Text.png" />
     <None Remove="Images\WonderWIMG.png" />
   </ItemGroup>
@@ -29,6 +31,9 @@
     <Resource Include="Images\bin.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\bin2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\book.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -36,6 +41,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\CloudIMG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\question.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Text.png">
