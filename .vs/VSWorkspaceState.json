@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\StripcatalogusApp",
+    "\\StripcatalogusApp\\businesslaag",
+    "\\StripcatalogusApp\\businesslaag\\Managers",
     "\\StripcatalogusApp\\Datalaag",
-    "\\StripcatalogusApp\\Datalaag\\Providers",
     "\\StripcatalogusApp\\GUI",
     "\\StripcatalogusApp\\UnitTests",
     "\\StripcatalogusApp\\WpfApp2"

@@ -79,15 +79,15 @@ namespace WpfApp2
                     try
                     {
 
-                    //    stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                        stripsFromJson = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
                     }
                     catch
                     {
-                        stripsFromDB = null;
+                        stripsFromJson = null;
                     }
-                    if (stripsFromDB != null && stripsFromDB.Count != 0)
+                    if (stripsFromJson != null && stripsFromJson.Count != 0)
                     {
-                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromDB.Count.ToString() + " strips.";
+                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
 
                         NaarDBLabel.Visibility = Visibility.Visible;
                         NaarDBButton.Visibility = Visibility.Visible;
@@ -101,11 +101,11 @@ namespace WpfApp2
         }
 
         public void Bewerk(List<Strip> strips) {
-            if (stripsFromDB != null)
+            if (stripsFromJson != null)
             {
                 NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
 
-                pbStatus.Maximum = stripsFromDB.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
+                pbStatus.Maximum = stripsFromJson.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
                 SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
                 pbStatus.Value = 0; //progresbar start bij 0
 
