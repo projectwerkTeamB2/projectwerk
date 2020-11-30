@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Datalaag.Models;
 
 namespace Datalaag.Models
 {
-    /// <summary>
-    ///
-    /// </summary>
+    [Table("Stripcollection")]
     public class StripCollectionDB
     {
+        [Key]
+        [Column("id")]
         public int Id { get; set; }
-
+        [Column("title")]
         public string Titel { get; set; }
-
+        [Column("nr")]
         public int Nummer { get; set; }
-
+        [Column("Uitgeverij")]
         public UitgeverijDB? Uitgeverij {get; set; }
 
         public List<StripDB> Strips = new List<StripDB>();

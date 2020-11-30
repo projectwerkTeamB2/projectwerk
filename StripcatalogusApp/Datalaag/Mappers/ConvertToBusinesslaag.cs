@@ -111,7 +111,7 @@ namespace Datalaag.Mappers
                 var conv = convertToStrip(strip);
                 convertedstrips.Add(conv);
             }
-            StripCollection convertedStripCollection = new StripCollection(StripCollection.Id, StripCollection.Titel, StripCollection.Nummer, convertedstrips, ConvertToUitgeverij(StripCollection.Uitgeverij));
+            StripCollection convertedStripCollection = new StripCollection(StripCollection.Id,StripCollection.Titel, StripCollection.Nummer, convertedstrips, ConvertToUitgeverij(StripCollection.Uitgeverij));
             return convertedStripCollection;
         }
 

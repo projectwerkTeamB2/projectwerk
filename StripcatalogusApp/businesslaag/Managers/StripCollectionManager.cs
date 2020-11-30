@@ -49,7 +49,6 @@ namespace Businesslaag.Managers
                 }
                 this._StripCollectionRepository.Add(collection);
 
-
             }
         }
 

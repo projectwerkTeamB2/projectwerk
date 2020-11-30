@@ -60,18 +60,31 @@ namespace Datalaag
             {
                 result = String.Format("'{0:u}' as {1},", property.Value, propertyInfo.Name);
             }
-            else if (propertyInfo.PropertyType.Name == "ReeksDB")// compare strings
+            if(_item is StripDB)
             {
-                result = String.Format("{0} as {1},", (_item as StripDB).Reeks.ID, "Reeks_ID");
+
+                 if (propertyInfo.PropertyType.Name == "ReeksDB")// compare strings
+                {
+                    result = String.Format("{0} as {1},", (_item as StripDB).Reeks.ID, "Reeks_ID");
+                }
+                else if (propertyInfo.PropertyType.Name == "AuteurDB")
+                {
+                    result = String.Format("{0} as {1},", (_item as AuteurDB).ID, "Auteur_ID");
+                }
+                else if (propertyInfo.PropertyType.Name == "UitgeverijDB")
+                {
+                    result = String.Format("{0} as {1},", (_item as StripDB).Uitgeverij.ID, "Uitgeverij_ID");
+                }
             }
-            else if (propertyInfo.PropertyType.Name == "AuteurDB")
+            else if(_item is StripCollectionDB)
             {
-                result = String.Format("{0} as {1},", (_item as AuteurDB).ID, "Auteur_ID");
+                
+                 if (propertyInfo.PropertyType.Name == "UitgeverijDB")
+                {
+                    result = String.Format("{0} as {1},", (_item as StripCollectionDB).Uitgeverij.ID, "Uitgeverij_ID");
+                }
             }
-            else if (propertyInfo.PropertyType.Name == "UitgeverijDB")
-            {
-                result = String.Format("{0} as {1},", (_item as StripDB).Uitgeverij.ID, "Uitgeverij_ID");
-            }
+            
             return result;
         }
         #endregion

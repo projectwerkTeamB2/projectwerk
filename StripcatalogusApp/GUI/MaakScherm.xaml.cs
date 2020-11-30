@@ -26,7 +26,7 @@ namespace GUI
             //dit zet boeken icoontje links vanboven
             Uri iconUri = new Uri("../../../Images/book.ico", UriKind.RelativeOrAbsolute);
             this.Icon = BitmapFrame.Create(iconUri); //zet icon linker bovenhoek van window
-            generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+            generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()), new StripCollectionRepository(DbFunctions.GetprojectwerkconnectionString()));
            
             List<Reeks> reeksList = generalManager.ReeksManager.GetAll().OrderBy(b=>b.Naam).ToList();
             List<Uitgeverij> uitgeverijList = generalManager.UitgeverijManager.GetAll().OrderBy(b => b.Naam).ToList();

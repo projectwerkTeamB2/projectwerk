@@ -207,3 +207,4 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\WpfApp
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.pdb
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\obj\Debug\netcoreapp3.1\JSON.genruntimeconfig.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\WpfApp2\bin\Debug\netcoreapp3.1\Datalaag.dll.config

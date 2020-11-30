@@ -31,7 +31,7 @@ namespace Businesslaag.Managers
         {
             if (DoubleAuteurNotFound(auteur)) { 
             this._auteurRepository.Add(auteur);
-        }else throw new ArgumentException("Uitgeverij bestaat al");
+        }else throw new ArgumentException("auteur bestaat al");
     }
 
         public List<Auteur> GetAll()
