@@ -30,9 +30,11 @@ namespace Businesslaag.Managers
 
         public void Add(Uitgeverij uitgeverij)
         {
-            if (DoubleUitgeverijNotFound(uitgeverij))
+            if (DoubleUitgeverijNotFound(uitgeverij)) { 
                 this._uitgeverijRepository.Add(uitgeverij);
-        }
+
+        }else throw new ArgumentException("Uitgeverij bestaat al");
+    }
 
         public List<Uitgeverij> GetAll()
         {
@@ -74,8 +76,9 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleUitgeverijNotFound(Uitgeverij uitgeverij)
         {
-            if (this._uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
-            {
+            //if (this._uitgeverijRepository.GetAll().Any(i => i.ID == uitgeverij.ID && i.Naam == uitgeverij.Naam))
+                if (this._uitgeverijRepository.GetAll().Any(i => i.Naam == uitgeverij.Naam))
+                {
                 return false;
             }
             else

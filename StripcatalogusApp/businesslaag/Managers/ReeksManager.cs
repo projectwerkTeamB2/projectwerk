@@ -29,8 +29,10 @@ namespace Businesslaag.Managers
 
         public void Add(Reeks reeks)
         {
-            if (DoubleReeksNotFound(reeks))
+          
+            if (DoubleReeksNotFound(reeks)) { 
                this._reeksRepository.Add(reeks);
+            }else throw new ArgumentException("Reeks bestaat al");
         }
 
 
@@ -73,7 +75,8 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleReeksNotFound(Reeks reeks)
         {
-            if (this._reeksRepository.GetAll().Any(i => i.ID == reeks.ID && i.Naam == reeks.Naam))
+       //     if (this._reeksRepository.GetAll().Any(i => i.ID == reeks.ID && i.Naam.ToLower() == reeks.Naam.ToLower())) //weg moeten doen voor toevoegen, sinds nieuwe altijd id 0 hebben?
+            if (this._reeksRepository.GetAll().Any(i => i.Naam == reeks.Naam))
             {
                 return false;
             }

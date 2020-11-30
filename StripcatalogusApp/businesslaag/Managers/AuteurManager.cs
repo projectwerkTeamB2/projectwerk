@@ -29,9 +29,10 @@ namespace Businesslaag.Managers
 
         public void Add(Auteur auteur)
         {
-            if (DoubleAuteurNotFound(auteur)) 
+            if (DoubleAuteurNotFound(auteur)) { 
             this._auteurRepository.Add(auteur);
-        }
+        }else throw new ArgumentException("Uitgeverij bestaat al");
+    }
 
         public List<Auteur> GetAll()
         {
@@ -67,7 +68,7 @@ namespace Businesslaag.Managers
 
         private Boolean DoubleAuteurNotFound(Auteur auteur)
         {
-            if (this._auteurRepository.GetAll().Any(i => i.ID == auteur.ID && i.Naam == auteur.Naam))
+            if (this._auteurRepository.GetAll().Any(i => i.Naam == auteur.Naam))
             {
                 return false;
             }

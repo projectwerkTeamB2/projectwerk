@@ -9,6 +9,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AddReeksOrUitgeverij.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EditStrip.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,6 +20,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AddReeksOrUitgeverij.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="EditStrip.xaml">
       <SubType>Designer</SubType>
     </Page>
