@@ -30,9 +30,11 @@ namespace Businesslaag.Managers
 
         public void Add(Uitgeverij uitgeverij)
         {
-            if (DoubleUitgeverijNotFound(uitgeverij))
+            if (DoubleUitgeverijNotFound(uitgeverij)) { 
                 this._uitgeverijRepository.Add(uitgeverij);
-        }
+
+        }else throw new ArgumentException("Uitgeverij bestaat al");
+    }
 
         public List<Uitgeverij> GetAll()
         {

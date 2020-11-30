@@ -305,13 +305,14 @@ namespace GUI
                 try
                 {
                     generalManager.ReeksManager.Add(new Reeks(generalManager.ReeksManager.GetAll().OrderBy(b => b.ID).Last().ID + 1, Answer.ToString().Trim()));
+                    MessageBox.Show("Gelukt!");
                 }
                 catch (Exception ex) { MessageBox.Show("Er is iets fout gegaan, mogelijks bestaat deze reeks al.\n\nDetails: " + ex); }
 
             }
         }
 
-        private void Button_plusUitgeverij_Click(object sender, RoutedEventArgs e) //nieuwe reeks toevoegen
+        private void Button_plusUitgeverij_Click(object sender, RoutedEventArgs e) //nieuwe Uitgeverij toevoegen
         {
             AddReeksOrUitgeverij inputDialog = new AddReeksOrUitgeverij("Schrijf de naam van de nieuwe uitgeverij: ", "");
             if (inputDialog.ShowDialog() == true)
@@ -320,8 +321,25 @@ namespace GUI
                 try
                 {
                     generalManager.UitgeverijManager.Add(new Uitgeverij(generalManager.UitgeverijManager.GetAll().OrderBy(b => b.ID).Last().ID + 1,Answer.ToString().Trim()));
+                    MessageBox.Show("Gelukt!");
                 }
                 catch (Exception ex) { MessageBox.Show("Er is iets fout gegaan, mogelijks bestaat deze uitgeverij al.\n\nDetails: " + ex); }
+
+            }
+        }
+
+        private void Button_plusAuteur_Click(object sender, RoutedEventArgs e) //nieuwe auteur toevoegen
+        {
+            AddReeksOrUitgeverij inputDialog = new AddReeksOrUitgeverij("Schrijf de naam van de nieuwe Auteur: ", "");
+            if (inputDialog.ShowDialog() == true)
+            {
+                string Answer = inputDialog.Answer;
+                try
+                {
+                    generalManager.AuteurManager.Add(new Auteur(generalManager.AuteurManager.GetAll().OrderBy(b => b.ID).Last().ID + 1, Answer.ToString().Trim()));
+                    MessageBox.Show("Gelukt!");
+                }
+                catch (Exception ex) { MessageBox.Show("Er is iets fout gegaan, mogelijks bestaat deze Auteur al.\n\nDetails: " + ex); }
 
             }
         }
