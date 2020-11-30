@@ -103,5 +103,17 @@ namespace Datalaag.Mappers
        
             }
 
+        static public StripCollection convertToStripCollection(StripCollectionDB StripCollection) 
+        {
+            List<Strip> convertedstrips = new List<Strip>();
+            foreach (var strip in StripCollection.Strips)
+            {
+                var conv = convertToStrip(strip);
+                convertedstrips.Add(conv);
+            }
+            StripCollection convertedStripCollection = new StripCollection(StripCollection.Id, StripCollection.Titel, StripCollection.Nummer, convertedstrips, ConvertToUitgeverij(StripCollection.Uitgeverij));
+            return convertedStripCollection;
+        }
+
     }
 }
