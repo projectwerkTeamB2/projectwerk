@@ -41,6 +41,7 @@
         <RadioButton GroupName="Search" Name="RadioBtnAuteur" Content="Auteur" HorizontalAlignment="Left" Margin="871,69,0,0" VerticalAlignment="Top"/>
         <RadioButton GroupName="Search" Name="RadioBtnUitgeverij" Content="Uitgeverij" HorizontalAlignment="Left" Margin="951,46,0,0" VerticalAlignment="Top"/>
         <TextBox  Style="{StaticResource placeHolder}" Name="SearchTextBox" Tag="Vul hier de zoek waarde in"  Height="29" HorizontalAlignment="Left" Margin="761,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186"/>
+        <Image Name="bin_image"  Margin="677,21,360,498" Stretch="Fill" Source="Images/bin.png" MouseDown="BinClicked"/>
 
 
 

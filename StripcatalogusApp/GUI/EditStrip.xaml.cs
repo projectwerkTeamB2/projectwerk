@@ -37,9 +37,9 @@ namespace GUI
              var allPublishers = generalManager.UitgeverijManager.GetAll().OrderBy(b=>b.Naam);//alle uitgeverijen opvragen op alfabetisch volgorde
             TextBox_uitgeverij.ItemsSource = allPublishers;//uitgeverijen meegeven aan de combobox
             TextBox_uitgeverij.SelectedItem = allPublishers.Where(p => p.ID == strip.Uitgeverij.ID).Single();//huidige strip uitgeverij geselecteerd zetten
-            
+
             //auteurs
-            var allAuteurs   = ConvertToGUI.ListAuteurs(generalManager.AuteurManager.GetAll()).OrderBy(b=>b.Ischecked).ThenBy(b => b.Naam);//huidige strip auteurs geselecteerd zetten, we sorteren eerst op al geselecteerd en dan op naam
+            var allAuteurs = ConvertToGUI.ListAuteurs(generalManager.AuteurManager.GetAll()).OrderByDescending(b => b.Ischecked).ThenBy(b => b.Naam);//huidige strip auteurs geselecteerd zetten, we sorteren eerst op al geselecteerd en dan op naam
             foreach (var aut in strip.Auteurs) // alle huidige auteurs van strip selecteren
             {
                 AuteurGUI selected = allAuteurs.Where(a => a.ID == aut.ID).Single();
@@ -83,7 +83,7 @@ namespace GUI
 
         private void cancel_update_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Ben je zeker dat je deze wijziging wil doorvoeren", "bevestiging", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show("Ben je zeker dat je deze wijziging wil annuleren", "bevestiging", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
                 this.Close();
