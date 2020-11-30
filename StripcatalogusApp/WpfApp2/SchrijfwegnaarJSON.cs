@@ -23,7 +23,10 @@ namespace JSON
 
             // serialize JSON to a string and then write string to a file
             File.WriteAllText(@wegschrijflocatie + @"/" + naamBestandZonderDotJSON + ".json", JsonConvert.SerializeObject(listStrips, Formatting.Indented));
-
+  }
+        public void allesWegSchrijvenNaarJSONFileVanStripList(string wegschrijflocatie, List<Strip> listStrips)
+        {
+            File.WriteAllText(@wegschrijflocatie + @"-" + "FoutieveJSON" + ".json", JsonConvert.SerializeObject(listStrips, Formatting.Indented));
 
         }
 
