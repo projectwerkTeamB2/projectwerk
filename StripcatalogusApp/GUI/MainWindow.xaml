@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
-        Title="Strip Applicatie" Height="600" Width="1100">
+        Title="Strip Applicatie" Height="620" Width="1100">
 
     <Grid Background="#E9C46A">
         <Button  Style="{StaticResource ButtonStyle}" Content="Een nieuwe strip toevoegen" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,509,0,25" Width="217" Height="40" Click="Button_MaakStrip_Click" />
