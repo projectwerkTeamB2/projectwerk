@@ -18,12 +18,14 @@ namespace Businesslaag.Managers
        public AuteurManager AuteurManager { get; }
        public UitgeverijManager UitgeverijManager { get; }
        public StripManager StripManager { get; }
+
+        public StripCollectionManager stripCollectionManager { get; }
           
 
         
 
         #endregion
-        public GeneralManager(IStripRepository stripRepository, IAuteurRepository auteurRepository, IReeksRepository reeksRepository , IUitgeverijRepository uitgeverijRepository ) 
+        public GeneralManager(IStripRepository stripRepository, IAuteurRepository auteurRepository, IReeksRepository reeksRepository , IUitgeverijRepository uitgeverijRepository , IStripCollectionRepository stripCollectionRepository ) 
         {
 
 
@@ -31,7 +33,9 @@ namespace Businesslaag.Managers
             AuteurManager = new AuteurManager(this, auteurRepository);
             UitgeverijManager = new UitgeverijManager(this, uitgeverijRepository);
             StripManager = new StripManager(this, stripRepository);
-            
+            stripCollectionManager = new StripCollectionManager(this, stripCollectionRepository);
+
+
 
         }
 
