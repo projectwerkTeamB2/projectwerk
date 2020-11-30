@@ -12,6 +12,7 @@ using JSON;
 using Datalaag.Models;
 using Datalaag.Mappers;
 using Microsoft.Win32;
+using System.IO;
 
 namespace WpfApp2
 {
@@ -38,15 +39,15 @@ namespace WpfApp2
         //nodig? V
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
 
-        List<Strip> stripsFromJson; //list die alle strips van json bestad gaat bevatten
-        List<StripDB> stripsFromDB; //list die alle strips van db gaat bevatten
+        List<Strip> stripsFromJsonToDB; //list die alle strips van json bestad gaat bevatten
+        List<StripDB> stripsFromDBToJson; //list die alle strips van db gaat bevatten
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
-         
+
             InitializeComponent();
 
-            
+
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
@@ -56,9 +57,10 @@ namespace WpfApp2
 
             NaarDBLabel.Visibility = Visibility.Hidden;
             NaarDBButton.Visibility = Visibility.Hidden;
-            stripsFromJson = null;
+            stripsFromJsonToDB = null;
 
-            if (Hoofdlabel.Content.Equals("Laad uw Json in en wij updaten uw databank.")) {
+            if (Hoofdlabel.Content.Equals("Laad uw Json in en wij updaten uw databank."))
+            {
                 // Create OpenFileDialog
                 Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
                 openFileDlg.DefaultExt = ".json";// Set filter for file extension and default file extension  
@@ -80,15 +82,15 @@ namespace WpfApp2
                     try
                     {
 
-                        stripsFromJson = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                        stripsFromJsonToDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
                     }
                     catch
                     {
-                        stripsFromJson = null;
+                        stripsFromJsonToDB = null;
                     }
-                    if (stripsFromJson != null && stripsFromJson.Count != 0)
+                    if (stripsFromJsonToDB != null && stripsFromJsonToDB.Count != 0)
                     {
-                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
+                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJsonToDB.Count.ToString() + " strips.";
 
                         NaarDBLabel.Visibility = Visibility.Visible;
                         NaarDBButton.Visibility = Visibility.Visible;
@@ -113,17 +115,20 @@ namespace WpfApp2
                 }
                 // File.WriteAllText(saveFileDialog.FileName, txtEditor.Text)
 
+            }
 
         }
 
-    }
-
-        public void Bewerk(List<Strip> strips) {
-            if (stripsFromJson != null)
+        public void Bewerk(List<Strip> strips)
+        {
+            if (stripsFromJsonToDB != null)
             {
-                NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
 
-                pbStatus.Maximum = stripsFromJson.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
+
+                NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
+                NaarDBButtonKeuze.Visibility = Visibility.Collapsed;
+
+                pbStatus.Maximum = stripsFromJsonToDB.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
                 SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
                 pbStatus.Value = 0; //progresbar start bij 0
 
@@ -132,20 +137,23 @@ namespace WpfApp2
                 DataContext = this;
                 _bgWWorker.DoWork += (s, e) => //start separate, dedicated thread
                 {
-                   
+
                     for (int i = 0; i <= strips.Count; i++)//alle strips overlopen
                     {
                         try //try, zodat fouten kunnen worden opgevangen
-                        { 
-                            schrijfwegnaarDB.stripWegSchijvenNaarDataBank(strips[i]); //huidige strip wegschrijven naar db
+                        {
+                            this.Dispatcher.Invoke(() =>
+                            {
+                                schrijfwegnaarDB.stripWegSchijvenNaarDataBank(strips[i]); //huidige strip wegschrijven naar db
+                            });
                         }
-                        catch { TextBlock2.Text = "Er is iets fout gelopen"; }//error opvangen?
+                        catch { TextBlock2.Text = "Er is iets fout gelopen"; }//error opvangen
                         finally //klaar? verander dan percentage van progresbar -> die x
                         {
                             System.Threading.Thread.Sleep(100);
                             x = i;
                         }
-                       
+
                     }
                 };
                 _bgWWorker.RunWorkerAsync(); //Starts execution of a background operation.
@@ -157,17 +165,16 @@ namespace WpfApp2
 
         private void NaarDBButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Dispatcher.Invoke(() =>
-            {
-                Bewerk(ConvertToBusinesslaag.convertToStrips(stripsFromDB)); //voer uit, schijf strips weg naar db
-            });
+
+            Bewerk(stripsFromJsonToDB); //voer uit, schijf strips weg naar db
+            NaarDBButtonKeuze.Visibility = Visibility.Visible;
         }
-        
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            stripsFromJson = null; //start met lege strip collectie
-       
+            stripsFromJsonToDB = null; //start met lege strip collectie
+
             NaarDBLabel.Visibility = Visibility.Hidden; //hidden tot je aantal strips hebt
             NaarDBButton.Visibility = Visibility.Hidden;
         }
@@ -183,32 +190,34 @@ namespace WpfApp2
         private void VanDBButtonn_Click(object sender, RoutedEventArgs e)
         {
             NaarDBButtonKeuze.Visibility = Visibility.Visible; //toon button om terug naar andere scherm te gaan
-            NaarJSONButton.Visibility = Visibility.Visible;
+
             NaarDBLabel.Visibility = Visibility.Collapsed;
             FileNameTextBox.Text = "";
-          //  allesWegSchrijvenNaarJSONFile()
+
+
+            pbStatus.Visibility = Visibility.Collapsed;
+            pbStatusTEXTBLOCK.Visibility = Visibility.Collapsed;
+            //  allesWegSchrijvenNaarJSONFile()
 
             Hoofdlabel.Content = "Kies een locatie waar je het wil schrijven.";
+            TextBlock1.Text = "Kies hierboven de locatie om de databank strips in op te slaan. het duurt even, maar u krijgt een seintje als het klaar is.";
 
 
         }
         //Json naar Databank versturen? -> geklikt
         private void NaarDBButtonKeuze_Click(object sender, RoutedEventArgs e)
         {
-            NaarJSONButton.Visibility = Visibility.Collapsed;
+
             NaarDBButtonKeuze.Visibility = Visibility.Collapsed;
             VanDBButton.Visibility = Visibility.Visible;
+            pbStatus.Visibility = Visibility.Visible;
+            pbStatusTEXTBLOCK.Visibility = Visibility.Visible;
             FileNameTextBox.Text = "";
-            TextBlock1.Text = "";
+            TextBlock1.Text = "Kies hierboven de locatie van u al bestaande json bestand";
 
             Hoofdlabel.Content = "Laad uw Json in en wij updaten uw databank.";
         }
 
-        private void NaarJSONButton_Click(object sender, RoutedEventArgs e)
-        {
-            SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
-            string time = DateTime.Now.ToString();
-         //   swj.allesWegSchrijvenNaarJSONFileVanDataBank(FileNameTextBox.Text, "StripCatDB_" + time + ".txt");
-        }
+
     }
 }

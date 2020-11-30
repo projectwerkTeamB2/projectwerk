@@ -24,9 +24,9 @@
         <Button x:Name="BrowseButton" Content="Browse a file" HorizontalAlignment="Left"   
                 Margin="549,96,0,0" VerticalAlignment="Top" Width="112" Click="BrowseButton_Click"   
                 RenderTransformOrigin="1.047,0.821" Height="27"/>
-        <TextBlock HorizontalAlignment="Left" Height="29" Margin="50,128,0,0"   
+        <TextBlock HorizontalAlignment="Left" Height="58" Margin="50,128,0,0"   
                    TextWrapping="Wrap" Text="" VerticalAlignment="Top"  
-                   Width="350" Name="TextBlock1"/>
+                   Width="416" Name="TextBlock1"/>
         <ProgressBar  Width="320" Height="35" Minimum="0"  Value="{Binding x}" ValueChanged="pbStatus_ValueChanged" Name="pbStatus"  Margin="0,282,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" >
 
 
@@ -38,9 +38,7 @@
         <Button Name="NaarDBButton" Content="Naar databank versturen" HorizontalAlignment="Center" Background="#b2deec"   
                 Margin="0,239,0,0" VerticalAlignment="Top" Width="228" Click="NaarDBButton_Click"   
                 RenderTransformOrigin="1.047,0.821" Height="33"/>
-        <Button Name="NaarJSONButton" Content="Zet om naar json file" HorizontalAlignment="Center" Background="#b2deec"   
-                Margin="0,239,0,0" VerticalAlignment="Top" Width="228" Click="NaarJSONButton_Click"   
-                RenderTransformOrigin="1.047,0.821" Height="33" Visibility="Collapsed"/>
+
 
         <Button Name="VanDBButton" Content="Databank naar text bestand zetten?" HorizontalAlignment="Center" Background="#b2deec"   
                 Margin="0,344,0,0" Width="228" Click="VanDBButtonn_Click"   
