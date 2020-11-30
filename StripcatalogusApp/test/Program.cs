@@ -27,8 +27,10 @@ namespace test
               generalManager.ReeksManager.Add(mytestreeks);
             generalManager.UitgeverijManager.Add(myTestuitgeverij);*/
             Strip myTestStrip = new Strip(3687, "my test duh", 999, auteurs, mytestreeks, myTestuitgeverij);
-             generalManager.StripManager.Add(myTestStrip);
+            Strip myTestStrip2 = new Strip(3686, "my test duh", 888, auteurs, mytestreeks, myTestuitgeverij);
+             generalManager.StripManager.Add(myTestStrip2);
             List<Strip> strips = new List<Strip>();
+            strips.Add(myTestStrip2);
             strips.Add(myTestStrip);
             StripCollection collection = new StripCollection(1, "test", 666, strips, myTestuitgeverij);
             generalManager.stripCollectionManager.Add(collection);

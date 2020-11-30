@@ -1,5 +1,10 @@
 ﻿# Impact rework
 
+##Algemeen
+
+globaal gezien denk ik dat deze wijzinging 30 uur in beslag zou nemen, ik reken hier voor 1 dag werk op vlak van database,business en datalaag.
+de overige 22 uur lijken me nodig om de UI op een zinvolle manier opnieuw in te delen.
+
 ##Database
 
 het bedenken en maken van de aanpassingen aan de database lijken me een half uur werk.
