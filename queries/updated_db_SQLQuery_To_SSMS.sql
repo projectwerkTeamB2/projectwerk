@@ -117,7 +117,8 @@ CREATE TABLE Strip_has_Stripcollection_has_strip (
   [Strip_id] INT NOT NULL,
   [Strip_Reeks_id] INT NOT NULL,
   [Stripcollection_has_strip_id] INT NOT NULL,
-  PRIMARY KEY ([Stripcollection_has_strip_id]),
+  
+  PRIMARY KEY ( [Strip_id] ,[Strip_Reeks_id], [Stripcollection_has_strip_id]),
 
     CONSTRAINT[fk_Strip_has_Stripcollection_has_Stripcollection]
     FOREIGN KEY ([Stripcollection_has_strip_id] )
