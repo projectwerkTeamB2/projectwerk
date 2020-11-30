@@ -11,6 +11,7 @@ using System.ComponentModel;
 using JSON;
 using Datalaag.Models;
 using Datalaag.Mappers;
+using Microsoft.Win32;
 
 namespace WpfApp2
 {
@@ -79,15 +80,15 @@ namespace WpfApp2
                     try
                     {
 
-                    //    stripsFromDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                        stripsFromJson = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
                     }
                     catch
                     {
-                        stripsFromDB = null;
+                        stripsFromJson = null;
                     }
-                    if (stripsFromDB != null && stripsFromDB.Count != 0)
+                    if (stripsFromJson != null && stripsFromJson.Count != 0)
                     {
-                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromDB.Count.ToString() + " strips.";
+                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJson.Count.ToString() + " strips.";
 
                         NaarDBLabel.Visibility = Visibility.Visible;
                         NaarDBButton.Visibility = Visibility.Visible;
@@ -96,16 +97,33 @@ namespace WpfApp2
                 }
                 else { TextBlock1.Text = "Ongeldige bestand, geen strips in gevonden."; }
             }
-            else if (Hoofdlabel.Content.Equals("Kies een locatie waar je het wil schrijven.")) { }
+            else if (Hoofdlabel.Content.Equals("Kies een locatie waar je het wil schrijven."))
+            {
+                TextBlock1.Text = "Kies hierboven de locatie om de databank strips in op te slaan. het duurt even, maar u krijgt een seintje als het klaar is.";
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Json files (*.json)|*.json";
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
+                    swj.allesWegSchrijvenNaarJSONFile(saveFileDialog.FileName);
+                    TextBlock1.Text = "Het is gelukt!";
+
+                }
+                // File.WriteAllText(saveFileDialog.FileName, txtEditor.Text)
+
 
         }
 
+    }
+
         public void Bewerk(List<Strip> strips) {
-            if (stripsFromDB != null)
+            if (stripsFromJson != null)
             {
                 NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
 
-                pbStatus.Maximum = stripsFromDB.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
+                pbStatus.Maximum = stripsFromJson.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
                 SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
                 pbStatus.Value = 0; //progresbar start bij 0
 
