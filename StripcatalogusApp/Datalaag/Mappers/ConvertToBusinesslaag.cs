@@ -115,5 +115,25 @@ namespace Datalaag.Mappers
             return convertedStripCollection;
         }
 
+        static public List<StripCollection> convertToCollections(List<StripCollectionDB> stripCollections)
+        {
+            List<StripCollection> convertedcollections = new List<StripCollection>();
+            foreach (var collection in stripCollections)
+            {
+                List<Strip> convertedStrips = new List<Strip>();
+                foreach (var s in collection.Strips)
+                {
+                    var conv = convertToStrip(s);
+                    convertedStrips.Add(conv);
+
+                }
+
+                StripCollection csc = new StripCollection(collection.Id,collection.Titel, collection.Nummer, convertedStrips, ConvertToUitgeverij(collection.Uitgeverij));
+                convertedcollections.Add(csc);
+            }
+            return convertedcollections;
+
+        }
+
     }
 }
