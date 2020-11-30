@@ -73,7 +73,7 @@ namespace JSON
 
             }
 
-            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFile(locatieString, foutieveStrips);
+            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFileVanStripList(locatieString, foutieveStrips);
             return listStrips;
         }
 
