@@ -44,7 +44,7 @@ namespace Businesslaag.Managers
                     }
                     // no make new bosbes error
                     else
-                        throw new ArgumentException("the author does not exist");
+                        throw new ArgumentException("the strip does not exist");
 
                 }
                 this._StripCollectionRepository.Add(collection);

@@ -17,7 +17,7 @@ namespace Businesslaag.Models
 
         public Uitgeverij? Uitgeverij {get; set; }
 
-        public List<Strip> Strips = new List<Strip>();
+        public List<Strip> Strips { get; set; }
 
         #region [Constructor]
 
