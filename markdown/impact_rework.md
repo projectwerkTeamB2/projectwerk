@@ -32,11 +32,11 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
  
  -Er zou een knop en code moeten aangemaakt worden om een collectie aan te maken.
    
-   ^(kan een nieuwe wpf window nodig hebben)^
+   ^(kan een nieuwe wpf window nodig hebben, dus een extra button+code)^
  
  -Er zou een knop en code moeten aangemaakt worden om een collectie te wijzigen.
    
-   ^(kan een nieuwe wpf window nodig hebben)^
+   ^(kan een nieuwe wpf window nodig hebben, dus een extra button+code)^
 
 -Er zou een knop en code moeten aangemaakt worden om een collectie te verwijderen.
  
@@ -46,6 +46,8 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
  
  -Er moet documentatie bijgeschreven/veranderd moeten worden.
 
+ -Extra try catchers aanmaken
+ 
 ###Json GUI:
 
 -De json reader en weschrijver zouden veranderd moeten worden:
@@ -54,6 +56,8 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
 -De bewerk knop zoud moeten nagekeken worden op nieuwe methodes hierboven.
 
 -Er moet documentatie bijgeschreven/veranderd moeten worden.
+
+-Extra try catchers aanmaken
 
 
 ##Besluit
