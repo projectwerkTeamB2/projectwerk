@@ -20,12 +20,12 @@ namespace UnitTests.modelTests
             Assert.ThrowsException<System.ArgumentException>(() => s = new Strip(1, "", 1, lA, new Reeks("test"), new Uitgeverij("test")));
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void CreateStrip_Empty_AuteurList_ThrowsArgumentException() {
             List<Auteur> lA = new List<Auteur>();
             Strip s;
             Assert.ThrowsException<System.ArgumentException>(() => s = new Strip(1, "Test", 1,  lA, new Reeks("Test"), new Uitgeverij("Test")));
-        }
+        }*/
 
         [TestMethod]
         public void Add_Auteur_ToStrip_Double_ThrowsArgumentException() {

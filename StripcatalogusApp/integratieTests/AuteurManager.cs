@@ -12,14 +12,15 @@ namespace integratieTests {
 
     public class AuteurManager {
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
-        
+        //TODO: regel maken voor clearen db
+        //TODO: lege testDB lokaal aanmaken
         [TestInitialize]
         public void Initialize()
         {
-            Auteur auteur1 = new Auteur(1, "test1");
-            Auteur auteur2 = new Auteur(2, "test2");
-            Auteur auteur3 = new Auteur(3, "test3");
-            Auteur auteur4 = new Auteur(4, "test4");
+            Auteur auteur1 = new Auteur(1999, "test1");
+            Auteur auteur2 = new Auteur(2999, "test2");
+            Auteur auteur3 = new Auteur(3999, "test3");
+            Auteur auteur4 = new Auteur(4999, "test4");
             generalManager.AuteurManager.Add(auteur1);
             generalManager.AuteurManager.Add(auteur2);
             generalManager.AuteurManager.Add(auteur3);

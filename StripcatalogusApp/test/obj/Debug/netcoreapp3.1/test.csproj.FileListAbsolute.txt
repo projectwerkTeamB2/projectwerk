@@ -199,3 +199,4 @@ C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcor
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.pdb
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\JSON.dll.config
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\test\bin\Debug\netcoreapp3.1\Datalaag.dll.config
