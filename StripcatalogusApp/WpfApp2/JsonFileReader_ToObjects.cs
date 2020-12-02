@@ -1,6 +1,7 @@
 ﻿using Businesslaag.Models;
 using Datalaag.Models;
 using JSON;
+using JSON.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

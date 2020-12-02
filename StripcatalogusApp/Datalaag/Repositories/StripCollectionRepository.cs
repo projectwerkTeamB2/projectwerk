@@ -46,12 +46,11 @@ namespace Datalaag.Repositories
                 using (var command = new SqlCommand("SELECT * FROM Strip"))
                 {
                     return ConvertToBusinesslaag.convertToCollections((List<StripCollectionDB>)GetRecords(command));
-                } StripCollectionDB PopulateRecord(SqlDataReader reader);
+                } 
             }
             catch (Exception ex) { throw new Exception("Error in:  StripCollectionRepository-IEnumerable<StripCollection> GetAll() :: kon niet alle stripcollections opvragen " + ex); }
 
         }
-
 
         public StripCollection GetById(int id)
         {
