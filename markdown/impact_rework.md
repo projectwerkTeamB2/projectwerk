@@ -23,6 +23,7 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
 ##Presentatielaag (geschat snelst op: 17.7 uur of 19.5 uur met conflicten of vertraging )
 
 ###Main strip GUI: Geschatte tijd in minuten: 20+50+15+120+120+20+45+25+25+30+180  = 650 min = 10.8uur
+
 -Eerst heb je een databank noddig met strips en stripcollections(20 min)
 
 -Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit
