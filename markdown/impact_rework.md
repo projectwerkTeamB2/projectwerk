@@ -21,6 +21,7 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
 
 
 ##Presentatielaag
+
 Main strip GUI:
 -Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit
  men kan een knop maken om de ENKEL collections eens apart te bekijken en de strips erin,
