@@ -18,7 +18,7 @@ namespace GUI.Models
         public ReeksGUI Reeks { get; set; }
       
         public UitgeverijGUI Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
-
+        public bool Ischecked { get; set; }
 
         //Er kunnen meerdere auteurs zijn
         public StripGUI(int id,string stripTitel, int stripNr, List<AuteurGUI> auteurs, ReeksGUI reeks, UitgeverijGUI uitgeverij)
@@ -29,11 +29,8 @@ namespace GUI.Models
             this.Reeks = reeks;
             this.StripNr = stripNr;
             this.Uitgeverij = uitgeverij;
+            this.Ischecked = false;
         }
         public StripGUI() { }
-
-     
-
-
     }
 }
