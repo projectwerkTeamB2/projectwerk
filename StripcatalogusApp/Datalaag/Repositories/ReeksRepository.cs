@@ -29,7 +29,7 @@ namespace Datalaag.Repositories
                 using var command = new SqlCommand("SELECT * FROM Reeks");
             return ConvertToBusinesslaag.ConvertToReeksen((List<ReeksDB>)GetRecords(command));
             }
-            catch (Exception ex) { throw new Exception("Error in: IEnumerable<Reeks> GetAll() :: kon niet alle reeksen ophalen: " + ex); }
+            catch (Exception ex) { throw new Exception("Error in: ReeksRepository- IEnumerable<Reeks> GetAll() :: kon niet alle reeksen ophalen: " + ex); }
 
         }
 
@@ -44,7 +44,7 @@ namespace Datalaag.Repositories
                 return ConvertToBusinesslaag.ConvertToReeks(GetRecord(command));
                 }
             }
-            catch (Exception ex) { throw new Exception("Error in: Reeks GetById(int id):: kon niet reeks met deze id ophalen: " + ex); }
+            catch (Exception ex) { throw new Exception("Error in: ReeksRepository- Reeks GetById(int id):: kon niet reeks met deze id ophalen: " + ex); }
 
         }
 
@@ -60,7 +60,7 @@ namespace Datalaag.Repositories
                 Naam = reader.GetString(1)
             };
             }
-            catch (Exception ex) { throw new Exception("Error in: ReeksDB PopulateRecord(SqlDataReader reader) : " + ex); }
+            catch (Exception ex) { throw new Exception("Error in: ReeksRepository- ReeksDB PopulateRecord(SqlDataReader reader) : " + ex); }
 
         }
         public void Add(Reeks reeks)
@@ -71,7 +71,7 @@ namespace Datalaag.Repositories
                 var sqlQueryBuilder = new SqlQueryBuilder<ReeksDB>(dbreeks);
                 ExecuteCommand(sqlQueryBuilder.GetInsertCommand());
             }
-            catch (Exception ex) { throw new Exception("Error in:   Add(Reeks reeks) :: kon reeks niet toevoegen: " + ex); }
+            catch (Exception ex) { throw new Exception("Error in:   ReeksRepository- Add(Reeks reeks) :: kon reeks niet toevoegen: " + ex); }
 
         }
 
@@ -83,7 +83,7 @@ namespace Datalaag.Repositories
             var sqlQueryBuilder = new SqlQueryBuilder<ReeksDB>(dbreeks);
             ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
             }
-            catch (Exception ex) { throw new Exception("Error in:  DeleteById(int id) :: kon reeks niet verwijderen: " + ex); }
+            catch (Exception ex) { throw new Exception("Error in:  ReeksRepository- DeleteById(int id) :: kon reeks niet verwijderen: " + ex); }
 
         }
 
@@ -100,7 +100,7 @@ namespace Datalaag.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception("Error in:  Update(Reeks Reeks) :: kon Reeks niet updaten: " + ex);
+                throw new Exception("Error in:  ReeksRepository- Update(Reeks Reeks) :: kon Reeks niet updaten: " + ex);
             }
         }
     }
