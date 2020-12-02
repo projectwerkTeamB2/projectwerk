@@ -20,51 +20,51 @@ eigen manager ?
 implementatie en testing van de eigen repository, schrijven van de juiste queries, testing....
 
 
-##Presentatielaag (geschat op 17.7 uur)
+##Presentatielaag (geschat snelst op: 17.7 uur of 19.5 uur met conflicten of vertraging )
 
 ###Main strip GUI: Geschatte tijd in minuten: 20+50+15+120+120+20+45+25+25+30+180  = 650 min = 10.8uur
--Eerst heb je een databank noddig met strips en stripcollections
+-Eerst heb je een databank noddig met strips en stripcollections(20 min)
 
 -Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit
  men kan een knop maken om de ENKEL collections eens apart te bekijken en de strips erin,
- of een klik mogelijkheid om de collectie in meer details te bekijken.
+ of een klik mogelijkheid om de collectie in meer details te bekijken.(50 min)
  
- -Manager moet in code zowel strips als stripcollections ontvangen van db langs de generalManager.
+ -Manager moet in code zowel strips als stripcollections ontvangen van db langs de generalManager.(15 min)
  
- -Er zou een knop en code moeten aangemaakt worden om een collectie aan te maken.
+ -Er zou een knop en code moeten aangemaakt worden om een collectie aan te maken.(120 min)
    
    ^(kan een nieuwe wpf window nodig hebben, dus een extra button+code)^
  
- -Er zou een knop en code moeten aangemaakt worden om een collectie te wijzigen.
+ -Er zou een knop en code moeten aangemaakt worden om een collectie te wijzigen.(120 min)
    
    ^(kan een nieuwe wpf window nodig hebben, dus een extra button+code)^
 
--Er zou een knop en code moeten aangemaakt worden om een collectie te verwijderen.
+-Er zou een knop en code moeten aangemaakt worden om een collectie te verwijderen.(20 min)
  
- -Nieuwe zoek radiobutton en code schrijven op collection naam.
+ -Nieuwe zoek radiobutton en code schrijven op collection naam.(45 min)
  
- -Reset knop zou ook van code moeten veranderen om collections te blijven tonen.
+ -Reset knop zou ook van code moeten veranderen om collections te blijven tonen.(25 min)
  
- -Er moet documentatie bijgeschreven/veranderd moeten worden.
+ -Er moet documentatie bijgeschreven/veranderd moeten worden.(25 min)
 
- -Extra try catchers aanmaken
+ -Extra try catchers aanmaken.(30 min)
  
- -Testers + mensen die de GUI uit proberen
+ -Testers + mensen die de GUI uit proberen.(180 min)
  
 
  
 ###Json GUI: Geschatte tijd in minuten: 200+45+25+25+120 = 415 min = 6.9 uur
 
 -De json reader en weschrijver zouden veranderd moeten worden:
- Zodat die zowel strip als stripcollections weg kan schrijven en inlezen.
+ Zodat die zowel strip als stripcollections weg kan schrijven en inlezen.(200 min)
 
--De bewerk knop zoud moeten nagekeken worden op nieuwe methodes hierboven.
+-De bewerk knop zoud moeten nagekeken worden op nieuwe methodes hierboven.(45 min)
 
--Er moet documentatie bijgeschreven/veranderd moeten worden.
+-Er moet documentatie bijgeschreven/veranderd moeten worden.(25 min)
 
--Extra try catchers aanmaken
+-Extra try catchers aanmaken.(25 min)
  
- -Testers + mensen die de GUI uit proberen
+ -Testers + mensen die de GUI uit proberen.(120 min)
 
 
 ##Besluit
