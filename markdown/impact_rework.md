@@ -20,9 +20,9 @@ eigen manager ?
 implementatie en testing van de eigen repository, schrijven van de juiste queries, testing....
 
 
-##Presentatielaag
+##Presentatielaag (geschat op 17.4 uur)
 
-###Main strip GUI:
+###Main strip GUI: Geschatte tijd in minuten: 50+15+120+120+20+45+25+25+30+180  = 630 min = 10.5uur
 
 -Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit
  men kan een knop maken om de ENKEL collections eens apart te bekijken en de strips erin,
@@ -48,7 +48,11 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
 
  -Extra try catchers aanmaken
  
-###Json GUI:
+ -Testers + mensen die de GUI uit proberen
+ 
+
+ 
+###Json GUI: Geschatte tijd in minuten: 200+45+25+25+120 = 415 min = 6.9 uur
 
 -De json reader en weschrijver zouden veranderd moeten worden:
  Zodat die zowel strip als stripcollections weg kan schrijven en inlezen.
@@ -58,6 +62,8 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
 -Er moet documentatie bijgeschreven/veranderd moeten worden.
 
 -Extra try catchers aanmaken
+ 
+ -Testers + mensen die de GUI uit proberen
 
 
 ##Besluit
