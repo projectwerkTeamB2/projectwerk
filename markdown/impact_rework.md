@@ -20,7 +20,7 @@ eigen manager ?
 implementatie en testing van de eigen repository, schrijven van de juiste queries, testing....
 
 
-##Presentatielaag (geschat op 17.7 uur)
+##Presentatielaag (geschat snelst op: 17.7 uur of 19.5 uur met conflicten of vertraging )
 
 ###Main strip GUI: Geschatte tijd in minuten: 20+50+15+120+120+20+45+25+25+30+180  = 650 min = 10.8uur
 -Eerst heb je een databank noddig met strips en stripcollections(20 min)
