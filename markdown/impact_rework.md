@@ -31,9 +31,11 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
  -Manager moet in code zowel strips als stripcollections ontvangen van db langs de generalManager.
  
  -Er zou een knop en code moeten aangemaakt worden om een collectie aan te maken.
+   
    ^(kan een nieuwe wpf window nodig hebben)^
  
  -Er zou een knop en code moeten aangemaakt worden om een collectie te wijzigen.
+   
    ^(kan een nieuwe wpf window nodig hebben)^
 
 -Er zou een knop en code moeten aangemaakt worden om een collectie te verwijderen.
