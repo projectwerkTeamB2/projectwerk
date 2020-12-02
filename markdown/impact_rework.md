@@ -22,7 +22,8 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
 
 ##Presentatielaag
 
-Main strip GUI:
+###Main strip GUI:
+
 -Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit
  men kan een knop maken om de ENKEL collections eens apart te bekijken en de strips erin,
  of een klik mogelijkheid om de collectie in meer details te bekijken.
@@ -36,7 +37,8 @@ Main strip GUI:
  -Reset knop zou ook van code moeten veranderen om collections te blijven tonen.
  -Er moet documentatie bijgeschreven/veranderd moeten worden.
 
-Json GUI:
+###Json GUI:
+
 -De json reader en weschrijver zouden veranderd moeten worden:
  Zodat die zowel strip als stripcollections weg kan schrijven en inlezen.
 -De bewerk knop zoud moeten nagekeken worden op nieuwe methodes hierboven.
