@@ -5,11 +5,11 @@
 
 # User-specific files
 *.cache
-*.gics
+*.gicsv
 *.suo
 *.user
 *.sln.docstates
-
+/.vs
 # Build results
 
 [Dd]ebug/
