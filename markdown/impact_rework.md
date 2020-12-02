@@ -20,9 +20,10 @@ eigen manager ?
 implementatie en testing van de eigen repository, schrijven van de juiste queries, testing....
 
 
-##Presentatielaag (geschat op 17.4 uur)
+##Presentatielaag (geschat op 17.7 uur)
 
-###Main strip GUI: Geschatte tijd in minuten: 50+15+120+120+20+45+25+25+30+180  = 630 min = 10.5uur
+###Main strip GUI: Geschatte tijd in minuten: 20+50+15+120+120+20+45+25+25+30+180  = 650 min = 10.8uur
+-Eerst heb je een databank noddig met strips en stripcollections
 
 -Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit
  men kan een knop maken om de ENKEL collections eens apart te bekijken en de strips erin,
