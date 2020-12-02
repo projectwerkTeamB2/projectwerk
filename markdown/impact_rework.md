@@ -21,6 +21,25 @@ implementatie en testing van de eigen repository, schrijven van de juiste querie
 
 
 ##Presentatielaag
+Main strip GUI:
+-Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit
+ men kan een knop maken om de ENKEL collections eens apart te bekijken en de strips erin,
+ of een klik mogelijkheid om de collectie in meer details te bekijken.
+ -Manager moet in code zowel strips als stripcollections ontvangen van db langs de generalManager.
+ -Er zou een knop en code moeten aangemaakt worden om een collectie aan te maken.
+   ^(kan een nieuwe wpf window nodig hebben)^
+ -Er zou een knop en code moeten aangemaakt worden om een collectie te wijzigen.
+   ^(kan een nieuwe wpf window nodig hebben)^
+ -Er zou een knop en code moeten aangemaakt worden om een collectie te verwijderen.
+ -Nieuwe zoek radiobutton en code schrijven op collection naam.
+ -Reset knop zou ook van code moeten veranderen om collections te blijven tonen.
+ -Er moet documentatie bijgeschreven/veranderd moeten worden.
+
+Json GUI:
+-De json reader en weschrijver zouden veranderd moeten worden:
+ Zodat die zowel strip als stripcollections weg kan schrijven en inlezen.
+-De bewerk knop zoud moeten nagekeken worden op nieuwe methodes hierboven.
+-Er moet documentatie bijgeschreven/veranderd moeten worden.
 
 
 ##Besluit
