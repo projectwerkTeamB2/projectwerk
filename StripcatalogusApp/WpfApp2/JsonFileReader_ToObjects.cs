@@ -14,15 +14,15 @@ namespace JSON
     {
         SchrijfwegnaarJSON schrijfwegnaarJSON = new SchrijfwegnaarJSON();
 
-        public List<Strip> leesJson_GeefAlleStripsTerug(string locatieString)
+        public List<StripJS> leesJson_GeefAlleStripsJSTerug(string locatieString)
         {
-            List<Strip> listStrips = new List<Strip>();
+            List<StripJS> listStrips = new List<StripJS>();
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
             //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
-                listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<StripJS>>(file.ReadToEnd());
             }
 
             listStrips = sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(listStrips, locatieString);
@@ -33,9 +33,9 @@ namespace JSON
         
 
 
-        public List<Strip> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<Strip> listStrips,string locatieString)
+        public List<StripJS> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<StripJS> listStrips,string locatieString)
         {
-            List<Strip> foutieveStrips = new List<Strip>();
+            List<StripJS> foutieveStrips = new List<StripJS>();
             bool verwijder = false;
             for (int i = 0; i < listStrips.Count; i++)
             {
@@ -77,15 +77,15 @@ namespace JSON
             return listStrips;
         }
 
-        public List<Strip> doeDubbelAanhaalingtekensAanStrings(List<Strip> listStrips)
+        public List<StripJS> doeDubbelAanhaalingtekensAanStrings(List<StripJS> listStrips)
         {
-            foreach (Strip s in listStrips)
+            foreach (StripJS s in listStrips)
             {
                 if (s.StripTitel.Contains(@"'"))
                 {
                     s.StripTitel = s.StripTitel.Replace(@"'", @"''");
                 };
-                foreach (Auteur a in s.Auteurs)
+                foreach (AuteurJS a in s.Auteurs)
                 {
                     if (a.Naam.Contains(@"'"))
                     {
@@ -105,15 +105,15 @@ namespace JSON
             return listStrips;
         }
 
-        public List<Strip> leesFoutiveJson_GeefAlleStripsTerug(string locatieString)
+        public List<StripJS> leesFoutiveJson_GeefAlleStripsTerug(string locatieString)
         {
-            List<Strip> listStrips = new List<Strip>();
+            List<StripJS> listStrips = new List<StripJS>();
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
-                listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<StripJS>>(file.ReadToEnd());
             }
             return listStrips;
         }

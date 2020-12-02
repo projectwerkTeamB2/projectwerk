@@ -39,7 +39,7 @@ namespace WpfApp2
         //nodig? V
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()), new StripCollectionRepository(DbFunctions.GetprojectwerkconnectionString()));
 
-        List<Strip> stripsFromJsonToDB; //list die alle strips van json bestad gaat bevatten
+        List<StripJS> stripsFromJsonToDB; //list die alle strips van json bestad gaat bevatten
         List<StripDB> stripsFromDBToJson; //list die alle strips van db gaat bevatten
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
@@ -82,7 +82,7 @@ namespace WpfApp2
                     try
                     {
 
-                        stripsFromJsonToDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                        stripsFromJsonToDB = jfr.leesJson_GeefAlleStripsJSTerug(FileNameTextBox.Text);
                     }
                     catch
                     {
@@ -119,7 +119,7 @@ namespace WpfApp2
 
         }
 
-        public void Bewerk(List<Strip> strips)
+        public void Bewerk(List<StripJS> strips)
         {
             if (stripsFromJsonToDB != null)
             {
