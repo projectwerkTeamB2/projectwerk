@@ -6,16 +6,16 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Businesslaag.Models
+namespace JSON.Models
 {
-    public class Reeks
+    public class ReeksJS
     {
         [JsonProperty("ID")]
         public int ID { get; set; }
         [JsonProperty("Naam")]
         public string Naam { get; set; }
 
-        public Reeks(int iD, string naam)
+        public ReeksJS(int iD, string naam)
         {
             ID = iD;
             if (naam == "")
@@ -23,10 +23,10 @@ namespace Businesslaag.Models
             Naam = naam;
         }
 
-        public Reeks()
+        public ReeksJS()
         {
         }
-        public Reeks(string Naam)
+        public ReeksJS(string Naam)
         {
             if (Naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
@@ -34,7 +34,7 @@ namespace Businesslaag.Models
         }
         public override bool Equals(object obj)
         {
-            return obj is Reeks reeks &&
+            return obj is ReeksJS reeks &&
                    Naam == reeks.Naam;
         }
 

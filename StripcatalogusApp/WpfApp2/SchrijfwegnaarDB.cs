@@ -5,6 +5,8 @@ using Datalaag;
 using Datalaag.Repositories;
 using System.Windows.Controls;
 using Datalaag.Mappers;
+using JSON.Mappers;
+using JSON.Models;
 
 namespace WpfApp2
 {
@@ -18,7 +20,7 @@ namespace WpfApp2
         ConvertToBusinesslaagJS converttobusinesslaagjs = new ConvertToBusinesslaagJS();
         public void stripWegSchijvenNaarDataBank(StripJS str)
         {
-             Strip strip = new Strip(converttobusinesslaagjs.convertToStrip(str));
+             Strip strip =  (converttobusinesslaagjs.convertToStrip(str));
             GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()), new StripCollectionRepository(DbFunctions.GetprojectwerkconnectionString()));
 
 

@@ -9,9 +9,9 @@ namespace Businesslaag.Models
 {
     public class Auteur
     {
-        [JsonProperty("ID")]
+        
         public int ID { get; set; }
-        [JsonProperty("Naam")]
+       
         public string Naam { get; set; }
 
         public Auteur(int iD, string naam)

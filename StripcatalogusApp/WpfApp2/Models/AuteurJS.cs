@@ -5,25 +5,25 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Businesslaag.Models
+namespace JSON.Models
 {
-    public class Auteur
+    public class AuteurJS
     {
         [JsonProperty("ID")]
         public int ID { get; set; }
         [JsonProperty("Naam")]
         public string Naam { get; set; }
 
-        public Auteur(int iD, string naam)
+        public AuteurJS(int iD, string naam)
         {
             ID = iD;
             if (naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;
         }
-        public Auteur() 
+        public AuteurJS() 
         { }
-        public Auteur(string naam)
+        public AuteurJS(string naam)
         {
             if (naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
@@ -32,7 +32,7 @@ namespace Businesslaag.Models
 
         public override bool Equals(object obj)
         {
-            return obj is Auteur auteur &&
+            return obj is AuteurJS auteur &&
                    Naam == auteur.Naam;
         }
 

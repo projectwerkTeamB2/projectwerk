@@ -5,35 +5,35 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Businesslaag.Models
+namespace JSON.Models
 {
-    public class Uitgeverij
+    public class UitgeverijJS
     {
         [JsonProperty("ID")]
         public int ID { get; set; }
         [JsonProperty("Naam")]
         public string Naam { get; set; }
 
-        public Uitgeverij(int iD, string naam)
+        public UitgeverijJS(int iD, string naam)
         {
             ID = iD;
             if (naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;
         }
-        public Uitgeverij( string naam)
+        public UitgeverijJS( string naam)
         {
             if (naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;
         }
-        public Uitgeverij()
+        public UitgeverijJS()
         {
         }
 
         public override bool Equals(object obj)
         {
-            return obj is Uitgeverij uitgeverij &&
+            return obj is UitgeverijJS uitgeverij &&
                    Naam == uitgeverij.Naam;
         }
 

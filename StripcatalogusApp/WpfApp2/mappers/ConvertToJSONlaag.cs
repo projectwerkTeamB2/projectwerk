@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Datalaag.Models;
 using Businesslaag.Models;
+using JSON.Models;
 
-namespace Datalaag.Mappers
+namespace JSON.Mappers
 {
     /// <summary>
     ///

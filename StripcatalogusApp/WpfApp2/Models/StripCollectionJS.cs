@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Businesslaag.Models
+namespace JSON.Models
 {
     /// <summary>
     ///
     /// </summary>
-    public class StripCollection
+    public class StripCollectionJS
     {
         public int Id { get; set; }
 
@@ -15,16 +15,16 @@ namespace Businesslaag.Models
 
         public int Nummer { get; set; }
 
-        public Uitgeverij? Uitgeverij {get; set; }
+        public UitgeverijJS? Uitgeverij {get; set; }
 
-        public List<Strip> Strips { get; set; }
+        public List<StripJS> Strips { get; set; }
 
         #region [Constructor]
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public StripCollection(int Id, String titel, int nummer, List<Strip> strips, Uitgeverij? uitgeverij)
+        public StripCollectionJS(int Id, String titel, int nummer, List<StripJS> strips, UitgeverijJS? uitgeverij)
         {
             this.Id = Id;
             this.Titel = titel;
@@ -36,13 +36,13 @@ namespace Businesslaag.Models
 
        
        
-        public StripCollection()
+        public StripCollectionJS()
         {
 
         }
         #endregion
 
-        public void addStrips(List<Strip> strips)
+        public void addStrips(List<StripJS> strips)
         {
             foreach (var strip in strips)
             {
@@ -58,7 +58,7 @@ namespace Businesslaag.Models
 
         }
 
-        private Boolean nietBestaandeStripCheck(Strip strip)
+        private Boolean nietBestaandeStripCheck(StripJS strip)
         { //true
             if (this.Strips.Contains(strip))
             {
