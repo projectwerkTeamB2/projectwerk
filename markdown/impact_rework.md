@@ -38,48 +38,43 @@ Wij voorzien volgende wijzigingen op de Datalaag:
 
 ###Main strip GUI: Geschatte tijd: 10.8uur
 
+- Aanmaken/aanpassingen van nieuwe schermen of buttons
+  - Er zou een knop en code moeten aangemaakt worden om een collectie aan te maken.(120 min)
+ 
+  - Er zou een knop en code moeten aangemaakt worden om een collectie te wijzigen.(120 min)
 
-- Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit.
- Men kan een knop maken om dan **enkel** collections eens apart te bekijken en de strips erin,
- of een klik mogelijkheid om de collectie in meer details te bekijken.(50 min)
+  - Er zou een knop en code moeten aangemaakt worden om een collectie te verwijderen.(20 min)
+   - Nieuwe zoek radiobutton en code schrijven op collection naam.(45 min)
+ - Aanpassingen van al bestaande componenten
+   - Mainwindow datagrid zou nu ook stripcollection moeten kunnen tonen als strip in collectie zit.
+ Men kan een knop maken om dan **enkel** collections eens apart te bekijken en de strips erin, of een klik mogelijkheid om de collectie in meer details te bekijken.(50 min)
  
- - Manager moet in code zowel strips als stripcollections ontvangen van db langs de generalManager.(15 min)
- 
- - Er zou een knop en code moeten aangemaakt worden om een collectie aan te maken.(120 min)
-   
-   - (kan een nieuwe wpf window nodig hebben, dus een extra button+code)
- 
- - Er zou een knop en code moeten aangemaakt worden om een collectie te wijzigen.(120 min)
-   
-   - (zal een nieuwe wpf window nodig hebben, dus een extra button+code)
+   - Manager moet in code zowel strips als stripcollections ontvangen van db langs de generalManager.(15 min)
+   - Resetknop standaardgedrag wijzingen om rekening te houden met collecties.(25 min)
+ - Laatste stappen
+   - Er moet documentatie bijgeschreven/veranderd moeten worden.(25 min)
 
-- Er zou een knop en code moeten aangemaakt worden om een collectie te verwijderen.(20 min)
+   - Extra try catchers aanmaken.(30 min)
  
- - Nieuwe zoek radiobutton en code schrijven op collection naam.(45 min)
- 
- - Resetknop standaardgedrag wijzingen om rekening te houden met collecties.(25 min)
- 
- - Er moet documentatie bijgeschreven/veranderd moeten worden.(25 min)
-
- - Extra try catchers aanmaken.(30 min)
- 
- - Testen + mensen die de GUI uit proberen.(180 min)
+   - Testen + mensen die de GUI uit proberen.(180 min)
  
  
 ###Json GUI: Geschatte tijd: 6.9 uur
 
- verwachte wijzigen:
+   - verwachte wijzigen:
+   
+     -  extra models en convertion functies
+     
+     - zowel strip als stripcollections weg kunnen schrijven en inlezen.(200 min)
+
+     - De bewerk knop zou moeten nagekeken worden op nieuwe methodes hierboven.(45 min)
+     - 
+ - Laatste stappen
+     - Er moet documentatie bijgeschreven/veranderd moeten worden.(25 min)
+
+     - Extra try catchers aanmaken.(25 min)
  
- -  extra models en convertion functies
- - zowel strip als stripcollections weg kunnen schrijven en inlezen.(200 min)
-
- - De bewerk knop zou moeten nagekeken worden op nieuwe methodes hierboven.(45 min)
-
- - Er moet documentatie bijgeschreven/veranderd moeten worden.(25 min)
-
- - Extra try catchers aanmaken.(25 min)
- 
- - Testen + mensen die de GUI uit proberen.(120 min)
+     - Testen + mensen die de GUI uit proberen.(120 min)
 
 
 
