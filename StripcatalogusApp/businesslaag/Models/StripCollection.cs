@@ -24,7 +24,7 @@ namespace Businesslaag.Models
         /// <summary>
         /// Default constructor
         /// </summary>
-        public StripCollection(int Id, String titel, int nummer, List<Strip> strips, Uitgeverij? uitgeverij)
+        public StripCollection(int Id, String titel, int nummer, List<Strip> strips, Uitgeverij uitgeverij = null)
         {
             this.Id = Id;
             this.Titel = titel;
