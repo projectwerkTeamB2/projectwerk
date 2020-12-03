@@ -32,7 +32,6 @@ namespace integratieTests {
             var test = sqlQueryB.GetInsertCommand();
             //assert dat Checkt of het een SQlcommand teruggeeft
             Assert.IsInstanceOfType(test, typeof(SqlCommand));
-            
         }
         //
         [TestMethod]

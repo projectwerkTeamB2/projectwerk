@@ -10,11 +10,13 @@ namespace integratieTests
     [TestClass]
     public class StripManager
     {
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
-
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetTestConnectionstring()), new AuteurRepository(DbFunctions.GetTestConnectionstring()), new ReeksRepository(DbFunctions.GetTestConnectionstring()), new UitgeverijRepository(DbFunctions.GetTestConnectionstring()));
+        
         [TestInitialize]
         public void Initialize()
         {
+            Initialize i = new Initialize();
+            i.ClearDB();
             Reeks reeks = generalManager.ReeksManager.GetById(4);
            
             Auteur auteur = generalManager.AuteurManager.GetById(4);

@@ -10,11 +10,13 @@ using System.Text;
 namespace integratieTests {
     [TestClass]
     public class ReeksManager {
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetTestConnectionstring()), new AuteurRepository(DbFunctions.GetTestConnectionstring()), new ReeksRepository(DbFunctions.GetTestConnectionstring()), new UitgeverijRepository(DbFunctions.GetTestConnectionstring()));
 
         [TestInitialize]
         public void Initialize()
         {
+            Initialize i = new Initialize();
+            i.ClearDB();
             Reeks reeks1 = new Reeks(1, "test1");
             Reeks reeks2 = new Reeks(2, "test2");
             Reeks reeks3 = new Reeks(3, "test3");
@@ -37,7 +39,7 @@ namespace integratieTests {
         [TestMethod]
         public void Add_Reeks_No_Error()
         {
-            Reeks testreeks = new Reeks(5, "test1");
+            Reeks testreeks = new Reeks(5, "testAdd");
             generalManager.ReeksManager.Add(testreeks);
 
             Reeks reeksFromDb = generalManager.ReeksManager.GetById(5);

@@ -11,12 +11,14 @@ namespace integratieTests {
     [TestClass]
 
     public class AuteurManager {
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetTestConnectionstring()), new AuteurRepository(DbFunctions.GetTestConnectionstring()), new ReeksRepository(DbFunctions.GetTestConnectionstring()), new UitgeverijRepository(DbFunctions.GetTestConnectionstring()));
         //TODO: regel maken voor clearen db
         //TODO: lege testDB lokaal aanmaken
         [TestInitialize]
         public void Initialize()
         {
+            Initialize i = new Initialize();
+            i.ClearDB();
             Auteur auteur1 = new Auteur(1999, "test1");
             Auteur auteur2 = new Auteur(2999, "test2");
             Auteur auteur3 = new Auteur(3999, "test3");
@@ -62,7 +64,7 @@ namespace integratieTests {
         [TestMethod]
         public void updateAuteur_succesvol() 
         {
-          Auteur og =  generalManager.AuteurManager.GetById(1);
+            Auteur og =  generalManager.AuteurManager.GetById(1);
             og.Naam = "inserted test value";
             generalManager.AuteurManager.Update(og);
             Assert.AreEqual(og.Naam, "inserted test value");

@@ -10,11 +10,13 @@ using System.Text;
 namespace integratieTests {
     [TestClass]
     public class UitgeverijManager {
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetTestConnectionstring()), new AuteurRepository(DbFunctions.GetTestConnectionstring()), new ReeksRepository(DbFunctions.GetTestConnectionstring()), new UitgeverijRepository(DbFunctions.GetTestConnectionstring()));
 
         [TestInitialize]
         public void Initialize()
         {
+            Initialize i = new Initialize();
+            i.ClearDB();
             Uitgeverij Uitgeverij1 = new Uitgeverij(1, "Uitgeverij1");
             Uitgeverij Uitgeverij2 = new Uitgeverij(2, "Uitgeverij2");
             Uitgeverij Uitgeverij3 = new Uitgeverij(3, "Uitgeverij3");
