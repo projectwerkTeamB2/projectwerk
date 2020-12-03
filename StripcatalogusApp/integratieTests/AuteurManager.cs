@@ -19,10 +19,10 @@ namespace integratieTests {
         {
             Initialize i = new Initialize();
             i.ClearDB();
-            Auteur auteur1 = new Auteur(1999, "test1");
-            Auteur auteur2 = new Auteur(2999, "test2");
-            Auteur auteur3 = new Auteur(3999, "test3");
-            Auteur auteur4 = new Auteur(4999, "test4");
+            Auteur auteur1 = new Auteur(1, "test1");
+            Auteur auteur2 = new Auteur(2, "test2");
+            Auteur auteur3 = new Auteur(3, "test3");
+            Auteur auteur4 = new Auteur(4, "test4");
             generalManager.AuteurManager.Add(auteur1);
             generalManager.AuteurManager.Add(auteur2);
             generalManager.AuteurManager.Add(auteur3);
@@ -49,7 +49,7 @@ namespace integratieTests {
         [TestMethod]
         public void select_auteurbyID_succes() 
         {
-            Auteur expected = new Auteur(9999, "testAuteur");
+            Auteur expected = new Auteur(4, "test4");
             Auteur gotten = generalManager.AuteurManager.GetById(expected.ID);
             Assert.AreEqual(expected, gotten);
         }
