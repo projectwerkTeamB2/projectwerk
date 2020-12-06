@@ -1,0 +1,21 @@
+[
+  {
+    "ID": 825,
+    "Titel": "De almanak",
+    "Nr": 0,
+    "Reeks": {
+      "ID": 123,
+      "Naam": "<geen serie>"
+    },
+    "Uitgeverij": {
+      "ID": 1,
+      "Naam": "Casterman"
+    },
+    "Auteurs": [
+      {
+        "ID": 199,
+        "Naam": "Servais Jean-Claude"
+      }
+    ]
+  }
+]
