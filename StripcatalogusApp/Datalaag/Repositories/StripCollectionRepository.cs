@@ -29,7 +29,7 @@ namespace Datalaag.Repositories
                 Id = reader.GetInt32(0),
                 Titel = reader.GetString(1),
                 Nummer = reader.GetInt32(2),
-                Uitgeverij = ConvertToDatalayer.ConvertToUitgeverijDb(new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3))),
+                Uitgeverij = ConvertToDatalayer.ConvertToUitgeverijDb(new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4))),
 
             };
             }
