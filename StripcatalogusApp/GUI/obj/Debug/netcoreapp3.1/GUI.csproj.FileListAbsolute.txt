@@ -309,3 +309,5 @@ C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\GUI\obj\Debug
 C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.genruntimeconfig.cache
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStripCollection.baml
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStripCollection.g.cs
+C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStripCollection.baml
+C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStripCollection.g.cs

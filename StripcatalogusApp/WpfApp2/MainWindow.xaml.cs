@@ -41,6 +41,7 @@ namespace WpfApp2
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()), new StripCollectionRepository(DbFunctions.GetprojectwerkconnectionString()));
 
         List<StripJS> stripsFromJsonToDB; //list die alle strips van json bestad gaat bevatten
+        List<StripCollectionJS> StripCollectionFromJsonToDB; //list die alle strips van json bestad gaat bevatten
         List<StripDB> stripsFromDBToJson; //list die alle strips van db gaat bevatten
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
@@ -83,7 +84,8 @@ namespace WpfApp2
                     try
                     {
 
-                        stripsFromJsonToDB = jfr.leesJson_GeefAlleStripsJSTerug(FileNameTextBox.Text);
+                        stripsFromJsonToDB = jfr.geefCorrecteStripsJSTerugEnSchrijfWegFoute<StripJS>(FileNameTextBox.Text);
+                        StripCollectionFromJsonToDB = jfr.geefCorrecteStripsCollectionJSTerugEnSchrijfWegFoute<StripCollectionJS>(FileNameTextBox.Text);
                     }
                     catch
                     {
@@ -125,7 +127,7 @@ namespace WpfApp2
             if (stripsFromJsonToDB != null)
             {
 
-VanDBButton.Visibility = Visibility.Collapsed;
+                VanDBButton.Visibility = Visibility.Collapsed;
                 NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
                 NaarDBButtonKeuze.Visibility = Visibility.Collapsed;
                 

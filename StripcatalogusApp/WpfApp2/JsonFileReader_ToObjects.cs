@@ -158,7 +158,6 @@ namespace JSON
             return listStrips;
         }
 
-
         public List<StripJS> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<StripJS> listStrips,string locatieString)
         {
             List<StripJS> foutieveStrips = new List<StripJS>();
