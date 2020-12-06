@@ -125,9 +125,10 @@ namespace WpfApp2
             if (stripsFromJsonToDB != null)
             {
 
-
+VanDBButton.Visibility = Visibility.Collapsed;
                 NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
                 NaarDBButtonKeuze.Visibility = Visibility.Collapsed;
+                
 
                 pbStatus.Maximum = stripsFromJsonToDB.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
                 SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
@@ -151,7 +152,7 @@ namespace WpfApp2
                         catch { TextBlock2.Text = "Er is iets fout gelopen"; }//error opvangen
                         finally //klaar? verander dan percentage van progresbar -> die x
                         {
-                            System.Threading.Thread.Sleep(100);
+                            System.Threading.Thread.Sleep(75);
                             x = i;
                         }
 
@@ -161,6 +162,9 @@ namespace WpfApp2
 
 
             }
+            //VanDBButton.Visibility = Visibility.Visible;
+           // NaarDBButton.Visibility = Visibility.Visible; //verberg knop, zodat je geen nieuwe thread start
+            NaarDBButtonKeuze.Visibility = Visibility.Visible;
 
         }
 

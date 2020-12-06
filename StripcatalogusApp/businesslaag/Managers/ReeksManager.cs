@@ -32,7 +32,7 @@ namespace Businesslaag.Managers
           
             if (DoubleReeksNotFound(reeks)) { 
                this._reeksRepository.Add(reeks);
-            }else throw new ArgumentException("Reeks bestaat al");
+            }//else throw new ArgumentException("Reeks bestaat al");
         }
 
 
