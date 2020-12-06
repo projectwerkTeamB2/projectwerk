@@ -82,6 +82,23 @@ namespace JSON.Mappers
             return convertedCollection;
         }
 
+        public List<StripCollectionJS> ConvertToStripCollectionJSList(List<StripCollection> stripCollection)
+        {
+            List<StripCollectionJS> convertedCollectionList = new List<StripCollectionJS>();
+            foreach (StripCollection stpc in stripCollection)
+            {
+                List<StripJS> convertedstrips = new List<StripJS>();
+                foreach (var strip in stpc.Strips)
+                {
+                    var conv = convertToStripJS(strip);
+                    convertedstrips.Add(conv);
+                }
+                StripCollectionJS convertedCollection = new StripCollectionJS(stpc.Id, stpc.Titel, stpc.Nummer, convertedstrips, ConvertToUitgeverijJS(stpc.Uitgeverij));
+                convertedCollectionList.Add( convertedCollection);
+            }
+            return convertedCollectionList;
+        }
+
 
     }
 }

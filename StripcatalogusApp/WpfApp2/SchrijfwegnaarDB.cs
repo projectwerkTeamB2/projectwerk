@@ -33,5 +33,16 @@ namespace WpfApp2
                 generalManager.StripManager.Add(strip);
                 
         }
+
+        public void stripCollectionWegSchijvenNaarDataBank(StripCollectionJS str)
+        {
+            StripCollection stripCollection = (converttobusinesslaagjs.convertToStripCollection(str));
+            GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()), new StripCollectionRepository(DbFunctions.GetprojectwerkconnectionString()));
+
+
+            generalManager.stripCollectionManager.Add(stripCollection);
+
+        }
+
     }
 }
