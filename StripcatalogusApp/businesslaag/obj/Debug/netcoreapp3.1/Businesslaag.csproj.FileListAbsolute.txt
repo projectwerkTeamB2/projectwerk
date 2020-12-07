@@ -55,3 +55,4 @@ C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\businesslaag\
 C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csproj.CoreCompileInputs.cache
 C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.pdb
+D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\businesslaag\obj\Debug\netcoreapp3.1\Businesslaag.csprojAssemblyReference.cache

@@ -61,7 +61,21 @@ namespace GUI
 
             stripsFromDb = generalManager.StripManager.GetAll();//strips ophalen
             showingStrips = stripsFromDb;
-            stripCollectionsFromDb = generalManager.stripCollectionManager.GetAll(); //strip collections ophalen
+
+            //hier loopt er iets mis
+            stripCollectionsFromDb = generalManager.stripCollectionManager.GetAll(); //strip collections ophalen 
+
+            if (stripCollectionsFromDb != null ) //als het een collectie heeft
+            {
+                var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam
+                    , Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Contains(c)).ToList()) }).OrderBy(s => s.ID);
+                StripDataGrid.ItemsSource = smallList;
+            }
+            else
+            { //als het strip geen collectie heeft
+                var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = "" }).OrderBy(s => s.ID);
+                StripDataGrid.ItemsSource = smallList;
+            }
 
             stripBewerken_button.Visibility = Visibility.Hidden;
             bin_image.Visibility = Visibility.Collapsed;
