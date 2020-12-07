@@ -37,14 +37,19 @@ namespace test
 
             Strip myTestStrip = new Strip(3687, "fruitcake", 999, auteurs, mytestreeks, myTestuitgeverij);
             Strip myTestStrip2 = new Strip(3686, "my test duh", 888, auteurs, mytestreeks, myTestuitgeverij);
-     /*        generalManager.StripManager.Add(myTestStrip2);
+     /*       generalManager.StripManager.Add(myTestStrip2);
              generalManager.StripManager.Add(myTestStrip);*/
             List<Strip> strips = new List<Strip>();
             strips.Add(generalManager.StripManager.GetById(148));
             strips.Add(generalManager.StripManager.GetById(149));
-            StripCollection collection = new StripCollection(1, "Asterix test", 666, strips, myTestuitgeverij);
-            generalManager.stripCollectionManager.Add(collection);
+          //   StripCollection collection = new StripCollection(12, "passievrucht", 666, strips, myTestuitgeverij);
+            var collection = generalManager.stripCollectionManager.GetAll();
 
+             //    generalManager.stripCollectionManager.Add(collection);
+           foreach (var c in collection)
+            {
+                Console.WriteLine(c.Titel + " "  + c.Strips.Count);
+            }
 
         }
     }
