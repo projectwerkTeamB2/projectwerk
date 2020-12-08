@@ -23,16 +23,15 @@ namespace Datalaag.Repositories
         public override StripCollectionDB PopulateRecord(SqlDataReader reader)
         {
             try { 
-            
-              
                     return new StripCollectionDB
                 {
                     Id = reader.GetInt32(0),
                     Titel = reader.GetString(1),
                     Nummer = reader.GetInt32(2),
                     Uitgeverij = ConvertToDatalayer.ConvertToUitgeverijDb(new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3))),
+                    Strips = ConvertToDatalayer.convertToStripsDb(new StripRepository(DbFunctions.GetprojectwerkconnectionString()).GetCollectionStrips(reader.GetInt32(0)))
 
-                };
+                    };
             }
             catch (Exception ex) { throw new Exception("Error in: StripCollectionRepository- StripCollectionDB PopulateRecord(SqlDataReader reader) : " + ex); }
 
@@ -44,7 +43,7 @@ namespace Datalaag.Repositories
         {
             try
             {
-                using (var command = new SqlCommand("SELECT * FROM stripCollection"))
+                using (var command = new SqlCommand("select * from Stripcollection"))
                 {
                     return ConvertToBusinesslaag.convertToCollections((List<StripCollectionDB>)GetRecords(command));
                 } 
@@ -68,6 +67,7 @@ namespace Datalaag.Repositories
 
         }
 
+    
         #endregion
 
 

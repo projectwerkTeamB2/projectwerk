@@ -50,6 +50,19 @@ namespace Datalaag.Repositories
             }
         }
 
+        public List<Strip> GetCollectionStrips(int id)
+        {
+            try
+            {
+
+                var command = new SqlCommand("select* from Strip join Strip_has_Stripcollection_has_strip on Strip.id = Strip_has_Stripcollection_has_strip.Strip_id where Stripcollection_has_strip_id = @id");
+                command.Parameters.Add(new SqlParameter("id", id));
+                return ConvertToBusinesslaag.convertToStrips((List<StripDB>)GetRecords(command));
+            }
+            catch (Exception ex) { throw new Exception("insert decent error" + ex); }
+        }
+
+
         #endregion
         public override StripDB PopulateRecord(SqlDataReader reader)
         {

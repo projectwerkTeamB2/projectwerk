@@ -55,6 +55,27 @@ namespace Datalaag.Mappers
             return convertedStrip;
         }
 
+        static public List<StripDB> convertToStripsDb(List<Strip> strips) 
+        {
+
+            List<StripDB> convertedStrips = new List<StripDB>();
+            foreach (var s in strips)
+            {
+                List<AuteurDB> convertedAuteurs = new List<AuteurDB>();
+                foreach (var sa in s.Auteurs)
+                {
+                    var conv = ConvertToAuteurDb(sa);
+                    convertedAuteurs.Add(conv);
+                }
+
+                var convertedStrip = new StripDB(s.ID, s.StripTitel, s.StripNr, convertedAuteurs, ConvertToReeksDb(s.Reeks), ConvertToUitgeverijDb(s.Uitgeverij));
+                convertedStrips.Add(convertedStrip);
+            }
+            return convertedStrips;
+        }
+    
+
+
         static public StripCollectionDB ConvertToStripCollectionDB(StripCollection stripCollection) 
         {
             List<StripDB> convertedstrips = new List<StripDB>();
