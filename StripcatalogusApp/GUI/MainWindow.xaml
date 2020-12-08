@@ -10,10 +10,10 @@
         Title="Strip Applicatie" Height="650" Width="1210">
 
     <Grid Background="#E9C46A">
-        <Button  Style="{StaticResource ButtonStyle}" Content="Een nieuwe strip toevoegen" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,559,0,0" Width="217" Height="40" Click="Button_MaakStrip_Click" VerticalAlignment="Top" />
-        <Button  Style="{StaticResource ButtonStyle}" Content="+ Strip collectie" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,509,0,0" Width="142" Click="Button_MaakStripCollectie_Click" Height="33" VerticalAlignment="Top" />
+        <Button Name="plusstrip" Style="{StaticResource ButtonStyle}" Content="Een nieuwe strip toevoegen" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,559,0,0" Width="217" Height="40" Click="Button_MaakStrip_Click" VerticalAlignment="Top" />
+        <Button  Style="{StaticResource ButtonStyle}" Content="+ Strip collectie" FontWeight="Bold" HorizontalAlignment="Left" Margin="7,408,0,0" Width="142" Click="Button_MaakStripCollectie_Click" Height="33" VerticalAlignment="Top" />
         <Button  Style="{StaticResource ButtonStyle}" Content="Zoeken" Background="Chocolate" HorizontalAlignment="Left" Margin="1061,12,0,0" VerticalAlignment="Top" Width="127" Height="29" Click="Button_Zoek_Click" />
-        <Button   Content="RESET DATA" HorizontalAlignment="Left" Margin="1097,56,0,0" VerticalAlignment="Top" Width="90" Height="28" Click="Button_Reset_Click" />
+        <Button   Content="RESET" HorizontalAlignment="Left" Margin="1097,56,0,0" VerticalAlignment="Top" Width="90" Height="28" Click="Button_Reset_Click" />
 
 
         <Label Foreground="Peru"  FontSize="25" FontFamily="Comic Sans MS"  
@@ -33,6 +33,7 @@
         </Image>
         <Button  Style="{StaticResource ButtonStyle}" Name="stripBewerken_button" Content="Geselecteerde strip bijwerken ?" Background="Chocolate" HorizontalAlignment="Left" Margin="242,14,0,0" VerticalAlignment="Top" Width="220" Height="34" Click="Button_Bijwerk_Click" />
         <Button  Style="{StaticResource ButtonStyle}" Name="NaarStripCollections_button" Content="Stripcollections bekijken ?" Background="DarkOliveGreen" HorizontalAlignment="Left" Margin="242,53,0,0" VerticalAlignment="Top" Width="187" Height="34" Click="Button_StripCo_Click" />
+        <Button  Style="{StaticResource ButtonStyle}" Name="NaarStrip_button" Visibility="Collapsed" Content="Strips bekijken ?" Background="DarkOliveGreen" HorizontalAlignment="Left" Margin="242,53,0,0" VerticalAlignment="Top" Width="187" Height="34" Click="Button_Strip_Click" />
 
 
         <Label Foreground="Brown"  FontSize="15" FontFamily="Comic Sans MS"  
@@ -59,9 +60,9 @@
             </Image.Style>
         </Image>
 
-        <Button  Style="{StaticResource ButtonStyle}" Content="+ Reeks" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,408,0,0" Width="91" Click="Button_plusReeks_Click" Height="30" VerticalAlignment="Top" />
-        <Button  Style="{StaticResource ButtonStyle}" Content="+ Uitgeverij" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,474,0,0" Width="117" Click="Button_plusUitgeverij_Click" Height="30" VerticalAlignment="Top" />
-        <Button  Style="{StaticResource ButtonStyle}" Content="+ Auteur" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,441,0,0" Width="106" Click="Button_plusAuteur_Click" Height="30" VerticalAlignment="Top" />
+        <Button Name="plusreeks"  Style="{StaticResource ButtonStyle}" HorizontalContentAlignment="Left" Content="+ Reeks" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,448,0,0" Width="140" Click="Button_plusReeks_Click" Height="30" VerticalAlignment="Top" />
+        <Button Name="plusuitgeverij"  Style="{StaticResource ButtonStyle}" HorizontalContentAlignment="Left" Content="+ Uitgeverij" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,519,0,0" Width="140" Click="Button_plusUitgeverij_Click" Height="30" VerticalAlignment="Top" />
+        <Button Name="plusauteur"  Style="{StaticResource ButtonStyle}" HorizontalContentAlignment="Left" Content="+ Auteur" FontWeight="Bold" HorizontalAlignment="Left" Margin="9,483,0,0" Width="140" Click="Button_plusAuteur_Click" Height="30" VerticalAlignment="Top" />
 
 
     </Grid>
