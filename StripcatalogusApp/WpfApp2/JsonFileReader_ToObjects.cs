@@ -12,7 +12,7 @@ using System.Linq;
 namespace JSON
 {
     public class JsonFileReader_ToObjects
-   
+
     {
         SchrijfwegnaarJSON schrijfwegnaarJSON = new SchrijfwegnaarJSON();
 
@@ -23,8 +23,8 @@ namespace JSON
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
-               // JToken myObject = JsonConvert.DeserializeObject<JToken>(file.ReadToEnd());
-                   listStrips = JsonConvert.DeserializeObject<List<StripJS>>(file.ReadToEnd());
+                // JToken myObject = JsonConvert.DeserializeObject<JToken>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<StripJS>>(file.ReadToEnd());
             }
 
             listStrips = sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(listStrips, locatieString);
@@ -41,20 +41,22 @@ namespace JSON
             {
                 JsonSerializer serializer = new JsonSerializer();
                 // JToken myObject = JsonConvert.DeserializeObject<JToken>(file.ReadToEnd());
-               listStrips = JsonConvert.DeserializeObject<List<T>>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<T>>(file.ReadToEnd());
             }
             return listStrips;
-          
+
         }
 
         public List<StripJS> geefStripJSList<T>(List<T> list)
         {
             List<StripJS> liststrips = new List<StripJS>();
-            foreach(T obj in list)
+            foreach (T obj in list)
             {
                 if (obj is StripJS)
                 {
+
                     liststrips.Add(obj as StripJS);
+
                 }
             }
 
@@ -70,7 +72,15 @@ namespace JSON
             {
                 if (obj is StripCollectionJS)
                 {
-                    listStripCollection.Add(obj as StripCollectionJS);
+                    try
+                    {
+                        StripCollectionJS x = (obj as StripCollectionJS);
+                        if (x.Strips != null)
+                        {
+                            listStripCollection.Add(x);
+                        }
+                    }
+                    catch (Exception ex) { }
                 }
             }
 
@@ -108,7 +118,7 @@ namespace JSON
             for (int i = 0; i < listStripsCollection.Count; i++)
             {
                 verwijder = false;
-               
+
                 if (listStripsCollection[i].Uitgeverij == null)
                 {
                     FoutieveStripCollections.Add(listStripsCollection[i]);
@@ -158,7 +168,7 @@ namespace JSON
             return listStrips;
         }
 
-        public List<StripJS> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<StripJS> listStrips,string locatieString)
+        public List<StripJS> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<StripJS> listStrips, string locatieString)
         {
             List<StripJS> foutieveStrips = new List<StripJS>();
             bool verwijder = false;
@@ -204,7 +214,7 @@ namespace JSON
 
         public List<StripCollectionJS> doeDubbelAanhaalingtekensAanStringsStripCollection(List<StripCollectionJS> listStripCollections)
         {
-            foreach(StripCollectionJS sc in listStripCollections)
+            foreach (StripCollectionJS sc in listStripCollections)
             {
                 foreach (StripJS s in sc.Strips)
                 {
@@ -241,7 +251,7 @@ namespace JSON
                 };
 
             }
-          
+
             return listStripCollections;
         }
 
