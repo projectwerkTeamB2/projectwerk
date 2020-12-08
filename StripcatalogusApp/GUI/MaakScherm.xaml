@@ -56,7 +56,7 @@
         <Image HorizontalAlignment="Left" Source="/Images/BoomIMG.png" Height="94" Margin="736,386,0,0" VerticalAlignment="Top" Width="95"/>
         <Label Content="( U kunt meerdere selecteren )" HorizontalAlignment="Left" Margin="439,157,0,0" VerticalAlignment="Top"/>
         <ListBox
-            Tag="Voor Beeld, Jeff De Voorbeeld, ..." HorizontalAlignment="Left"  x:Name="TextBox_auteurs_Copy" Margin="439,183,0,0" VerticalAlignment="Top" Width="360" Height="181">
+            HorizontalAlignment="Left"  x:Name="TextBox_auteurs" Margin="439,183,0,0" VerticalAlignment="Top" Width="360" Height="181">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

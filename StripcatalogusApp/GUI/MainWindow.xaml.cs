@@ -15,11 +15,12 @@ namespace GUI
     //Voor de user interface wordt er gebruik gemaakt van WPF
     public partial class MainWindow : Window
     {
-        List<Strip> stripsFromDb;
-        List<Strip> showingStrips;
-        List<StripCollection> stripCollectionsFromDb;
+        List<Strip> stripsFromDb; //houd stri^ps van databank bij
+        List<Strip> showingStrips; //houd de huidig getoonde strips bij
+        List<StripCollection> stripCollectionsFromDb; //houd de strip collecties van de databank bij
+
         GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()), new StripCollectionRepository(DbFunctions.GetprojectwerkconnectionString()));
-       public Strip selectedStrip;
+       public Strip selectedStrip; //huidig geselecteerde strip van de datagrid
 
         public MainWindow()
         {
@@ -40,6 +41,7 @@ namespace GUI
             else return deze.Select(o => o.Naam).FirstOrDefault();
         }
         private string StripCollToString(List<StripCollection> deze) //om de auteurs van stripboeken duidelijk te tonen in datagrid
+        
         {
             if (deze.Count > 1)
             { //als meerdere auteurs
@@ -65,14 +67,14 @@ namespace GUI
             //hier loopt er iets mis
             stripCollectionsFromDb = generalManager.stripCollectionManager.GetAll(); //strip collections ophalen 
 
-            if (stripCollectionsFromDb != null ) //als het een collectie heeft
+            if (stripCollectionsFromDb != null ) //als er collecties zij,
             {
                 var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam
-                    , Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Contains(c)).ToList()) }).OrderBy(s => s.ID);
+                    , Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b=>b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                 StripDataGrid.ItemsSource = smallList;
             }
             else
-            { //als het strip geen collectie heeft
+            {   //als er geen collectie zijn
                 var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = "" }).OrderBy(s => s.ID);
                 StripDataGrid.ItemsSource = smallList;
             }
@@ -118,28 +120,36 @@ namespace GUI
 
 
         private void DataGridSelectie(object sender, System.Windows.Controls.SelectionChangedEventArgs e) //als er een strip geselecteerd is
-        {  
-            if(StripDataGrid.SelectedItem != null) { 
-             selectedStrip = null;
-            String x = StripDataGrid.SelectedItem.ToString();
-            string[] words = x.Split(',');
-            
-            x = words.Where(x => x.Contains("ID =")).FirstOrDefault();
-            x = x.Replace("ID = ", "").Replace("{", "").Replace("}", "").Trim();
-          
-            //haalt de gekozen strip op en geeft die weer mee
-            selectedStrip = stripsFromDb.Where(s => s.ID.ToString().Equals(x)).FirstOrDefault();
+        {
+            if (StripDataGrid.SelectedItem != null)
+            {
+                selectedStrip = null;
+                String x = StripDataGrid.SelectedItem.ToString();
+                string[] words = x.Split(',');
+
+                x = words.Where(x => x.Contains("ID =")).FirstOrDefault();
+                x = x.Replace("ID = ", "").Replace("{", "").Replace("}", "").Trim();
+
+                //haalt de gekozen strip op en geeft die weer mee
+                selectedStrip = stripsFromDb.Where(s => s.ID.ToString().Equals(x)).FirstOrDefault();
                 if (selectedStrip != null)
                 {
                     stripBewerken_button.Visibility = Visibility.Visible;
                     bin_image.Visibility = Visibility.Visible;
                 }
-                else { stripBewerken_button.Visibility = Visibility.Collapsed; 
-                    bin_image.Visibility = Visibility.Collapsed; }
+                else
+                {
+                    stripBewerken_button.Visibility = Visibility.Collapsed;
+                    bin_image.Visibility = Visibility.Collapsed;
+                }
+            }
+            else {
+                stripBewerken_button.Visibility = Visibility.Collapsed;
+                bin_image.Visibility = Visibility.Collapsed;
             }
         }
 
-        private void Button_Zoek_Click(object sender, RoutedEventArgs e)
+        private void Button_Zoek_Click(object sender, RoutedEventArgs e) //rechts vanboven kan je op gui speciefiekere data zoeken in db
         {
             List<Strip> listStrip = new List<Strip>();
 
@@ -156,13 +166,13 @@ namespace GUI
                     listStrip.Add(helpstrip);
                     try
                     {
-                        
-                        if (helpstrip != null)
+
+                            if (helpstrip != null)
                         {
                             if (stripCollectionsFromDb != null && stripCollectionsFromDb.Any(s => s.Strips.Contains(helpstrip))) //als het een collectie heeft
                             {
                                 List<StripCollection> liststripcoll = stripCollectionsFromDb.Where(s => s.Strips.Contains(helpstrip)).ToList();
-                                var smallList = listStrip.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(liststripcoll) }).OrderBy(s => s.ID);
+                                var smallList = listStrip.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                                 StripDataGrid.ItemsSource = smallList;
                             }
                             else
@@ -175,7 +185,7 @@ namespace GUI
                     catch (NullReferenceException ex) { }
                 }
                 else { StripDataGrid.ItemsSource = null; } //niet geldige ingave
-            }
+            } //zoeken op strip id
             else if (RadioBtnStriptittel.IsChecked == true)
             {
                 try { 
@@ -187,7 +197,7 @@ namespace GUI
                     {
                         if (strips != null)
                         {
-                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                             StripDataGrid.ItemsSource = smallList;
 
                         }
@@ -198,8 +208,8 @@ namespace GUI
                 catch (Exception ex) { StripDataGrid.ItemsSource = null; }
 
 
-            }
-            else if (RadioBtnReeks.IsChecked == true)
+            }//zoeken op strip tittel
+            else if (RadioBtnReeks.IsChecked == true)//zoeken op strip reeksen
             {
                 try { 
                     List<Strip> strips = stripsFromDb.Where(b => b.Reeks.Naam.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
@@ -210,7 +220,7 @@ namespace GUI
                     {
                         if (strips != null)
                         {
-                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                             StripDataGrid.ItemsSource = smallList;
                         }
                     }
@@ -220,7 +230,7 @@ namespace GUI
                 catch //als strip niet bestaat  
                 { }
 
-            }
+            }//zoeken op strip reeksen
             else if (RadioBtnAuteur.IsChecked == true)
             {
                 try
@@ -234,7 +244,7 @@ namespace GUI
                     {
                         if (strips != null)
                         {
-                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                             StripDataGrid.ItemsSource = smallList;
                         }
                     }
@@ -244,7 +254,7 @@ namespace GUI
                 catch //als strip niet bestaat  
                 { }
 
-            }
+            }//zoeken op strip auteurs
             else if (RadioBtnUitgeverij.IsChecked == true)
             {
                 try
@@ -257,7 +267,7 @@ namespace GUI
                     {
                         if (strips != null)
                         {
-                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                             StripDataGrid.ItemsSource = smallList;
                         }
                     }
@@ -265,6 +275,30 @@ namespace GUI
 
                 }
                 catch //als strip niet bestaat  
+                { }
+            }//zoeken op strip uitgeverijen
+            else if (RadioBtnColl.IsChecked == true)//zoeken op strip collecties
+            {
+                try
+                {
+                    List<StripCollection> collections = stripCollectionsFromDb.Where(b=>b.Titel.ToUpper().Contains(SearchTextBox.Text.ToUpper())).ToList();
+
+                    List<Strip> strips = stripsFromDb.Where(b => (collections.Any(c=>c.Strips.Any(s=>s.ID.Equals(b.ID))))).ToList();
+                    showingStrips.Clear();
+                    showingStrips.AddRange(strips);
+
+                    try
+                    {
+                        if (strips != null)
+                        {
+                            var smallList = strips.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(collections.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
+                            StripDataGrid.ItemsSource = smallList;
+                        }
+                    }
+                    catch (NullReferenceException ex) { }
+
+                }
+                catch //als strips niet bestaan geef niets terug 
                 { }
             }
         }
@@ -276,7 +310,7 @@ namespace GUI
             selectedStrip = null;
             showingStrips = generalManager.StripManager.GetAll();
             stripsFromDb = generalManager.StripManager.GetAll();
-            var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam }).OrderBy(s => s.ID);
+            var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
            
             StripDataGrid.ItemsSource = smallList;
 
@@ -348,6 +382,11 @@ namespace GUI
         }
 
         private void Button_MaakStripCollectie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_StripCo_Click(object sender, RoutedEventArgs e)
         {
 
         }

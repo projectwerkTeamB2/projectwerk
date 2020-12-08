@@ -2,8 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
@@ -12,6 +10,9 @@ using Datalaag;
 using Businesslaag.Models;
 using Businesslaag.Managers;
 using System.Linq;
+using System.Windows.Controls;
+using GUI.Models;
+using GUI.Mappers;
 
 namespace GUI
 {
@@ -20,6 +21,8 @@ namespace GUI
     /// </summary>
     public partial class MaakScherm : Window
     {
+        private Dictionary<int, AuteurGUI> _selectedAuteurs = new Dictionary<int, AuteurGUI>();
+
         GeneralManager generalManager;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -41,10 +44,16 @@ namespace GUI
                 TextBox_uitgeverij.Items.Add(uitgeverijList[i].Naam);
             }
 
+            //auteurs
+            var allAuteurs = ConvertToGUI.ListAuteurs(generalManager.AuteurManager.GetAll()).OrderByDescending(b => b.Ischecked).ThenBy(b => b.Naam);//huidige strip auteurs geselecteerd zetten, we sorteren eerst op al geselecteerd en dan op naam
+            TextBox_auteurs.ItemsSource = allAuteurs;
+
         }
         public MaakScherm()
         {
             InitializeComponent();
+
+
         }
 
         private void Button_Annuleren_Click(object sender, RoutedEventArgs e)
@@ -87,13 +96,10 @@ namespace GUI
             string nr = TextBox_nr.Text;
             string reeks = TextBox_reeks.Text;
             string uitgeverij = TextBox_uitgeverij.Text;
-            string auteurs = TextBox_auteurs.Text;
 
             //Controleren of leeg
-            Boolean ietsLeeg = false;
-            if (TextBox_auteurs.Text =="" || TextBox_titel.Text == "" || TextBox_nr.Text == "" || TextBox_reeks.Text == "" || TextBox_uitgeverij.Text == "" ) {
+            if ( TextBox_titel.Text == "" || TextBox_nr.Text == "" || TextBox_reeks.Text == "" || TextBox_uitgeverij.Text == "" ) {
                 fouten = fouten + "U heeft iets niet ingevuld.";
-                ietsLeeg = true;
                 ExtraInfo_TextBox.Text = fouten;
 
                 
@@ -102,17 +108,8 @@ namespace GUI
             //  //foutcode eventueel teruggeven
             try
             {
-                String[] strlist = auteurs.Split(",", StringSplitOptions.RemoveEmptyEntries);
-                reeks1 = new Reeks(reeks);
-                uitgeverij1 = new Uitgeverij(uitgeverij);
-
-
-                foreach (var item in strlist)
-                {
-                    auteurLijst.Add(new Auteur(item.Trim()));
-                }
-
-                Strip newStrip = new Strip(generalManager.StripManager.GetAll().OrderBy(b => b.ID).Last().ID + 1, titel, Convert.ToInt32(nr), auteurLijst, reeks1, uitgeverij1);
+              
+                Strip newStrip = new Strip(generalManager.StripManager.GetAll().OrderBy(b => b.ID).Last().ID + 1, titel, Convert.ToInt32(nr), ConvertToBusinessLayer.ListAuteurs(_selectedAuteurs.Values.ToList()), reeks1, uitgeverij1);
 
                 string messageBoxText = "Wilt u deze strip aanmaken: \n " + newStrip.ToString();
                 string caption = "Strip Aanmaken?";
@@ -130,42 +127,10 @@ namespace GUI
                       
                         // User pressed Yes button
                         this.DialogResult = true;
-                        //try
-                        //{
+
                             generalManager.StripManager.Add(newStrip);
-                            //break;
-                            //}
-                            //catch (Exception ex) {
-
-                            //    messageBoxText = fouten + "\n" + ex.ToString();
-                            //     button = MessageBoxButton.OK;
-                            //     icon = MessageBoxImage.Information;
-
-
-                            //    // Display message box
-                            //     result = MessageBox.Show(messageBoxText, caption, button, icon);
-
-                            //    // Process message box results
-                            //    switch (result)
-                            //    {
-                            //        case MessageBoxResult.OK:
-                            //            // User pressed Yes button
-                            //            this.DialogResult = true;
-
-                            //            break;
-                            //    }
-                            break;
-                        //}
-                        //catch (Exception ex)
-                        //{
-                        //    throw new Exception(ex.ToString());
-                        //    break;
-                        //}
-
-                        
-
-
-
+                                break;
+                    
                     case MessageBoxResult.No:
                         // User pressed No button
                         // nothing happends
@@ -186,6 +151,19 @@ namespace GUI
             e.Handled = regex.IsMatch(e.Text);
         }
 
-    
+        private void OnChecked(object sender, RoutedEventArgs e)
+        {
+            var x = sender as CheckBox;
+            AuteurGUI auteur = (AuteurGUI)x.DataContext;
+            if (auteur != null)
+            {
+                bool succes = _selectedAuteurs.TryAdd(auteur.ID, auteur);
+                if (!succes)
+                {
+                    _selectedAuteurs.Remove(auteur.ID);
+
+                }
+            }
+        }
     }
 }
