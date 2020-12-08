@@ -8,7 +8,7 @@ namespace integratieTests {
     public class Initialize {
        
         public void ClearDB() {
-            SqlConnection conn = new SqlConnection(DbFunctions.GetTestConnectionstring());
+            SqlConnection conn = new SqlConnection(DbFunctions.GetprojectwerkconnectionString());
             string query = "delete Strip delete Strip_has_Auteur delete Uitgeverij delete Reeks delete Auteur";
             using(SqlCommand cmd = conn.CreateCommand()) {
                 cmd.CommandText = query;

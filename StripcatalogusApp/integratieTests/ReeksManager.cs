@@ -10,7 +10,7 @@ using System.Text;
 namespace integratieTests {
     [TestClass]
     public class ReeksManager {
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetTestConnectionstring()), new AuteurRepository(DbFunctions.GetTestConnectionstring()), new ReeksRepository(DbFunctions.GetTestConnectionstring()), new UitgeverijRepository(DbFunctions.GetTestConnectionstring()));
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
 
         [TestInitialize]
         public void Initialize()

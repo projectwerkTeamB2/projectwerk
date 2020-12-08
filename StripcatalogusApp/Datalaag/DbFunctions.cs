@@ -25,10 +25,6 @@ namespace Datalaag
             return ConfigurationManager.ConnectionStrings["projectwerkconnectionString"].ConnectionString;
                 
         }
-        public static string GetTestConnectionstring() {
-            return ConfigurationManager.ConnectionStrings["testconnectionstring"].ConnectionString;
-        }
-
     }
 
 }

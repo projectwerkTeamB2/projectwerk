@@ -11,12 +11,13 @@ namespace integratieTests
     [TestClass]
     public class StripManager
     {
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetTestConnectionstring()), new AuteurRepository(DbFunctions.GetTestConnectionstring()), new ReeksRepository(DbFunctions.GetTestConnectionstring()), new UitgeverijRepository(DbFunctions.GetTestConnectionstring()));
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
         
         [TestInitialize]
         public void Initialize()
         {
             Initialize i = new Initialize();
+            i.ClearDB();
             i.ClearDB();
 
             Auteur auteur = new Auteur(1, "testAut1");
@@ -41,9 +42,9 @@ namespace integratieTests
             Strip strip4 = new Strip(4, "test4",    4, auteurs, reeks, Uitgeverij);
 
             generalManager.StripManager.Add(strip1);
-            /*generalManager.StripManager.Add(strip2);
+            generalManager.StripManager.Add(strip2);
             generalManager.StripManager.Add(strip3);
-            generalManager.StripManager.Add(strip4);*/
+            generalManager.StripManager.Add(strip4);
         }
 
         [TestMethod]
@@ -69,16 +70,16 @@ namespace integratieTests
         public void select_StripbyID_succes()
         {
 
-            Reeks reeks = new Reeks(4, "test");
-            generalManager.ReeksManager.Add(reeks);
-            Auteur auteur = new Auteur(4, "test");
-            generalManager.AuteurManager.Add(auteur);
+            Reeks reeks = new Reeks(4, "testReeks");
+            /*generalManager.ReeksManager.Add(reeks);*/
+            Auteur auteur = new Auteur(4, "testAut1");
+            //generalManager.AuteurManager.Add(auteur);
             List<Auteur> auteurs = new List<Auteur>();
             auteurs.Add(auteur);
-            Uitgeverij Uitgeverij = new Uitgeverij(4, "Uitgeverij");
-            generalManager.UitgeverijManager.Add(Uitgeverij);
+            Uitgeverij Uitgeverij = new Uitgeverij(4, "testUitgeverij");
+            /*generalManager.UitgeverijManager.Add(Uitgeverij);*/
             Strip expected = new Strip(1, "test1", 1, auteurs, reeks, Uitgeverij);
-            Reeks gotten = generalManager.ReeksManager.GetById(expected.ID);
+            Strip gotten = generalManager.StripManager.GetById(expected.ID);
             Assert.AreEqual(expected, gotten);
         }
 
@@ -98,7 +99,7 @@ namespace integratieTests
         [TestMethod]
         public void updateStrip_succesvol()
         {
-            Strip og = generalManager.StripManager.GetById(9999);
+            Strip og = generalManager.StripManager.GetById(4);
             og.StripTitel = "inserted test value";
             generalManager.StripManager.Update(og);
             Assert.AreEqual(og.StripTitel, "inserted test value");

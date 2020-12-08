@@ -11,7 +11,7 @@ namespace integratieTests {
     [TestClass]
 
     public class AuteurManager {
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetTestConnectionstring()), new AuteurRepository(DbFunctions.GetTestConnectionstring()), new ReeksRepository(DbFunctions.GetTestConnectionstring()), new UitgeverijRepository(DbFunctions.GetTestConnectionstring()));
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
         //TODO: regel maken voor clearen db
         //TODO: lege testDB lokaal aanmaken
         [TestInitialize]
