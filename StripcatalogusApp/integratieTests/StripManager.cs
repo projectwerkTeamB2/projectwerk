@@ -5,6 +5,7 @@ using Datalaag.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace integratieTests
 {
@@ -64,37 +65,46 @@ namespace integratieTests
             generalManager.StripManager.Add(testStrip);
 
             Strip stripFromDb = generalManager.StripManager.GetById(5);
-            Assert.AreEqual(testStrip, stripFromDb);
+
+            List<Auteur> autDB = stripFromDb.Auteurs;
+            List<Auteur> autTest = testStrip.Auteurs;
+            
+            Assert.IsTrue(stripFromDb.StripTitel == testStrip.StripTitel && stripFromDb.StripNr == testStrip.StripNr && stripFromDb.Reeks.ID == testStrip.Reeks.ID && stripFromDb.Uitgeverij.ID == testStrip.Uitgeverij.ID && autDB.SequenceEqual(autTest) == true);
         }
         [TestMethod]
         public void select_StripbyID_succes()
         {
 
-            Reeks reeks = new Reeks(4, "testReeks");
-            /*generalManager.ReeksManager.Add(reeks);*/
-            Auteur auteur = new Auteur(4, "testAut1");
-            //generalManager.AuteurManager.Add(auteur);
+            Reeks reeks = generalManager.ReeksManager.GetById(1);
+            Auteur auteur = generalManager.AuteurManager.GetById(1);
             List<Auteur> auteurs = new List<Auteur>();
             auteurs.Add(auteur);
-            Uitgeverij Uitgeverij = new Uitgeverij(4, "testUitgeverij");
-            /*generalManager.UitgeverijManager.Add(Uitgeverij);*/
-            Strip expected = new Strip(1, "test1", 1, auteurs, reeks, Uitgeverij);
-            Strip gotten = generalManager.StripManager.GetById(expected.ID);
-            Assert.AreEqual(expected, gotten);
+            Uitgeverij Uitgeverij = generalManager.UitgeverijManager.GetById(1);
+            Strip testStrip = new Strip(1, "test1", 1, auteurs, reeks, Uitgeverij);
+            Strip stripFromDb = generalManager.StripManager.GetById(testStrip.ID);
+
+            List<Auteur> autDB = stripFromDb.Auteurs;
+            List<Auteur> autTest = testStrip.Auteurs;
+
+            Assert.IsTrue(stripFromDb.StripTitel == testStrip.StripTitel && stripFromDb.StripNr == testStrip.StripNr && stripFromDb.Reeks.ID == testStrip.Reeks.ID && stripFromDb.Uitgeverij.ID == testStrip.Uitgeverij.ID && autDB.SequenceEqual(autTest) == true);
         }
 
         [TestMethod]
 
         public void select_StripByName_succes()
         {
-            Reeks reeks = generalManager.ReeksManager.GetById(4);
-            Auteur auteur = generalManager.AuteurManager.GetById(4);
+            Reeks reeks = generalManager.ReeksManager.GetById(1);
+            Auteur auteur = generalManager.AuteurManager.GetById(1);
             List<Auteur> auteurs = new List<Auteur>();
             auteurs.Add(auteur);
-            Uitgeverij Uitgeverij = generalManager.UitgeverijManager.GetById(4);
-            Strip expected = new Strip(1, "test1", 1, auteurs, reeks, Uitgeverij);
-            Strip gotten = generalManager.StripManager.GetByName(expected.StripTitel);
-            Assert.AreEqual(expected, gotten);
+            Uitgeverij Uitgeverij = generalManager.UitgeverijManager.GetById(1);
+            Strip testStrip = new Strip(1, "test1", 1, auteurs, reeks, Uitgeverij);
+            Strip stripFromDb = generalManager.StripManager.GetByName(testStrip.StripTitel);
+            
+            List<Auteur> autDB = stripFromDb.Auteurs;
+            List<Auteur> autTest = testStrip.Auteurs;
+
+            Assert.IsTrue(stripFromDb.StripTitel == testStrip.StripTitel && stripFromDb.StripNr == testStrip.StripNr && stripFromDb.Reeks.ID == testStrip.Reeks.ID && stripFromDb.Uitgeverij.ID == testStrip.Uitgeverij.ID && autDB.SequenceEqual(autTest) == true);
         }
         [TestMethod]
         public void updateStrip_succesvol()
@@ -114,5 +124,10 @@ namespace integratieTests
             generalManager.StripManager.Delete(strip);
             Assert.IsTrue(generalManager.StripManager.GetAll().Count == begincount - 1);
         }
+
+        /*[TestMethod]
+        public void getLastId() {
+            int lastId = generalManager.StripManager.getLastId();
+        }*/
     }
 }

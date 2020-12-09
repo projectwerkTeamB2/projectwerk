@@ -17,6 +17,7 @@ namespace integratieTests {
         {
             Initialize i = new Initialize();
             i.ClearDB();
+            i.ClearDB();
             Uitgeverij Uitgeverij1 = new Uitgeverij(1, "Uitgeverij1");
             Uitgeverij Uitgeverij2 = new Uitgeverij(2, "Uitgeverij2");
             Uitgeverij Uitgeverij3 = new Uitgeverij(3, "Uitgeverij3");
