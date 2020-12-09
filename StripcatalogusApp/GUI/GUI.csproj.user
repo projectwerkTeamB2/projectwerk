@@ -21,6 +21,9 @@
     <Compile Update="MaakScherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MaakStripCollectieScherm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AddReeksOrUitgeverij.xaml">
@@ -30,6 +33,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EditStripCollection.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MaakStripCollectieScherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles.xaml">

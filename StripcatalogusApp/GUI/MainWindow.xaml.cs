@@ -116,7 +116,10 @@ namespace GUI
       
         private void Button_Bijwerk_Click(object sender, RoutedEventArgs e)
         {
-            if (stripBewerken_button.Content.Equals("Geselecteerde strip bijwerken ?")) //om strip te bewerken
+            string stringx = stripBewerken_button.Content.ToString();
+            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+
+            if (xxx) //om strip te bewerken
             {
                 EditStrip w2 = new EditStrip(selectedStrip); //maak window openen
                 w2.ShowDialog();
@@ -140,7 +143,7 @@ namespace GUI
                 newWindow.Show();
 
                 //PRETEND "NaarStrip_button" IS CLICKED, zodat we in juiste scherm komen
-                ButtonAutomationPeer peer = new ButtonAutomationPeer(NaarStrip_button);
+                ButtonAutomationPeer peer = new ButtonAutomationPeer(NaarStripCollections_button);
                 IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
                 invokeProv.Invoke();
             }
@@ -149,10 +152,16 @@ namespace GUI
 
         private void DataGridSelectie(object sender, System.Windows.Controls.SelectionChangedEventArgs e) //als er een strip geselecteerd is
         {
-            if (stripBewerken_button.Content.Equals("Geselecteerde strip bijwerken ?")) //om strip te bewerken
+            string stringx = stripBewerken_button.Content.ToString();
+            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+
+            if (xxx) //om strip te bewerken
             {
                 if (StripDataGrid.SelectedItem != null)
                 {
+                    stripBewerken_button.Visibility = Visibility.Visible;
+                    bin_image.Visibility = Visibility.Visible;
+
                     selectedStrip = null;
                     selectedStripCollection = null;
                     String x = StripDataGrid.SelectedItem.ToString();
@@ -218,7 +227,10 @@ namespace GUI
 
         private void Button_Zoek_Click(object sender, RoutedEventArgs e) //rechts vanboven kan je op gui speciefiekere data zoeken in db
         {
-            if (stripBewerken_button.Content.Equals("Geselecteerde strip bijwerken ?")) //om strip te bewerken
+            string stringx = stripBewerken_button.Content.ToString();
+            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+
+            if (xxx) //om strip te bewerken
             {
                 stripBewerken_button.Visibility = Visibility.Collapsed;
                 bin_image.Visibility = Visibility.Collapsed;
@@ -492,7 +504,10 @@ namespace GUI
 
         private void BinClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (stripBewerken_button.Content.Equals("Geselecteerde strip bijwerken ?")) //om strip te bewerken
+            string stringx = stripBewerken_button.Content.ToString();
+            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+
+            if (xxx) //om strip te bewerken
             {
                 try
                 {
@@ -577,14 +592,24 @@ namespace GUI
 
         private void Button_MaakStripCollectie_Click(object sender, RoutedEventArgs e)
         {
+            MaakStripCollectieScherm w3 = new MaakStripCollectieScherm(); //maak window openen
+            w3.ShowDialog();
 
+            // window reset// voor als er nieuwe strips zijn gemaakt
+            MainWindow newWindow = new MainWindow();
+            Application.Current.MainWindow = newWindow;
+            this.Close();
+            newWindow.Show();
 
         }
 
 
         private void Button_Reset_Click(object sender, RoutedEventArgs e)
         {
-            if (stripBewerken_button.Content.Equals("Geselecteerde strip bijwerken ?")) //om strip te bewerken
+            string stringx = stripBewerken_button.Content.ToString();
+            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+
+            if (xxx) //om strip te bewerken
             {
                 SearchTextBox.Text = "";
                 RadioBtnStripid.IsChecked = true;
@@ -653,7 +678,7 @@ namespace GUI
             }
 
             stripBewerken_button.Visibility = Visibility.Collapsed;
-            stripBewerken_button.Width = 220;
+            stripBewerken_button.Width = 350;
             bin_image.Visibility = Visibility.Collapsed;
 
         }
@@ -664,6 +689,9 @@ namespace GUI
             NaarStrip_button.Visibility = Visibility.Collapsed;
             //KNOP OM TERUG TE GAAN NAAR TOON STRIPS
             NaarStripCollections_button.Visibility = Visibility.Visible;
+
+            //BUTTON AANPASSEN VAN NAAM
+            stripBewerken_button.Content = "Geselecteerde strip bijwerken ?";
 
             //WEER ZICHTBAAR MAKEN 
             plusreeks.Visibility = Visibility.Visible;
@@ -707,7 +735,7 @@ namespace GUI
                 StripDataGrid.ItemsSource = smallList;
             }
 
-            stripBewerken_button.Width = 300;
+            stripBewerken_button.Width = 220;
             stripBewerken_button.Visibility = Visibility.Hidden;
             bin_image.Visibility = Visibility.Collapsed;
         }
