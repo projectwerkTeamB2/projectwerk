@@ -62,7 +62,7 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox IsChecked="{Binding Ischecked, Mode=TwoWay}" Checked="OnChecked" Unchecked="OnChecked"/>
-                        <TextBlock Text="{Binding Naam}"/>
+                        <TextBlock Text="{Binding StripTitel}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

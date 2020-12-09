@@ -40,15 +40,16 @@ namespace GUI
 
                 //strips
                 var allstrips = ConvertToGUI.convertToStrips(generalManager.StripManager.GetAll()).OrderByDescending(b => b.Ischecked).ThenBy(b => b.StripTitel);//huidige strips geselecteerd zetten, we sorteren eerst op al geselecteerd en dan op naam
-                foreach (var strip in allstrips) // alle huidige auteurs van strip selecteren
+                foreach (var strip in stripcollection.Strips) // alle huidige auteurs van strip selecteren
                 {
                     StripGUI selected = allstrips.Where(a => a.ID == strip.ID).Single();
                     selected.Ischecked = true;
                 _selectedStrips.Add(selected.ID, selected);
                 }
+           
             TextBox_Strips.ItemsSource = allstrips;
 
-
+         
             }
             private Dictionary<int, StripGUI> _selectedStrips = new Dictionary<int, StripGUI>();
             private void Button_update_confirmed_Click(object sender, RoutedEventArgs e)

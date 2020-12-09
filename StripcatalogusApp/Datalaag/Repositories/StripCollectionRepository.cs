@@ -147,11 +147,11 @@ namespace Datalaag.Repositories
                                     {
                                         StripCollectionDB newcollection = ConvertToDatalayer.ConvertToStripCollectionDB(collection);
         {
-            var command = new SqlCommand("update Stripcollection set id = @id, Titel = @title, Nummer = @nummer, Uitgeverij_id = @uitgeverij WHERE id = @id");
+            var command = new SqlCommand("update Stripcollection set id = @id, title = @title, nr = @nummer, Uitgeverij_id = @uitgeverij WHERE id = @id");
             command.Parameters.Add(new SqlParameter("id", newcollection.Id));
             command.Parameters.Add(new SqlParameter("title", newcollection.Titel));
-            command.Parameters.Add(new SqlParameter("nr", newcollection.Nummer));
-            command.Parameters.Add(new SqlParameter("uitgeverij_id", newcollection.Uitgeverij.ID));
+            command.Parameters.Add(new SqlParameter("nummer", newcollection.Nummer));
+            command.Parameters.Add(new SqlParameter("uitgeverij", newcollection.Uitgeverij.ID));
 
             ExecuteCommand(command);
 

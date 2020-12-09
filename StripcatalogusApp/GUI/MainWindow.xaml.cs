@@ -644,7 +644,7 @@ namespace GUI
 
             if (stripCollectionsFromDb != null) //als er collecties zij,
             {
-                var smallList = stripCollectionsFromDb.Select(c => new { c.Id,c.Titel,c.Nummer,c.Uitgeverij, Strips = StripsToString(c.Strips)}).OrderBy(s => s.Id);
+                var smallList = stripCollectionsFromDb.Select(c => new { c.Id,c.Titel,c.Nummer,c.Uitgeverij.Naam, Strips = StripsToString(c.Strips)}).OrderBy(s => s.Id);
                 StripDataGrid.ItemsSource = smallList;
             }
             else
