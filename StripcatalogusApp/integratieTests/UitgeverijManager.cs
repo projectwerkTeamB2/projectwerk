@@ -16,6 +16,7 @@ namespace integratieTests {
         public void Initialize()
         {
             Initialize i = new Initialize();
+            //2 maal 
             i.ClearDB();
             i.ClearDB();
             Uitgeverij Uitgeverij1 = new Uitgeverij(1, "Uitgeverij1");
@@ -79,6 +80,7 @@ namespace integratieTests {
             Uitgeverij uitgeverij = generalManager.UitgeverijManager.GetById(4);
             generalManager.UitgeverijManager.Delete(uitgeverij);
             Assert.IsTrue(generalManager.UitgeverijManager.GetAll().Count == begincount - 1);
+            Assert.ThrowsException<System.NullReferenceException>(() => generalManager.StripManager.GetById(4));
         }
     }
 }

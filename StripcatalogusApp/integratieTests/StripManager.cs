@@ -123,11 +123,7 @@ namespace integratieTests
             Strip strip = generalManager.StripManager.GetById(4);
             generalManager.StripManager.Delete(strip);
             Assert.IsTrue(generalManager.StripManager.GetAll().Count == begincount - 1);
+            Assert.ThrowsException<System.NullReferenceException>(() => generalManager.StripManager.GetById(4));
         }
-
-        /*[TestMethod]
-        public void getLastId() {
-            int lastId = generalManager.StripManager.getLastId();
-        }*/
     }
 }

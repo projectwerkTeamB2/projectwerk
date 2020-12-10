@@ -17,6 +17,7 @@ namespace integratieTests {
         {
             Initialize i = new Initialize();
             i.ClearDB();
+            i.ClearDB();
             Reeks reeks1 = new Reeks(1, "test1");
             Reeks reeks2 = new Reeks(2, "test2");
             Reeks reeks3 = new Reeks(3, "test3");
@@ -25,7 +26,6 @@ namespace integratieTests {
             generalManager.ReeksManager.Add(reeks2);
             generalManager.ReeksManager.Add(reeks3);
             generalManager.ReeksManager.Add(reeks4);
-
         }
 
         [TestMethod]
@@ -78,8 +78,8 @@ namespace integratieTests {
             Reeks reeks = generalManager.ReeksManager.GetById(1);
             generalManager.ReeksManager.Delete(reeks);
             Assert.IsTrue(generalManager.ReeksManager.GetAll().Count == begincount - 1);
+            Assert.ThrowsException<System.NullReferenceException>(() => generalManager.ReeksManager.GetById(1));
         }
-
 
     }
 }
