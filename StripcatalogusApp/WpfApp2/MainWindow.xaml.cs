@@ -172,7 +172,7 @@ namespace WpfApp2
 
 
             }
-            if (StripCollectionFromJsonToDB != null)
+            if (StripCollectionFromJsonToDB.Count != 0 )
             {
                 for (int i = 0; i <= stripcoll.Count; i++)//alle strips overlopen
                 {
