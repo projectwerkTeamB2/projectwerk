@@ -13,6 +13,7 @@ using Datalaag.Models;
 using Datalaag.Mappers;
 using Microsoft.Win32;
 using System.IO;
+using JSON.Models;
 
 namespace WpfApp2
 {
@@ -37,9 +38,10 @@ namespace WpfApp2
         #endregion
 
         //nodig? V
-        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()));
+        GeneralManager generalManager = new GeneralManager(new StripRepository(DbFunctions.GetprojectwerkconnectionString()), new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()), new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()), new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()), new StripCollectionRepository(DbFunctions.GetprojectwerkconnectionString()));
 
-        List<Strip> stripsFromJsonToDB; //list die alle strips van json bestad gaat bevatten
+        List<StripJS> stripsFromJsonToDB; //list die alle strips van json bestad gaat bevatten
+        List<StripCollectionJS> StripCollectionFromJsonToDB; //list die alle strips van json bestad gaat bevatten
         List<StripDB> stripsFromDBToJson; //list die alle strips van db gaat bevatten
         public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
@@ -82,15 +84,23 @@ namespace WpfApp2
                     try
                     {
 
-                        stripsFromJsonToDB = jfr.leesJson_GeefAlleStripsTerug(FileNameTextBox.Text);
+                        stripsFromJsonToDB = jfr.geefCorrecteStripsJSTerugEnSchrijfWegFoute<StripJS>(FileNameTextBox.Text);
+                        StripCollectionFromJsonToDB = jfr.geefCorrecteStripsCollectionJSTerugEnSchrijfWegFoute<StripCollectionJS>(FileNameTextBox.Text);
                     }
                     catch
                     {
                         stripsFromJsonToDB = null;
                     }
-                    if (stripsFromJsonToDB != null && stripsFromJsonToDB.Count != 0)
+                    if (stripsFromJsonToDB != null && StripCollectionFromJsonToDB != null && stripsFromJsonToDB.Count != 0)
                     {
-                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJsonToDB.Count.ToString() + " strips.";
+                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJsonToDB.Count.ToString() + " strips & " + StripCollectionFromJsonToDB.Count.ToString() + " strip collections";
+
+                        NaarDBLabel.Visibility = Visibility.Visible;
+                        NaarDBButton.Visibility = Visibility.Visible;
+                    }
+                    else if (stripsFromJsonToDB != null && StripCollectionFromJsonToDB == null && stripsFromJsonToDB.Count != 0)
+                    {
+                        TextBlock1.Text = "Gevonden strips in bestand: " + stripsFromJsonToDB.Count.ToString() + " strips";
 
                         NaarDBLabel.Visibility = Visibility.Visible;
                         NaarDBButton.Visibility = Visibility.Visible;
@@ -109,7 +119,7 @@ namespace WpfApp2
                 if (saveFileDialog.ShowDialog() == true)
                 {
                     SchrijfwegnaarJSON swj = new SchrijfwegnaarJSON();
-                    swj.allesWegSchrijvenNaarJSONFile(saveFileDialog.FileName);
+                    swj.allesWegSchrijvenNaarJSONFileGeneric<object>(saveFileDialog.FileName);
                     TextBlock1.Text = "Het is gelukt!";
 
                 }
@@ -119,17 +129,19 @@ namespace WpfApp2
 
         }
 
-        public void Bewerk(List<Strip> strips)
+        public void Bewerk(List<StripJS> strips, List<StripCollectionJS> stripcoll)
         {
+            SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
             if (stripsFromJsonToDB != null)
             {
 
-
+                VanDBButton.Visibility = Visibility.Collapsed;
                 NaarDBButton.Visibility = Visibility.Hidden; //verberg knop, zodat je geen nieuwe thread start
                 NaarDBButtonKeuze.Visibility = Visibility.Collapsed;
 
+
                 pbStatus.Maximum = stripsFromJsonToDB.Count; //min 0 tot X(aantal strips) ipv o tot 100% zodat je " x strips bewerkt" toont
-                SchrijfwegnaarDB schrijfwegnaarDB = new SchrijfwegnaarDB();
+
                 pbStatus.Value = 0; //progresbar start bij 0
 
                 // Using the DataContext property is like setting the basis of all bindings down through the hierarchy of controls.
@@ -150,7 +162,7 @@ namespace WpfApp2
                         catch { TextBlock2.Text = "Er is iets fout gelopen"; }//error opvangen
                         finally //klaar? verander dan percentage van progresbar -> die x
                         {
-                            System.Threading.Thread.Sleep(100);
+                            System.Threading.Thread.Sleep(75);
                             x = i;
                         }
 
@@ -160,13 +172,23 @@ namespace WpfApp2
 
 
             }
+            if (StripCollectionFromJsonToDB.Count != 0 )
+            {
+                for (int i = 0; i <= stripcoll.Count; i++)//alle strips overlopen
+                {
+                    schrijfwegnaarDB.stripCollectionWegSchijvenNaarDataBank(stripcoll[i]);
+                }
+            }
+            //VanDBButton.Visibility = Visibility.Visible;
+            // NaarDBButton.Visibility = Visibility.Visible; //verberg knop, zodat je geen nieuwe thread start
+            NaarDBButtonKeuze.Visibility = Visibility.Visible;
 
         }
 
         private void NaarDBButton_Click(object sender, RoutedEventArgs e)
         {
 
-            Bewerk(stripsFromJsonToDB); //voer uit, schijf strips weg naar db
+            Bewerk(stripsFromJsonToDB, StripCollectionFromJsonToDB); //voer uit, schijf strips weg naar db
             NaarDBButtonKeuze.Visibility = Visibility.Visible;
         }
 

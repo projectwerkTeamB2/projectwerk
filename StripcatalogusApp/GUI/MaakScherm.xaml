@@ -41,25 +41,32 @@
         <Button  Style="{StaticResource ButtonStyle}"    Content="Annuleren" HorizontalAlignment="Left" Margin="626,414,0,0" VerticalAlignment="Top" Width="148" Height="34" Background="#902C14"  Click="Button_Annuleren_Click" />
         <Button  Style="{StaticResource ButtonStyle}"  Content="strip aanmaken" HorizontalAlignment="Left" Margin="282,414,0,0" VerticalAlignment="Top" Width="288" Height="34" Click="Button_Aanmaken_Click" />
 
-        <TextBox HorizontalAlignment="Left"  Name="TextBox_titel" Margin="178,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="53,144,0,0" Text="Strip titel:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left"  Name="TextBox_titel" Margin="181,154,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,158,0,0" Text="Strip titel:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <TextBox PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Name="TextBox_nr" Margin="178,176,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="53,176,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Name="TextBox_nr" Margin="181,199,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,199,0,0" Text="Strip nummer:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <ComboBox  HorizontalAlignment="Left" Name="TextBox_reeks" Margin="178,210,0,0" Text="" VerticalAlignment="Top" Width="152" Height="25"/>
-        <TextBlock HorizontalAlignment="Left" Margin="53,213,0,0" Text="Strip Reeks:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ComboBox  HorizontalAlignment="Left" Name="TextBox_reeks" Margin="181,243,0,0" Text="" VerticalAlignment="Top" Width="152" Height="25"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,247,0,0" Text="Strip Reeks:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-        <ComboBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="178,245,0,0" Text=""  VerticalAlignment="Top" Width="152" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="53,245,0,0" Text="Strip Uitgeverij:" TextWrapping="Wrap" VerticalAlignment="Top"/>
-
-
-        <Label Content="( Meerdere auteurs? splits ze met een comma en spatie )" HorizontalAlignment="Left" Margin="45,278,0,0" VerticalAlignment="Top"/>
-
-        <TextBox  Style="{StaticResource placeHolder}" Tag="Voor Beeld, Jeff De Voorbeeld, ..." HorizontalAlignment="Left"  Name="TextBox_auteurs" Margin="138,302,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Margin="53,301,0,0" Text="Auteur(s)" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Name="TextBox_uitgeverij" Margin="181,285,0,0" Text=""  VerticalAlignment="Top" Width="152" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,285,0,0" Text="Strip Uitgeverij:" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
         <Image HorizontalAlignment="Left" Source="/Images/BoomIMG.png" Height="94" Margin="736,386,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="( U kunt meerdere selecteren )" HorizontalAlignment="Left" Margin="439,146,0,0" VerticalAlignment="Top"/>
+        <ListBox
+            HorizontalAlignment="Left"  x:Name="TextBox_auteurs" Margin="439,172,0,0" VerticalAlignment="Top" Width="360" Height="181">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding Ischecked, Mode=TwoWay}" Checked="OnChecked" Unchecked="OnChecked"/>
+                        <TextBlock Text="{Binding Naam}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock HorizontalAlignment="Left" Margin="444,129,0,0" Text="Auteur(s):" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
 
     </Grid>

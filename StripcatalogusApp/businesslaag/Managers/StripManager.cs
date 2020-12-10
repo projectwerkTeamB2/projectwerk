@@ -80,7 +80,7 @@ namespace Businesslaag.Managers
 
         public Strip GetByName(string stripnaam)
         {
-            return this._stripRepository.GetAll().Where(n => n.StripTitel.Equals(stripnaam)).FirstOrDefault();
+            return this._stripRepository.GetAll().Where(n => n.StripTitel.Equals(stripnaam)).Single();
         }
 
 

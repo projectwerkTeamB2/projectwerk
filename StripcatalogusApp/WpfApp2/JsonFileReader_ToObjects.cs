@@ -1,7 +1,9 @@
 ﻿using Businesslaag.Models;
 using Datalaag.Models;
 using JSON;
+using JSON.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,32 +12,165 @@ using System.Linq;
 namespace JSON
 {
     public class JsonFileReader_ToObjects
-   
+
     {
         SchrijfwegnaarJSON schrijfwegnaarJSON = new SchrijfwegnaarJSON();
 
-        public List<Strip> leesJson_GeefAlleStripsTerug(string locatieString)
+        public List<StripJS> leesJson_GeefAlleStripsJSTerug(string locatieString)
         {
-            List<Strip> listStrips = new List<Strip>();
+            List<StripJS> listStrips = new List<StripJS>();
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
-            //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
-                listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
+                // JToken myObject = JsonConvert.DeserializeObject<JToken>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<StripJS>>(file.ReadToEnd());
             }
 
             listStrips = sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(listStrips, locatieString);
-            listStrips = doeDubbelAanhaalingtekensAanStrings(listStrips);
+            listStrips = doeDubbelAanhaalingtekensAanStringsStrip(listStrips);
             return listStrips;
         }
 
-        
 
-
-        public List<Strip> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<Strip> listStrips,string locatieString)
+        public List<T> leesJSON_GeefGenericList<T>(string locatieString)
         {
-            List<Strip> foutieveStrips = new List<Strip>();
+            List<T> listStrips = new List<T>();
+            // deserialize JSON directly from a file
+            using (StreamReader file = File.OpenText(@locatieString))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                // JToken myObject = JsonConvert.DeserializeObject<JToken>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<T>>(file.ReadToEnd());
+            }
+            return listStrips;
+
+        }
+
+        public List<StripJS> geefStripJSList<T>(List<T> list)
+        {
+            List<StripJS> liststrips = new List<StripJS>();
+            foreach (T obj in list)
+            {
+                if (obj is StripJS)
+                {
+
+                    liststrips.Add(obj as StripJS);
+
+                }
+            }
+
+
+            return liststrips;
+
+        }
+
+        public List<StripCollectionJS> geefStripCollectionJSList<T>(List<T> list)
+        {
+            List<StripCollectionJS> listStripCollection = new List<StripCollectionJS>();
+            foreach (T obj in list)
+            {
+                if (obj is StripCollectionJS)
+                {
+                    try
+                    {
+                        StripCollectionJS x = (obj as StripCollectionJS);
+                        if (x.Strips != null)
+                        {
+                            listStripCollection.Add(x);
+                        }
+                    }
+                    catch (Exception ex) { }
+                }
+            }
+
+
+            return listStripCollection;
+
+        }
+
+        public List<StripJS> geefCorrecteStripsJSTerugEnSchrijfWegFoute<T>(string locatieString)
+        {
+            List<T> genericList = leesJSON_GeefGenericList<T>(locatieString);
+            List<StripJS> listStripsJS = geefStripJSList<T>(genericList);
+
+            listStripsJS = sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(listStripsJS, locatieString);
+            listStripsJS = doeDubbelAanhaalingtekensAanStringsStrip(listStripsJS);
+
+            return listStripsJS;
+        }
+
+        public List<StripCollectionJS> geefCorrecteStripsCollectionJSTerugEnSchrijfWegFoute<T>(string locatieString)
+        {
+            List<T> genericList = leesJSON_GeefGenericList<T>(locatieString);
+            List<StripCollectionJS> listStripsCollectionJS = geefStripCollectionJSList<T>(genericList);
+
+            listStripsCollectionJS = sorteerLijstStripCollectionEnSchrijfFoutieveNaarJSONBestand(listStripsCollectionJS, locatieString);
+            listStripsCollectionJS = doeDubbelAanhaalingtekensAanStringsStripCollection(listStripsCollectionJS);
+
+            return listStripsCollectionJS;
+        }
+
+        public List<StripCollectionJS> sorteerLijstStripCollectionEnSchrijfFoutieveNaarJSONBestand(List<StripCollectionJS> listStripsCollection, string locatieString)
+        {
+            List<StripCollectionJS> FoutieveStripCollections = new List<StripCollectionJS>();
+            bool verwijder = false;
+            for (int i = 0; i < listStripsCollection.Count; i++)
+            {
+                verwijder = false;
+
+                if (listStripsCollection[i].Uitgeverij == null)
+                {
+                    FoutieveStripCollections.Add(listStripsCollection[i]);
+                    verwijder = true;
+                }
+                if (listStripsCollection[i].Strips == null || listStripsCollection[i].Strips.Count == 0)
+                {
+                    FoutieveStripCollections.Add(listStripsCollection[i]);
+                    verwijder = true;
+                }
+                else if (verwijder == false)
+                {
+                    i++;
+                }
+
+            }
+
+            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFileVanFoutiveStripCollectieList(locatieString, FoutieveStripCollections);
+            return FoutieveStripCollections;
+        }
+
+        public List<StripJS> doeDubbelAanhaalingtekensAanStringsStrip(List<StripJS> listStrips)
+        {
+            foreach (StripJS s in listStrips)
+            {
+                if (s.StripTitel.Contains(@"'"))
+                {
+                    s.StripTitel = s.StripTitel.Replace(@"'", @"''");
+                };
+                foreach (AuteurJS a in s.Auteurs)
+                {
+                    if (a.Naam.Contains(@"'"))
+                    {
+                        a.Naam = a.Naam.Replace(@"'", @"''");
+                    };
+                }
+                if (s.Reeks.Naam.Contains(@"'"))
+                {
+                    s.Reeks.Naam = s.Reeks.Naam.Replace(@"'", @"''");
+                };
+                if (s.Uitgeverij.Naam.Contains(@"'"))
+                {
+                    s.Uitgeverij.Naam = s.Uitgeverij.Naam.Replace(@"'", @"''");
+                };
+
+            }
+            return listStrips;
+        }
+
+        public List<StripJS> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<StripJS> listStrips, string locatieString)
+        {
+            List<StripJS> foutieveStrips = new List<StripJS>();
             bool verwijder = false;
             for (int i = 0; i < listStrips.Count; i++)
             {
@@ -73,49 +208,77 @@ namespace JSON
 
             }
 
-            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFileVanStripList(locatieString, foutieveStrips);
+            schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFileVanFoutiveStripList(locatieString, foutieveStrips);
             return listStrips;
         }
 
-        public List<Strip> doeDubbelAanhaalingtekensAanStrings(List<Strip> listStrips)
+        public List<StripCollectionJS> doeDubbelAanhaalingtekensAanStringsStripCollection(List<StripCollectionJS> listStripCollections)
         {
-            foreach (Strip s in listStrips)
+            foreach (StripCollectionJS sc in listStripCollections)
             {
-                if (s.StripTitel.Contains(@"'"))
+                foreach (StripJS s in sc.Strips)
                 {
-                    s.StripTitel = s.StripTitel.Replace(@"'", @"''");
-                };
-                foreach (Auteur a in s.Auteurs)
-                {
-                    if (a.Naam.Contains(@"'"))
+                    if (s.StripTitel.Contains(@"'"))
                     {
-                        a.Naam = a.Naam.Replace(@"'", @"''");
+                        s.StripTitel = s.StripTitel.Replace(@"'", @"''");
                     };
+                    foreach (AuteurJS a in s.Auteurs)
+                    {
+                        if (a.Naam.Contains(@"'"))
+                        {
+                            a.Naam = a.Naam.Replace(@"'", @"''");
+                        };
+                    }
+                    if (s.Reeks.Naam.Contains(@"'"))
+                    {
+                        s.Reeks.Naam = s.Reeks.Naam.Replace(@"'", @"''");
+                    };
+                    if (s.Uitgeverij.Naam.Contains(@"'"))
+                    {
+                        s.Uitgeverij.Naam = s.Uitgeverij.Naam.Replace(@"'", @"''");
+                    };
+
                 }
-                if (s.Reeks.Naam.Contains(@"'"))
+
+                if (sc.Titel.Contains(@"'"))
                 {
-                    s.Reeks.Naam = s.Reeks.Naam.Replace(@"'", @"''");
+                    sc.Titel = sc.Titel.Replace(@"'", @"''");
                 };
-                if (s.Uitgeverij.Naam.Contains(@"'"))
+
+                if (sc.Uitgeverij.Naam.Contains(@"'"))
                 {
-                    s.Uitgeverij.Naam = s.Uitgeverij.Naam.Replace(@"'", @"''");
+                    sc.Uitgeverij.Naam = sc.Uitgeverij.Naam.Replace(@"'", @"''");
                 };
 
             }
-            return listStrips;
+
+            return listStripCollections;
         }
 
-        public List<Strip> leesFoutiveJson_GeefAlleStripsTerug(string locatieString)
+        public List<StripJS> leesFoutiveJson_GeefAlleStripsTerug(string locatieString)
         {
-            List<Strip> listStrips = new List<Strip>();
+            List<StripJS> listStrips = new List<StripJS>();
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
-                listStrips = JsonConvert.DeserializeObject<List<Strip>>(file.ReadToEnd());
+                listStrips = JsonConvert.DeserializeObject<List<StripJS>>(file.ReadToEnd());
             }
             return listStrips;
+        }
+
+        public List<StripCollectionJS> leesFoutiveJson_GeefAlleStripsCollectionTerug(string locatieString)
+        {
+            List<StripCollectionJS> listStripsCollection = new List<StripCollectionJS>();
+            // deserialize JSON directly from a file
+            using (StreamReader file = File.OpenText(@locatieString))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                //    Strip strip = (Strip)serializer.Deserialize(file, typeof(Strip));
+                listStripsCollection = JsonConvert.DeserializeObject<List<StripCollectionJS>>(file.ReadToEnd());
+            }
+            return listStripsCollection;
         }
 
 

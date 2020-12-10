@@ -1,14 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\StripcatalogusApp",
-    "\\StripcatalogusApp\\businesslaag",
-    "\\StripcatalogusApp\\businesslaag\\Managers",
-    "\\StripcatalogusApp\\Datalaag",
-    "\\StripcatalogusApp\\GUI",
-    "\\StripcatalogusApp\\UnitTests",
-    "\\StripcatalogusApp\\WpfApp2"
+    "\\Diagrammen\\database",
+    "\\markdown"
   ],
-  "SelectedNode": "\\StripcatalogusApp\\StripcatalogusApp.sln",
+  "SelectedNode": "\\markdown\\impact_rework.md",
   "PreviewInSolutionExplorer": false
 }

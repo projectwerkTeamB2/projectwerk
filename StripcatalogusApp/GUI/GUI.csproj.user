@@ -15,7 +15,13 @@
     <Compile Update="EditStrip.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="EditStripCollection.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MaakScherm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MaakStripCollectieScherm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,6 +30,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EditStrip.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditStripCollection.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MaakStripCollectieScherm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles.xaml">

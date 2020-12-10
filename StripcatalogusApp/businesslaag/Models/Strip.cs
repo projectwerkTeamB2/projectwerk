@@ -9,17 +9,18 @@ namespace Businesslaag.Models
  
    public class Strip
     {
-        [JsonProperty("ID", Order = 1)]
+        private Strip strip;
+
         public int ID { get; set; }
-        [JsonProperty("Titel", Order = 2)]
+      
         public string StripTitel { get; set; }
-        [JsonProperty("Nr", Order = 3, NullValueHandling = NullValueHandling.Ignore)]
+        
         public int StripNr { get; set; }
-        [JsonProperty("Auteurs", Order = 6)]
+      
         public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
-        [JsonProperty("Reeks", Order = 4)]
+      
         public Reeks Reeks { get; set; }
-        [JsonProperty("Uitgeverij", Order = 5)]
+      
         public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 
@@ -37,6 +38,8 @@ namespace Businesslaag.Models
             this.Uitgeverij = uitgeverij;
         }
         public Strip() { }
+
+
 
         //toevoegingen
         public void addAuteur(Auteur auteur) {

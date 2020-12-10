@@ -10,9 +10,9 @@ namespace Businesslaag.Models
 {
     public class Reeks
     {
-        [JsonProperty("ID")]
+     
         public int ID { get; set; }
-        [JsonProperty("Naam")]
+     
         public string Naam { get; set; }
 
         public Reeks(int iD, string naam)

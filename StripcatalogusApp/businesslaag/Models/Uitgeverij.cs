@@ -9,9 +9,9 @@ namespace Businesslaag.Models
 {
     public class Uitgeverij
     {
-        [JsonProperty("ID")]
+     
         public int ID { get; set; }
-        [JsonProperty("Naam")]
+       
         public string Naam { get; set; }
 
         public Uitgeverij(int iD, string naam)
