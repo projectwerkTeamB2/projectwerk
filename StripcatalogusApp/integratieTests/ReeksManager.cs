@@ -78,7 +78,7 @@ namespace integratieTests {
             Reeks reeks = generalManager.ReeksManager.GetById(1);
             generalManager.ReeksManager.Delete(reeks);
             Assert.IsTrue(generalManager.ReeksManager.GetAll().Count == begincount - 1);
-            Assert.ThrowsException<System.NullReferenceException>(() => generalManager.ReeksManager.GetById(1));
+            Assert.ThrowsException<System.Exception>(() => generalManager.ReeksManager.GetById(1));
         }
 
     }
