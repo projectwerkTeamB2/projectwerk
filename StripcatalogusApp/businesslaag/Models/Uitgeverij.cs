@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Businesslaag.Models
 {
+    /// <summary>
+    /// business klasse voor uitgeverij
+    /// </summary>
     public class Uitgeverij
     {
      
@@ -14,9 +17,10 @@ namespace Businesslaag.Models
        
         public string Naam { get; set; }
 
-        public Uitgeverij(int iD, string naam)
+        public Uitgeverij(int id, string naam)
         {
-            ID = iD;
+            ID = id;
+            //checkt businessregek dat de naam niet leeg mag zijn en geeft anders een error
             if (naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;

@@ -6,10 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Businesslaag.Models
 {
+    /// <summary>
+    /// Businesslaag model voor strip 
+    /// </summary>
  
    public class Strip
     {
-        private Strip strip;
+       
 
         public int ID { get; set; }
       
@@ -24,10 +27,10 @@ namespace Businesslaag.Models
         public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 
-        //Er kunnen meerdere auteurs zijn
         public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij)
         {
             this.ID = id;
+            /// businessRule title mag niet null zijn 
             if (stripTitel == "")
                 throw new ArgumentException("Striptitel mag niet leeg zijn");
             this.StripTitel = stripTitel;
@@ -41,7 +44,7 @@ namespace Businesslaag.Models
 
 
 
-        //toevoegingen
+        //voeg een enkele auteur toe
         public void addAuteur(Auteur auteur) {
             if (nietBestaandeAuteurCheck(auteur)) { //kijken of hij al bestaat
                 this.Auteurs.Add(auteur);
@@ -49,6 +52,7 @@ namespace Businesslaag.Models
             else
                 throw new ArgumentException("Auteur " + auteur.Naam + " bestaat al");
         }
+        // voeg een lisjt van auteurs toe.
         public void addAuteurs(List<Auteur> auteurs)
         {
             foreach (var aut in auteurs)
@@ -63,6 +67,7 @@ namespace Businesslaag.Models
             }
            
         }
+        // checkt of de auteur nog niet bestaat should give true
         private Boolean nietBestaandeAuteurCheck(Auteur auteur) { //true
             if (this.Auteurs.Contains(auteur))
             {

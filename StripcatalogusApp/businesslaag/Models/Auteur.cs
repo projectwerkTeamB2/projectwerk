@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Businesslaag.Models
 {
+    /// <summary>
+    /// Auteur model voor de businesslaag
+    /// </summary>
     public class Auteur
     {
         
@@ -14,9 +17,10 @@ namespace Businesslaag.Models
        
         public string Naam { get; set; }
 
-        public Auteur(int iD, string naam)
+        public Auteur(int id, string naam)
         {
-            ID = iD;
+            ID = id;
+            /// businessRule auteur mag niet leeg zijn
             if (naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;

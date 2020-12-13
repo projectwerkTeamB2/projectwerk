@@ -7,9 +7,9 @@ using Businesslaag.Repositories;
 
 namespace Businesslaag.Managers
 {
-    /// <summary>
-    ///
-    /// </summary>
+   /// <summary>
+   /// Algemene classe met referentie naar eigen managers  iedere manager is verantwoordelijk voor zijn eigen repository
+   /// </summary>
     public class GeneralManager
     {
         #region Properties
@@ -34,8 +34,6 @@ namespace Businesslaag.Managers
             UitgeverijManager = new UitgeverijManager(this, uitgeverijRepository);
             StripManager = new StripManager(this, stripRepository);
             stripCollectionManager = new StripCollectionManager(this, stripCollectionRepository);
-
-
 
         }
 

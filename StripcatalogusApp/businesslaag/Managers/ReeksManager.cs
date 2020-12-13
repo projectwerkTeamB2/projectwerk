@@ -8,9 +8,11 @@ using Businesslaag.Repositories;
 namespace Businesslaag.Managers
 {
     /// <summary>
-    ///
+    ///klasse verantwoordelijk voor alles ivm reeks wat via de businesslaag gecommuniceerd moet worden naar de datalaag. 
+    /// kan enkel aan zijn eigen repository voor de andere moet het de generalManager aanspreken.
+    /// voert ook controlles uit of hij al bestaat enz 
     /// </summary>
-    ///
+
     public class ReeksManager
     {
         private GeneralManager _gm;
@@ -32,7 +34,8 @@ namespace Businesslaag.Managers
           
             if (DoubleReeksNotFound(reeks)) { 
                this._reeksRepository.Add(reeks);
-            }//else throw new ArgumentException("Reeks bestaat al");
+            }
+            else throw new ArgumentException("Reeks bestaat al");
         }
 
 

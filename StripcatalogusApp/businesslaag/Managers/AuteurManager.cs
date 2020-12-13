@@ -8,9 +8,11 @@ using System.Text;
 namespace Businesslaag.Managers
 {
     /// <summary>
-    ///
+    ///klasse verantwoordelijk voor alles ivm auteur wat via de businesslaag gecommuniceerd moet worden naar de datalaag. 
+    /// kan enkel aan zijn eigen repository voor de andere moet het de generalManager aanspreken.
+    /// voert ook controlles uit of hij al bestaat enz 
     /// </summary>
-    /// 
+  
   
     public class AuteurManager
     {
@@ -32,7 +34,7 @@ namespace Businesslaag.Managers
             if (DoubleAuteurNotFound(auteur)) { 
             this._auteurRepository.Add(auteur);
         }
-            //else throw new ArgumentException("auteur bestaat al");
+            else throw new ArgumentException("auteur bestaat al");
     }
 
         public List<Auteur> GetAll()

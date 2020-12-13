@@ -5,7 +5,7 @@ using System.Text;
 namespace Businesslaag.Models
 {
     /// <summary>
-    ///
+    /// StripCollectie klasse voor de datalaag, dit werd toegevoed na de opdracht werd uitgebreid
     /// </summary>
     public class StripCollection
     {
@@ -15,9 +15,9 @@ namespace Businesslaag.Models
 
         public int Nummer { get; set; }
 
-        public Uitgeverij? Uitgeverij {get; set; }
+        public Uitgeverij? Uitgeverij {get; set; } // uitgeverij is nullable
 
-        public List<Strip> Strips { get; set; }
+        public List<Strip> Strips { get; set; } // deze strip kan meerdere strips bevatten.
 
         #region [Constructor]
 
@@ -42,6 +42,8 @@ namespace Businesslaag.Models
         }
         #endregion
 
+
+        // voeg meerdere strips toe
         public void addStrips(List<Strip> strips)
         {
             foreach (var strip in strips)
@@ -58,6 +60,8 @@ namespace Businesslaag.Models
 
         }
 
+
+        // proberen we een strip toe te voegen die niet bestaat ?
         private Boolean nietBestaandeStripCheck(Strip strip)
         { //true
             if (this.Strips.Contains(strip))

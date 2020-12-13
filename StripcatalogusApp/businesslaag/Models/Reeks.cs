@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Businesslaag.Models
 {
+    /// <summary>
+    /// businesslaag model voor Reeks
+    /// </summary>
     public class Reeks
     {
      
@@ -15,9 +18,10 @@ namespace Businesslaag.Models
      
         public string Naam { get; set; }
 
-        public Reeks(int iD, string naam)
+        public Reeks(int id, string naam)
         {
-            ID = iD;
+            ID = id;
+            // BusinessRule Naam van een reeks mag niet leeg zijn
             if (naam == "")
                 throw new ArgumentException("Naam mag niet leeg zijn");
             Naam = naam;

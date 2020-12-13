@@ -8,8 +8,11 @@ using System.Text;
 namespace Businesslaag.Managers
 {
     /// <summary>
-    ///
+    ///klasse verantwoordelijk voor alles ivm uitgeverij wat via de businesslaag gecommuniceerd moet worden naar de datalaag. 
+    /// kan enkel aan zijn eigen repository voor de andere moet het de generalManager aanspreken.
+    /// voert ook controlles uit of hij al bestaat enz 
     /// </summary>
+
     public class UitgeverijManager
     {
         #region [Constructor]
@@ -33,7 +36,8 @@ namespace Businesslaag.Managers
             if (DoubleUitgeverijNotFound(uitgeverij)) { 
                 this._uitgeverijRepository.Add(uitgeverij);
 
-        }//else throw new ArgumentException("Uitgeverij bestaat al");
+        }
+            else throw new ArgumentException("Uitgeverij bestaat al");
     }
 
         public List<Uitgeverij> GetAll()
