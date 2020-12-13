@@ -22,8 +22,9 @@ namespace Datalaag.Repositories
 
         public override StripCollectionDB PopulateRecord(SqlDataReader reader)
         {
-            try { 
-                    return new StripCollectionDB
+            try
+            {
+                return new StripCollectionDB
                 {
                     Id = reader.GetInt32(0),
                     Titel = reader.GetString(1),
@@ -31,7 +32,7 @@ namespace Datalaag.Repositories
                     Uitgeverij = ConvertToDatalayer.ConvertToUitgeverijDb(new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3))),
                     Strips = ConvertToDatalayer.convertToStripsDb(new StripRepository(DbFunctions.GetprojectwerkconnectionString()).GetCollectionStrips(reader.GetInt32(0)))
 
-                    };
+                };
             }
             catch (Exception ex) { throw new Exception("Error in: StripCollectionRepository- StripCollectionDB PopulateRecord(SqlDataReader reader) : " + ex); }
 
@@ -46,7 +47,7 @@ namespace Datalaag.Repositories
                 using (var command = new SqlCommand("select * from Stripcollection"))
                 {
                     return ConvertToBusinesslaag.convertToCollections((List<StripCollectionDB>)GetRecords(command));
-                } 
+                }
             }
             catch (Exception ex) { throw new Exception("Error in:  StripCollectionRepository-IEnumerable<StripCollection> GetAll() :: kon niet alle stripcollections opvragen " + ex); }
 
@@ -54,20 +55,20 @@ namespace Datalaag.Repositories
 
         public StripCollection GetById(int id)
         {
-                    try
-                    {
-                        // PARAMETERIZED QUERIES!
-                        using (var command = new SqlCommand("SELECT * FROM StripCollection WHERE id = @id"))
+            try
             {
-                command.Parameters.Add(new SqlParameter("id", id));
-                return ConvertToBusinesslaag.convertToStripCollection(GetRecord(command));
+                // PARAMETERIZED QUERIES!
+                using (var command = new SqlCommand("SELECT * FROM StripCollection WHERE id = @id"))
+                {
+                    command.Parameters.Add(new SqlParameter("id", id));
+                    return ConvertToBusinesslaag.convertToStripCollection(GetRecord(command));
                 }
             }
             catch (Exception ex) { throw new Exception("Error in: StripCollectionRepository-StripCollection GetById(int id) :: kon niet StripCollection met deze id ophalen: " + ex); }
 
         }
 
-    
+
         #endregion
 
 
@@ -88,16 +89,16 @@ namespace Datalaag.Repositories
 
         private void AddStripHasCollectionHasStrip(StripCollectionDB collection)
         {
-                            try
-                            {
-
-                                for (int i = 0; i < collection.Strips.Count; i++)
+            try
             {
-                SqlCommand command = new SqlCommand("Insert INTO Strip_has_Stripcollection_has_strip values(@strip_id, @reeks_id, @collection_id)");
-                command.Parameters.AddWithValue("strip_id", collection.Strips[i].ID);
-                command.Parameters.AddWithValue("reeks_id", collection.Strips[i].Reeks.ID);
-                command.Parameters.AddWithValue("collection_id", collection.Id);
-                ExecuteCommand(command);
+
+                for (int i = 0; i < collection.Strips.Count; i++)
+                {
+                    SqlCommand command = new SqlCommand("Insert INTO Strip_has_Stripcollection_has_strip values(@strip_id, @reeks_id, @collection_id)");
+                    command.Parameters.AddWithValue("strip_id", collection.Strips[i].ID);
+                    command.Parameters.AddWithValue("reeks_id", collection.Strips[i].Reeks.ID);
+                    command.Parameters.AddWithValue("collection_id", collection.Id);
+                    ExecuteCommand(command);
 
                 }
             }
@@ -113,12 +114,12 @@ namespace Datalaag.Repositories
 
         private void DeleteStripCollectionIdFromStripHasStripCollection(int id)
         {
-                                try
-                                {
-                                    {
-                var command = new SqlCommand("delete FROM Strip_has_Stripcollection_has_strip WHERE Strip_id = @id");
-                command.Parameters.Add(new SqlParameter("id", id));
-                ExecuteCommand(command);
+            try
+            {
+                {
+                    var command = new SqlCommand("delete FROM Strip_has_Stripcollection_has_strip WHERE Stripcollection_has_strip_id = @id");
+                    command.Parameters.Add(new SqlParameter("id", id));
+                    ExecuteCommand(command);
                 }
             }
             catch (Exception ex) { throw new Exception("Error in: StripCollectionRepository-DeleteStripCollectionIdFromStripHasStripCollection(int id) :: kon StripCollection niet deleten: " + ex); }
@@ -126,11 +127,12 @@ namespace Datalaag.Repositories
         }
         public void DeleteById(int id)
         {
-            try { 
-            DeleteStripCollectionIdFromStripHasStripCollection(id);
-            StripCollectionDB stripCollection = ConvertToDatalayer.ConvertToStripCollectionDB(GetById(id));
-            var sqlQueryBuilder = new SqlQueryBuilder<StripCollectionDB>(stripCollection);
-            ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
+            try
+            {
+                DeleteStripCollectionIdFromStripHasStripCollection(id);
+                StripCollectionDB stripCollection = ConvertToDatalayer.ConvertToStripCollectionDB(GetById(id));
+                var sqlQueryBuilder = new SqlQueryBuilder<StripCollectionDB>(stripCollection);
+                ExecuteCommand(sqlQueryBuilder.GetDeleteCommand());
             }
             catch (Exception ex) { throw new Exception("Error in: StripCollectionRepository-DeleteById(int id) :: kon StripCollection niet deleten: " + ex); }
 
@@ -142,20 +144,20 @@ namespace Datalaag.Repositories
         #region update
 
         public void Update(StripCollection collection)
-    {
-                                    try
-                                    {
-                                        StripCollectionDB newcollection = ConvertToDatalayer.ConvertToStripCollectionDB(collection);
         {
-            var command = new SqlCommand("update Stripcollection set id = @id, title = @title, nr = @nummer, Uitgeverij_id = @uitgeverij WHERE id = @id");
-            command.Parameters.Add(new SqlParameter("id", newcollection.Id));
-            command.Parameters.Add(new SqlParameter("title", newcollection.Titel));
-            command.Parameters.Add(new SqlParameter("nummer", newcollection.Nummer));
-            command.Parameters.Add(new SqlParameter("uitgeverij", newcollection.Uitgeverij.ID));
+            try
+            {
+                StripCollectionDB newcollection = ConvertToDatalayer.ConvertToStripCollectionDB(collection);
+                {
+                    var command = new SqlCommand("update Stripcollection set id = @id, title = @title, nr = @nummer, Uitgeverij_id = @uitgeverij WHERE id = @id");
+                    command.Parameters.Add(new SqlParameter("id", newcollection.Id));
+                    command.Parameters.Add(new SqlParameter("title", newcollection.Titel));
+                    command.Parameters.Add(new SqlParameter("nummer", newcollection.Nummer));
+                    command.Parameters.Add(new SqlParameter("uitgeverij", newcollection.Uitgeverij.ID));
 
-            ExecuteCommand(command);
+                    ExecuteCommand(command);
 
-                updateStripHasCollection(newcollection);
+                    updateStripHasCollection(newcollection);
                 }
             }
             catch (Exception ex) { throw new Exception("Error in: StripCollectionRepository-Update(StripCollection collection) :: kon StripCollection niet updaten: " + ex); }
@@ -177,8 +179,7 @@ namespace Datalaag.Repositories
             }
         }
 
-}
+    }
 
     #endregion
 }
- 
