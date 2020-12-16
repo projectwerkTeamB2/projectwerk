@@ -56,6 +56,29 @@ namespace Datalaag.Mappers
             return convertedReeks;
         }
 
+        public static IEnumerable<Verkoop> ConvertToVerkoopList(List<VerkoopDB> list) {
+            List<Verkoop> convertedVerkoop = new List<Verkoop>();
+            foreach(VerkoopDB v in list) {
+                convertedVerkoop.Add(new Verkoop(v.Id, v.DatumBestelling, v.Hoeveelheid));
+            }
+
+            return convertedVerkoop;
+        }
+
+        public static List<Aankoop> ConvertToAankoopList(List<AankoopDB> list) {
+            List<Aankoop> convertedAankoop = new List<Aankoop>();
+            foreach(AankoopDB a in list) {
+                convertedAankoop.Add(new Aankoop(a.Id, a.DatumGeplaatst, a.DatumOntvangen, a.Hoeveelheid));
+            }
+
+            return convertedAankoop;
+        }
+
+        public static Verkoop ConvertToVerkoop(VerkoopDB verkoopDB) {
+            Verkoop v = new Verkoop(verkoopDB.Id, verkoopDB.DatumBestelling, verkoopDB.Hoeveelheid);
+            return v;
+        }
+
         static public List<Reeks> ConvertToReeksen(List<ReeksDB> reeksen)
         {
             List<Reeks> converteduitgevers = new List<Reeks>();
@@ -68,6 +91,10 @@ namespace Datalaag.Mappers
             return converteduitgevers;
         }
 
+        public static Aankoop ConvertToAankoop(AankoopDB aankoopDB) {
+            Aankoop a = new Aankoop(aankoopDB.Id, aankoopDB.DatumGeplaatst, aankoopDB.DatumOntvangen, aankoopDB.Hoeveelheid);
+            return a;
+        }
 
         static public Strip convertToStrip(StripDB strip)
         {
@@ -79,7 +106,7 @@ namespace Datalaag.Mappers
 
             }
 
-            Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij));
+            Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij), strip.IsEenLosseStrip);
             return convertedStrip;
         }
 
@@ -96,7 +123,7 @@ namespace Datalaag.Mappers
 
                 }
 
-                Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij));
+                Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij), strip.IsEenLosseStrip);
                 convertedstrips.Add(convertedStrip);
             }
                 return convertedstrips;

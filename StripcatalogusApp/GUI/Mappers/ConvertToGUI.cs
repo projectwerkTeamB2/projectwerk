@@ -51,7 +51,7 @@ namespace GUI.Mappers
 
             }
 
-            StripGUI ConvertedStrip = new StripGUI(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToGUI.reeks(strip.Reeks), ConvertToGUI.uitgeverij(strip.Uitgeverij));
+            StripGUI ConvertedStrip = new StripGUI(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToGUI.reeks(strip.Reeks), ConvertToGUI.uitgeverij(strip.Uitgeverij), strip.IsEenLosseStrip);
             return ConvertedStrip;
         }
 
@@ -67,7 +67,7 @@ namespace GUI.Mappers
                     convertedAuteurs.Add(conv);
                 }
 
-                StripGUI convertedStrip = new StripGUI(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToGUI.reeks(strip.Reeks), ConvertToGUI.uitgeverij(strip.Uitgeverij));
+                StripGUI convertedStrip = new StripGUI(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToGUI.reeks(strip.Reeks), ConvertToGUI.uitgeverij(strip.Uitgeverij), strip.IsEenLosseStrip);
                 convertedstrips.Add(convertedStrip);
             }
             return convertedstrips;

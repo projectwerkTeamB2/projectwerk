@@ -12,6 +12,7 @@ namespace GUI.Models
         public int ID { get; set; }
         public string StripTitel { get; set; }
         public int StripNr { get; set; }
+        public bool IsEenLosseStrip { get; set; }
 
         public List<AuteurGUI> Auteurs { get; set; } //er kunnen meerdere zijn
         
@@ -21,7 +22,7 @@ namespace GUI.Models
         public bool Ischecked { get; set; }
 
         //Er kunnen meerdere auteurs zijn
-        public StripGUI(int id,string stripTitel, int stripNr, List<AuteurGUI> auteurs, ReeksGUI reeks, UitgeverijGUI uitgeverij)
+        public StripGUI(int id,string stripTitel, int stripNr, List<AuteurGUI> auteurs, ReeksGUI reeks, UitgeverijGUI uitgeverij, bool isEenLosseStrip = true)
         {
             this.ID = id;
             this.StripTitel = stripTitel;
@@ -30,6 +31,7 @@ namespace GUI.Models
             this.StripNr = stripNr;
             this.Uitgeverij = uitgeverij;
             this.Ischecked = false;
+            this.IsEenLosseStrip = isEenLosseStrip;
         }
         public StripGUI() { }
     }

@@ -69,8 +69,6 @@ namespace Businesslaag.Models
                 return false; //hij bestaat al
             }
             else return true; // hij bestaat niet
-        }
-     
-
+        }   
     }
 }

@@ -19,6 +19,8 @@ namespace Datalaag.Models
         [Column("Nummer")]
        
         public int StripNr { get; set; }
+
+        public bool IsEenLosseStrip { get; set; }
        
         public List<AuteurDB> Auteurs { get; set; } //er kunnen meerdere zijn
         [Column("Reeks_id")]
@@ -31,7 +33,7 @@ namespace Datalaag.Models
 
 
         //Er kunnen meerdere auteurs zijn
-        public StripDB(int id,string stripTitel, int stripNr, List<AuteurDB> auteurs, ReeksDB reeks, UitgeverijDB uitgeverij)
+        public StripDB(int id,string stripTitel, int stripNr, List<AuteurDB> auteurs, ReeksDB reeks, UitgeverijDB uitgeverij, bool isEenLosseStrip = true)
         {
             this.ID = id;
             this.StripTitel = stripTitel;
@@ -39,6 +41,7 @@ namespace Datalaag.Models
             this.Reeks = reeks;
             this.StripNr = stripNr;
             this.Uitgeverij = uitgeverij;
+            this.IsEenLosseStrip = isEenLosseStrip;
         }
         public StripDB() { }
 

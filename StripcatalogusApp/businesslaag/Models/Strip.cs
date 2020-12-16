@@ -19,6 +19,8 @@ namespace Businesslaag.Models
         public string StripTitel { get; set; }
         
         public int StripNr { get; set; }
+
+        public bool IsEenLosseStrip { get; set; } //Splitsing tussen collection en enkele strip
       
         public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
       
@@ -27,7 +29,7 @@ namespace Businesslaag.Models
         public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
 
 
-        public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij)
+        public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij, bool isEenLosseStrip = true)
         {
             this.ID = id;
             /// businessRule title mag niet null zijn 
@@ -39,6 +41,7 @@ namespace Businesslaag.Models
             this.Reeks = reeks;
             this.StripNr = stripNr;
             this.Uitgeverij = uitgeverij;
+            this.IsEenLosseStrip = isEenLosseStrip;
         }
         public Strip() { }
 
@@ -52,7 +55,7 @@ namespace Businesslaag.Models
             else
                 throw new ArgumentException("Auteur " + auteur.Naam + " bestaat al");
         }
-        // voeg een lisjt van auteurs toe.
+        // voeg een list van auteurs toe.
         public void addAuteurs(List<Auteur> auteurs)
         {
             foreach (var aut in auteurs)

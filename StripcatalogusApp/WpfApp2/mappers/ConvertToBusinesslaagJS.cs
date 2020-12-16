@@ -80,7 +80,7 @@ namespace JSON.Mappers
 
             }
 
-            Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij));
+            Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij), strip.IsEenLosseStrip);
             return convertedStrip;
         }
 
@@ -97,7 +97,7 @@ namespace JSON.Mappers
 
                 }
 
-                Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij));
+                Strip convertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, ConvertToReeks(strip.Reeks), ConvertToUitgeverij(strip.Uitgeverij), strip.IsEenLosseStrip);
                 convertedstrips.Add(convertedStrip);
             }
                 return convertedstrips;

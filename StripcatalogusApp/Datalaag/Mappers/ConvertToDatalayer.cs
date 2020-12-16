@@ -29,6 +29,16 @@ namespace Datalaag.Mappers
             return convertedauteurs;
         }
 
+        internal static VerkoopDB ConvertToVerkoopDb(Verkoop verkoop) {
+            VerkoopDB v = new VerkoopDB(verkoop.Id, verkoop.DatumBestelling, verkoop.hoeveelheid);
+            return v;
+        }
+
+        internal static AankoopDB ConvertToAankoopDb(Aankoop aankoop) {
+            AankoopDB a = new AankoopDB(aankoop.Id, aankoop.DatumGeplaatst, aankoop.DatumOntvangen, aankoop.Hoeveelheid);
+            return a;
+        }
+
         static public UitgeverijDB ConvertToUitgeverijDb(Uitgeverij uitgeverij)
         {
             UitgeverijDB convertedUitgeverij = new UitgeverijDB(uitgeverij.ID, uitgeverij.Naam);
@@ -51,7 +61,7 @@ namespace Datalaag.Mappers
 
             }
 
-            StripDB convertedStrip = new StripDB(strip.ID, strip.StripTitel, strip.StripNr,convertedAuteurs, ConvertToReeksDb(strip.Reeks), ConvertToUitgeverijDb(strip.Uitgeverij));
+            StripDB convertedStrip = new StripDB(strip.ID, strip.StripTitel, strip.StripNr,convertedAuteurs, ConvertToReeksDb(strip.Reeks), ConvertToUitgeverijDb(strip.Uitgeverij), strip.IsEenLosseStrip);
             return convertedStrip;
         }
 
@@ -68,7 +78,7 @@ namespace Datalaag.Mappers
                     convertedAuteurs.Add(conv);
                 }
 
-                var convertedStrip = new StripDB(s.ID, s.StripTitel, s.StripNr, convertedAuteurs, ConvertToReeksDb(s.Reeks), ConvertToUitgeverijDb(s.Uitgeverij));
+                var convertedStrip = new StripDB(s.ID, s.StripTitel, s.StripNr, convertedAuteurs, ConvertToReeksDb(s.Reeks), ConvertToUitgeverijDb(s.Uitgeverij), s.IsEenLosseStrip);
                 convertedStrips.Add(convertedStrip);
             }
             return convertedStrips;
@@ -88,6 +98,12 @@ namespace Datalaag.Mappers
             return convertedCollection;
         }
 
+
+        //Converts voor inventory
+        public static StockDB ConvertToStockDB(Stock stock) {
+            StockDB convertedStock = new StockDB(stock.Strip, stock.Hoeveelheid);
+            return convertedStock;
+        }
 
     }
 }

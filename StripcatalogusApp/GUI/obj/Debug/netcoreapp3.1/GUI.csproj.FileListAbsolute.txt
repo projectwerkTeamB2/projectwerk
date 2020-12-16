@@ -317,3 +317,10 @@ D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GU
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripCollectieScherm.g.cs
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripCollectieScherm.baml
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripCollectieScherm.g.cs
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\AddReeksOrUitgeverij.baml
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStripCollection.baml
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripCollectieScherm.baml
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\AddReeksOrUitgeverij.g.cs
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\EditStripCollection.g.cs
+C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripCollectieScherm.g.cs

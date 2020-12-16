@@ -68,7 +68,7 @@ namespace Datalaag.Repositories
                 return new AuteurDB
                 {
                     ID = reader.GetInt32(0),
-                    Naam = reader.GetString(1)
+                    Naam = reader.GetString(1) 
                 };
             }catch (Exception ex) { throw new Exception("Error in: PopulateRecord(SqlDataReader reader) : " + ex); }
         }

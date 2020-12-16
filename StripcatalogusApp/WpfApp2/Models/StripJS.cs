@@ -15,6 +15,9 @@ namespace JSON.Models
         public string StripTitel { get; set; }
         [JsonProperty("Nr", Order = 3, NullValueHandling = NullValueHandling.Ignore)]
         public int StripNr { get; set; }
+
+        public bool IsEenLosseStrip { get; set; }
+
         [JsonProperty("Auteurs", Order = 6)]
         public List<AuteurJS> Auteurs { get; set; } //er kunnen meerdere zijn
         [JsonProperty("Reeks", Order = 4)]
@@ -24,7 +27,7 @@ namespace JSON.Models
 
 
         //Er kunnen meerdere auteurs zijn
-        public StripJS(int id,string stripTitel, int stripNr, List<AuteurJS> auteurs, ReeksJS reeks, UitgeverijJS uitgeverij)
+        public StripJS(int id,string stripTitel, int stripNr, List<AuteurJS> auteurs, ReeksJS reeks, UitgeverijJS uitgeverij, bool isEenLosseStrip = true)
         {
             this.ID = id;
             if (stripTitel == "")
@@ -35,6 +38,7 @@ namespace JSON.Models
             this.Reeks = reeks;
             this.StripNr = stripNr;
             this.Uitgeverij = uitgeverij;
+            this.IsEenLosseStrip = isEenLosseStrip;
         }
         public StripJS() { }
 

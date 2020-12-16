@@ -52,7 +52,7 @@ namespace JSON.Mappers
 
             }
 
-            StripJS convertedStrip = new StripJS(strip.ID, strip.StripTitel, strip.StripNr,convertedAuteurs, ConvertToReeksJS(strip.Reeks), ConvertToUitgeverijJS(strip.Uitgeverij));
+            StripJS convertedStrip = new StripJS(strip.ID, strip.StripTitel, strip.StripNr,convertedAuteurs, ConvertToReeksJS(strip.Reeks), ConvertToUitgeverijJS(strip.Uitgeverij), strip.IsEenLosseStrip);
             return convertedStrip;
         }
 

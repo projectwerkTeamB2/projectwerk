@@ -21,11 +21,14 @@ namespace Businesslaag.Managers
 
         public StripCollectionManager stripCollectionManager { get; }
           
-
+        //Inventory
+        public StockManager stockManager { get; }
+        public AankoopManager aankoopManager { get; }
+        public VerkoopManager verkoopManager { get; }
         
 
         #endregion
-        public GeneralManager(IStripRepository stripRepository, IAuteurRepository auteurRepository, IReeksRepository reeksRepository , IUitgeverijRepository uitgeverijRepository , IStripCollectionRepository stripCollectionRepository ) 
+        public GeneralManager(IStripRepository stripRepository, IAuteurRepository auteurRepository, IReeksRepository reeksRepository , IUitgeverijRepository uitgeverijRepository , IStripCollectionRepository stripCollectionRepository) 
         {
 
 

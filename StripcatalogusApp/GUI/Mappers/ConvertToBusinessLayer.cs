@@ -39,7 +39,7 @@ namespace GUI.Mappers
         public static Strip strip(StripGUI strip)
         {
             List<Auteur> convertedAuteurs = ListAuteurs(strip.Auteurs);
-            Strip ConvertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, new Reeks(strip.Reeks.ID, strip.Reeks.Naam) ,new Uitgeverij(strip.Uitgeverij.ID, strip.Uitgeverij.Naam));
+            Strip ConvertedStrip = new Strip(strip.ID, strip.StripTitel, strip.StripNr, convertedAuteurs, new Reeks(strip.Reeks.ID, strip.Reeks.Naam) ,new Uitgeverij(strip.Uitgeverij.ID, strip.Uitgeverij.Naam), strip.IsEenLosseStrip);
             return ConvertedStrip;
         }
 
