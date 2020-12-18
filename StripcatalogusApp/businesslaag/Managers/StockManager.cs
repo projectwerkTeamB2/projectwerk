@@ -17,11 +17,11 @@ namespace Businesslaag.Managers {
         }
         #endregion
 
-        public void Add(Stock stock)
+        public void AddDictionary(Dictionary<Strip,int> dict)
         {
-            if (DoubleStockNotFound(stock))
+            if (DoubleDictionaryNotFound(dict))
             {
-                this._stockRepository.Add(stock);
+                this._stockRepository.AddDictionary(dict);
             }
             else throw new ArgumentException("stock bestaat al");
         }
@@ -36,21 +36,23 @@ namespace Businesslaag.Managers {
             return this._stockRepository.GetById(id);
         }
 
-        public void Update(Stock stock)
+        public void Update(int id)
         {
-            if (GetById(stock.StripHoeveelHeden.ContainsKey()) == null)
+            if (GetById(id) != null)
             {
-                throw new ArgumentException("trying to update an Author that does not exist");
+                this._stockRepository.DeleteById(id);
             }
             else
-                this._stockRepository.Update(stock);
+            {
+                throw new ArgumentException("trying to update an Stock that does not exist");
+            }
         }
 
-        public void Delete(Stock stock)
+        public void Delete(Dictionary<Strip, int> dict)
         {
-            if (GetById(stock.ID) != null)
+            if (GetById(dict.FirstOrDefault().Key.ID) != null)
             {
-                this._stockRepository.DeleteById(stock.ID);
+                this._stockRepository.DeleteById(dict.FirstOrDefault().Key.ID);
             }
             else
             {
@@ -58,9 +60,9 @@ namespace Businesslaag.Managers {
             }
         }
 
-        private Boolean DoubleStockNotFound(Stock stock)
+        private Boolean DoubleDictionaryNotFound(Dictionary<Strip,int> dict)
         {
-            if (this._stockRepository.GetAll().Any(i => i.ID == stock.ID))
+            if (this._stockRepository.GetAllDictionary().Any(i => i.Key.ID == dict.FirstOrDefault().Key.ID))
             {
                 return false;
             }
