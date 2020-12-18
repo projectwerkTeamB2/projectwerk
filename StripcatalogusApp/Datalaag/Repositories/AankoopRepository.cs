@@ -11,6 +11,8 @@ using System.Text;
 namespace Datalaag.Repositories {
     public class AankoopRepository : CRUDRepository<AankoopDB>, IAankoopRepository {
         public AankoopRepository(string connectionString) : base(connectionString) { }
+
+      
         public void Add(Aankoop aankoop) {
             try {
                 AankoopDB dbAankoop = ConvertToDatalayer.ConvertToAankoopDb(aankoop);
@@ -56,7 +58,7 @@ namespace Datalaag.Repositories {
             try {
                 AankoopDB aankoopDB = ConvertToDatalayer.ConvertToAankoopDb(aankoop);
                 var command = new SqlCommand("update Aankoop set id = @id,  datumGeplaatst =@datumGeplaatst, datumOntvangen =@datumOntvangen, hoeveelheid=@hoeveelheid WHERE Id = @id");
-                command.Parameters.Add(new SqlParameter("id", aankoopDB.Id));
+                command.Parameters.Add(new SqlParameter("id", aankoopDB.ID));
                 command.Parameters.Add(new SqlParameter("datumGeplaatst", aankoopDB.DatumGeplaatst));
                 command.Parameters.Add(new SqlParameter("datumOntvangen", aankoopDB.DatumOntvangen));
                 command.Parameters.Add(new SqlParameter("hoeveelheid", aankoopDB.Hoeveelheid));
@@ -71,7 +73,7 @@ namespace Datalaag.Repositories {
             try {
                 return new AankoopDB
                 {
-                    Id = reader.GetInt32(0),
+                    ID = reader.GetInt32(0),
                     DatumGeplaatst = reader.GetDateTime(1),
                     DatumOntvangen = reader.GetDateTime(2),
                     Hoeveelheid = reader.GetInt32(3)

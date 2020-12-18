@@ -29,14 +29,36 @@ namespace Datalaag.Mappers
             return convertedauteurs;
         }
 
-        internal static VerkoopDB ConvertToVerkoopDb(Verkoop verkoop) {
-            VerkoopDB v = new VerkoopDB(verkoop.Id, verkoop.DatumBestelling, verkoop.hoeveelheid);
+         static public VerkoopDB ConvertToVerkoopDb(Verkoop verkoop) {
+            VerkoopDB v = new VerkoopDB(verkoop.ID, verkoop.DatumBestelling, verkoop.hoeveelheid);
             return v;
         }
 
-        internal static AankoopDB ConvertToAankoopDb(Aankoop aankoop) {
-            AankoopDB a = new AankoopDB(aankoop.Id, aankoop.DatumGeplaatst, aankoop.DatumOntvangen, aankoop.Hoeveelheid);
+        static public List<VerkoopDB> ConvertToAankoopListDb(List<Verkoop> verkooplist)
+        {
+            List<VerkoopDB> convertToVerkoop = new List<VerkoopDB>();
+            foreach (var a in verkooplist)
+            {
+                VerkoopDB ca = new VerkoopDB(a.ID, a.DatumBestelling, a.hoeveelheid);
+                convertToVerkoop.Add(ca);
+            }
+            return convertToVerkoop;
+        }
+
+        static public AankoopDB ConvertToAankoopDb(Aankoop aankoop) {
+            AankoopDB a = new AankoopDB(aankoop.ID, aankoop.DatumGeplaatst, aankoop.DatumOntvangen, aankoop.Hoeveelheid);
             return a;
+        }
+
+        static public List<AankoopDB> ConvertToVerkoopListDb(List<Aankoop> aankooplist)
+        {
+            List<AankoopDB> convertToAankoop = new List<AankoopDB>();
+            foreach (var a in convertToAankoop)
+            {
+                AankoopDB ca = new AankoopDB(a.ID, a.DatumGeplaatst, a.DatumOntvangen, a.Hoeveelheid);
+                convertToAankoop.Add(ca);
+            }
+            return convertToAankoop;
         }
 
         static public UitgeverijDB ConvertToUitgeverijDb(Uitgeverij uitgeverij)
@@ -101,7 +123,7 @@ namespace Datalaag.Mappers
 
         //Converts voor inventory
         public static StockDB ConvertToStockDB(Stock stock) {
-            StockDB convertedStock = new StockDB(stock.Strip, stock.Hoeveelheid);
+            StockDB convertedStock = new StockDB(stock.StripHoeveelHeden);
             return convertedStock;
         }
 

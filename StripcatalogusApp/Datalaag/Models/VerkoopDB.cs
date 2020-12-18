@@ -6,7 +6,7 @@ namespace Datalaag.Models {
     public class VerkoopDB {
         [Key]
         [Column("Id")]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Column("datumBestelling")]
         public DateTime DatumBestelling { get; set; }
@@ -16,7 +16,7 @@ namespace Datalaag.Models {
 
         public VerkoopDB() { }
         public VerkoopDB(int id, DateTime datumBestelling, int hoeveelheid) {
-            Id = id;
+            ID = id;
             DatumBestelling = datumBestelling;
             Hoeveelheid = hoeveelheid; 
         }

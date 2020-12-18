@@ -56,10 +56,10 @@ namespace Datalaag.Mappers
             return convertedReeks;
         }
 
-        public static IEnumerable<Verkoop> ConvertToVerkoopList(List<VerkoopDB> list) {
+        public static List<Verkoop> ConvertToVerkoopList(List<VerkoopDB> list) {
             List<Verkoop> convertedVerkoop = new List<Verkoop>();
             foreach(VerkoopDB v in list) {
-                convertedVerkoop.Add(new Verkoop(v.Id, v.DatumBestelling, v.Hoeveelheid));
+                convertedVerkoop.Add(new Verkoop(v.ID, v.DatumBestelling, v.Hoeveelheid));
             }
 
             return convertedVerkoop;
@@ -68,14 +68,14 @@ namespace Datalaag.Mappers
         public static List<Aankoop> ConvertToAankoopList(List<AankoopDB> list) {
             List<Aankoop> convertedAankoop = new List<Aankoop>();
             foreach(AankoopDB a in list) {
-                convertedAankoop.Add(new Aankoop(a.Id, a.DatumGeplaatst, a.DatumOntvangen, a.Hoeveelheid));
+                convertedAankoop.Add(new Aankoop(a.ID, a.DatumGeplaatst, a.DatumOntvangen, a.Hoeveelheid));
             }
 
             return convertedAankoop;
         }
 
         public static Verkoop ConvertToVerkoop(VerkoopDB verkoopDB) {
-            Verkoop v = new Verkoop(verkoopDB.Id, verkoopDB.DatumBestelling, verkoopDB.Hoeveelheid);
+            Verkoop v = new Verkoop(verkoopDB.ID, verkoopDB.DatumBestelling, verkoopDB.Hoeveelheid);
             return v;
         }
 
@@ -92,7 +92,13 @@ namespace Datalaag.Mappers
         }
 
         public static Aankoop ConvertToAankoop(AankoopDB aankoopDB) {
-            Aankoop a = new Aankoop(aankoopDB.Id, aankoopDB.DatumGeplaatst, aankoopDB.DatumOntvangen, aankoopDB.Hoeveelheid);
+            Aankoop a = new Aankoop(aankoopDB.ID, aankoopDB.DatumGeplaatst, aankoopDB.DatumOntvangen, aankoopDB.Hoeveelheid);
+            return a;
+        }
+
+        public static Stock ConvertToStock(StockDB stockDB)
+        {
+            Stock a = new Stock(stockDB.StripHoeveelHeden);
             return a;
         }
 

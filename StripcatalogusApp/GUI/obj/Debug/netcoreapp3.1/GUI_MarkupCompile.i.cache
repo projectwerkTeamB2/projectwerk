@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\
 GUI
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\App.xaml
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\GUI\App.xaml
 7590586898
 
 161740378427
-215-792247525
+215-1424530145
 AddReeksOrUitgeverij.xaml;EditStrip.xaml;EditStripCollection.xaml;MaakScherm.xaml;MaakStripCollectieScherm.xaml;MainWindow.xaml;Styles.xaml;
 
-False
+True
 

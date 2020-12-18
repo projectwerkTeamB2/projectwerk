@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Businesslaag.Models {
     public class Aankoop {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public DateTime DatumGeplaatst { get; set; }
         public DateTime DatumOntvangen { get; set; }
         public int Hoeveelheid { get; set; }
 
         public Aankoop(int id, DateTime datumGeplaatst, DateTime datumOntvangen, int hoeveelheid) {
-            Id = id;
+            ID = id;
             DatumGeplaatst = datumGeplaatst;
             DatumOntvangen = datumOntvangen;
             Hoeveelheid = hoeveelheid;

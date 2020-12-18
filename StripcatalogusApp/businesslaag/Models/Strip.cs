@@ -27,6 +27,8 @@ namespace Businesslaag.Models
         public Reeks Reeks { get; set; }
       
         public Uitgeverij Uitgeverij { get; set; } // note: Een reeks kan van uitgeverijen veranderen na een tijd
+        
+
 
 
         public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij, bool isEenLosseStrip = true)

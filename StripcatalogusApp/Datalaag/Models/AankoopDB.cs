@@ -8,7 +8,7 @@ namespace Datalaag.Models {
     public class AankoopDB {
         [Key]
         [Column("Id")]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Column("datumGeplaats")]
         public DateTime DatumGeplaatst { get; set; }
@@ -22,7 +22,7 @@ namespace Datalaag.Models {
         public AankoopDB() { }
 
         public AankoopDB(int id, DateTime datumGeplaatst, DateTime datumOntvangen, int hoeveelheid) {
-            Id = id;
+            ID = id;
             DatumGeplaatst = datumGeplaatst;
             DatumOntvangen = datumOntvangen;
             Hoeveelheid = hoeveelheid;
