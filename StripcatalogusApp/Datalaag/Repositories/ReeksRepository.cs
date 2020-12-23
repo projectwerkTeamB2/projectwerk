@@ -12,7 +12,6 @@ namespace Datalaag.Repositories
 {
     /// <summary>
     ///Alle functies om een reeks DB model in de database te krijgen. Implementeert de I reeks repository en de Crudrepostory
-    ///
     /// </summary>
     public class ReeksRepository : CRUDRepository<ReeksDB> , IReeksRepository
     {

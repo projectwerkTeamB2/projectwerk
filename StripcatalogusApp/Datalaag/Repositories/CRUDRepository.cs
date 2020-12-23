@@ -3,6 +3,12 @@ using System.Data;
 using System.Data.SqlClient;
 namespace DataLayer.Repositories
 {
+    /// <summary>
+    /// abstracte classe voor het manipuleren van de databank.
+    /// andere classes gaan deze implementeren
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+
     public abstract class CRUDRepository<T> where T : class
     {
         private static SqlConnection _connection;
