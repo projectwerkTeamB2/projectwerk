@@ -6946,19 +6946,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lieke\\.nuget\\packages\\": {}
+    "C:\\Users\\jeffr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk inventory\\StripcatalogusApp\\integratieTests\\integratieTests.csproj",
+      "projectUniqueName": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\integratieTests\\integratieTests.csproj",
       "projectName": "integratieTests",
-      "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk inventory\\StripcatalogusApp\\integratieTests\\integratieTests.csproj",
-      "packagesPath": "C:\\Users\\lieke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk inventory\\StripcatalogusApp\\integratieTests\\obj\\",
+      "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\integratieTests\\integratieTests.csproj",
+      "packagesPath": "C:\\Users\\jeffr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\integratieTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lieke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6972,11 +6972,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk inventory\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-              "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk inventory\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
+            "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+              "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
             },
-            "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk inventory\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
-              "projectPath": "C:\\Users\\lieke\\OneDrive\\scool\\projectwerk inventory\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
+            "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
+              "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
             }
           }
         }
@@ -7023,7 +7023,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

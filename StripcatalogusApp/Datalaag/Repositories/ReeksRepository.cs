@@ -11,6 +11,7 @@ using Datalaag.Mappers;
 namespace Datalaag.Repositories
 {
     /// <summary>
+    ///Alle functies om een reeks DB model in de database te krijgen. Implementeert de I reeks repository en de Crudrepostory
     ///
     /// </summary>
     public class ReeksRepository : CRUDRepository<ReeksDB> , IReeksRepository
@@ -52,6 +53,7 @@ namespace Datalaag.Repositories
 
         public override ReeksDB PopulateRecord(SqlDataReader reader)
         {
+            // mapping model to database
             try
             {
                 return new ReeksDB
@@ -65,6 +67,7 @@ namespace Datalaag.Repositories
         }
         public void Add(Reeks reeks)
         {
+            // businesslaag model word eerst geconverteerd voor de sql builder het geconverteerde object toevoegt aan de databank.
             try
             {
                 ReeksDB dbreeks = ConvertToDatalayer.ConvertToReeksDb(reeks);
@@ -77,6 +80,9 @@ namespace Datalaag.Repositories
 
         public void DeleteById(int id)
         {
+            //haalt de reeks op aan de hand van het gekregen id
+            //convereert dfit naar een reeks DB object
+            //verwijderd dit object uit de databank
                     try
                     {
                         ReeksDB dbreeks = ConvertToDatalayer.ConvertToReeksDb(GetById(id));
@@ -91,7 +97,9 @@ namespace Datalaag.Repositories
         {
                         try
                         {
-                            
+                            //krijgt een reeks businessmodel
+                            //converteerd dit naar een DB model
+                            // zet de id en naam van het giogehaalde object naar dat van het geconverteerde object
                 ReeksDB newReeks = ConvertToDatalayer.ConvertToReeksDb(Reeks);
                 var command = new SqlCommand("update Reeks set id = @id, Name = @name WHERE id = @id");
                 command.Parameters.Add(new SqlParameter("id", newReeks.ID));
