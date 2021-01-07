@@ -71,7 +71,6 @@ namespace integratieTests {
         }
 
         [TestMethod]
-
         public void DeleteReeks_succesvol()
         {
             int begincount = generalManager.ReeksManager.GetAll().Count;
@@ -80,6 +79,5 @@ namespace integratieTests {
             Assert.IsTrue(generalManager.ReeksManager.GetAll().Count == begincount - 1);
             Assert.ThrowsException<System.Exception>(() => generalManager.ReeksManager.GetById(1));
         }
-
     }
 }

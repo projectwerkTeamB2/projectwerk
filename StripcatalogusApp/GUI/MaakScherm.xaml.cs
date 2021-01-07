@@ -96,13 +96,14 @@ namespace GUI
             string nr = TextBox_nr.Text;
             string reeks = TextBox_reeks.Text;
             string uitgeverij = TextBox_uitgeverij.Text;
+            
+            reeks1 = generalManager.ReeksManager.GetByName(reeks);
+            uitgeverij1 = generalManager.UitgeverijManager.GetByName(uitgeverij);
 
             //Controleren of leeg
             if ( TextBox_titel.Text == "" || TextBox_nr.Text == "" || TextBox_reeks.Text == "" || TextBox_uitgeverij.Text == "" ) {
                 fouten = fouten + "U heeft iets niet ingevuld.";
-                ExtraInfo_TextBox.Text = fouten;
-
-                
+                ExtraInfo_TextBox.Text = fouten;                
             }
 
             //  //foutcode eventueel teruggeven

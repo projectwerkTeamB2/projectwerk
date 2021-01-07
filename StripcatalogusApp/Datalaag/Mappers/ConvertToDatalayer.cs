@@ -30,7 +30,7 @@ namespace Datalaag.Mappers
         }
 
          static public VerkoopDB ConvertToVerkoopDb(Verkoop verkoop) {
-            VerkoopDB v = new VerkoopDB(verkoop.ID, verkoop.DatumBestelling, verkoop.hoeveelheid);
+            VerkoopDB v = new VerkoopDB(verkoop.ID, verkoop.DatumBestelling, verkoop.Hoeveelheid);
             return v;
         }
 
@@ -39,7 +39,7 @@ namespace Datalaag.Mappers
             List<VerkoopDB> convertToVerkoop = new List<VerkoopDB>();
             foreach (var a in verkooplist)
             {
-                VerkoopDB ca = new VerkoopDB(a.ID, a.DatumBestelling, a.hoeveelheid);
+                VerkoopDB ca = new VerkoopDB(a.ID, a.DatumBestelling, a.Hoeveelheid);
                 convertToVerkoop.Add(ca);
             }
             return convertToVerkoop;

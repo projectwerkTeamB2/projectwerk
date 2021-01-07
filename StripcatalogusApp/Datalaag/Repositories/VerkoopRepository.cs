@@ -57,7 +57,7 @@ namespace Datalaag.Repositories {
             try {
                 return new VerkoopDB
                 {
-                    Id = reader.GetInt32(0),
+                    ID = reader.GetInt32(0),
                     DatumBestelling = reader.GetDateTime(1),
                     Hoeveelheid = reader.GetInt32(2)
                 };
@@ -70,7 +70,7 @@ namespace Datalaag.Repositories {
             try {
                 VerkoopDB verkoopDB = ConvertToDatalayer.ConvertToVerkoopDb(verkoop);
                 var command = new SqlCommand("UPDATE Verkoop set id=@id, datumBestelling=@datumBestelling, hoeveelheid=@hoeveelheid");
-                command.Parameters.Add(new SqlParameter("id", verkoopDB.Id));
+                command.Parameters.Add(new SqlParameter("id", verkoopDB.ID));
                 command.Parameters.Add(new SqlParameter("datumBestelling", verkoopDB.DatumBestelling));
                 command.Parameters.Add(new SqlParameter("hoeveelheid", verkoopDB.Hoeveelheid));
                 ExecuteCommand(command);

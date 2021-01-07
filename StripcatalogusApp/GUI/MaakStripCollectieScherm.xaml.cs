@@ -84,12 +84,13 @@ namespace GUI
 
             Reeks reeks1 = new Reeks();
             Uitgeverij uitgeverij1 = new Uitgeverij();
-            List<Auteur> auteurLijst = new List<Auteur>();
+            List<Auteur> auteurLijst = new List<Auteur>();  
 
             string titel = TextBox_titel.Text;
             string nr = TextBox_nr.Text;
             string uitgeverij = TextBox_uitgeverij.Text;
 
+            uitgeverij1 = generalManager.UitgeverijManager.GetByName(uitgeverij);
 
             //  //foutcode eventueel teruggeven
             try

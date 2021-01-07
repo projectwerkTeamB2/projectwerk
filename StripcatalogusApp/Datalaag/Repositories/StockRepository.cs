@@ -54,7 +54,7 @@ namespace Datalaag.Repositories {
 
         }
 
-        public Dictionary<Strip, int> GetById(int id)
+       public Dictionary<Strip, int> GetById(int id)
         {
             try
             {
@@ -63,10 +63,10 @@ namespace Datalaag.Repositories {
                 using var command2 = new SqlCommand("select id, Titel, Nummer,Reeks_id, isEenLosseStrip, Uitgeverij_id from Stock sto join Strip st on sto.Strip_id = st.id WHERE id=@id");
                 command.Parameters.Add(new SqlParameter("id", id));
                 command2.Parameters.Add(new SqlParameter("id", id));
-                Strip strip = ConvertToBusinesslaag.convertToStrip((StripDB)GetRecord(command2));
-                int hoeveelheid = ConvertToBusinesslaag.ConvertToStock(GetRecord(command)).StripHoeveelHeden[strip];
+                //Strip strip = ConvertToBusinesslaag.convertToStrip(GetRecord(command2));
+                //int hoeveelheid = ConvertToBusinesslaag.ConvertToStock(GetRecord(command)).StripHoeveelHeden[strip];
                 Dictionary<Strip, int> dict = new Dictionary<Strip, int>();
-                dict.Add(strip, hoeveelheid);
+                //dict.Add(strip, hoeveelheid);
                 return dict; 
 
             }
@@ -116,7 +116,7 @@ namespace Datalaag.Repositories {
 
         public void Update(Stock stock)
         {
-            /*    try
+               try
                 {
 
                     StockDB newReeks = ConvertToDatalayer.ConvertToStockDB(stock);
@@ -128,7 +128,7 @@ namespace Datalaag.Repositories {
                 catch (Exception ex)
                 {
                     throw new Exception("Error in:  Stockrepo- Update(Stock stock) :: kon Stock niet updaten: " + ex);
-                }*/
+                }
             throw new NotImplementedException();
         }
 

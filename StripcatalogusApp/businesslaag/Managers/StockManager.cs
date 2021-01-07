@@ -19,7 +19,7 @@ namespace Businesslaag.Managers {
 
         public void AddDictionary(Dictionary<Strip,int> dict)
         {
-            if (DoubleDictionaryNotFound(dict))
+            if (DoubleDictionaryNotFound(dict)) 
             {
                 this._stockRepository.AddDictionary(dict);
             }

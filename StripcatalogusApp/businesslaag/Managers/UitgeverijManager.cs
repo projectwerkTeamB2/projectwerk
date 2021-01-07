@@ -37,7 +37,7 @@ namespace Businesslaag.Managers
                 this._uitgeverijRepository.Add(uitgeverij);
 
         }
-            else throw new ArgumentException("Uitgeverij bestaat al");
+            //else throw new ArgumentException("Uitgeverij bestaat al");
     }
 
         public List<Uitgeverij> GetAll()
