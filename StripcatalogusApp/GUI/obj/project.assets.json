@@ -1799,19 +1799,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jeffr\\.nuget\\packages\\": {}
+    "C:\\Users\\ciki3\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
+      "projectUniqueName": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
       "projectName": "GUI",
-      "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
-      "packagesPath": "C:\\Users\\jeffr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\GUI\\obj\\",
+      "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\GUI\\GUI.csproj",
+      "packagesPath": "C:\\Users\\ciki3\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\GUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jeffr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ciki3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1823,13 +1823,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
-              "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
+            "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj": {
+              "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\businesslaag\\Businesslaag.csproj"
             },
-            "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
-              "projectPath": "C:\\Users\\jeffr\\Desktop\\repos\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
+            "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj": {
+              "projectPath": "D:\\Users\\ciki3\\Desktop\\SCHOOL 20-21\\Projectwerk\\projectwerk\\StripcatalogusApp\\Datalaag\\Datalaag.csproj"
             }
           }
         }
@@ -1842,7 +1841,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "System.Data.OleDb": {
             "target": "Package",
@@ -1871,7 +1869,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
