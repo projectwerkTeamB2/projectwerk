@@ -60,12 +60,8 @@ namespace GUI
                     StripCollection strip = new StripCollection(StripCollection_id, TextBox_titel.Text, Convert.ToInt32(TextBox_nr.Text), ConvertToBusinessLayer.ListStrips(_selectedStrips.Values.ToList()), TextBox_uitgeverij.SelectedItem as Uitgeverij);
                     generalManager.stripCollectionManager.Update(strip);
                     this.Close();
-
                 }
-
-
             }
-
 
             void OnChecked(object sender, RoutedEventArgs e)
             {
@@ -74,7 +70,7 @@ namespace GUI
                 if (strip != null)
                 {
                     bool succes = _selectedStrips.TryAdd(strip.ID, strip);
-                    if (!succes)
+                    if (!succes) //enkel als die er in zit
                     {
                     _selectedStrips.Remove(strip.ID);
 

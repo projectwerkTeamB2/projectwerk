@@ -1,5 +1,6 @@
 [
   {
+    "IsEenLosseStrip": false,
     "ID": 283,
     "Titel": "Syndrome Z",
     "Nr": 2,
@@ -14,6 +15,7 @@
     "Auteurs": []
   },
   {
+    "IsEenLosseStrip": false,
     "ID": 222,
     "Titel": "Het vredeswapen",
     "Nr": 0,
@@ -28,6 +30,7 @@
     "Auteurs": []
   },
   {
+    "IsEenLosseStrip": false,
     "ID": 223,
     "Titel": "Het gestolen vredeswapen",
     "Nr": 0,
@@ -42,6 +45,7 @@
     "Auteurs": []
   },
   {
+    "IsEenLosseStrip": false,
     "ID": 224,
     "Titel": "Op het spoor van POM",
     "Nr": 0,

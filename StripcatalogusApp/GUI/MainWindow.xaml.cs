@@ -93,8 +93,9 @@ namespace GUI
             
             stripCollectionsFromDb = generalManager.stripCollectionManager.GetAll(); //strip collections ophalen 
 
-            if (stripCollectionsFromDb != null ) //als er collecties zij,
+            if (stripCollectionsFromDb != null ) //als er collecties zijn
             {
+                //orders stuff
                 var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam
                     , Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b=>b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                 StripDataGrid.ItemsSource = smallList;
@@ -120,6 +121,7 @@ namespace GUI
             // window reset// voor als er nieuwe strips zijn gemaakt
             MainWindow newWindow = new MainWindow();
             Application.Current.MainWindow = newWindow;
+            //close current and reopen window to show changed data
             this.Close();
             newWindow.Show();
         }
@@ -128,9 +130,9 @@ namespace GUI
         private void Button_Bijwerk_Click(object sender, RoutedEventArgs e)
         {
             string stringx = stripBewerken_button.Content.ToString();
-            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+            Boolean Selected_strip = stringx.Contains("Geselecteerde strip bijwerken ?");
 
-            if (xxx) //om strip te bewerken
+            if (Selected_strip) //om strip te bewerken
             {
                 EditStrip w2 = new EditStrip(selectedStrip); //maak window openen
                 w2.ShowDialog();
@@ -138,6 +140,7 @@ namespace GUI
                 // window reset// 
                 MainWindow newWindow = new MainWindow();
                 Application.Current.MainWindow = newWindow;
+                //close current and reopen window to show changed data
                 this.Close();
                 newWindow.Show();
             }
@@ -150,10 +153,12 @@ namespace GUI
                 // window reset// 
                 MainWindow newWindow = new MainWindow();
                 Application.Current.MainWindow = newWindow;
+                //close current and reopen window to show changed data
+
                 this.Close();
                 newWindow.Show();
 
-                //PRETEND "NaarStrip_button" IS CLICKED, zodat we in juiste scherm komen
+                //PRETEND "NaarStrip_button" IS CLICKED, zodat we in bekijk strip collecties terecht komen.
                 ButtonAutomationPeer peer = new ButtonAutomationPeer(NaarStripCollections_button);
                 IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
                 invokeProv.Invoke();
@@ -164,14 +169,14 @@ namespace GUI
         private void DataGridSelectie(object sender, System.Windows.Controls.SelectionChangedEventArgs e) //als er een strip geselecteerd is
         {
             string stringx = stripBewerken_button.Content.ToString();
-            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+            Boolean Selected_strip = stringx.Contains("Geselecteerde strip bijwerken ?");
 
-            if (xxx) //om strip te bewerken
+            if (Selected_strip) //om strip te bewerken
             {
                 if (StripDataGrid.SelectedItem != null)
                 {
-                    stripBewerken_button.Visibility = Visibility.Visible;
-                    bin_image.Visibility = Visibility.Visible;
+                    stripBewerken_button.Visibility = Visibility.Visible; //toon de bewerkknop
+                    bin_image.Visibility = Visibility.Visible; //toon de vuilbak
 
                     selectedStrip = null;
                     selectedStripCollection = null;
@@ -516,9 +521,9 @@ namespace GUI
         private void BinClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             string stringx = stripBewerken_button.Content.ToString();
-            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+            Boolean Selected_strip = stringx.Contains("Geselecteerde strip bijwerken ?");
 
-            if (xxx) //om strip te bewerken
+            if (Selected_strip) //om strip te bewerken
             {
                 try
                 {
@@ -543,7 +548,7 @@ namespace GUI
                     {
                         generalManager.stripCollectionManager.Delete(selectedStripCollection);
 
-                        MainWindow newWindow = new MainWindow(); //herstart de scherm, zodat het laad zonder verwijderde
+                        MainWindow newWindow = new MainWindow(); //herstart de scherm, zodat het laad zonder de verwijderde collectie
                         Application.Current.MainWindow = newWindow;
                         this.Close();
                         newWindow.Show();
@@ -618,16 +623,13 @@ namespace GUI
         private void Button_Reset_Click(object sender, RoutedEventArgs e)
         {
             string stringx = stripBewerken_button.Content.ToString();
-            Boolean xxx = stringx.Contains("Geselecteerde strip bijwerken ?");
+            Boolean Selected_strip = stringx.Contains("Geselecteerde strip bijwerken ?");
             stripsFromDb = generalManager.StripManager.GetAll();
-            if (xxx) //om strip te bewerken
+            if (Selected_strip) //om strip te bewerken
             {
                 SearchTextBox.Text = "";
                 RadioBtnStripid.IsChecked = true;
                 selectedStrip = null;
-               // stripsFromDb = generalManager.StripManager.GetAll();
-               // showingStrips = stripsFromDb;
-                //var smallList = stripsFromDb.Select(c => new { c.ID, c.StripTitel, Auteurs = AuteursToString(c.Auteurs), Reeks = c.Reeks.Naam, c.StripNr, Uitgeverij = c.Uitgeverij.Naam, Collectie = StripCollToString(stripCollectionsFromDb.Where(s => s.Strips.Any(b => b.ID.Equals(c.ID))).ToList()) }).OrderBy(s => s.ID);
                 
                 var smallList = stripsFromDb.Select(c => new {
                     c.ID,
@@ -675,11 +677,11 @@ namespace GUI
 
             //ZOEK TERMEN HIDDEN OF VERANDEREN VAN NAAM (RECHTSVANBOVEN APP)
             RadioBtnStripid.Content = "Collectie id";
-            RadioBtnStriptittel.Content = "Collectie tittel";
+            RadioBtnStriptittel.Content = "Collectie titel";
             RadioBtnReeks.Visibility = Visibility.Collapsed; //HIDE
             RadioBtnAuteur.Visibility = Visibility.Collapsed; //HIDE
             RadioBtnUitgeverij.Content = "Collectie uitgeverij";
-            RadioBtnColl.Content = "Strip tittel";
+            RadioBtnColl.Content = "Strip titel";
 
             RadioBtnColl.Margin = new Thickness(969, 45, 0, 0);
             RadioBtnUitgeverij.Margin = new Thickness(970, 67, 10, 10);
@@ -690,7 +692,7 @@ namespace GUI
             //DATAGRID RESET
             showingStrips = stripsFromDb;
 
-            if (stripCollectionsFromDb != null) //als er collecties zij,
+            if (stripCollectionsFromDb != null) //als er collecties zijn
             {
                 var smallList = stripCollectionsFromDb.Select(c => new { c.Id,c.Titel,c.Nummer,c.Uitgeverij.Naam, Strips = StripsToString(c.Strips)}).OrderBy(s => s.Id);
                 StripDataGrid.ItemsSource = smallList;
@@ -706,7 +708,7 @@ namespace GUI
 
         }
 
-        private void Button_Strip_Click(object sender, RoutedEventArgs e)
+        private void Button_Strip_Click(object sender, RoutedEventArgs e) //knop bekijk strips
         {
             //DEZE GEBRUIKTE KNOP DAN VERBERGEN
             NaarStrip_button.Visibility = Visibility.Collapsed;
@@ -738,7 +740,7 @@ namespace GUI
             //DATAGRID RESET
             showingStrips = stripsFromDb;
 
-            if (stripCollectionsFromDb != null) //als er collecties zij,
+            if (stripCollectionsFromDb != null) //als er collecties zijn
             {
                 var smallList = stripsFromDb.Select(c => new {
                     c.ID,

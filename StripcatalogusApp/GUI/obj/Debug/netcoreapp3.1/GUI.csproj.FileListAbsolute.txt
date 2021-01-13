@@ -33,8 +33,6 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\ob
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.pdb
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.genruntimeconfig.cache
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.csprojAssemblyReference.cache
-C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakScherm.baml
-C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakScherm.g.cs
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI_MarkupCompile.cache
@@ -324,3 +322,5 @@ C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\GUI\ob
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripScherm.baml
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripScherm.g.cs
 D:\Users\ciki3\Desktop\SCHOOL 20-21\Projectwerk\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\GUI.csproj.CoreCompileInputs.cache
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripScherm.baml
+C:\Users\jeffr\Desktop\repos\projectwerk\StripcatalogusApp\GUI\obj\Debug\netcoreapp3.1\MaakStripScherm.g.cs
