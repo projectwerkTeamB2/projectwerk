@@ -16,7 +16,12 @@ namespace JSON
     {
         SchrijfwegnaarJSON schrijfwegnaarJSON = new SchrijfwegnaarJSON();
 
-        public List<StripJS> leesJson_GeefAlleStripsJSTerug(string locatieString)
+        /*krijgt een locatiestring binnen om een JSON in te laden
+        Leest de json in en returneert alleen de Strips met hun json laag model
+        sorteert ook meteen de foute strips en schrijft ze weg naar JSONbestanden
+        Doet ook dubbel aanhaalingstekens erop zodat sql het aanneemt
+         */
+        public List<StripJS> leesJson_GeefAlleStripsJSTerug(string locatieString) 
         {
             List<StripJS> listStrips = new List<StripJS>();
             // deserialize JSON directly from a file
@@ -32,21 +37,21 @@ namespace JSON
             return listStrips;
         }
 
-
+        // leest een lijst van generieke objecten in en retourneert ze
         public List<T> leesJSON_GeefGenericList<T>(string locatieString)
         {
-            List<T> listStrips = new List<T>();
+            List<T> list= new List<T>();
             // deserialize JSON directly from a file
             using (StreamReader file = File.OpenText(@locatieString))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 // JToken myObject = JsonConvert.DeserializeObject<JToken>(file.ReadToEnd());
-                listStrips = JsonConvert.DeserializeObject<List<T>>(file.ReadToEnd());
+                list = JsonConvert.DeserializeObject<List<T>>(file.ReadToEnd());
             }
-            return listStrips;
+            return list;
 
         }
-
+        //retourneert alle strips binnen in een generieke lijst
         public List<StripJS> geefStripJSList<T>(List<T> list)
         {
             List<StripJS> liststrips = new List<StripJS>();
@@ -64,7 +69,7 @@ namespace JSON
             return liststrips;
 
         }
-
+        //retourneert alle stripcollections binnen in een generieke lijst
         public List<StripCollectionJS> geefStripCollectionJSList<T>(List<T> list)
         {
             List<StripCollectionJS> listStripCollection = new List<StripCollectionJS>();
@@ -89,6 +94,11 @@ namespace JSON
 
         }
 
+        /*krijgt een locatiestring binnen om een JSON in te laden
+        Leest de json in en maakt generieke objecten steekt ze in een list doet geefStripJSlist om alleen de strips te retourneren
+        sorteert ook meteen de foutieve strips en schrijft ze weg naar JSONbestanden
+        Doet ook dubbel aanhaalingstekens erop zodat sql het aanneemt
+         */
         public List<StripJS> geefCorrecteStripsJSTerugEnSchrijfWegFoute<T>(string locatieString)
         {
             List<T> genericList = leesJSON_GeefGenericList<T>(locatieString);
@@ -100,6 +110,11 @@ namespace JSON
             return listStripsJS;
         }
 
+        /*krijgt een locatiestring binnen om een JSON in te laden
+        Leest de json in en maakt generieke objecten steekt ze in een list doet geefStripCollectionJSList om alleen de collections te retourneren
+        sorteert ook meteen de foutieve collections en schrijft ze weg naar JSONbestanden
+        Doet ook dubbel aanhaalingstekens erop zodat sql het aanneemt
+         */
         public List<StripCollectionJS> geefCorrecteStripsCollectionJSTerugEnSchrijfWegFoute<T>(string locatieString)
         {
             List<T> genericList = leesJSON_GeefGenericList<T>(locatieString);
@@ -110,7 +125,8 @@ namespace JSON
 
             return listStripsCollectionJS;
         }
-
+        //  sorteert de foutieve collections en schrijft ze weg naar JSONbestanden
+        //retourneert dan de correcte
         public List<StripCollectionJS> sorteerLijstStripCollectionEnSchrijfFoutieveNaarJSONBestand(List<StripCollectionJS> listStripsCollection, string locatieString)
         {
             List<StripCollectionJS> FoutieveStripCollections = new List<StripCollectionJS>();
@@ -139,7 +155,7 @@ namespace JSON
             schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFileVanFoutiveStripCollectieList(locatieString, FoutieveStripCollections);
             return FoutieveStripCollections;
         }
-
+        //Doet dubbel aanhaalingstekens op strips zodat sql het aanneemt retourneert dan de strips met dubbel aanhalingsteken
         public List<StripJS> doeDubbelAanhaalingtekensAanStringsStrip(List<StripJS> listStrips)
         {
             foreach (StripJS s in listStrips)
@@ -167,7 +183,7 @@ namespace JSON
             }
             return listStrips;
         }
-
+        //Neemt een list van strips binnen schrijft ze weg naar een JSON bestand en retourneerd de correcte
         public List<StripJS> sorteerLijstStripEnSchrijfFoutieveNaarJSONBestand(List<StripJS> listStrips, string locatieString)
         {
             List<StripJS> foutieveStrips = new List<StripJS>();
@@ -211,7 +227,7 @@ namespace JSON
             schrijfwegnaarJSON.allesWegSchrijvenNaarJSONFileVanFoutiveStripList(locatieString, foutieveStrips);
             return listStrips;
         }
-
+        //Doet dubbel aanhaalingstekens op collection zodat sql het aanneemt retourneert dan de strips met dubbel aanhalingsteken
         public List<StripCollectionJS> doeDubbelAanhaalingtekensAanStringsStripCollection(List<StripCollectionJS> listStripCollections)
         {
             foreach (StripCollectionJS sc in listStripCollections)
@@ -254,7 +270,7 @@ namespace JSON
 
             return listStripCollections;
         }
-
+        //leest de json in van de foutieve strips een retourneert ze in een list (moest gebruikt worden om de user de mogelijk te geven om de fout te fixen)
         public List<StripJS> leesFoutiveJson_GeefAlleStripsTerug(string locatieString)
         {
             List<StripJS> listStrips = new List<StripJS>();
@@ -267,7 +283,7 @@ namespace JSON
             }
             return listStrips;
         }
-
+        //leest de json in van de foutieve collections een retourneert ze in een list (moest gebruikt worden om de user de mogelijk te geven om de fout te fixen)
         public List<StripCollectionJS> leesFoutiveJson_GeefAlleStripsCollectionTerug(string locatieString)
         {
             List<StripCollectionJS> listStripsCollection = new List<StripCollectionJS>();

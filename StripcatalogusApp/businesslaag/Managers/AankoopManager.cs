@@ -26,7 +26,7 @@ namespace Businesslaag.Managers {
             {
                 this._aankoopRepository.Add(aankoop);
             }
-            else throw new ArgumentException("auteur bestaat al");
+            else throw new ArgumentException("aankoop bestaat al");
         }
 
         public List<Aankoop> GetAll()
@@ -43,7 +43,7 @@ namespace Businesslaag.Managers {
         {
             if (GetById(aankoop.ID) == null)
             {
-                throw new ArgumentException("trying to update an Author that does not exist");
+                throw new ArgumentException("trying to update an aankoop that does not exist");
             }
             else
                 this._aankoopRepository.Update(aankoop);
@@ -57,7 +57,7 @@ namespace Businesslaag.Managers {
             }
             else
             {
-                throw new ArgumentException("trying to delete an Author that does not exist");
+                throw new ArgumentException("trying to delete an aankoop that does not exist");
             }
         }
 

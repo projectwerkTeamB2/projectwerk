@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSON", "WpfApp2\JSON.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "integratieTests", "integratieTests\integratieTests.csproj", "{DEA4C86E-8AD8-483E-88AD-1B4188F5C819}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockGUI", "StockGUI\StockGUI.csproj", "{F82E21E2-355A-446D-9478-C904FDC21BB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{DEA4C86E-8AD8-483E-88AD-1B4188F5C819}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEA4C86E-8AD8-483E-88AD-1B4188F5C819}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEA4C86E-8AD8-483E-88AD-1B4188F5C819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F82E21E2-355A-446D-9478-C904FDC21BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F82E21E2-355A-446D-9478-C904FDC21BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F82E21E2-355A-446D-9478-C904FDC21BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F82E21E2-355A-446D-9478-C904FDC21BB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

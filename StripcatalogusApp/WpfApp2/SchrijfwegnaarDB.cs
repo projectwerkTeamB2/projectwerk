@@ -18,6 +18,8 @@ namespace WpfApp2
         }
 
         ConvertToBusinesslaagJS converttobusinesslaagjs = new ConvertToBusinesslaagJS();
+
+        //krijgt één StripJS binnen, converteert het, en schrijft het weg naar de databank 
         public void stripWegSchijvenNaarDataBank(StripJS str)
         {
              Strip strip =  (converttobusinesslaagjs.convertToStrip(str));
@@ -33,7 +35,7 @@ namespace WpfApp2
                 generalManager.StripManager.Add(strip);
                 
         }
-
+        //krijgt één StripCollectionJS binnen, converteert het, en schrijft het weg naar de databank 
         public void stripCollectionWegSchijvenNaarDataBank(StripCollectionJS str)
         {
             StripCollection stripCollection = (converttobusinesslaagjs.convertToStripCollection(str));

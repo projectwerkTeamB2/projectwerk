@@ -20,7 +20,7 @@ namespace Businesslaag.Models
         
         public int StripNr { get; set; }
 
-        public bool IsEenLosseStrip { get; set; } //Splitsing tussen collection en enkele strip
+        public int IsEenLosseStrip { get; set; } //Splitsing tussen collection en enkele strip
       
         public List<Auteur> Auteurs { get; set; } //er kunnen meerdere zijn
       
@@ -31,7 +31,7 @@ namespace Businesslaag.Models
 
 
 
-        public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij, bool isEenLosseStrip = true)
+        public Strip(int id,string stripTitel, int stripNr, List<Auteur> auteurs, Reeks reeks, Uitgeverij uitgeverij, int isEenLosseStrip = 1)
         {
             this.ID = id;
             /// businessRule title mag niet null zijn 

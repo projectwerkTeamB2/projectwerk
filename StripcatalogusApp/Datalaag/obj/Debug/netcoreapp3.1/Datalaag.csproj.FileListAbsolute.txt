@@ -62,3 +62,16 @@ C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\Datalaag\obj\
 C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.dll
 C:\Users\lieke\OneDrive\scool\projectwerk Rework\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.pdb
 C:\Users\Cesar\Documents\School\Projectwerk\projectwerk\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.dll.config
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.deps.json
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.dll
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Datalaag.pdb
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.dll
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\bin\Debug\netcoreapp3.1\Businesslaag.pdb
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csprojAssemblyReference.cache
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.AssemblyInfoInputs.cache
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.AssemblyInfo.cs
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CoreCompileInputs.cache
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.csproj.CopyComplete
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.dll
+C:\Users\lieke\OneDrive\scool\projectwerk inventory\StripcatalogusApp\Datalaag\obj\Debug\netcoreapp3.1\Datalaag.pdb

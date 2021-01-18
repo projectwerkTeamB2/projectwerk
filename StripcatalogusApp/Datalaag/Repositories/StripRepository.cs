@@ -72,7 +72,8 @@ namespace Datalaag.Repositories
                 StripTitel = reader.GetString(1),
                 StripNr = reader.GetInt32(2),
                 Reeks = ConvertToDatalayer.ConvertToReeksDb(new ReeksRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(3))),
-                Uitgeverij = ConvertToDatalayer.ConvertToUitgeverijDb( new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(4))),
+                IsEenLosseStrip = reader.GetInt32(4),
+                Uitgeverij = ConvertToDatalayer.ConvertToUitgeverijDb( new UitgeverijRepository(DbFunctions.GetprojectwerkconnectionString()).GetById(reader.GetInt32(5))),
                 Auteurs = ConvertToDatalayer.ConvertToAuteursDb(new AuteurRepository(DbFunctions.GetprojectwerkconnectionString()).GetStripAuteurs(reader.GetInt32(0)))
 
             };
